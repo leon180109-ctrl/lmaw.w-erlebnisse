@@ -1,5 +1,5 @@
 /* ==========================================================================
-   1. GLOBALE EINSTELLUNGEN & BACKGROUND
+   1. RESET & GLOBALE EINSTELLUNGEN
    ========================================================================== */
 * {
     box-sizing: border-box;
@@ -13,16 +13,17 @@
     --table-bg: rgba(30, 41, 59, 0.6);
     --accent-gold: #ffcc00;
     --text-white: #ffffff;
-    --text-muted: #f1f5f9;
+    --text-muted: #cbd5e1;
     --border-color: #334155;
+    --link-color: #38bdf8;
 }
 
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: var(--text-white);
     background-color: var(--primary-bg);
-    /* Lädt das Hintergrundbild korrekt aus dem src-Ordner */
-    background-image: url('src/backroundleon.jpeg'), url('../src/backroundleon.jpeg');
+    /* Relativer Pfad zum Ordner 'src', in dem das Bild liegt */
+    background-image: url('./src/backroundleon.jpeg'), url('../src/backroundleon.jpeg'), url('backroundleon.jpeg');
     background-repeat: no-repeat;
     background-position: center center;
     background-attachment: fixed;
@@ -33,14 +34,15 @@ body {
 }
 
 /* ==========================================================================
-   2. BILDER INHALT (GILT FÜR ALLE BILDER AUF DER SEITE)
+   2. BILDER INHALT
    ========================================================================== */
 img {
     max-width: 100%;
     height: auto;
     display: block;
-    border-radius: 6px;
+    border-radius: 8px;
     border: 1px solid var(--border-color);
+    margin: 15px 0;
 }
 
 /* ==========================================================================
@@ -56,11 +58,13 @@ img {
     color: var(--accent-gold);
     font-size: 1.8rem;
     margin-bottom: 5px;
+    display: block;
 }
 
 .fixed-header p {
     color: var(--text-muted);
     font-size: 0.95rem;
+    display: block;
 }
 
 .main-nav {
@@ -96,7 +100,7 @@ img {
 }
 
 /* ==========================================================================
-   4. CONTAINER & LESBARKEIT (OVERLAY OVER BACKGROUND)
+   4. CONTENT-CONTAINER & TEXT-BLOCK-STYLING (FIX FÜR DIE SCHRIFTEN)
    ========================================================================== */
 main.content {
     flex: 1;
@@ -117,48 +121,57 @@ main.content {
     backdrop-filter: blur(6px);
 }
 
-.school-card h1 {
+/* Verhindert das Nebeneinander-Rutschen von Überschriften und Text */
+.school-card h1, 
+.school-card h2, 
+.school-card h3 {
     color: var(--accent-gold);
-    font-size: 1.6rem;
-    margin-bottom: 15px;
+    display: block;
+    width: 100%;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    clear: both;
+}
+
+.school-card h1 {
+    font-size: 1.8rem;
+    margin-top: 0;
 }
 
 .school-card h2 {
-    color: var(--accent-gold);
-    font-size: 1.3rem;
-    margin: 20px 0 10px 0;
+    font-size: 1.4rem;
     border-bottom: 1px solid var(--border-color);
     padding-bottom: 5px;
 }
 
-.school-card h3 {
-    color: var(--text-white);
-    font-size: 1.1rem;
-    margin: 15px 0 8px 0;
-}
-
-.school-card p, 
-.school-card li {
+.school-card p {
     color: var(--text-muted);
     line-height: 1.6;
-    font-size: 0.95rem;
+    font-size: 1rem;
+    margin-bottom: 15px;
+    display: block;
 }
 
 .school-card ul, 
 .school-card ol {
     margin-left: 20px;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
 }
 
 .school-card li {
-    margin-bottom: 6px;
+    color: var(--text-muted);
+    margin-bottom: 8px;
+    line-height: 1.5;
 }
 
-.divider {
-    border: 0;
-    height: 1px;
-    background: var(--border-color);
-    margin: 25px 0;
+/* Fix für Links im Inhalt (z. B. Impressum) */
+.school-card a {
+    color: var(--link-color);
+    text-decoration: underline;
+}
+
+.school-card a:hover {
+    color: var(--accent-gold);
 }
 
 /* ==========================================================================
@@ -179,7 +192,7 @@ main.content {
     color: var(--accent-gold);
     padding: 12px;
     text-align: left;
-    font-size: 0.9rem;
+    font-size: 0.95rem;
     border-bottom: 2px solid var(--accent-gold);
 }
 
@@ -187,11 +200,7 @@ main.content {
     padding: 10px 12px;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     color: var(--text-white);
-    font-size: 0.85rem;
-}
-
-.school-card tr:hover {
-    background-color: rgba(255, 204, 0, 0.1);
+    font-size: 0.9rem;
 }
 
 /* ==========================================================================
