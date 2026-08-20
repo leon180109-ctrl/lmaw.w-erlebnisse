@@ -1,59 +1,178 @@
 /* ==========================================
-   EXTRA KOMPAKTER HEADER & FOOTER
+   TRANSPARENTES DARK-DESIGN (SEITENBILD SICHTBAR)
    ========================================== */
 
-/* 1. SEHR KOMPAKTER HEADER */
+:root {
+    --primary-blue: #0f2b48;
+    --accent-red: #d93838;
+    --accent-gold: #ffd700;
+    --white: #ffffff;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* HINTERGRUNDBILD AUF GANZER SEITE (AN DEN SEITEN SICHTBAR) */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.5;
+    color: var(--white);
+    background-image: url('art/leonhero.jpeg'); /* HIER DEIN HINTERGRUNDBILD EINTRAGEN */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    padding-bottom: 50px;
+}
+
+/* FLACHER KOPFBEREICH */
 .fixed-header {
-    background-color: transparent; /* Verhindert gelben Block, behält dunklen Hintergrund */
-    padding: 6px 10px !important;
+    background-color: rgba(5, 8, 17, 0.9);
+    text-align: center;
+    padding: 8px 10px;
+    border-bottom: 2px solid var(--accent-gold);
 }
 
 .fixed-header h1 {
-    font-size: 1.1rem !important; /* Sehr dezent */
-    color: #ffd700;
-    margin: 0;
+    font-size: 1.4rem;
+    color: var(--accent-gold);
 }
 
 .fixed-header p {
-    font-size: 0.75rem !important;
-    color: #ffffff;
-    opacity: 0.8;
+    color: var(--white);
+    font-size: 0.8rem;
+    opacity: 0.9;
 }
 
-/* 2. SCHLANKERE NAVIGATION */
+/* FLACHE NAVIGATION */
 .main-nav {
-    border-top: 1px solid rgba(255, 215, 0, 0.3);
-    border-bottom: 1px solid #d93838;
+    background-color: rgba(5, 8, 17, 0.95);
+    border-bottom: 2px solid var(--accent-red);
 }
 
 .main-nav ul {
-    padding: 4px 0 !important;
-    gap: 15px !important;
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    padding: 6px 0;
 }
 
-.main-nav a {
-    font-size: 0.85rem !important;
-    padding: 2px 8px !important;
+.main-nav a, 
+.main-nav a:visited {
+    color: var(--white) !important;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+    padding: 3px 8px;
 }
 
-/* 3. BILD-SKALIERUNG BEGRENZEN */
-.hero-section img,
-.content img {
-    max-height: 380px !important; /* Bild nimmt nicht mehr den ganzen Screen ein */
-    width: auto !important;
-    object-fit: contain;
-    margin: 0 auto;
+.main-nav a:hover,
+.main-nav a.active {
+    color: var(--accent-gold) !important;
+    border-bottom: 2px solid var(--accent-red);
+}
+
+/* MAIN CONTENT (SCHMALER GEHALTEN, DAMIT DAS BILD AN DEN SEITEN FREI BLEIBT) */
+.content {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 0 15px;
+}
+
+/* TRANSPARENTER BEREICH BILD & TEXT */
+.hero-section {
+    background-color: rgba(8, 13, 26, 0.75); /* Leicht transparent, damit der Hintergrund durchschimmert */
+    border: 1px solid var(--accent-gold);
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.profile-img {
+    max-width: 100%;
+    max-height: 400px;
+    object-fit: cover;
+    border-radius: 6px;
+    border: 2px solid var(--accent-gold);
+    margin-bottom: 15px;
+}
+
+.hero-text h2 {
+    color: var(--accent-gold);
+    font-size: 1.2rem;
+    margin-bottom: 8px;
+}
+
+.hero-text p {
+    color: var(--white);
+    font-size: 0.9rem;
+}
+
+/* INHALTSVERZEICHNIS (WEISSE SCHRIFT & TRANSPARENT) */
+.toc {
+    background-color: rgba(8, 13, 26, 0.75);
+    border-left: 4px solid var(--accent-gold);
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.toc h2 {
+    color: var(--accent-gold);
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+.toc ul {
+    list-style: none;
+}
+
+.toc li {
+    margin-bottom: 8px;
+}
+
+.toc a, 
+.toc a:visited {
+    color: var(--white) !important;
+    text-decoration: none;
+    font-size: 0.9rem;
     display: block;
 }
 
-/* 4. EXTREM SCHMALER FOOTER */
+.toc a strong {
+    color: var(--accent-gold) !important;
+}
+
+.toc a:hover {
+    color: var(--accent-red) !important;
+}
+
+/* SEHR SCHMALER FIXIERTER FOOTER UNTEN */
 .fixed-footer {
     position: fixed;
     bottom: 0;
     left: 0;
     width: 100%;
-    padding: 4px 10px !important;
-    font-size: 0.70rem !important;
-    background-color: #080d1a;
-    border-top: 1px solid #ffd700;
+    background-color: rgba(5, 8, 17, 0.95);
+    border-top: 1px solid var(--accent-gold);
+    padding: 6px 10px;
+    text-align: center;
+    font-size: 0.75rem;
+    z-index: 1000;
+}
+
+.fixed-footer a, 
+.fixed-footer a:visited {
+    color: var(--accent-gold) !important;
+    text-decoration: none;
+}
+
+.fixed-footer a:hover {
+    color: var(--white) !important;
+    text-decoration: underline;
 }
