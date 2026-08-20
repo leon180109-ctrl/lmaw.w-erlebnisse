@@ -9,21 +9,21 @@
 
 :root {
     --primary-bg: #0a0f19;
-    --card-bg: rgba(15, 23, 42, 0.92);
+    --card-bg: rgba(15, 23, 42, 0.94);
     --table-bg: rgba(30, 41, 59, 0.6);
     --accent-gold: #ffcc00;
     --text-white: #ffffff;
     --text-muted: #cbd5e1;
     --border-color: #334155;
-    --link-color: #38bdf8;
+    --link-blue: #38bdf8;
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
     color: var(--text-white);
     background-color: var(--primary-bg);
-    /* Relativer Pfad zum Ordner 'src', in dem das Bild liegt */
-    background-image: url('./src/backroundleon.jpeg'), url('../src/backroundleon.jpeg'), url('backroundleon.jpeg');
+    /* Lädt das Hintergrundbild aus dem src-Ordner */
+    background-image: url('src/backroundleon.jpeg'), url('../src/backroundleon.jpeg'), url('backroundleon.jpeg');
     background-repeat: no-repeat;
     background-position: center center;
     background-attachment: fixed;
@@ -34,36 +34,25 @@ body {
 }
 
 /* ==========================================================================
-   2. BILDER INHALT
-   ========================================================================== */
-img {
-    max-width: 100%;
-    height: auto;
-    display: block;
-    border-radius: 8px;
-    border: 1px solid var(--border-color);
-    margin: 15px 0;
-}
-
-/* ==========================================================================
-   3. HEADER & NAVIGATION
+   2. HEADER & NAVIGATION
    ========================================================================== */
 .fixed-header {
     background-color: rgba(10, 15, 25, 0.95);
     text-align: center;
     padding: 20px 10px 10px 10px;
+    border-bottom: 1px solid var(--border-color);
 }
 
 .fixed-header h1 {
     color: var(--accent-gold);
-    font-size: 1.8rem;
+    font-size: 2rem;
     margin-bottom: 5px;
     display: block;
 }
 
 .fixed-header p {
     color: var(--text-muted);
-    font-size: 0.95rem;
+    font-size: 1rem;
     display: block;
 }
 
@@ -81,7 +70,7 @@ img {
     justify-content: center;
     flex-wrap: wrap;
     gap: 15px;
-    padding: 10px;
+    padding: 12px;
 }
 
 .main-nav a {
@@ -100,11 +89,11 @@ img {
 }
 
 /* ==========================================================================
-   4. CONTENT-CONTAINER & TEXT-BLOCK-STYLING (FIX FÜR DIE SCHRIFTEN)
+   3. INHALT-CONTAINER (BEHEBT DAS NEBENEINANDER-RUTSCHEN)
    ========================================================================== */
 main.content {
     flex: 1;
-    padding: 30px 15px;
+    padding: 40px 20px;
     display: flex;
     justify-content: center;
     align-items: flex-start;
@@ -114,34 +103,39 @@ main.content {
     background-color: var(--card-bg);
     border: 1px solid var(--border-color);
     border-radius: 8px;
-    padding: 30px;
-    max-width: 950px;
+    padding: 35px;
+    max-width: 900px;
     width: 100%;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.7);
     backdrop-filter: blur(6px);
+    display: block; /* Stellt sicher, dass Elemente untereinander stehen */
 }
 
-/* Verhindert das Nebeneinander-Rutschen von Überschriften und Text */
-.school-card h1, 
-.school-card h2, 
-.school-card h3 {
+/* Typografie-Fixes */
+.school-card h1 {
     color: var(--accent-gold);
+    font-size: 1.8rem;
+    margin-bottom: 15px;
     display: block;
     width: 100%;
-    margin-top: 20px;
-    margin-bottom: 10px;
-    clear: both;
-}
-
-.school-card h1 {
-    font-size: 1.8rem;
-    margin-top: 0;
 }
 
 .school-card h2 {
-    font-size: 1.4rem;
+    color: var(--accent-gold);
+    font-size: 1.3rem;
+    margin: 25px 0 10px 0;
     border-bottom: 1px solid var(--border-color);
     padding-bottom: 5px;
+    display: block;
+    width: 100%;
+}
+
+.school-card h3 {
+    color: var(--text-white);
+    font-size: 1.1rem;
+    margin: 15px 0 5px 0;
+    display: block;
+    width: 100%;
 }
 
 .school-card p {
@@ -150,6 +144,7 @@ main.content {
     font-size: 1rem;
     margin-bottom: 15px;
     display: block;
+    width: 100%;
 }
 
 .school-card ul, 
@@ -160,13 +155,23 @@ main.content {
 
 .school-card li {
     color: var(--text-muted);
-    margin-bottom: 8px;
-    line-height: 1.5;
+    line-height: 1.6;
+    margin-bottom: 6px;
 }
 
-/* Fix für Links im Inhalt (z. B. Impressum) */
+/* Bild-Styling */
+.school-card img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 6px;
+    border: 1px solid var(--border-color);
+    margin: 20px 0;
+}
+
+/* Links im Fließtext (z. B. Impressum) */
 .school-card a {
-    color: var(--link-color);
+    color: var(--link-blue);
     text-decoration: underline;
 }
 
@@ -174,8 +179,15 @@ main.content {
     color: var(--accent-gold);
 }
 
+.divider {
+    border: 0;
+    height: 1px;
+    background: var(--border-color);
+    margin: 25px 0;
+}
+
 /* ==========================================================================
-   5. TABELLEN
+   4. TABELLEN
    ========================================================================== */
 .school-card table {
     width: 100%;
@@ -203,8 +215,12 @@ main.content {
     font-size: 0.9rem;
 }
 
+.school-card tr:hover {
+    background-color: rgba(255, 204, 0, 0.1);
+}
+
 /* ==========================================================================
-   6. FOOTER
+   5. FOOTER
    ========================================================================== */
 .fixed-footer {
     background-color: rgba(10, 15, 25, 0.95);
