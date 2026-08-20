@@ -1,182 +1,127 @@
 /* ==========================================
-   FARBSCHEMA: BLAU, ROT & GOLD
+   KORRIGIERTES CSS FOR DUNKLES LAYOUT
    ========================================== */
-:root {
-    --primary-blue: #0f2b48;    /* Tiefes Blau */
-    --accent-red: #d93838;      /* Elegantes Rot */
-    --accent-gold: #d4af37;     /* Gold */
-    --light-gold: #fdf8eb;      /* Helles Gold für Flächen */
-    --text-dark: #222222;
-    --white: #ffffff;
-}
 
 * {
-    box-sizing: border-box;
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+:root {
+    --bg-dark: #080d1a;       /* Dunkler Hintergrund */
+    --accent-gold: #ffd700;   /* Strahlendes Gold */
+    --accent-red: #ff3344;    /* Rot für Akzente */
+    --text-white: #ffffff;    /* Reinweiß für hohe Lesbarkeit */
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    line-height: 1.6;
-    color: var(--text-dark);
-    /* Füge hier den Pfad zu deinem alten Hintergrundbild ein: */
-    background-image: url('dein-altes-hintergrundbild.jpg');
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-    background-repeat: no-repeat;
+    background-color: var(--bg-dark);
+    color: var(--text-white);
+    padding-bottom: 80px;     /* Platzhalter für den fixierten Footer unten */
 }
 
-/* --- HEADER --- */
-.fixed-header {
-    background-color: var(--primary-blue);
-    color: var(--accent-gold);
-    text-align: center;
-    padding: 20px 10px;
-    border-bottom: 3px solid var(--accent-red);
-}
-
-.fixed-header h1 {
-    font-size: 2rem;
-    margin-bottom: 5px;
-}
-
-.fixed-header p {
-    color: var(--white);
-    font-size: 0.95rem;
-}
-
-/* --- NAVIGATION --- */
-.main-nav {
-    background-color: var(--primary-blue);
-    border-bottom: 2px solid var(--accent-gold);
-}
-
-.main-nav ul {
-    list-style: none;
+/* 1. GOLDENER HEADER (Oben fixiert) */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 9%;
+    background-color: #0b1329;
+    border-bottom: 2px solid var(--accent-gold); /* Goldene Trennlinie */
     display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 10px;
-    padding: 10px;
-}
-
-.main-nav a {
-    color: var(--white);
-    text-decoration: none;
-    font-weight: 600;
-    padding: 8px 16px;
-    border-radius: 4px;
-    transition: all 0.3s ease;
-}
-
-.main-nav a:hover,
-.main-nav a.active {
-    background-color: var(--accent-red);
-    color: var(--white);
-}
-
-/* --- HAUPTBEREICH (CONTAINER) --- */
-.content {
-    max-width: 950px;
-    margin: 30px auto;
-    padding: 0 20px;
-}
-
-/* --- HERO BEREICH --- */
-.hero-section {
-    background-color: rgba(255, 255, 255, 0.95); /* Leicht transparentes Weiß, damit das HG-Bild durchscheint */
-    border-left: 6px solid var(--accent-red);
-    border-radius: 8px;
-    padding: 25px;
-    margin-bottom: 25px;
-    display: flex;
-    gap: 20px;
+    justify-content: space-between;
     align-items: center;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    z-index: 1000;
 }
 
-.profile-img {
-    width: 180px;
-    height: 180px;
-    object-fit: cover;
-    border-radius: 50%;
-    border: 3px solid var(--accent-gold);
-    flex-shrink: 0;
-}
-
-.hero-text h2 {
-    color: var(--primary-blue);
-    margin-bottom: 10px;
-    border-bottom: 2px solid var(--accent-gold);
-    padding-bottom: 5px;
-}
-
-.hero-text p {
-    margin-bottom: 10px;
-}
-
-/* --- INHALTSVERZEICHNIS (TOC) --- */
-.toc {
-    background-color: rgba(255, 255, 255, 0.95);
-    border-top: 4px solid var(--accent-gold);
-    border-radius: 8px;
-    padding: 25px;
-    margin-bottom: 30px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-}
-
-.toc h2 {
-    color: var(--primary-blue);
-    margin-bottom: 15px;
-}
-
-.toc ul {
-    list-style: none;
-    padding-left: 0;
-}
-
-.toc li {
-    margin-bottom: 12px;
-    padding-left: 15px;
-    border-left: 3px solid var(--accent-red);
-}
-
-.toc a {
-    color: var(--primary-blue);
+.logo {
+    font-size: 28px;
+    color: var(--accent-gold); /* Logo in Gold */
+    font-weight: 700;
     text-decoration: none;
-    transition: color 0.2s;
 }
 
-.toc a:hover {
+.logo span {
     color: var(--accent-red);
 }
 
-/* --- FOOTER --- */
-.fixed-footer {
-    background-color: var(--primary-blue);
-    color: var(--white);
-    text-align: center;
-    padding: 15px;
-    border-top: 3px solid var(--accent-gold);
-    font-size: 0.85rem;
-}
-
-.fixed-footer a {
-    color: var(--accent-gold);
+.navbar a {
+    font-size: 16px;
+    color: var(--text-white);
+    font-weight: 500;
+    margin-left: 35px;
     text-decoration: none;
+    transition: 0.3s ease;
 }
 
-.fixed-footer a:hover {
-    color: var(--white);
+.navbar a:hover,
+.navbar a.active {
+    color: var(--accent-gold);
+    border-bottom: 2px solid var(--accent-red);
+    padding-bottom: 4px;
+}
+
+/* 2. UBERSICHT / TOC (Text vollständig weiß & lesbar) */
+.toc-container, .toc {
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 25px;
+    background: rgba(255, 255, 255, 0.05); /* Dezenter transparenter Kasten */
+    border-left: 4px solid var(--accent-gold);
+    border-radius: 8px;
+}
+
+.toc-container h2, .toc h2 {
+    color: var(--text-white);
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+}
+
+/* Überschreibt das Standart-Blau/Lila von Links */
+.toc-container a, .toc a,
+.toc-container a:visited, .toc a:visited {
+    color: var(--text-white) !important; /* Erzwingt weiße Schrift */
+    text-decoration: none;
+    font-size: 1.05rem;
+    display: block;
+    margin-bottom: 12px;
+    transition: color 0.2s ease;
+}
+
+.toc-container a strong, .toc a strong {
+    color: var(--accent-gold) !important; /* Hebt z.B. "Projekte:" in Gold hervor */
+}
+
+.toc-container a:hover, .toc a:hover {
+    color: var(--accent-red) !important; /* Rot beim Drüberfahren */
+}
+
+/* 3. FIXIERTER FOOTER (Ganz unten verankert) */
+.footer, footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #050811;
+    border-top: 2px solid var(--accent-gold);
+    padding: 12px 20px;
+    text-align: center;
+    z-index: 1000;
+    font-size: 0.9rem;
+    color: var(--text-white);
+}
+
+.footer a, footer a,
+.footer a:visited, footer a:visited {
+    color: var(--accent-gold) !important; /* Links im Footer in Gold */
+    text-decoration: none;
+    margin: 0 5px;
+}
+
+.footer a:hover, footer a:hover {
+    color: var(--text-white) !important;
     text-decoration: underline;
-}
-
-/* RESPONSIVE ANPASSUNG FÜR MOBILGERÄTE */
-@media (max-width: 768px) {
-    .hero-section {
-        flex-direction: column;
-        text-align: center;
-    }
 }
