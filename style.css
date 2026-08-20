@@ -1,219 +1,120 @@
-/* ==========================================
-   CLEAN DARK DESIGN (ZUSAMMENHÄNGENDE KARTE)
-   ========================================== */
-
-:root {
-    --primary-blue: #0f2b48;
-    --accent-red: #d93838;
-    --accent-gold: #ffd700;
-    --white: #ffffff;
-    --card-bg: rgba(8, 13, 26, 0.92); /* Ein durchgehender dunkler Hintergrund */
-}
-
-* {
-    box-sizing: border-box;
+/* Globale Einstellungen & Hintergrundbild */
+body {
     margin: 0;
     padding: 0;
-}
-
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    line-height: 1.6;
-    color: var(--white);
-    background-image: url('art/leonhero.jpeg');
+    font-family: Arial, sans-serif;
+    color: #ffffff;
+    background: url('dein-hintergrundbild.jpg') no-repeat center center fixed;
     background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-    background-repeat: no-repeat;
-    padding-bottom: 60px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
-/* HEADER */
+/* Header & Nav */
 .fixed-header {
-    background-color: rgba(5, 8, 17, 0.95);
+    background-color: rgba(10, 15, 25, 0.95);
     text-align: center;
-    padding: 8px 10px;
-    border-bottom: 2px solid var(--accent-gold);
+    padding: 15px 0 5px 0;
 }
 
 .fixed-header h1 {
-    font-size: 1.3rem;
-    color: var(--accent-gold);
+    color: #ffcc00;
+    margin: 0;
 }
 
-.fixed-header p {
-    color: var(--white);
-    font-size: 0.8rem;
-}
-
-/* NAVIGATION */
 .main-nav {
-    background-color: rgba(5, 8, 17, 0.95);
-    border-bottom: 2px solid var(--accent-red);
+    background-color: rgba(10, 15, 25, 0.95);
+    border-bottom: 2px solid #ffcc00;
 }
 
 .main-nav ul {
     list-style: none;
+    margin: 0;
+    padding: 10px 0;
     display: flex;
     justify-content: center;
-    gap: 15px;
-    padding: 6px 0;
+    gap: 20px;
 }
 
-.main-nav a, 
-.main-nav a:visited {
-    color: var(--white) !important;
+.main-nav a {
+    color: #ffffff;
     text-decoration: none;
-    font-size: 0.9rem;
-    font-weight: 600;
-    padding: 3px 8px;
+    font-weight: bold;
+    padding: 5px 10px;
 }
 
-.main-nav a:hover,
-.main-nav a.active {
-    color: var(--accent-gold) !important;
-    border-bottom: 2px solid var(--accent-red);
+.main-nav a.active, .main-nav a:hover {
+    color: #ffcc00;
+    border-bottom: 2px solid #ffcc00;
 }
 
-/* CONTAINER */
-.content {
-    max-width: 900px;
-    margin: 25px auto;
-    padding: 0 15px;
+/* Inhalt-Container: Macht den Text über dem Bild lesbar */
+main.content {
+    flex: 1;
+    padding: 40px 20px;
+    display: flex;
+    justify-content: center;
 }
 
-/* DIE GESAMTE KARTE ALS EIN EINZIGER BLOCK */
 .school-card {
-    background-color: var(--card-bg);
-    border: 1px solid rgba(255, 215, 0, 0.3);
-    border-left: 4px solid var(--accent-gold);
+    background-color: rgba(15, 23, 42, 0.92); /* Dunkler, halbtransparenter Hintergrund */
+    border: 1px solid #334155;
     border-radius: 8px;
-    padding: 25px 30px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.7);
+    padding: 30px;
+    max-width: 900px;
+    width: 100%;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+    backdrop-filter: blur(4px); /* Sanfter Unschärfe-Effekt */
 }
 
-/* TYPOGRAFIE INNERHALB DER KARTE */
-.school-card h1 {
-    font-size: 1.4rem;
-    color: var(--accent-gold);
-    margin-top: 20px;
-    margin-bottom: 10px;
-    border-bottom: 1px solid var(--accent-red);
-    padding-bottom: 4px;
+/* Typografie im Container */
+.school-card h1, .school-card h2, .school-card h3 {
+    color: #ffcc00;
 }
 
-.school-card h2 {
-    font-size: 1.15rem;
-    color: var(--accent-gold);
-    margin-top: 15px;
-    margin-bottom: 8px;
+.school-card p, .school-card li {
+    color: #f1f5f9;
+    line-height: 1.6;
 }
 
-.school-card h3 {
-    font-size: 0.95rem;
-    color: var(--white);
-    margin-top: 10px;
-    margin-bottom: 4px;
+/* Tabellen-Styling */
+.school-card table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    background-color: rgba(30, 41, 59, 0.6);
 }
 
-.school-card p {
-    color: var(--white);
-    margin-bottom: 12px;
-    font-size: 0.95rem;
+.school-card th, .school-card td {
+    border: 1px solid #475569;
+    padding: 10px;
+    text-align: left;
 }
 
-.school-card ul {
-    margin-bottom: 15px;
-    padding-left: 20px;
+.school-card th {
+    background-color: rgba(15, 23, 42, 0.9);
+    color: #ffcc00;
 }
 
-.school-card li {
-    margin-bottom: 6px;
-    font-size: 0.95rem;
-}
-
+/* Trennlinie */
 .divider {
     border: 0;
     height: 1px;
-    background: rgba(255, 215, 0, 0.2);
-    margin: 20px 0;
+    background: #334155;
+    margin: 25px 0;
 }
 
-/* TABELLE INNERHALB DER KARTE */
-.school-card table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 15px 0;
-    background-color: rgba(15, 43, 72, 0.5);
-    border: 1px solid var(--accent-gold);
-}
-
-.school-card th {
-    background-color: var(--primary-blue);
-    color: var(--accent-gold);
-    padding: 8px 12px;
-    text-align: left;
-    border-bottom: 2px solid var(--accent-gold);
-}
-
-.school-card td {
-    padding: 8px 12px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    color: var(--white);
-}
-
-/* FOOTER */
+/* Footer */
 .fixed-footer {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    background-color: rgba(5, 8, 17, 0.95);
-    border-top: 1px solid var(--accent-gold);
-    padding: 6px 10px;
+    background-color: rgba(10, 15, 25, 0.95);
+    border-top: 1px solid #ffcc00;
     text-align: center;
-    font-size: 0.75rem;
-    z-index: 1000;
+    padding: 15px 0;
+    font-size: 0.9em;
 }
 
-.fixed-footer a, 
-.fixed-footer a:visited {
-    color: var(--accent-gold) !important;
+.fixed-footer a {
+    color: #ffcc00;
     text-decoration: none;
-}
-
-
-/* OPTIMIERUNG UND SCHUTZ FÜR ALLE TABELLEN */
-.school-card table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 15px 0 25px 0;
-    background-color: rgba(15, 43, 72, 0.6);
-    border: 1px solid var(--accent-gold);
-    border-radius: 6px;
-    overflow: hidden;
-}
-
-.school-card th {
-    background-color: var(--primary-blue);
-    color: var(--accent-gold);
-    padding: 10px 12px;
-    text-align: left;
-    font-size: 0.9rem;
-    border-bottom: 2px solid var(--accent-gold);
-}
-
-.school-card td {
-    padding: 8px 12px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
-    color: var(--white);
-    font-size: 0.85rem;
-}
-
-.school-card tr:hover {
-    background-color: rgba(217, 56, 56, 0.2);
-}
-.fixed-footer a:hover {
-    color: var(--white) !important;
-    text-decoration: underline;
 }
