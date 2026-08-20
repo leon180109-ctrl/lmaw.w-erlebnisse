@@ -22,8 +22,8 @@ body {
     font-family: Arial, Helvetica, sans-serif;
     color: var(--text-white);
     background-color: var(--primary-bg);
-    /* Lädt das Hintergrundbild aus dem src-Ordner */
-    background-image: url('src/backroundleon.jpeg'), url('../src/backroundleon.jpeg'), url('backroundleon.jpeg');
+    /* Pfad zeigt auf das Hintergrundbild im Ordner art/ */
+    background-image: url('art/backroundleon.jpeg'), url('../art/backroundleon.jpeg');
     background-repeat: no-repeat;
     background-position: center center;
     background-attachment: fixed;
@@ -89,7 +89,7 @@ body {
 }
 
 /* ==========================================================================
-   3. INHALT-CONTAINER (BEHEBT DAS NEBENEINANDER-RUTSCHEN)
+   3. INHALT-CONTAINER
    ========================================================================== */
 main.content {
     flex: 1;
@@ -108,10 +108,9 @@ main.content {
     width: 100%;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.7);
     backdrop-filter: blur(6px);
-    display: block; /* Stellt sicher, dass Elemente untereinander stehen */
+    display: block;
 }
 
-/* Typografie-Fixes */
 .school-card h1 {
     color: var(--accent-gold);
     font-size: 1.8rem;
@@ -126,14 +125,6 @@ main.content {
     margin: 25px 0 10px 0;
     border-bottom: 1px solid var(--border-color);
     padding-bottom: 5px;
-    display: block;
-    width: 100%;
-}
-
-.school-card h3 {
-    color: var(--text-white);
-    font-size: 1.1rem;
-    margin: 15px 0 5px 0;
     display: block;
     width: 100%;
 }
@@ -159,7 +150,6 @@ main.content {
     margin-bottom: 6px;
 }
 
-/* Bild-Styling */
 .school-card img {
     max-width: 100%;
     height: auto;
@@ -169,7 +159,6 @@ main.content {
     margin: 20px 0;
 }
 
-/* Links im Fließtext (z. B. Impressum) */
 .school-card a {
     color: var(--link-blue);
     text-decoration: underline;
@@ -187,7 +176,7 @@ main.content {
 }
 
 /* ==========================================================================
-   4. TABELLEN
+   4. TABELLEN (Z. B. FÜR PRAKTIKUM & SCHULE)
    ========================================================================== */
 .school-card table {
     width: 100%;
