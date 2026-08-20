@@ -1,5 +1,5 @@
 /* ==========================================
-   GLOBALER SCHUTZ FÜR ALLE SEITEN
+   CLEAN DARK DESIGN (ZUSAMMENHÄNGENDE KARTE)
    ========================================== */
 
 :root {
@@ -7,7 +7,7 @@
     --accent-red: #d93838;
     --accent-gold: #ffd700;
     --white: #ffffff;
-    --bg-card: rgba(8, 13, 26, 0.90); /* Dunkler Hintergrund für volle Lesbarkeit */
+    --card-bg: rgba(8, 13, 26, 0.92); /* Ein durchgehender dunkler Hintergrund */
 }
 
 * {
@@ -16,7 +16,6 @@
     padding: 0;
 }
 
-/* HINTERGRUNDBILD AUF ALLEN SEITEN */
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.6;
@@ -29,32 +28,31 @@ body {
     padding-bottom: 60px;
 }
 
-/* HEADER & NAVIGATION (AUF JEDER SEITE) */
-header, .fixed-header, nav, .main-nav {
-    background-color: rgba(5, 8, 17, 0.95) !important;
+/* HEADER */
+.fixed-header {
+    background-color: rgba(5, 8, 17, 0.95);
     text-align: center;
-}
-
-header, .fixed-header {
     padding: 8px 10px;
     border-bottom: 2px solid var(--accent-gold);
 }
 
-header h1, .fixed-header h1 {
+.fixed-header h1 {
     font-size: 1.3rem;
     color: var(--accent-gold);
 }
 
-header p, .fixed-header p {
+.fixed-header p {
     color: var(--white);
     font-size: 0.8rem;
 }
 
-nav, .main-nav {
+/* NAVIGATION */
+.main-nav {
+    background-color: rgba(5, 8, 17, 0.95);
     border-bottom: 2px solid var(--accent-red);
 }
 
-nav ul, .main-nav ul {
+.main-nav ul {
     list-style: none;
     display: flex;
     justify-content: center;
@@ -62,8 +60,8 @@ nav ul, .main-nav ul {
     padding: 6px 0;
 }
 
-nav a, .main-nav a,
-nav a:visited, .main-nav a:visited {
+.main-nav a, 
+.main-nav a:visited {
     color: var(--white) !important;
     text-decoration: none;
     font-size: 0.9rem;
@@ -71,85 +69,106 @@ nav a:visited, .main-nav a:visited {
     padding: 3px 8px;
 }
 
-nav a:hover, .main-nav a:hover,
-nav a.active, .main-nav a.active {
+.main-nav a:hover,
+.main-nav a.active {
     color: var(--accent-gold) !important;
     border-bottom: 2px solid var(--accent-red);
 }
 
-/* ==========================================
-   ERZWUNGENER DUNKLER HINTERGRUND FÜR ALLE INHALTE
-   ========================================== */
-
-/* Greift auf alle Textblöcke auf JEDER Unterseite */
-body h1, body h2, body h3, body h4 {
-    background-color: var(--bg-card) !important;
-    color: var(--accent-gold) !important;
-    padding: 10px 15px;
-    border-radius: 6px;
-    margin: 15px auto 8px auto;
+/* CONTAINER */
+.content {
     max-width: 900px;
+    margin: 25px auto;
+    padding: 0 15px;
+}
+
+/* DIE GESAMTE KARTE ALS EIN EINZIGER BLOCK */
+.school-card {
+    background-color: var(--card-bg);
+    border: 1px solid rgba(255, 215, 0, 0.3);
     border-left: 4px solid var(--accent-gold);
+    border-radius: 8px;
+    padding: 25px 30px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.7);
 }
 
-body p, body ul, body ol, body div.section, body article, body section {
-    background-color: var(--bg-card) !important;
-    color: var(--white) !important;
-    padding: 12px 18px;
-    border-radius: 6px;
-    margin: 8px auto 12px auto;
-    max-width: 900px;
+/* TYPOGRAFIE INNERHALB DER KARTE */
+.school-card h1 {
+    font-size: 1.4rem;
+    color: var(--accent-gold);
+    margin-top: 20px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid var(--accent-red);
+    padding-bottom: 4px;
 }
 
-body li {
-    margin-left: 15px;
-    margin-bottom: 5px;
-    color: var(--white) !important;
+.school-card h2 {
+    font-size: 1.15rem;
+    color: var(--accent-gold);
+    margin-top: 15px;
+    margin-bottom: 8px;
 }
 
-/* TABELLEN AUF ALLEN SEITEN */
-body table {
+.school-card h3 {
+    font-size: 0.95rem;
+    color: var(--white);
+    margin-top: 10px;
+    margin-bottom: 4px;
+}
+
+.school-card p {
+    color: var(--white);
+    margin-bottom: 12px;
+    font-size: 0.95rem;
+}
+
+.school-card ul {
+    margin-bottom: 15px;
+    padding-left: 20px;
+}
+
+.school-card li {
+    margin-bottom: 6px;
+    font-size: 0.95rem;
+}
+
+.divider {
+    border: 0;
+    height: 1px;
+    background: rgba(255, 215, 0, 0.2);
+    margin: 20px 0;
+}
+
+/* TABELLE INNERHALB DER KARTE */
+.school-card table {
     width: 100%;
-    max-width: 900px;
-    margin: 15px auto;
     border-collapse: collapse;
-    background-color: var(--bg-card) !important;
-    border-radius: 6px;
-    overflow: hidden;
+    margin: 15px 0;
+    background-color: rgba(15, 43, 72, 0.5);
     border: 1px solid var(--accent-gold);
 }
 
-body th {
-    background-color: var(--primary-blue) !important;
-    color: var(--accent-gold) !important;
-    padding: 10px;
+.school-card th {
+    background-color: var(--primary-blue);
+    color: var(--accent-gold);
+    padding: 8px 12px;
     text-align: left;
     border-bottom: 2px solid var(--accent-gold);
 }
 
-body td {
-    padding: 8px 10px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
-    color: var(--white) !important;
-    background-color: var(--bg-card) !important;
+.school-card td {
+    padding: 8px 12px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--white);
 }
 
-/* LINKS AUF ALLEN UNTERSEITEN */
-body a, body a:visited {
-    color: var(--accent-gold) !important;
-}
-
-body a:hover {
-    color: var(--accent-red) !important;
-}
-
-/* FOOTER FIXIERT */
-footer, .fixed-footer {
+/* FOOTER */
+.fixed-footer {
     position: fixed;
     bottom: 0;
     left: 0;
     width: 100%;
-    background-color: rgba(5, 8, 17, 0.95) !important;
+    background-color: rgba(5, 8, 17, 0.95);
     border-top: 1px solid var(--accent-gold);
     padding: 6px 10px;
     text-align: center;
@@ -157,13 +176,13 @@ footer, .fixed-footer {
     z-index: 1000;
 }
 
-footer a, .fixed-footer a,
-footer a:visited, .fixed-footer a:visited {
+.fixed-footer a, 
+.fixed-footer a:visited {
     color: var(--accent-gold) !important;
     text-decoration: none;
 }
 
-footer a:hover, .fixed-footer a:hover {
+.fixed-footer a:hover {
     color: var(--white) !important;
     text-decoration: underline;
 }
