@@ -1,5 +1,5 @@
 /* ==========================================
-   TRANSPARENTES DARK-DESIGN (SEITENBILD SICHTBAR)
+   ELEGANTES DARK DESIGN (BLAU, ROT & GOLD)
    ========================================== */
 
 :root {
@@ -15,29 +15,29 @@
     padding: 0;
 }
 
-/* HINTERGRUNDBILD AUF GANZER SEITE (AN DEN SEITEN SICHTBAR) */
+/* HINTERGRUNDBILD (AN DEN SEITEN SICHTBAR) */
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    line-height: 1.5;
+    line-height: 1.6;
     color: var(--white);
-    background-image: url('art/leonhero.jpeg'); /* HIER DEIN HINTERGRUNDBILD EINTRAGEN */
+    background-image: url('art/leonhero.jpeg'); /* Pfad bei Bedarf anpassen */
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
     background-repeat: no-repeat;
-    padding-bottom: 50px;
+    padding-bottom: 50px; /* Platz für fixierten Footer */
 }
 
-/* FLACHER KOPFBEREICH */
+/* --- KOPFBEREICH (KOMPAKT) --- */
 .fixed-header {
-    background-color: rgba(5, 8, 17, 0.9);
+    background-color: rgba(5, 8, 17, 0.95);
     text-align: center;
     padding: 8px 10px;
     border-bottom: 2px solid var(--accent-gold);
 }
 
 .fixed-header h1 {
-    font-size: 1.4rem;
+    font-size: 1.3rem;
     color: var(--accent-gold);
 }
 
@@ -47,7 +47,7 @@ body {
     opacity: 0.9;
 }
 
-/* FLACHE NAVIGATION */
+/* --- NAVIGATION --- */
 .main-nav {
     background-color: rgba(5, 8, 17, 0.95);
     border-bottom: 2px solid var(--accent-red);
@@ -76,26 +76,26 @@ body {
     border-bottom: 2px solid var(--accent-red);
 }
 
-/* MAIN CONTENT (SCHMALER GEHALTEN, DAMIT DAS BILD AN DEN SEITEN FREI BLEIBT) */
-.content {
-    max-width: 800px;
-    margin: 20px auto;
-    padding: 0 15px;
+/* --- HAUPTBEREICH (CONTENT CONTAINER) --- */
+.content, main {
+    max-width: 850px;
+    margin: 25px auto;
+    padding: 0 20px;
 }
 
-/* TRANSPARENTER BEREICH BILD & TEXT */
+/* --- HERO BEREICH --- */
 .hero-section {
-    background-color: rgba(8, 13, 26, 0.75); /* Leicht transparent, damit der Hintergrund durchschimmert */
+    background-color: rgba(8, 13, 26, 0.85);
     border: 1px solid var(--accent-gold);
     border-radius: 8px;
     padding: 20px;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
     text-align: center;
 }
 
 .profile-img {
     max-width: 100%;
-    max-height: 400px;
+    max-height: 380px;
     object-fit: cover;
     border-radius: 6px;
     border: 2px solid var(--accent-gold);
@@ -104,28 +104,29 @@ body {
 
 .hero-text h2 {
     color: var(--accent-gold);
-    font-size: 1.2rem;
-    margin-bottom: 8px;
+    font-size: 1.3rem;
+    margin-bottom: 10px;
 }
 
 .hero-text p {
     color: var(--white);
-    font-size: 0.9rem;
+    font-size: 0.95rem;
+    margin-bottom: 10px;
 }
 
-/* INHALTSVERZEICHNIS (WEISSE SCHRIFT & TRANSPARENT) */
+/* --- INHALTSVERZEICHNIS (TOC) --- */
 .toc {
-    background-color: rgba(8, 13, 26, 0.75);
+    background-color: rgba(8, 13, 26, 0.85);
     border-left: 4px solid var(--accent-gold);
     border-radius: 8px;
     padding: 20px;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
 }
 
 .toc h2 {
     color: var(--accent-gold);
     font-size: 1.2rem;
-    margin-bottom: 10px;
+    margin-bottom: 12px;
 }
 
 .toc ul {
@@ -133,14 +134,14 @@ body {
 }
 
 .toc li {
-    margin-bottom: 8px;
+    margin-bottom: 10px;
 }
 
 .toc a, 
 .toc a:visited {
     color: var(--white) !important;
     text-decoration: none;
-    font-size: 0.9rem;
+    font-size: 0.95rem;
     display: block;
 }
 
@@ -152,8 +153,51 @@ body {
     color: var(--accent-red) !important;
 }
 
-/* SEHR SCHMALER FIXIERTER FOOTER UNTEN */
-.fixed-footer {
+/* ==========================================
+   ABSTÄNDE FÜR DIE SCHUL-SEITE (INHALTE)
+   ========================================== */
+
+.content h1 {
+    font-size: 1.5rem;
+    color: var(--accent-gold);
+    margin-top: 25px;
+    margin-bottom: 12px;
+}
+
+.content h2 {
+    font-size: 1.2rem;
+    color: var(--accent-gold);
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.content h3 {
+    font-size: 1rem;
+    color: var(--white);
+    margin-top: 15px;
+    margin-bottom: 6px;
+}
+
+.content p {
+    margin-bottom: 14px;
+    line-height: 1.6;
+    color: var(--white);
+}
+
+.content ul {
+    margin-top: 8px;
+    margin-bottom: 18px;
+    padding-left: 20px;
+}
+
+.content li {
+    margin-bottom: 8px;
+    line-height: 1.5;
+    color: var(--white);
+}
+
+/* --- FIXIERTER FOOTER UNTEN (KOMPAKT) --- */
+.fixed-footer, footer {
     position: fixed;
     bottom: 0;
     left: 0;
@@ -167,12 +211,26 @@ body {
 }
 
 .fixed-footer a, 
-.fixed-footer a:visited {
+.fixed-footer a:visited,
+footer a,
+footer a:visited {
     color: var(--accent-gold) !important;
     text-decoration: none;
 }
 
-.fixed-footer a:hover {
+.fixed-footer a:hover,
+footer a:hover {
     color: var(--white) !important;
     text-decoration: underline;
+}
+
+/* RESPONSIVE ANPASSUNG FÜR MOBILGERÄTE */
+@media (max-width: 768px) {
+    .content {
+        padding: 0 10px;
+    }
+    .main-nav ul {
+        flex-wrap: wrap;
+        gap: 8px;
+    }
 }
