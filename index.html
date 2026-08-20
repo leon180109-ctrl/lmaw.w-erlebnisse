@@ -3,52 +3,62 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Über mich - Leon Wypych</title>
+    <title>Über mich - Leon Wyppych</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <header class="fixed-header">
-        <h1>Leon Wypych</h1>
-        <p>Willkommen auf meinem Portfolio</p>
+        <h1>Leon Wyppych</h1>
+        <p>2026 / 2027 - Portfolio, Projekte &amp; Erfahrungen</p>
     </header>
 
     <nav class="main-nav">
         <ul>
-            <li><a href="index.html" class="active">Über mich</a></li>
-            <li><a href="src/projekte.html">Meine Projekte</a></li>
-            <li><a href="src/praktikum.html">Praktikum & Bewerbung</a></li>
-            <li><a href="src/hobbys.html">Hobbys & Aktivitäten</a></li>
-            <li><a href="src/schule.html">Schulische Arbeiten</a></li>
-            <li><a href="src/medientechnik.html">Medientechnik 12</a></li>
-            <li><a href="src/spiel.html">Mini-Spiel</a></li>
+            <li><a href="index.html" class="active">&Uuml;ber mich</a></li>
+            <li><a href="pages/projekte.html">Projekte</a></li>
+            <li><a href="pages/schule.html">Schule</a></li>
+            <li><a href="pages/praktikum.html">Praktikum</a></li>
+            <li><a href="pages/Hobby_und_andere.html">Andere</a></li>
         </ul>
     </nav>
 
     <main class="content">
         <div class="school-card">
-            <h1>Über mich</h1>
-            <p>Hallo! Ich bin Leon Wypych aus Kiel. Auf dieser Website präsentiere ich meine Arbeiten aus den Bereichen Fotografie, Design und Medientechnik sowie Einblicke in meine schulischen Projekte und Praktika.</p>
             
-            <!-- Profilbild aus dem src-Ordner -->
-            <img src="src/leonhero.jpeg" alt="Foto von Leon Wypych">
+            <section class="profile-hero" style="text-align: center; margin-bottom: 30px;">
+                <!-- Hero-Bild & Profilbild aus dem art/ Ordner -->
+                <div class="hero-banner" style="position: relative; margin-bottom: 20px;">
+                    <img src="art/backroundleon.jpeg" alt="Hintergrundbanner" style="width: 100%; max-height: 250px; object-fit: cover; border-radius: 8px;">
+                    <img src="art/leonhero.jpeg" alt="Leon Wyppych Profilbild" style="width: 150px; height: 150px; border-radius: 50%; border: 4px solid #fff; margin-top: -75px; position: relative; object-fit: cover;">
+                </div>
+                <h2>Willkommen auf meinem Portfolio</h2>
+                <p>Sch&uuml;ler des Beruflichen Gymnasiums (BGT25b) &ndash; Jahrgang 2026 / 2027</p>
+            </section>
 
-            <h2>Meine Schwerpunkte</h2>
-            <ul>
-                <li><strong>Fotografie:</strong> Produktfotografie und Bildbearbeitung mit Lightroom & Photoshop</li>
-                <li><strong>Medientechnik:</strong> Systemarchitektur, Signalfluss, Farbmodelle und IT-Sicherheit</li>
-                <li><strong>Praxis & Schule:</strong> Kompendium Medientechnik (Klasse 12) und Praktikumserfahrungen</li>
-            </ul>
+            <hr class="divider">
 
-            <h2>Medientechnik 12. Klasse – Vorschau</h2>
-            <p>Ein Einblick in mein Kompendium zur Medientechnik:</p>
-            <img src="art/image.png" alt="Medientechnik 12. Klasse Systemüberblick">
-            <p><a href="src/medientechnik.html">Zum vollständigen Medientechnik-Kompendium &rarr;</a></p>
+            <section class="about-section">
+                <h2>&Uuml;ber mich</h2>
+                <p>Hallo! Ich bin Leon Wyppych. Auf dieser Website dokumentiere ich meine schulischen Leistungen, IT- und Medientechnik-Projekte sowie meine Erfahrungen aus Praktika und Hobbys.</p>
+                
+                <h3>Meine Schwerpunkte</h3>
+                <ul>
+                    <li><strong>Berufliche Informatik:</strong> Netzwerke, Systemarchitektur &amp; Elektrotechnik</li>
+                    <li><strong>Medientechnik:</strong> Live-Broadcasting, Signalverarbeitung &amp; Bildbearbeitung mit Photoshop</li>
+                    <li><strong>Webentwicklung:</strong> HTML5, CSS3 &amp; responsive Design</li>
+                </ul>
+            </section>
+
         </div>
     </main>
 
     <footer class="fixed-footer">
-        <p>&copy; 2026 Leon Wypych | <a href="src/impressum.html">Impressum</a> | <a href="src/datenschutz.html">Datenschutzerklärung</a></p>
+        <p>&copy; 2026/2027 - Leon Wyppych - 
+            <a href="pages/impressum.html">Impressum</a> | 
+            <a href="#">Cookies</a> | 
+            <a href="#">Datenschutzerkl&auml;rung</a>
+        </p>
     </footer>
 
 </body>
