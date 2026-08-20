@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kompendium Medientechnik - Leon Wypych</title>
+    <link rel="stylesheet" href="../style.css">
+    <style>
+        .infographic-box {
+            text-align: center;
+            margin: 25px 0;
+            background-color: rgba(10, 15, 25, 0.5);
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+        }
+        .infographic-box img {
+            margin: 10px auto;
+            max-width: 100%;
+            height: auto;
+            border-radius: 6px;
+        }
+        .img-caption {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            margin-top: 5px;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="fixed-header">
+        <h1>Leon Wypych</h1>
+        <p>Willkommen auf meinem Portfolio</p>
+    </header>
+
+    <nav class="main-nav">
+        <ul>
+            <li><a href="../index.html">Über mich</a></li>
+            <li><a href="projekte.html">Meine Projekte</a></li>
+            <li><a href="praktikum.html">Praktikum & Bewerbung</a></li>
+            <li><a href="hobbys.html">Hobbys & Aktivitäten</a></li>
+            <li><a href="schule.html">Schulische Arbeiten</a></li>
+            <li><a href="medientechnik.html" class="active">Medientechnik 12</a></li>
+            <li><a href="spiel.html">Mini-Spiel</a></li>
+        </ul>
+    </nav>
+
+    <main class="content">
+        <div class="school-card">
+            <h1>Kompendium Medientechnik (Klasse 12)</h1>
+            <p><strong>Themenbereiche:</strong> Sicherheit, Funktion, Rechte, Nutzen und ergänzende Verwendungszwecke in der modernen Medientechnik.</p>
+
+            <h2>1. Systemüberblick & Gesamtübersicht</h2>
+            <div class="infographic-box">
+                <!-- Infografik: Systemüberblick Medientechnik 12. Klasse -->
+                <img src="../art/image.png" alt="Medientechnik 12. Klasse Systemüberblick">
+                <p class="img-caption">Abbildung 1: Systemüberblick über Sicherheit, Systemarchitektur, Lizenzen und Zukunfts-Trends.</p>
+            </div>
+
+            <h2>2. Sicherheit in der Medientechnik</h2>
+            <p>Sicherheitskonzepte in medientechnischen Umgebungen gliedern sich in technische IT-Sicherheit, physische Arbeitssicherheit bei Produktionen sowie den Schutz von Datenstrukturen.</p>
+            
+            <h3>2.1 IT-Sicherheit und Netzwerkschutz</h3>
+            <ul>
+                <li><strong>Verschlüsselung:</strong> Verwendung von SSL/TLS zur gesicherten Übertragung von Datenströmen.</li>
+                <li><strong>Zugriffskontrollen:</strong> Rollenbasierte Rechteverwaltung (RBAC) in Schnitt- und Archivsystemen.</li>
+                <li><strong>Netzwerksegmentierung:</strong> Trennung von Produktions- und Unternehmensnetzwerken mittels VLANs und Firewalls.</li>
+            </ul>
+
+            <h3>2.2 Physische Sicherheit und Arbeitsschutz im Studio/Set</h3>
+            <ul>
+                <li><strong>Elektrische Sicherheit:</strong> Prüfungen nach DGUV Vorschrift 3 für alle mobilen und ortsfesten Betriebsmittel.</li>
+                <li><strong>Bühnen- und Traversensicherheit:</strong> Bemessung von Lasten, redundante Sicherungen (Safeties) bei Scheinwerfern und Lautsprechern.</li>
+                <li><strong>Kabelmanagement:</strong> Vermeidung von Stolperstellen durch Kabelbrücken und geordnete Führung.</li>
+            </ul>
+
+            <h2>3. Signalfluss & Systemarchitektur</h2>
+            <div class="infographic-box">
+                <!-- Infografik: Signalfluss von Input bis Final Display -->
+                <img src="../art/image_2.png" alt="Signalfluss Medienproduktion vom Mikrofon/Kamera bis zum Monitor">
+                <p class="img-caption">Abbildung 2: Signalfluss in der Medienproduktion (Input Stage &rarr; Processing &rarr; Switching &rarr; Distribution &rarr; Final Display).</p>
+            </div>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Kategorie</th>
+                        <th>Komponenten</th>
+                        <th>Funktionsweise & Aufgaben</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Signalerfassung</strong></td>
+                        <td>Kameras (CMOS/CCD), Mikrofone (Kondensator/Dynamisch)</td>
+                        <td>Wandlung physikalischer Größen (Licht, Schall) in elektrische/digitale Signale.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Signalverarbeitung</strong></td>
+                        <td>Bildmischer, DSPs, NLE-Software (z. B. Premiere, DaVinci)</td>
+                        <td>Korrektur, Mischung, Effektbearbeitung und Enkodierung von Audiovisuellen Daten.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Übertragung</strong></td>
+                        <td>SDI, HDMI, Dante (Audio-over-IP), Streaming (RTMP, NDI)</td>
+                        <td>Verlustfreie oder komprimierte Echtzeitübertragung von Signalen über Kabel oder Netzwerk.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Ausgabe/Display</strong></td>
+                        <td>LED-Walls, Projektoren, Studiomonitore</td>
+                        <td>Re-Transformation digitaler Signale in optische und akustische Reize für den Rezipienten.</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h2>4. Rechte und Rechtliche Grundlagen</h2>
+            <p>Bei der Erstellung und Verbreitung von Medieninhalten sind strikte rechtliche Leitplanken einzuhalten.</p>
+            
+            <h3>4.1 Urheberrecht und Nutzungsrechte</h3>
+            <p>Das Urheberrechtsgesetz (UrhG) schützt persönliche geistige Schöpfungen. Für die Verwendung fremder Werke werden Nutzungsrechte (Lizenzen) benötigt:</p>
+            <ul>
+                <li><strong>Einfaches Nutzungsrecht (§ 31 Abs. 2 UrhG):</strong> Der Rechteinhaber erlaubt die Nutzung neben anderen Personen.</li>
+                <li><strong>Ausschließliches Nutzungsrecht (§ 31 Abs. 3 UrhG):</strong> Das Recht steht allein dem Erwerber zu.</li>
+                <li><strong>Creative Commons (CC):</strong> Standardisierte Lizenzmodelle (z. B. CC-BY, CC-NC) für eine vereinfachte Weiterverwendung.</li>
+            </ul>
+
+            <h3>4.2 Recht am eigenen Bild und Datenschutz (DSGVO)</h3>
+            <ul>
+                <li><strong>Kunsturhebergesetz (KUG § 22/23):</strong> Bildnisse dürfen grundsätzlich nur mit Einwilligung des Abgebildeten verbreitet werden (Ausnahmen: Bildnisse aus dem Bereich der Zeitgeschichte, Personen als Beiwerk).</li>
+                <li><strong>Datenschutz-Grundverordnung (DSGVO):</strong> Personenbezogene Daten erfordern eine rechtmäßige Grundlage für die Verarbeitung.</li>
+            </ul>
+
+            <h2>5. Nutzen und Zukunfts-Trends</h2>
+            <ol>
+                <li><strong>Informations- und Bildungsfunktion:</strong> E-Learning, Tutorials, Wissensvermittlung durch multimediale Aufbereitung.</li>
+                <li><strong>Kommunikation und Marketing:</strong> Markenbildung, Produktpräsentationen, Erhöhung der User Experience (UX).</li>
+                <li><strong>Unterhaltung und Kultur:</strong> Film- und Games-Produktionen, virtuelle Events und interaktive Installationen.</li>
+                <li><strong>Virtual & Augmented Reality (VR/AR):</strong> Einsatz in Simulationen und immersiven Lernumgebungen.</li>
+                <li><strong>Künstliche Intelligenz (KI):</strong> Automatisierte Skripterstellung, KI-gestütztes Upscaling und intelligentes Schnittmanagement.</li>
+            </ol>
+        </div>
+    </main>
+
+    <footer class="fixed-footer">
+        <p>&copy; 2026 Leon Wypych | <a href="impressum.html">Impressum</a> | <a href="datenschutz.html">Datenschutzerklärung</a></p>
+    </footer>
+
+</body>
+</html>
