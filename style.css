@@ -1,5 +1,5 @@
 /* ==========================================
-   FARBSCHEMA: BLAU, ROT & GOLD (VOLLSTÄNDIGER KONTRAST)
+   GLOBALER SCHUTZ FÜR ALLE SEITEN
    ========================================== */
 
 :root {
@@ -7,7 +7,7 @@
     --accent-red: #d93838;
     --accent-gold: #ffd700;
     --white: #ffffff;
-    --bg-card: rgba(8, 13, 26, 0.90); /* Dunkle Kartenfläche */
+    --bg-card: rgba(8, 13, 26, 0.90); /* Dunkler Hintergrund für volle Lesbarkeit */
 }
 
 * {
@@ -16,12 +16,12 @@
     padding: 0;
 }
 
-/* HINTERGRUNDBILD AN DEN SEITEN */
+/* HINTERGRUNDBILD AUF ALLEN SEITEN */
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.6;
     color: var(--white);
-    background-image: url('art/leonhero.jpeg'); /* Pfad deines Hintergrundbilds */
+    background-image: url('art/leonhero.jpeg');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -29,31 +29,32 @@ body {
     padding-bottom: 60px;
 }
 
-/* KOPFBEREICH */
-.fixed-header, header {
-    background-color: rgba(5, 8, 17, 0.95);
+/* HEADER & NAVIGATION (AUF JEDER SEITE) */
+header, .fixed-header, nav, .main-nav {
+    background-color: rgba(5, 8, 17, 0.95) !important;
     text-align: center;
+}
+
+header, .fixed-header {
     padding: 8px 10px;
     border-bottom: 2px solid var(--accent-gold);
 }
 
-.fixed-header h1, header h1 {
+header h1, .fixed-header h1 {
     font-size: 1.3rem;
     color: var(--accent-gold);
 }
 
-.fixed-header p, header p {
+header p, .fixed-header p {
     color: var(--white);
     font-size: 0.8rem;
 }
 
-/* NAVIGATION */
-.main-nav, nav {
-    background-color: rgba(5, 8, 17, 0.95);
+nav, .main-nav {
     border-bottom: 2px solid var(--accent-red);
 }
 
-.main-nav ul, nav ul {
+nav ul, .main-nav ul {
     list-style: none;
     display: flex;
     justify-content: center;
@@ -61,8 +62,8 @@ body {
     padding: 6px 0;
 }
 
-.main-nav a, nav a,
-.main-nav a:visited, nav a:visited {
+nav a, .main-nav a,
+nav a:visited, .main-nav a:visited {
     color: var(--white) !important;
     text-decoration: none;
     font-size: 0.9rem;
@@ -70,91 +71,85 @@ body {
     padding: 3px 8px;
 }
 
-.main-nav a:hover, nav a:hover,
-.main-nav a.active, nav a.active {
+nav a:hover, .main-nav a:hover,
+nav a.active, .main-nav a.active {
     color: var(--accent-gold) !important;
     border-bottom: 2px solid var(--accent-red);
 }
 
-/* HAUPTBEREICH (CONTAINER) */
-.content, main {
-    max-width: 900px;
-    margin: 20px auto;
-    padding: 0 15px;
-}
+/* ==========================================
+   ERZWUNGENER DUNKLER HINTERGRUND FÜR ALLE INHALTE
+   ========================================== */
 
-/* HERVORHEBUNG FÜR TEXTE & LISTEN (DUNKLE HINTERGRÜNDE ERZWINGEN) */
-.content h1, main h1,
-.content h2, main h2,
-.content h3, main h3 {
-    background-color: var(--bg-card);
-    color: var(--accent-gold);
+/* Greift auf alle Textblöcke auf JEDER Unterseite */
+body h1, body h2, body h3, body h4 {
+    background-color: var(--bg-card) !important;
+    color: var(--accent-gold) !important;
     padding: 10px 15px;
     border-radius: 6px;
-    margin-top: 15px;
-    margin-bottom: 8px;
+    margin: 15px auto 8px auto;
+    max-width: 900px;
     border-left: 4px solid var(--accent-gold);
 }
 
-.content p, main p,
-.content ul, main ul,
-.content ol, main ol {
-    background-color: var(--bg-card);
-    color: var(--white);
+body p, body ul, body ol, body div.section, body article, body section {
+    background-color: var(--bg-card) !important;
+    color: var(--white) !important;
     padding: 12px 18px;
     border-radius: 6px;
-    margin-bottom: 12px;
+    margin: 8px auto 12px auto;
+    max-width: 900px;
 }
 
-.content li, main li {
+body li {
     margin-left: 15px;
     margin-bottom: 5px;
+    color: var(--white) !important;
 }
 
-/* SCHUTZ FÜR TABELLEN (DUNKLER HINTERGRUND) */
-.content table, main table {
+/* TABELLEN AUF ALLEN SEITEN */
+body table {
     width: 100%;
+    max-width: 900px;
+    margin: 15px auto;
     border-collapse: collapse;
-    margin: 15px 0;
     background-color: var(--bg-card) !important;
     border-radius: 6px;
     overflow: hidden;
     border: 1px solid var(--accent-gold);
 }
 
-.content th, main th {
-    background-color: var(--primary-blue);
-    color: var(--accent-gold);
+body th {
+    background-color: var(--primary-blue) !important;
+    color: var(--accent-gold) !important;
     padding: 10px;
     text-align: left;
     border-bottom: 2px solid var(--accent-gold);
 }
 
-.content td, main td {
+body td {
     padding: 8px 10px;
     border-bottom: 1px solid rgba(255, 255, 255, 0.15);
-    color: var(--white);
+    color: var(--white) !important;
     background-color: var(--bg-card) !important;
 }
 
-/* LINKS IM INHALT */
-.content a, main a,
-.content a:visited, main a:visited {
+/* LINKS AUF ALLEN UNTERSEITEN */
+body a, body a:visited {
     color: var(--accent-gold) !important;
-    text-decoration: underline;
 }
 
-.content a:hover, main a:hover {
+body a:hover {
     color: var(--accent-red) !important;
 }
 
-/* FOOTER */
-.fixed-footer, footer {
+/* FOOTER FIXIERT */
+footer, .fixed-footer {
     position: fixed;
     bottom: 0;
     left: 0;
     width: 100%;
-    background-color: rgba(5, 8, 17, 0.95);
+    background-color: rgba(5, 8, 17, 0.95) !important;
     border-top: 1px solid var(--accent-gold);
     padding: 6px 10px;
     text-align: center;
@@ -162,13 +157,13 @@ body {
     z-index: 1000;
 }
 
-.fixed-footer a, footer a,
-.fixed-footer a:visited, footer a:visited {
+footer a, .fixed-footer a,
+footer a:visited, .fixed-footer a:visited {
     color: var(--accent-gold) !important;
     text-decoration: none;
 }
 
-.fixed-footer a:hover, footer a:hover {
+footer a:hover, .fixed-footer a:hover {
     color: var(--white) !important;
     text-decoration: underline;
 }
