@@ -1,137 +1,134 @@
 /* ==========================================
-   ELEGANTES DARK DESIGN (BLAU, ROT & GOLD)
+   FARBSCHEMA: BLAU, ROT & GOLD
    ========================================== */
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+:root {
+    --primary-blue: #0f2b48;    /* Tiefes Blau */
+    --accent-red: #d93838;      /* Elegantes Rot */
+    --accent-gold: #d4af37;     /* Gold */
+    --light-gold: #fdf8eb;      /* Helles Gold für Flächen */
+    --text-dark: #222222;
+    --white: #ffffff;
 }
 
-:root {
-    --bg-dark: #080d1a;       /* Sehr dunkler Hintergrund */
-    --card-bg: rgba(15, 23, 42, 0.8); /* Transparente Karten-Hintergründe */
-    --accent-gold: #ffd700;   /* Strahlendes Gold */
-    --accent-red: #ff3344;    /* Neon-Rot */
-    --text-white: #ffffff;    /* Reinweiß für hervorragende Lesbarkeit */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 body {
-    background-color: var(--bg-dark);
-    color: var(--text-white);
-    padding-top: 130px;        /* Platz für fixierten Header & Navigation */
-    padding-bottom: 80px;      /* Platz für fixierten Footer */
-    min-height: 100vh;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: var(--text-dark);
+    /* Füge hier den Pfad zu deinem alten Hintergrundbild ein: */
+    background-image: url('dein-altes-hintergrundbild.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
 }
 
-/* 1. GOLDENER HEADER (Oben fixiert) */
-header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    background-color: #050811;
-    border-bottom: 2px solid var(--accent-gold);
-    text-align: center;
-    padding: 15px 10px;
-    z-index: 1000;
-}
-
-header h1 {
+/* --- HEADER --- */
+.fixed-header {
+    background-color: var(--primary-blue);
     color: var(--accent-gold);
-    font-size: 1.8rem;
-    font-weight: 700;
+    text-align: center;
+    padding: 20px 10px;
+    border-bottom: 3px solid var(--accent-red);
 }
 
-header p {
-    color: var(--text-white);
-    font-size: 0.9rem;
-    opacity: 0.9;
+.fixed-header h1 {
+    font-size: 2rem;
+    margin-bottom: 5px;
 }
 
-/* 2. NAVIGATION (Unter dem Header) */
-nav {
-    position: fixed;
-    top: 75px;
-    left: 0;
-    width: 100%;
-    background-color: rgba(8, 13, 26, 0.95);
-    border-bottom: 1px solid var(--accent-red);
-    z-index: 999;
+.fixed-header p {
+    color: var(--white);
+    font-size: 0.95rem;
 }
 
-nav ul {
+/* --- NAVIGATION --- */
+.main-nav {
+    background-color: var(--primary-blue);
+    border-bottom: 2px solid var(--accent-gold);
+}
+
+.main-nav ul {
     list-style: none;
     display: flex;
     justify-content: center;
-    gap: 20px;
-    padding: 10px 0;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 10px;
 }
 
-/* Erzwingt weiße Schrift für Navigations-Links */
-nav a, nav a:visited {
-    color: var(--text-white) !important;
+.main-nav a {
+    color: var(--white);
     text-decoration: none;
     font-weight: 600;
-    padding: 5px 10px;
+    padding: 8px 16px;
+    border-radius: 4px;
     transition: all 0.3s ease;
 }
 
-nav a:hover, nav a.active {
-    color: var(--accent-gold) !important;
-    border-bottom: 2px solid var(--accent-red);
+.main-nav a:hover,
+.main-nav a.active {
+    background-color: var(--accent-red);
+    color: var(--white);
 }
 
-/* 3. HAUPTBEREICH (Zentriert) */
-main {
-    max-width: 900px;
-    margin: 0 auto;
+/* --- HAUPTBEREICH (CONTAINER) --- */
+.content {
+    max-width: 950px;
+    margin: 30px auto;
     padding: 0 20px;
 }
 
-/* Hero-Bereich mit verkleinertem, schön gerahmtem Foto */
+/* --- HERO BEREICH --- */
 .hero-section {
-    background-color: var(--card-bg);
-    border: 1px solid rgba(255, 215, 0, 0.3);
-    border-radius: 12px;
+    background-color: rgba(255, 255, 255, 0.95); /* Leicht transparentes Weiß, damit das HG-Bild durchscheint */
+    border-left: 6px solid var(--accent-red);
+    border-radius: 8px;
     padding: 25px;
-    margin-bottom: 30px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
-    text-align: center;
+    margin-bottom: 25px;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
-.hero-section img.profile-img {
-    max-width: 100%;
-    max-height: 450px;
+.profile-img {
+    width: 180px;
+    height: 180px;
     object-fit: cover;
-    border-radius: 8px;
-    border: 2px solid var(--accent-gold);
-    margin-bottom: 20px;
+    border-radius: 50%;
+    border: 3px solid var(--accent-gold);
+    flex-shrink: 0;
 }
 
 .hero-text h2 {
-    color: var(--accent-gold);
-    margin-bottom: 15px;
+    color: var(--primary-blue);
+    margin-bottom: 10px;
+    border-bottom: 2px solid var(--accent-gold);
+    padding-bottom: 5px;
 }
 
 .hero-text p {
-    color: var(--text-white);
-    line-height: 1.6;
     margin-bottom: 10px;
 }
 
-/* 4. INHALTSVERZEICHNIS (Weiße & Goldene Links) */
+/* --- INHALTSVERZEICHNIS (TOC) --- */
 .toc {
-    background-color: var(--card-bg);
-    border-left: 4px solid var(--accent-gold);
+    background-color: rgba(255, 255, 255, 0.95);
+    border-top: 4px solid var(--accent-gold);
     border-radius: 8px;
     padding: 25px;
     margin-bottom: 30px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 .toc h2 {
-    color: var(--accent-gold);
+    color: var(--primary-blue);
     margin-bottom: 15px;
 }
 
@@ -141,49 +138,45 @@ main {
 }
 
 .toc li {
-    margin-bottom: 15px;
+    margin-bottom: 12px;
+    padding-left: 15px;
+    border-left: 3px solid var(--accent-red);
 }
 
-/* Erzwingt weiße Lesbarkeit für alle Links im Inhaltsverzeichnis */
-.toc a, .toc a:visited {
-    color: var(--text-white) !important;
+.toc a {
+    color: var(--primary-blue);
     text-decoration: none;
-    font-size: 1rem;
-    line-height: 1.5;
-    display: block;
-    transition: color 0.2s ease;
-}
-
-.toc a strong {
-    color: var(--accent-gold) !important;
+    transition: color 0.2s;
 }
 
 .toc a:hover {
-    color: var(--accent-red) !important;
+    color: var(--accent-red);
 }
 
-/* 5. FIXIERTER FOOTER (Ganz unten) */
-footer {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    background-color: #050811;
-    border-top: 2px solid var(--accent-gold);
-    padding: 12px 20px;
+/* --- FOOTER --- */
+.fixed-footer {
+    background-color: var(--primary-blue);
+    color: var(--white);
     text-align: center;
+    padding: 15px;
+    border-top: 3px solid var(--accent-gold);
     font-size: 0.85rem;
-    color: var(--text-white);
-    z-index: 1000;
 }
 
-footer a, footer a:visited {
-    color: var(--accent-gold) !important;
+.fixed-footer a {
+    color: var(--accent-gold);
     text-decoration: none;
-    margin: 0 5px;
 }
 
-footer a:hover {
-    color: var(--text-white) !important;
+.fixed-footer a:hover {
+    color: var(--white);
     text-decoration: underline;
+}
+
+/* RESPONSIVE ANPASSUNG FÜR MOBILGERÄTE */
+@media (max-width: 768px) {
+    .hero-section {
+        flex-direction: column;
+        text-align: center;
+    }
 }
