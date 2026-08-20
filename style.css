@@ -1,5 +1,5 @@
 /* ==========================================
-   FARBSCHEMA: BLAU, ROT & GOLD
+   FARBSCHEMA: BLAU, ROT & GOLD (UPDATED)
    ========================================== */
 :root {
     --primary-blue: #0f2b48;    /* Tiefes Blau */
@@ -19,19 +19,19 @@
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.6;
-    color: var(--text-dark);
-    /* Füge hier den Pfad zu deinem alten Hintergrundbild ein: */
+    color: var(--white);
     background-image: url('dein-altes-hintergrundbild.jpg');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
     background-repeat: no-repeat;
+    padding-bottom: 70px; /* Abstand für den fixierten Footer */
 }
 
-/* --- HEADER --- */
+/* --- GOLDENER HEADER --- */
 .fixed-header {
-    background-color: var(--primary-blue);
-    color: var(--accent-gold);
+    background-color: var(--accent-gold);
+    color: var(--primary-blue);
     text-align: center;
     padding: 20px 10px;
     border-bottom: 3px solid var(--accent-red);
@@ -40,11 +40,13 @@ body {
 .fixed-header h1 {
     font-size: 2rem;
     margin-bottom: 5px;
+    color: var(--primary-blue);
 }
 
 .fixed-header p {
-    color: var(--white);
+    color: var(--primary-blue);
     font-size: 0.95rem;
+    font-weight: 600;
 }
 
 /* --- NAVIGATION --- */
@@ -86,7 +88,7 @@ body {
 
 /* --- HERO BEREICH --- */
 .hero-section {
-    background-color: rgba(255, 255, 255, 0.95); /* Leicht transparentes Weiß, damit das HG-Bild durchscheint */
+    background-color: rgba(15, 43, 72, 0.85); /* Dunkelblauer transparenter Hintergrund für gute Lesbarkeit */
     border-left: 6px solid var(--accent-red);
     border-radius: 8px;
     padding: 25px;
@@ -94,7 +96,7 @@ body {
     display: flex;
     gap: 20px;
     align-items: center;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
 .profile-img {
@@ -107,28 +109,29 @@ body {
 }
 
 .hero-text h2 {
-    color: var(--primary-blue);
+    color: var(--accent-gold);
     margin-bottom: 10px;
     border-bottom: 2px solid var(--accent-gold);
     padding-bottom: 5px;
 }
 
 .hero-text p {
+    color: var(--white);
     margin-bottom: 10px;
 }
 
-/* --- INHALTSVERZEICHNIS (TOC) --- */
+/* --- INHALTSVERZEICHNIS (TOC MIT WEISSEM TEXT) --- */
 .toc {
-    background-color: rgba(255, 255, 255, 0.95);
+    background-color: rgba(15, 43, 72, 0.85);
     border-top: 4px solid var(--accent-gold);
     border-radius: 8px;
     padding: 25px;
     margin-bottom: 30px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
 .toc h2 {
-    color: var(--primary-blue);
+    color: var(--accent-gold);
     margin-bottom: 15px;
 }
 
@@ -143,33 +146,45 @@ body {
     border-left: 3px solid var(--accent-red);
 }
 
-.toc a {
-    color: var(--primary-blue);
+/* Weiße Text- und Linkfarben erzwingen */
+.toc a, 
+.toc a:visited {
+    color: var(--white) !important;
     text-decoration: none;
-    transition: color 0.2s;
+    transition: color 0.2s ease;
+}
+
+.toc a strong {
+    color: var(--accent-gold) !important;
 }
 
 .toc a:hover {
-    color: var(--accent-red);
+    color: var(--accent-red) !important;
 }
 
-/* --- FOOTER --- */
+/* --- FIXIERTER FOOTER UNTEN --- */
 .fixed-footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
     background-color: var(--primary-blue);
     color: var(--white);
     text-align: center;
-    padding: 15px;
+    padding: 12px 10px;
     border-top: 3px solid var(--accent-gold);
     font-size: 0.85rem;
+    z-index: 1000;
 }
 
-.fixed-footer a {
-    color: var(--accent-gold);
+.fixed-footer a,
+.fixed-footer a:visited {
+    color: var(--accent-gold) !important;
     text-decoration: none;
 }
 
 .fixed-footer a:hover {
-    color: var(--white);
+    color: var(--white) !important;
     text-decoration: underline;
 }
 
