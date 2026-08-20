@@ -5,81 +5,55 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Leon Wyppych - Portfolio 2026/2027</title>
     <link rel="stylesheet" href="style.css">
-    <!-- Font Awesome für Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
 
-    <!-- Header Navigation -->
-    <header class="header">
-        <a href="index.html" class="logo">Leon<span>.</span></a>
-        <nav class="navbar">
-            <a href="index.html" class="active">Über mich</a>
-            <a href="src/projekte.html">Projekte</a>
-            <a href="src/schule.html">Schule</a>
-            <a href="src/praktikum.html">Praktikum</a>
-            <a href="src/Hobby_und_andere.html">Andere</a>
-        </nav>
+    <!-- Header oben -->
+    <header class="fixed-header">
+        <h1>Leon Wyppych</h1>
+        <p>2026 / 2027 - Portfolio, Projekte &amp; Erfahrungen</p>
     </header>
 
-    <main>
-        <!-- Hero-Bereich mit leuchtendem Foto-Container -->
-        <section class="home">
-            <div class="home-img">
-                <div class="glow-circle"></div>
-                <img src="art/leonhero.jpeg" alt="Leon Wyppych am See" class="profile-img">
-            </div>
+    <!-- Navigation -->
+    <nav class="main-nav">
+        <ul>
+            <li><a href="index.html" class="active">Über mich</a></li>
+            <li><a href="src/projekte.html">Projekte</a></li>
+            <li><a href="src/schule.html">Schule</a></li>
+            <li><a href="src/praktikum.html">Praktikum</a></li>
+            <li><a href="src/Hobby_und_andere.html">Andere</a></li>
+        </ul>
+    </nav>
 
-            <div class="home-content">
-                <h1>Moin! Ich bin <span class="text-gold">Leon Wyppych</span></h1>
-                <h3 class="typing-text">Fokus auf <span class="text-red">Medientechnik &amp; Fotografie</span></h3>
-                <p>
-                    Ich interessiere mich stark für visuelle Gestaltung, Produktfotografie, Bildbearbeitung und Medientechnik.
-                    Aktuell strebe ich meine Fachhochschulreife an und suche nach spannenden Herausforderungen und Praktika im Bereich Fotografie und Mediengestaltung.
-                </p>
+    <!-- Hauptbereich -->
+    <main class="content">
 
-                <div class="social-icons">
-                    <a href="#" title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
-                    <a href="#" title="GitHub"><i class="fa-brands fa-github"></i></a>
-                    <a href="#" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
-                </div>
-
-                <a href="src/praktikum.html" class="btn">Praktikum &amp; Kontakt</a>
+        <!-- Hero-Bereich mit Foto -->
+        <section class="hero-section">
+            <img src="art/leonhero.jpeg" alt="Leon Wyppych am See" class="profile-img">
+            <div class="hero-text">
+                <h2>Wer ich bin &amp; was ich mache</h2>
+                <p>Moin! Ich bin <strong>Leon Wyppych</strong>. Ich interessiere mich stark für visuelle Gestaltung, Produktfotografie, Bildbearbeitung und Medientechnik.</p>
+                <p>Aktuell strebe ich meine Fachhochschulreife an und suche nach spannenden Herausforderungen und Praktika im Bereich Fotografie und Mediengestaltung.</p>
             </div>
         </section>
 
         <!-- Inhaltsverzeichnis / Schnelle Navigation -->
-        <section class="toc-container">
+        <section class="toc">
             <h2>Übersicht über meine Seite</h2>
-            <ul class="toc-list">
-                <li>
-                    <a href="src/projekte.html">
-                        <strong>Projekte:</strong> Meine Portfolio-Fallstudie (Produktfotografie &amp; Lightroom)
-                    </a>
-                </li>
-                <li>
-                    <a href="src/schule.html">
-                        <strong>Schule:</strong> Kommunikationsmodelle, Elektrotechnik &amp; Schulstoff 26/27
-                    </a>
-                </li>
-                <li>
-                    <a href="src/praktikum.html">
-                        <strong>Praktikum:</strong> Bewerbung &amp; Praktikumserfahrungen
-                    </a>
-                </li>
-                <li>
-                    <a href="src/Hobby_und_andere.html">
-                        <strong>Andere:</strong> Weitere Aktivitäten &amp; Hobbys
-                    </a>
-                </li>
+            <ul>
+                <li><a href="src/projekte.html"><strong>Projekte:</strong> Meine Portfolio-Fallstudie (Produktfotografie &amp; Lightroom)</a></li>
+                <li><a href="src/schule.html"><strong>Schule:</strong> Kommunikationsmodelle, Elektrotechnik &amp; Schulstoff 26/27</a></li>
+                <li><a href="src/praktikum.html"><strong>Praktikum:</strong> Bewerbung &amp; Praktikumserfahrungen</a></li>
+                <li><a href="src/Hobby_und_andere.html"><strong>Andere:</strong> Weitere Aktivitäten &amp; Hobbys</a></li>
             </ul>
         </section>
+
     </main>
 
-    <!-- Fixierter / Angetackerter Footer -->
-    <footer class="footer">
-        <p>
-            &copy; 2026/2027 - Leon Wyppych | 
+    <!-- Footer unten -->
+    <footer class="fixed-footer">
+        <p>&copy; 2026/2027 - Leon Wyppych - 
             <a href="src/impressum.html">Impressum</a> | 
             <a href="#">Cookies</a> | 
             <a href="#">Datenschutzerklärung</a> | 
