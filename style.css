@@ -20,7 +20,12 @@
 body {
     font-family: Arial, sans-serif;
     color: var(--text-white);
-    background: var(--primary-bg) url('dein-hintergrundbild.jpg') no-repeat center center fixed;
+    background-color: var(--primary-bg);
+    /* Lädt das Hintergrundbild korrekt aus dem src-Ordner */
+    background-image: url('src/backroundleon.jpeg'), url('../src/backroundleon.jpeg');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
     background-size: cover;
     min-height: 100vh;
     display: flex;
@@ -28,7 +33,18 @@ body {
 }
 
 /* ==========================================================================
-   2. HEADER & NAVIGATION (FIXED / DUNKEL OVERLAY)
+   2. BILDER INHALT (GILT FÜR ALLE BILDER AUF DER SEITE)
+   ========================================================================== */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 6px;
+    border: 1px solid var(--border-color);
+}
+
+/* ==========================================================================
+   3. HEADER & NAVIGATION
    ========================================================================== */
 .fixed-header {
     background-color: rgba(10, 15, 25, 0.95);
@@ -80,7 +96,7 @@ body {
 }
 
 /* ==========================================================================
-   3. HAUPTINHALT & KARTEN-CONTAINER (LESBARKEIT AUF BILDERN)
+   4. CONTAINER & LESBARKEIT (OVERLAY OVER BACKGROUND)
    ========================================================================== */
 main.content {
     flex: 1;
@@ -101,7 +117,6 @@ main.content {
     backdrop-filter: blur(6px);
 }
 
-/* Typografie */
 .school-card h1 {
     color: var(--accent-gold);
     font-size: 1.6rem;
@@ -139,10 +154,6 @@ main.content {
     margin-bottom: 6px;
 }
 
-.info-block p {
-    margin-bottom: 5px;
-}
-
 .divider {
     border: 0;
     height: 1px;
@@ -151,7 +162,7 @@ main.content {
 }
 
 /* ==========================================================================
-   4. TABELLEN (DESIGNT FÜR SCHULE & FARBMODELLE)
+   5. TABELLEN
    ========================================================================== */
 .school-card table {
     width: 100%;
@@ -184,7 +195,7 @@ main.content {
 }
 
 /* ==========================================================================
-   5. FOOTER (FIXED AM BODEN / EINHEITLICHES DESIGN)
+   6. FOOTER
    ========================================================================== */
 .fixed-footer {
     background-color: rgba(10, 15, 25, 0.95);
@@ -192,6 +203,7 @@ main.content {
     text-align: center;
     padding: 15px 10px;
     font-size: 0.85rem;
+    margin-top: auto;
 }
 
 .fixed-footer p {
