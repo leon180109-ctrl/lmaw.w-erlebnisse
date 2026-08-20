@@ -22,6 +22,21 @@ body {
     font-family: Arial, Helvetica, sans-serif;
     color: var(--text-white);
     background-color: var(--primary-bg);
+    /* Sucht das Bild in src/ (für index.html) und direkt im selben Ordner (für Dateien in src/) */
+    background-image: url('src/backroundleon.jpeg'), url('backroundleon.jpeg');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+    background-size: cover;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--text-white);
+    background-color: var(--primary-bg);
     /* Pfad zeigt auf das Hintergrundbild im Ordner art/ */
     background-image: url('art/backroundleon.jpeg'), url('../art/backroundleon.jpeg');
     background-repeat: no-repeat;
