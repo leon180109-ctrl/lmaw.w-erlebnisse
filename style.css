@@ -1,5 +1,5 @@
 /* ==========================================
-   ELEGANTES DARK DESIGN MIT KARTEN-HINTERGRUND
+   FARBSCHEMA: BLAU, ROT & GOLD (VOLLSTÄNDIGER KONTRAST)
    ========================================== */
 
 :root {
@@ -7,7 +7,7 @@
     --accent-red: #d93838;
     --accent-gold: #ffd700;
     --white: #ffffff;
-    --card-bg: rgba(8, 13, 26, 0.88); /* Dunkler, leicht transparenter Kasten für gute Lesbarkeit */
+    --bg-card: rgba(8, 13, 26, 0.90); /* Dunkle Kartenfläche */
 }
 
 * {
@@ -16,12 +16,12 @@
     padding: 0;
 }
 
-/* HINTERGRUNDBILD (AN DEN SEITEN SICHTBAR) */
+/* HINTERGRUNDBILD AN DEN SEITEN */
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.6;
     color: var(--white);
-    background-image: url('art/leonhero.jpeg'); /* Pfad bei Bedarf anpassen */
+    background-image: url('art/leonhero.jpeg'); /* Pfad deines Hintergrundbilds */
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -29,32 +29,31 @@ body {
     padding-bottom: 60px;
 }
 
-/* --- KOPFBEREICH (KOMPAKT) --- */
-.fixed-header {
+/* KOPFBEREICH */
+.fixed-header, header {
     background-color: rgba(5, 8, 17, 0.95);
     text-align: center;
     padding: 8px 10px;
     border-bottom: 2px solid var(--accent-gold);
 }
 
-.fixed-header h1 {
+.fixed-header h1, header h1 {
     font-size: 1.3rem;
     color: var(--accent-gold);
 }
 
-.fixed-header p {
+.fixed-header p, header p {
     color: var(--white);
     font-size: 0.8rem;
-    opacity: 0.9;
 }
 
-/* --- NAVIGATION --- */
-.main-nav {
+/* NAVIGATION */
+.main-nav, nav {
     background-color: rgba(5, 8, 17, 0.95);
     border-bottom: 2px solid var(--accent-red);
 }
 
-.main-nav ul {
+.main-nav ul, nav ul {
     list-style: none;
     display: flex;
     justify-content: center;
@@ -62,8 +61,8 @@ body {
     padding: 6px 0;
 }
 
-.main-nav a, 
-.main-nav a:visited {
+.main-nav a, nav a,
+.main-nav a:visited, nav a:visited {
     color: var(--white) !important;
     text-decoration: none;
     font-size: 0.9rem;
@@ -71,164 +70,85 @@ body {
     padding: 3px 8px;
 }
 
-.main-nav a:hover,
-.main-nav a.active {
+.main-nav a:hover, nav a:hover,
+.main-nav a.active, nav a.active {
     color: var(--accent-gold) !important;
     border-bottom: 2px solid var(--accent-red);
 }
 
-/* --- HAUPTBEREICH / DUNKLE TEXT-KARTE --- */
+/* HAUPTBEREICH (CONTAINER) */
 .content, main {
     max-width: 900px;
-    margin: 25px auto;
-    padding: 25px 30px;
-    background-color: var(--card-bg); /* HIER: Dunkler Hintergrund hinter allen Texten/Tabellen */
-    border: 1px solid rgba(255, 215, 0, 0.3);
-    border-left: 4px solid var(--accent-gold);
-    border-radius: 8px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+    margin: 20px auto;
+    padding: 0 15px;
 }
 
-/* --- HERO BEREICH --- */
-.hero-section {
-    text-align: center;
-    margin-bottom: 25px;
-}
-
-.profile-img {
-    max-width: 100%;
-    max-height: 380px;
-    object-fit: cover;
+/* HERVORHEBUNG FÜR TEXTE & LISTEN (DUNKLE HINTERGRÜNDE ERZWINGEN) */
+.content h1, main h1,
+.content h2, main h2,
+.content h3, main h3 {
+    background-color: var(--bg-card);
+    color: var(--accent-gold);
+    padding: 10px 15px;
     border-radius: 6px;
-    border: 2px solid var(--accent-gold);
-    margin-bottom: 15px;
-}
-
-.hero-text h2 {
-    color: var(--accent-gold);
-    font-size: 1.3rem;
-    margin-bottom: 10px;
-}
-
-.hero-text p {
-    color: var(--white);
-    font-size: 0.95rem;
-    margin-bottom: 10px;
-}
-
-/* --- INHALTSVERZEICHNIS (TOC) --- */
-.toc {
-    margin-bottom: 25px;
-    padding-bottom: 15px;
-    border-bottom: 1px solid rgba(255, 215, 0, 0.2);
-}
-
-.toc h2 {
-    color: var(--accent-gold);
-    font-size: 1.2rem;
-    margin-bottom: 12px;
-}
-
-.toc ul {
-    list-style: none;
-}
-
-.toc li {
-    margin-bottom: 10px;
-}
-
-.toc a, 
-.toc a:visited {
-    color: var(--white) !important;
-    text-decoration: none;
-    font-size: 0.95rem;
-    display: block;
-}
-
-.toc a strong {
-    color: var(--accent-gold) !important;
-}
-
-.toc a:hover {
-    color: var(--accent-red) !important;
-}
-
-/* ==========================================
-   TEXT- UND TABELLEN-STYLING (SCHULE/INHALTE)
-   ========================================== */
-
-.content h1 {
-    font-size: 1.5rem;
-    color: var(--accent-gold);
-    margin-top: 25px;
-    margin-bottom: 12px;
-    border-bottom: 1px solid var(--accent-red);
-    padding-bottom: 5px;
-}
-
-.content h2 {
-    font-size: 1.2rem;
-    color: var(--accent-gold);
-    margin-top: 20px;
-    margin-bottom: 10px;
-}
-
-.content h3 {
-    font-size: 1rem;
-    color: var(--white);
     margin-top: 15px;
-    margin-bottom: 6px;
-}
-
-.content p {
-    margin-bottom: 14px;
-    line-height: 1.6;
-    color: var(--white);
-}
-
-.content ul {
-    margin-top: 8px;
-    margin-bottom: 18px;
-    padding-left: 20px;
-}
-
-.content li {
     margin-bottom: 8px;
-    line-height: 1.5;
-    color: var(--white);
+    border-left: 4px solid var(--accent-gold);
 }
 
-/* TABELLEN-STYLING */
-.content table {
+.content p, main p,
+.content ul, main ul,
+.content ol, main ol {
+    background-color: var(--bg-card);
+    color: var(--white);
+    padding: 12px 18px;
+    border-radius: 6px;
+    margin-bottom: 12px;
+}
+
+.content li, main li {
+    margin-left: 15px;
+    margin-bottom: 5px;
+}
+
+/* SCHUTZ FÜR TABELLEN (DUNKLER HINTERGRUND) */
+.content table, main table {
     width: 100%;
     border-collapse: collapse;
-    margin: 20px 0;
-    background-color: rgba(15, 43, 72, 0.6); /* Eigener Kontrast für Tabellen */
+    margin: 15px 0;
+    background-color: var(--bg-card) !important;
     border-radius: 6px;
     overflow: hidden;
+    border: 1px solid var(--accent-gold);
 }
 
-.content th {
+.content th, main th {
     background-color: var(--primary-blue);
     color: var(--accent-gold);
-    padding: 10px 12px;
+    padding: 10px;
     text-align: left;
-    font-size: 0.95rem;
     border-bottom: 2px solid var(--accent-gold);
 }
 
-.content td {
-    padding: 8px 12px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+.content td, main td {
+    padding: 8px 10px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
     color: var(--white);
-    font-size: 0.9rem;
+    background-color: var(--bg-card) !important;
 }
 
-.content tr:hover {
-    background-color: rgba(217, 56, 56, 0.2); /* Roter Hover-Effekt für Tabellenzeilen */
+/* LINKS IM INHALT */
+.content a, main a,
+.content a:visited, main a:visited {
+    color: var(--accent-gold) !important;
+    text-decoration: underline;
 }
 
-/* --- FIXIERTER FOOTER UNTEN --- */
+.content a:hover, main a:hover {
+    color: var(--accent-red) !important;
+}
+
+/* FOOTER */
 .fixed-footer, footer {
     position: fixed;
     bottom: 0;
@@ -242,29 +162,13 @@ body {
     z-index: 1000;
 }
 
-.fixed-footer a, 
-.fixed-footer a:visited,
-footer a,
-footer a:visited {
+.fixed-footer a, footer a,
+.fixed-footer a:visited, footer a:visited {
     color: var(--accent-gold) !important;
     text-decoration: none;
 }
 
-.fixed-footer a:hover,
-footer a:hover {
+.fixed-footer a:hover, footer a:hover {
     color: var(--white) !important;
     text-decoration: underline;
 }
-
-/* RESPONSIVE ANPASSUNG FÜR MOBILGERÄTE */
-@media (max-width: 768px) {
-    .content {
-        padding: 15px;
-        margin: 15px 10px;
-    }
-    .main-nav ul {
-        flex-wrap: wrap;
-        gap: 8px;
-    }
-}
-
