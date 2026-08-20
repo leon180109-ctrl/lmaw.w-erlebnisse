@@ -1,5 +1,5 @@
 /* ==========================================
-   KORRIGIERTES CSS FOR DUNKLES LAYOUT
+   ELEGANTES DARK DESIGN (BLAU, ROT & GOLD)
    ========================================== */
 
 * {
@@ -10,97 +10,160 @@
 }
 
 :root {
-    --bg-dark: #080d1a;       /* Dunkler Hintergrund */
+    --bg-dark: #080d1a;       /* Sehr dunkler Hintergrund */
+    --card-bg: rgba(15, 23, 42, 0.8); /* Transparente Karten-Hintergründe */
     --accent-gold: #ffd700;   /* Strahlendes Gold */
-    --accent-red: #ff3344;    /* Rot für Akzente */
-    --text-white: #ffffff;    /* Reinweiß für hohe Lesbarkeit */
+    --accent-red: #ff3344;    /* Neon-Rot */
+    --text-white: #ffffff;    /* Reinweiß für hervorragende Lesbarkeit */
 }
 
 body {
     background-color: var(--bg-dark);
     color: var(--text-white);
-    padding-bottom: 80px;     /* Platzhalter für den fixierten Footer unten */
+    padding-top: 130px;        /* Platz für fixierten Header & Navigation */
+    padding-bottom: 80px;      /* Platz für fixierten Footer */
+    min-height: 100vh;
 }
 
 /* 1. GOLDENER HEADER (Oben fixiert) */
-.header {
+header {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    padding: 20px 9%;
-    background-color: #0b1329;
-    border-bottom: 2px solid var(--accent-gold); /* Goldene Trennlinie */
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    background-color: #050811;
+    border-bottom: 2px solid var(--accent-gold);
+    text-align: center;
+    padding: 15px 10px;
     z-index: 1000;
 }
 
-.logo {
-    font-size: 28px;
-    color: var(--accent-gold); /* Logo in Gold */
-    font-weight: 700;
-    text-decoration: none;
-}
-
-.logo span {
-    color: var(--accent-red);
-}
-
-.navbar a {
-    font-size: 16px;
-    color: var(--text-white);
-    font-weight: 500;
-    margin-left: 35px;
-    text-decoration: none;
-    transition: 0.3s ease;
-}
-
-.navbar a:hover,
-.navbar a.active {
+header h1 {
     color: var(--accent-gold);
-    border-bottom: 2px solid var(--accent-red);
-    padding-bottom: 4px;
-}
-
-/* 2. UBERSICHT / TOC (Text vollständig weiß & lesbar) */
-.toc-container, .toc {
-    max-width: 1100px;
-    margin: 40px auto;
-    padding: 25px;
-    background: rgba(255, 255, 255, 0.05); /* Dezenter transparenter Kasten */
-    border-left: 4px solid var(--accent-gold);
-    border-radius: 8px;
-}
-
-.toc-container h2, .toc h2 {
-    color: var(--text-white);
     font-size: 1.8rem;
+    font-weight: 700;
+}
+
+header p {
+    color: var(--text-white);
+    font-size: 0.9rem;
+    opacity: 0.9;
+}
+
+/* 2. NAVIGATION (Unter dem Header) */
+nav {
+    position: fixed;
+    top: 75px;
+    left: 0;
+    width: 100%;
+    background-color: rgba(8, 13, 26, 0.95);
+    border-bottom: 1px solid var(--accent-red);
+    z-index: 999;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 10px 0;
+}
+
+/* Erzwingt weiße Schrift für Navigations-Links */
+nav a, nav a:visited {
+    color: var(--text-white) !important;
+    text-decoration: none;
+    font-weight: 600;
+    padding: 5px 10px;
+    transition: all 0.3s ease;
+}
+
+nav a:hover, nav a.active {
+    color: var(--accent-gold) !important;
+    border-bottom: 2px solid var(--accent-red);
+}
+
+/* 3. HAUPTBEREICH (Zentriert) */
+main {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Hero-Bereich mit verkleinertem, schön gerahmtem Foto */
+.hero-section {
+    background-color: var(--card-bg);
+    border: 1px solid rgba(255, 215, 0, 0.3);
+    border-radius: 12px;
+    padding: 25px;
+    margin-bottom: 30px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    text-align: center;
+}
+
+.hero-section img.profile-img {
+    max-width: 100%;
+    max-height: 450px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 2px solid var(--accent-gold);
     margin-bottom: 20px;
 }
 
-/* Überschreibt das Standart-Blau/Lila von Links */
-.toc-container a, .toc a,
-.toc-container a:visited, .toc a:visited {
-    color: var(--text-white) !important; /* Erzwingt weiße Schrift */
+.hero-text h2 {
+    color: var(--accent-gold);
+    margin-bottom: 15px;
+}
+
+.hero-text p {
+    color: var(--text-white);
+    line-height: 1.6;
+    margin-bottom: 10px;
+}
+
+/* 4. INHALTSVERZEICHNIS (Weiße & Goldene Links) */
+.toc {
+    background-color: var(--card-bg);
+    border-left: 4px solid var(--accent-gold);
+    border-radius: 8px;
+    padding: 25px;
+    margin-bottom: 30px;
+}
+
+.toc h2 {
+    color: var(--accent-gold);
+    margin-bottom: 15px;
+}
+
+.toc ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.toc li {
+    margin-bottom: 15px;
+}
+
+/* Erzwingt weiße Lesbarkeit für alle Links im Inhaltsverzeichnis */
+.toc a, .toc a:visited {
+    color: var(--text-white) !important;
     text-decoration: none;
-    font-size: 1.05rem;
+    font-size: 1rem;
+    line-height: 1.5;
     display: block;
-    margin-bottom: 12px;
     transition: color 0.2s ease;
 }
 
-.toc-container a strong, .toc a strong {
-    color: var(--accent-gold) !important; /* Hebt z.B. "Projekte:" in Gold hervor */
+.toc a strong {
+    color: var(--accent-gold) !important;
 }
 
-.toc-container a:hover, .toc a:hover {
-    color: var(--accent-red) !important; /* Rot beim Drüberfahren */
+.toc a:hover {
+    color: var(--accent-red) !important;
 }
 
-/* 3. FIXIERTER FOOTER (Ganz unten verankert) */
-.footer, footer {
+/* 5. FIXIERTER FOOTER (Ganz unten) */
+footer {
     position: fixed;
     bottom: 0;
     left: 0;
@@ -109,19 +172,18 @@ body {
     border-top: 2px solid var(--accent-gold);
     padding: 12px 20px;
     text-align: center;
-    z-index: 1000;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     color: var(--text-white);
+    z-index: 1000;
 }
 
-.footer a, footer a,
-.footer a:visited, footer a:visited {
-    color: var(--accent-gold) !important; /* Links im Footer in Gold */
+footer a, footer a:visited {
+    color: var(--accent-gold) !important;
     text-decoration: none;
     margin: 0 5px;
 }
 
-.footer a:hover, footer a:hover {
+footer a:hover {
     color: var(--text-white) !important;
     text-decoration: underline;
 }
