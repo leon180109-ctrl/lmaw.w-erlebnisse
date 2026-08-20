@@ -1,120 +1,209 @@
-/* Globale Einstellungen & Hintergrundbild */
-body {
+/* ==========================================================================
+   1. GLOBALE EINSTELLUNGEN & BACKGROUND
+   ========================================================================== */
+* {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
+}
+
+:root {
+    --primary-bg: #0a0f19;
+    --card-bg: rgba(15, 23, 42, 0.92);
+    --table-bg: rgba(30, 41, 59, 0.6);
+    --accent-gold: #ffcc00;
+    --text-white: #ffffff;
+    --text-muted: #f1f5f9;
+    --border-color: #334155;
+}
+
+body {
     font-family: Arial, sans-serif;
-    color: #ffffff;
-    background: url('dein-hintergrundbild.jpg') no-repeat center center fixed;
+    color: var(--text-white);
+    background: var(--primary-bg) url('dein-hintergrundbild.jpg') no-repeat center center fixed;
     background-size: cover;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
 }
 
-/* Header & Nav */
+/* ==========================================================================
+   2. HEADER & NAVIGATION (FIXED / DUNKEL OVERLAY)
+   ========================================================================== */
 .fixed-header {
     background-color: rgba(10, 15, 25, 0.95);
     text-align: center;
-    padding: 15px 0 5px 0;
+    padding: 20px 10px 10px 10px;
 }
 
 .fixed-header h1 {
-    color: #ffcc00;
-    margin: 0;
+    color: var(--accent-gold);
+    font-size: 1.8rem;
+    margin-bottom: 5px;
+}
+
+.fixed-header p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
 }
 
 .main-nav {
     background-color: rgba(10, 15, 25, 0.95);
-    border-bottom: 2px solid #ffcc00;
+    border-bottom: 2px solid var(--accent-gold);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
 .main-nav ul {
     list-style: none;
-    margin: 0;
-    padding: 10px 0;
     display: flex;
     justify-content: center;
-    gap: 20px;
+    flex-wrap: wrap;
+    gap: 15px;
+    padding: 10px;
 }
 
 .main-nav a {
-    color: #ffffff;
+    color: var(--text-white);
     text-decoration: none;
     font-weight: bold;
-    padding: 5px 10px;
+    padding: 6px 12px;
+    border-radius: 4px;
+    transition: all 0.2s ease-in-out;
 }
 
-.main-nav a.active, .main-nav a:hover {
-    color: #ffcc00;
-    border-bottom: 2px solid #ffcc00;
+.main-nav a.active, 
+.main-nav a:hover {
+    color: var(--accent-gold);
+    border-bottom: 2px solid var(--accent-gold);
 }
 
-/* Inhalt-Container: Macht den Text über dem Bild lesbar */
+/* ==========================================================================
+   3. HAUPTINHALT & KARTEN-CONTAINER (LESBARKEIT AUF BILDERN)
+   ========================================================================== */
 main.content {
     flex: 1;
-    padding: 40px 20px;
+    padding: 30px 15px;
     display: flex;
     justify-content: center;
+    align-items: flex-start;
 }
 
 .school-card {
-    background-color: rgba(15, 23, 42, 0.92); /* Dunkler, halbtransparenter Hintergrund */
-    border: 1px solid #334155;
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
     border-radius: 8px;
     padding: 30px;
-    max-width: 900px;
+    max-width: 950px;
     width: 100%;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.5);
-    backdrop-filter: blur(4px); /* Sanfter Unschärfe-Effekt */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(6px);
 }
 
-/* Typografie im Container */
-.school-card h1, .school-card h2, .school-card h3 {
-    color: #ffcc00;
+/* Typografie */
+.school-card h1 {
+    color: var(--accent-gold);
+    font-size: 1.6rem;
+    margin-bottom: 15px;
 }
 
-.school-card p, .school-card li {
-    color: #f1f5f9;
+.school-card h2 {
+    color: var(--accent-gold);
+    font-size: 1.3rem;
+    margin: 20px 0 10px 0;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 5px;
+}
+
+.school-card h3 {
+    color: var(--text-white);
+    font-size: 1.1rem;
+    margin: 15px 0 8px 0;
+}
+
+.school-card p, 
+.school-card li {
+    color: var(--text-muted);
     line-height: 1.6;
+    font-size: 0.95rem;
 }
 
-/* Tabellen-Styling */
+.school-card ul, 
+.school-card ol {
+    margin-left: 20px;
+    margin-bottom: 15px;
+}
+
+.school-card li {
+    margin-bottom: 6px;
+}
+
+.info-block p {
+    margin-bottom: 5px;
+}
+
+.divider {
+    border: 0;
+    height: 1px;
+    background: var(--border-color);
+    margin: 25px 0;
+}
+
+/* ==========================================================================
+   4. TABELLEN (DESIGNT FÜR SCHULE & FARBMODELLE)
+   ========================================================================== */
 .school-card table {
     width: 100%;
     border-collapse: collapse;
     margin: 20px 0;
-    background-color: rgba(30, 41, 59, 0.6);
-}
-
-.school-card th, .school-card td {
-    border: 1px solid #475569;
-    padding: 10px;
-    text-align: left;
+    background-color: var(--table-bg);
+    border: 1px solid var(--accent-gold);
+    border-radius: 6px;
+    overflow: hidden;
 }
 
 .school-card th {
-    background-color: rgba(15, 23, 42, 0.9);
-    color: #ffcc00;
+    background-color: rgba(10, 15, 25, 0.9);
+    color: var(--accent-gold);
+    padding: 12px;
+    text-align: left;
+    font-size: 0.9rem;
+    border-bottom: 2px solid var(--accent-gold);
 }
 
-/* Trennlinie */
-.divider {
-    border: 0;
-    height: 1px;
-    background: #334155;
-    margin: 25px 0;
+.school-card td {
+    padding: 10px 12px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--text-white);
+    font-size: 0.85rem;
 }
 
-/* Footer */
+.school-card tr:hover {
+    background-color: rgba(255, 204, 0, 0.1);
+}
+
+/* ==========================================================================
+   5. FOOTER (FIXED AM BODEN / EINHEITLICHES DESIGN)
+   ========================================================================== */
 .fixed-footer {
     background-color: rgba(10, 15, 25, 0.95);
-    border-top: 1px solid #ffcc00;
+    border-top: 1px solid var(--accent-gold);
     text-align: center;
-    padding: 15px 0;
-    font-size: 0.9em;
+    padding: 15px 10px;
+    font-size: 0.85rem;
+}
+
+.fixed-footer p {
+    color: var(--text-muted);
 }
 
 .fixed-footer a {
-    color: #ffcc00;
+    color: var(--accent-gold);
     text-decoration: none;
+    margin: 0 5px;
+}
+
+.fixed-footer a:hover {
+    text-decoration: underline;
 }
