@@ -1,197 +1,59 @@
 /* ==========================================
-   FARBSCHEMA: BLAU, ROT & GOLD (UPDATED)
+   EXTRA KOMPAKTER HEADER & FOOTER
    ========================================== */
-:root {
-    --primary-blue: #0f2b48;    /* Tiefes Blau */
-    --accent-red: #d93838;      /* Elegantes Rot */
-    --accent-gold: #d4af37;     /* Gold */
-    --light-gold: #fdf8eb;      /* Helles Gold für Flächen */
-    --text-dark: #222222;
-    --white: #ffffff;
-}
 
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
-
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    line-height: 1.6;
-    color: var(--white);
-    background-image: url('dein-altes-hintergrundbild.jpg');
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-    background-repeat: no-repeat;
-    padding-bottom: 70px; /* Abstand für den fixierten Footer */
-}
-
-/* --- GOLDENER HEADER --- */
+/* 1. SEHR KOMPAKTER HEADER */
 .fixed-header {
-    background-color: var(--accent-gold);
-    color: var(--primary-blue);
-    text-align: center;
-    padding: 20px 10px;
-    border-bottom: 3px solid var(--accent-red);
+    background-color: transparent; /* Verhindert gelben Block, behält dunklen Hintergrund */
+    padding: 6px 10px !important;
 }
 
 .fixed-header h1 {
-    font-size: 2rem;
-    margin-bottom: 5px;
-    color: var(--primary-blue);
+    font-size: 1.1rem !important; /* Sehr dezent */
+    color: #ffd700;
+    margin: 0;
 }
 
 .fixed-header p {
-    color: var(--primary-blue);
-    font-size: 0.95rem;
-    font-weight: 600;
+    font-size: 0.75rem !important;
+    color: #ffffff;
+    opacity: 0.8;
 }
 
-/* --- NAVIGATION --- */
+/* 2. SCHLANKERE NAVIGATION */
 .main-nav {
-    background-color: var(--primary-blue);
-    border-bottom: 2px solid var(--accent-gold);
+    border-top: 1px solid rgba(255, 215, 0, 0.3);
+    border-bottom: 1px solid #d93838;
 }
 
 .main-nav ul {
-    list-style: none;
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 10px;
-    padding: 10px;
+    padding: 4px 0 !important;
+    gap: 15px !important;
 }
 
 .main-nav a {
-    color: var(--white);
-    text-decoration: none;
-    font-weight: 600;
-    padding: 8px 16px;
-    border-radius: 4px;
-    transition: all 0.3s ease;
+    font-size: 0.85rem !important;
+    padding: 2px 8px !important;
 }
 
-.main-nav a:hover,
-.main-nav a.active {
-    background-color: var(--accent-red);
-    color: var(--white);
+/* 3. BILD-SKALIERUNG BEGRENZEN */
+.hero-section img,
+.content img {
+    max-height: 380px !important; /* Bild nimmt nicht mehr den ganzen Screen ein */
+    width: auto !important;
+    object-fit: contain;
+    margin: 0 auto;
+    display: block;
 }
 
-/* --- HAUPTBEREICH (CONTAINER) --- */
-.content {
-    max-width: 950px;
-    margin: 30px auto;
-    padding: 0 20px;
-}
-
-/* --- HERO BEREICH --- */
-.hero-section {
-    background-color: rgba(15, 43, 72, 0.85); /* Dunkelblauer transparenter Hintergrund für gute Lesbarkeit */
-    border-left: 6px solid var(--accent-red);
-    border-radius: 8px;
-    padding: 25px;
-    margin-bottom: 25px;
-    display: flex;
-    gap: 20px;
-    align-items: center;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-}
-
-.profile-img {
-    width: 180px;
-    height: 180px;
-    object-fit: cover;
-    border-radius: 50%;
-    border: 3px solid var(--accent-gold);
-    flex-shrink: 0;
-}
-
-.hero-text h2 {
-    color: var(--accent-gold);
-    margin-bottom: 10px;
-    border-bottom: 2px solid var(--accent-gold);
-    padding-bottom: 5px;
-}
-
-.hero-text p {
-    color: var(--white);
-    margin-bottom: 10px;
-}
-
-/* --- INHALTSVERZEICHNIS (TOC MIT WEISSEM TEXT) --- */
-.toc {
-    background-color: rgba(15, 43, 72, 0.85);
-    border-top: 4px solid var(--accent-gold);
-    border-radius: 8px;
-    padding: 25px;
-    margin-bottom: 30px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-}
-
-.toc h2 {
-    color: var(--accent-gold);
-    margin-bottom: 15px;
-}
-
-.toc ul {
-    list-style: none;
-    padding-left: 0;
-}
-
-.toc li {
-    margin-bottom: 12px;
-    padding-left: 15px;
-    border-left: 3px solid var(--accent-red);
-}
-
-/* Weiße Text- und Linkfarben erzwingen */
-.toc a, 
-.toc a:visited {
-    color: var(--white) !important;
-    text-decoration: none;
-    transition: color 0.2s ease;
-}
-
-.toc a strong {
-    color: var(--accent-gold) !important;
-}
-
-.toc a:hover {
-    color: var(--accent-red) !important;
-}
-
-/* --- FIXIERTER FOOTER UNTEN --- */
+/* 4. EXTREM SCHMALER FOOTER */
 .fixed-footer {
     position: fixed;
     bottom: 0;
     left: 0;
     width: 100%;
-    background-color: var(--primary-blue);
-    color: var(--white);
-    text-align: center;
-    padding: 12px 10px;
-    border-top: 3px solid var(--accent-gold);
-    font-size: 0.85rem;
-    z-index: 1000;
-}
-
-.fixed-footer a,
-.fixed-footer a:visited {
-    color: var(--accent-gold) !important;
-    text-decoration: none;
-}
-
-.fixed-footer a:hover {
-    color: var(--white) !important;
-    text-decoration: underline;
-}
-
-/* RESPONSIVE ANPASSUNG FÜR MOBILGERÄTE */
-@media (max-width: 768px) {
-    .hero-section {
-        flex-direction: column;
-        text-align: center;
-    }
+    padding: 4px 10px !important;
+    font-size: 0.70rem !important;
+    background-color: #080d1a;
+    border-top: 1px solid #ffd700;
 }
