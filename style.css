@@ -1,5 +1,5 @@
 /* ==========================================
-   ELEGANTES DARK DESIGN (BLAU, ROT & GOLD)
+   ELEGANTES DARK DESIGN MIT KARTEN-HINTERGRUND
    ========================================== */
 
 :root {
@@ -7,6 +7,7 @@
     --accent-red: #d93838;
     --accent-gold: #ffd700;
     --white: #ffffff;
+    --card-bg: rgba(8, 13, 26, 0.88); /* Dunkler, leicht transparenter Kasten für gute Lesbarkeit */
 }
 
 * {
@@ -25,7 +26,7 @@ body {
     background-position: center;
     background-attachment: fixed;
     background-repeat: no-repeat;
-    padding-bottom: 50px; /* Platz für fixierten Footer */
+    padding-bottom: 60px;
 }
 
 /* --- KOPFBEREICH (KOMPAKT) --- */
@@ -76,21 +77,22 @@ body {
     border-bottom: 2px solid var(--accent-red);
 }
 
-/* --- HAUPTBEREICH (CONTENT CONTAINER) --- */
+/* --- HAUPTBEREICH / DUNKLE TEXT-KARTE --- */
 .content, main {
-    max-width: 850px;
+    max-width: 900px;
     margin: 25px auto;
-    padding: 0 20px;
+    padding: 25px 30px;
+    background-color: var(--card-bg); /* HIER: Dunkler Hintergrund hinter allen Texten/Tabellen */
+    border: 1px solid rgba(255, 215, 0, 0.3);
+    border-left: 4px solid var(--accent-gold);
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
 }
 
 /* --- HERO BEREICH --- */
 .hero-section {
-    background-color: rgba(8, 13, 26, 0.85);
-    border: 1px solid var(--accent-gold);
-    border-radius: 8px;
-    padding: 20px;
-    margin-bottom: 25px;
     text-align: center;
+    margin-bottom: 25px;
 }
 
 .profile-img {
@@ -116,11 +118,9 @@ body {
 
 /* --- INHALTSVERZEICHNIS (TOC) --- */
 .toc {
-    background-color: rgba(8, 13, 26, 0.85);
-    border-left: 4px solid var(--accent-gold);
-    border-radius: 8px;
-    padding: 20px;
     margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid rgba(255, 215, 0, 0.2);
 }
 
 .toc h2 {
@@ -154,7 +154,7 @@ body {
 }
 
 /* ==========================================
-   ABSTÄNDE FÜR DIE SCHUL-SEITE (INHALTE)
+   TEXT- UND TABELLEN-STYLING (SCHULE/INHALTE)
    ========================================== */
 
 .content h1 {
@@ -162,6 +162,8 @@ body {
     color: var(--accent-gold);
     margin-top: 25px;
     margin-bottom: 12px;
+    border-bottom: 1px solid var(--accent-red);
+    padding-bottom: 5px;
 }
 
 .content h2 {
@@ -196,7 +198,37 @@ body {
     color: var(--white);
 }
 
-/* --- FIXIERTER FOOTER UNTEN (KOMPAKT) --- */
+/* TABELLEN-STYLING */
+.content table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    background-color: rgba(15, 43, 72, 0.6); /* Eigener Kontrast für Tabellen */
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.content th {
+    background-color: var(--primary-blue);
+    color: var(--accent-gold);
+    padding: 10px 12px;
+    text-align: left;
+    font-size: 0.95rem;
+    border-bottom: 2px solid var(--accent-gold);
+}
+
+.content td {
+    padding: 8px 12px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--white);
+    font-size: 0.9rem;
+}
+
+.content tr:hover {
+    background-color: rgba(217, 56, 56, 0.2); /* Roter Hover-Effekt für Tabellenzeilen */
+}
+
+/* --- FIXIERTER FOOTER UNTEN --- */
 .fixed-footer, footer {
     position: fixed;
     bottom: 0;
@@ -227,10 +259,12 @@ footer a:hover {
 /* RESPONSIVE ANPASSUNG FÜR MOBILGERÄTE */
 @media (max-width: 768px) {
     .content {
-        padding: 0 10px;
+        padding: 15px;
+        margin: 15px 10px;
     }
     .main-nav ul {
         flex-wrap: wrap;
         gap: 8px;
     }
 }
+
