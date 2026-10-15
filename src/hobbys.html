@@ -3,42 +3,83 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hobbys & Aktivitäten - Leon Wypych</title>
+    <title>Hobbys & Aktivitäten - Leon Wyppych</title>
     <!-- Verweist ordnungsgemäß einen Ordner nach oben zur style.css -->
     <link rel="stylesheet" href="../style.css">
 </head>
 <body>
 
     <header class="fixed-header">
-        <h1>Leon Wypych</h1>
-        <p>Willkommen auf meinem Portfolio</p>
+        <div class="header-container">
+            <h1>Leon Wyppych</h1>
+            <p class="subtitle">2026 / 2027 — Portfolio, Projekte &amp; Erfahrungen</p>
+        </div>
+        <nav class="main-nav">
+            <ul>
+                <li><a href="../index.html">&Uuml;ber mich</a></li>
+                <li><a href="projekte.html">Projekte</a></li>
+                <li><a href="schule.html">Schule</a></li>
+                <li><a href="praktikum.html">Praktikum</a></li>
+                <li><a href="hobbys.html" class="active">Hobbys</a></li>
+                <li><a href="technik.html">Technik &amp; Equipment</a></li>
+            </ul>
+        </nav>
     </header>
-
-    <nav class="main-nav">
-        <ul>
-            <li><a href="../index.html">Über mich</a></li>
-            <li><a href="projekte.html">Meine Projekte</a></li>
-            <li><a href="praktikum.html">Praktikum & Bewerbung</a></li>
-            <li><a href="hobbys.html" class="active">Hobbys & Aktivitäten</a></li>
-            <li><a href="schule.html">Schulische Arbeiten</a></li>
-        </ul>
-    </nav>
 
     <main class="content">
         <div class="school-card">
-            <h1>Hobbys & Weitere Aktivitäten</h1>
+            <h1>Hobbys &amp; Weitere Aktivit&auml;ten</h1>
             <p>Ein Einblick in meine Freizeitbeschäftigungen und Interessen außerhalb der Schule.</p>
 
-            <h2>Fotografie & Videografie</h2>
-            <p>In meiner Freizeit beschäftige ich mich intensiv mit Kameras, Bildkomposition und Nachbearbeitung.</p>
+            <h2>Fotografie &amp; Videografie</h2>
+            <p>In meiner Freizeit beschäftige ich mich intensiv mit Kameras, Bildkomposition und der digitalen Nachbearbeitung. Dabei reizt mich besonders die Verbindung aus dokumentarischer Straßenfotografie, urbanen Kultur-Events und dem gezielten Spiel mit Licht, Schatten und Verschlusszeiten, um Stimmungen perfekt einzufangen.</p>
 
-            <h2>Medien & Design</h2>
-            <p>Erstellen von Grafiken, Bearbeiten von Bildern in Lightroom und Experimentieren mit neuen Gestaltungsansätzen.</p>
+            <!-- Event-Fotografie Bild -->
+            <div class="image-container" style="margin: 20px 0;">
+                <img src="../art/Thaifest Kiel Halle 400.jpeg" alt="Thaifest Kiel Halle 400 - Aufnahmen von Leon Wyppych" style="max-width: 100%; height: auto; border-radius: 8px; display: block;">
+                <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 8px; text-align: center;">Eindrücke vom Thaifest in der Halle 400 in Kiel</p>
+            </div>
+
+            <p>Solche Veranstaltungen bieten ideale Bedingungen, um den Umgang mit unterschiedlichen Lichtverhältnissen – von natürlichen Lichtquellen bis hin zu dynamischen Bühnenbeleuchtungen – praktisch zu erproben und Momente authentisch festzuhalten.</p>
+
+            <hr class="divider">
+
+            <h2>Sportfotografie &amp; Fußball</h2>
+            <p>Ein großer Schwerpunkt in meinen Hobbys ist die Sportfotografie bei Fußballspielen. Bei schnellen Bewegungen von Spielern oder Umwelt-Bewegungen ist die richtige Wahl der Verschlusszeit entscheidend:</p>
+            <ul>
+                <li><strong>1/8000s bis 1/1000s:</strong> Kurze Verschlusszeiten frieren das Bewegungsverhalten von Menschen und dem Ball perfekt und scharf ein – ideal für dynamische Situationen auf dem Fußballplatz.</li>
+                <li><strong>Licht &amp; Schatten:</strong> Hartes Licht erzeugt starke Kontraste und klare Schatten, die der Aufnahme Tiefe und Volumen verleihen. Schatten sind hier kein Fehler, sondern ein wichtiges Werkzeug für emotionale Effekte.</li>
+            </ul>
+
+            <!-- Galerie der Sportfotos -->
+            <div class="image-container" style="margin: 25px 0;">
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px;">
+                    <div>
+                        <img src="../art/_DSC2466.JPG" alt="Fußball Sportaufnahme _DSC2466" style="width: 100%; height: auto; border-radius: 8px; display: block; border: 1px solid var(--border-color);">
+                    </div>
+                    <div>
+                        <img src="../art/_DSC2467.JPG" alt="Fußball Sportaufnahme _DSC2467" style="width: 100%; height: auto; border-radius: 8px; display: block; border: 1px solid var(--border-color);">
+                    </div>
+                    <div>
+                        <img src="../art/_DSC2472.JPG" alt="Fußball Sportaufnahme _DSC2472" style="width: 100%; height: auto; border-radius: 8px; display: block; border: 1px solid var(--border-color);">
+                    </div>
+                </div>
+                <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 10px; text-align: center;">Sportaufnahmen beim Fußball mit eingefrorenen Bewegungsabläufen (_DSC2466, _DSC2467, _DSC2472)</p>
+            </div>
+
+            <h2>Medien &amp; Design</h2>
+            <p>Neben der reinen Aufnahme widme ich mich dem Erstellen von Grafiken, der Bildbearbeitung in Adobe Lightroom &amp; Photoshop sowie dem Experimentieren mit neuen visuellen Gestaltungsansätzen und modernen Medientechniken.</p>
+
+            <hr class="divider">
+            <p><a href="../index.html">&larr; Zur&uuml;ck zur Startseite</a></p>
         </div>
     </main>
 
     <footer class="fixed-footer">
-        <p>&copy; 2026 Leon Wypych | <a href="impressum.html">Impressum</a> | <a href="datenschutz.html">Datenschutzerklärung</a></p>
+        <p>&copy; 2026/2027 - Leon Wyppych &mdash; 
+            <a href="impressum.html">Impressum</a> | 
+            <a href="datenschutz.html">Datenschutzerklärung</a>
+        </p>
     </footer>
 
 </body>
