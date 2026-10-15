@@ -1,7 +1,7 @@
 /* ==========================================================================
    1. RESET & GLOBALE EINSTELLUNGEN
    ========================================================================== */
-* {
+*, *::before, *::after {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
@@ -22,23 +22,8 @@ body {
     font-family: Arial, Helvetica, sans-serif;
     color: var(--text-white);
     background-color: var(--primary-bg);
-    /* Sucht das Bild in src/ (für index.html) und direkt im selben Ordner (für Dateien in src/) */
-    background-image: url('src/backroundleon.jpeg'), url('backroundleon.jpeg');
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-attachment: fixed;
-    background-size: cover;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-}
-
-body {
-    font-family: Arial, Helvetica, sans-serif;
-    color: var(--text-white);
-    background-color: var(--primary-bg);
-    /* Pfad zeigt auf das Hintergrundbild im Ordner art/ */
-    background-image: url('art/backroundleon.jpeg'), url('../art/backroundleon.jpeg');
+    /* Pfad zeigt auf das Hintergrundbild im Ordner art/ oder alternativ im Root */
+    background-image: url('art/backroundleon.jpeg'), url('../art/backroundleon.jpeg'), url('backroundleon.jpeg');
     background-repeat: no-repeat;
     background-position: center center;
     background-attachment: fixed;
@@ -58,17 +43,16 @@ body {
     border-bottom: 1px solid var(--border-color);
 }
 
-.fixed-header h1 {
+.header-container h1 {
     color: var(--accent-gold);
-    font-size: 2rem;
+    font-size: 2.2rem;
     margin-bottom: 5px;
-    display: block;
 }
 
+.fixed-header .subtitle,
 .fixed-header p {
     color: var(--text-muted);
     font-size: 1rem;
-    display: block;
 }
 
 .main-nav {
@@ -101,37 +85,233 @@ body {
 .main-nav a:hover {
     color: var(--accent-gold);
     border-bottom: 2px solid var(--accent-gold);
+    background-color: rgba(255, 204, 0, 0.05);
 }
 
 /* ==========================================================================
-   3. INHALT-CONTAINER
+   3. INHALT-CONTAINER & NEUE PORTFOLIO-SEKTIONEN
    ========================================================================== */
 main.content {
     flex: 1;
-    padding: 40px 20px;
+    padding: 45px 20px;
     display: flex;
-    justify-content: center;
-    align-items: flex-start;
+    flex-direction: column;
+    align-items: center;
+    gap: 35px;
+    max-width: 1100px;
+    margin: 0 auto;
+    width: 100%;
 }
 
+/* Hero Section (Startbereich mit Profilbild & Text nebeneinander) */
+.hero-section {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 40px;
+    width: 100%;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(6px);
+}
+
+.hero-grid {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.hero-text {
+    flex: 1;
+    min-width: 280px;
+}
+
+.hero-text h2 {
+    color: var(--accent-gold);
+    font-size: 2rem;
+    margin-bottom: 15px;
+}
+
+.hero-text .lead {
+    color: var(--text-muted);
+    font-size: 1.05rem;
+    line-height: 1.7;
+    margin-bottom: 25px;
+}
+
+/* Quick Tags unter dem Hero-Text */
+.quick-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.quick-tags span {
+    background-color: rgba(255, 204, 0, 0.1);
+    color: var(--accent-gold);
+    border: 1px solid rgba(255, 204, 0, 0.3);
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: bold;
+}
+
+.hero-image {
+    flex: 0 0 300px;
+    max-width: 100%;
+}
+
+.hero-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    border: 2px solid var(--accent-gold);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+    display: block;
+}
+
+/* Grid-Section für Schwerpunkte (Bento / Cards) */
+.grid-section {
+    width: 100%;
+}
+
+.grid-section h3, 
+.preview-section h3 {
+    color: var(--accent-gold);
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 8px;
+}
+
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+    width: 100%;
+}
+
+.info-card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    padding: 25px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(6px);
+    transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.info-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--accent-gold);
+}
+
+.info-card h4 {
+    color: var(--accent-gold);
+    font-size: 1.15rem;
+    margin-bottom: 12px;
+}
+
+.info-card p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+/* Preview Sektionen (Unterseiten-Teaser) */
+.preview-section {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.preview-card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    padding: 30px;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(6px);
+    flex-wrap: wrap;
+}
+
+.preview-card.reverse {
+    flex-direction: row-reverse;
+}
+
+.preview-text {
+    flex: 1;
+    min-width: 280px;
+}
+
+.preview-text h3 {
+    border: none;
+    padding: 0;
+    margin-bottom: 10px;
+}
+
+.preview-text p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.preview-img {
+    flex: 0 0 350px;
+    max-width: 100%;
+}
+
+.preview-img img {
+    width: 100%;
+    height: auto;
+    border-radius: 6px;
+    border: 1px solid var(--border-color);
+    display: block;
+}
+
+/* Modernes Button-Styling für Aktionen */
+.action-btn {
+    display: inline-block;
+    background-color: rgba(255, 204, 0, 0.1);
+    color: var(--accent-gold);
+    border: 1px solid var(--accent-gold);
+    padding: 10px 18px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 0.95rem;
+    transition: all 0.2s ease;
+}
+
+.action-btn:hover {
+    background-color: var(--accent-gold);
+    color: var(--primary-bg);
+    box-shadow: 0 4px 12px rgba(255, 204, 0, 0.3);
+}
+
+/* ==========================================================================
+   4. KLASSISCHE SCHOOL-CARD (FÜR UNTERSEITEN WIE SCHULE, PRAKTIKUM ETC.)
+   ========================================================================== */
 .school-card {
     background-color: var(--card-bg);
     border: 1px solid var(--border-color);
-    border-radius: 8px;
+    border-radius: 10px;
     padding: 35px;
-    max-width: 900px;
+    max-width: 1000px;
     width: 100%;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.7);
     backdrop-filter: blur(6px);
-    display: block;
 }
 
 .school-card h1 {
     color: var(--accent-gold);
     font-size: 1.8rem;
     margin-bottom: 15px;
-    display: block;
-    width: 100%;
 }
 
 .school-card h2 {
@@ -140,8 +320,6 @@ main.content {
     margin: 25px 0 10px 0;
     border-bottom: 1px solid var(--border-color);
     padding-bottom: 5px;
-    display: block;
-    width: 100%;
 }
 
 .school-card p {
@@ -149,8 +327,6 @@ main.content {
     line-height: 1.6;
     font-size: 1rem;
     margin-bottom: 15px;
-    display: block;
-    width: 100%;
 }
 
 .school-card ul, 
@@ -191,7 +367,7 @@ main.content {
 }
 
 /* ==========================================================================
-   4. TABELLEN (Z. B. FÜR PRAKTIKUM & SCHULE)
+   5. TABELLEN (Z. B. FÜR PRAKTIKUM & SCHULE)
    ========================================================================== */
 .school-card table {
     width: 100%;
@@ -224,7 +400,7 @@ main.content {
 }
 
 /* ==========================================================================
-   5. FOOTER
+   6. FOOTER
    ========================================================================== */
 .fixed-footer {
     background-color: rgba(10, 15, 25, 0.95);
