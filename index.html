@@ -1,76 +1,100 @@
+
 <!DOCTYPE html>
 <html lang="de">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Über mich - Leon Wyppych</title>
+    <title>Leon Wyppych — Portfolio, Projekte & Medientechnik</title>
+    <!-- Open Graph Meta-Tags für perfekte Vorschauen beim Teilen -->
+    <meta property="og:title" content="Leon Wyppych - Portfolio 2026/2027">
+    <meta property="og:description" content="Portfolio für Fotografie, Design, Medientechnik und IT-Sicherheit aus Kiel.">
+    <meta property="og:image" content="art/leonhero.jpeg">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <header class="fixed-header">
-        <h1>Leon Wyppych</h1>
-        <p>2026 / 2027 - Portfolio, Projekte &amp; Erfahrungen</p>
+        <div class="header-container">
+            <h1>Leon Wyppych</h1>
+            <p class="subtitle">2026 / 2027 — Portfolio, Projekte &amp; Erfahrungen</p>
+        </div>
+        <nav class="main-nav">
+            <ul>
+                <li><a href="index.html" class="active">&Uuml;ber mich</a></li>
+                <li><a href="src/projekte.html">Projekte</a></li>
+                <li><a href="src/schule.html">Schule</a></li>
+                <li><a href="src/praktikum.html">Praktikum</a></li>
+                <li><a href="src/hobbys.html">Hobbys</a></li>
+                <li><a href="src/technik.html">Technik &amp; Equipment</a></li>
+            </ul>
+        </nav>
     </header>
 
-    <nav class="main-nav">
-        <ul>
-            <li><a href="index.html" class="active">&Uuml;ber mich</a></li>
-            <li><a href="src/projekte.html">Projekte</a></li>
-            <li><a href="src/schule.html">Schule</a></li>
-            <li><a href="src/praktikum.html">Praktikum</a></li>
-            <li><a href="src/hobbys.html">Hobbys</a></li>
-            <li><a href="src/technik.html">Technik &amp; Equipment</a></li>
-        </ul>
-    </nav>
-
     <main class="content">
-        <div class="school-card">
-            
-            <section class="about-section">
-                <h2>&Uuml;ber mich</h2>
-                <p>Hallo! Ich bin Leon Wyppych aus Kiel. Auf dieser Website pr&auml;sentiere ich meine Arbeiten aus den Bereichen Fotografie, Design und Medientechnik sowie Einblicke in meine schulischen Projekte, Praktika und mein technisches Equipment.</p>
-                
-                <div class="image-container" style="margin: 20px 0;">
-                    <img src="art/leonhero.jpeg" alt="Foto von Leon Wyppych" style="max-width: 100%; height: auto; border-radius: 8px; display: block;">
+        <!-- Hero Section: Sofortiger Fokus auf Person & Kernkompetenz -->
+        <section class="hero-section">
+            <div class="hero-grid">
+                <div class="hero-text">
+                    <h2>Moin, ich bin Leon.</h2>
+                    <p class="lead">Ich komme aus Kiel und pr&auml;sentiere auf diesem Portfolio meine Arbeiten aus den Bereichen Fotografie, Design und Medientechnik sowie Einblicke in schulische Projekte, Praktika und professionelles Equipment.</p>
+                    
+                    <div class="quick-tags">
+                        <span>Fotografie &amp; Video</span>
+                        <span>Medientechnik</span>
+                        <span>Systemarchitektur</span>
+                        <span>IT-Sicherheit</span>
+                    </div>
                 </div>
-
-                <h3>Meine Schwerpunkte</h3>
-                <ul>
-                    <li><strong>Fotografie &amp; Video:</strong> Produktfotografie, Videoproduktion und Bildbearbeitung mit Lightroom &amp; Photoshop</li>
-                    <li><strong>Medientechnik:</strong> Systemarchitektur, Signalfluss, Farbmodelle und IT-Sicherheit</li>
-                    <li><strong>Technik &amp; Equipment:</strong> Professionelle Kamerasysteme, Drohnen, Feldmonitore und mobile Workstations</li>
-                    <li><strong>Praxis &amp; Schule:</strong> Kompendium Medientechnik (Klasse 12) und Praktikumserfahrungen</li>
-                </ul>
-
-                <hr class="divider" style="margin: 25px 0;">
-
-                <h3>Medientechnik 12. Klasse &ndash; Vorschau</h3>
-                <p>Ein Einblick in mein Kompendium zur Medientechnik:</p>
-                
-                <div class="image-container" style="margin: 20px 0;">
-                    <img src="art/medienziele.jpeg" alt="Medientechnik 12. Klasse System&uuml;berblick" style="max-width: 100%; height: auto; border-radius: 8px; display: block;">
+                <div class="hero-image">
+                    <img src="art/leonhero.jpeg" alt="Foto von Leon Wyppych">
                 </div>
+            </div>
+        </section>
 
-                <p style="margin-top: 15px;">
-                    <a href="src/schule.html#bereich-2-1" class="highlight-link" style="color: #00d2ff; text-decoration: underline; font-weight: bold;">Zum vollst&auml;ndigen Medientechnik-Kompendium &rarr;</a>
-                </p>
+        <!-- Schwerpunkte im modernen Bento-Grid / Card-Layout -->
+        <section class="grid-section">
+            <h3>Meine Schwerpunkte</h3>
+            <div class="cards-grid">
+                <div class="info-card">
+                    <h4>📸 Fotografie &amp; Video</h4>
+                    <p>Produktfotografie, Videoproduktion und professionelle Bildbearbeitung mit Adobe Lightroom &amp; Photoshop.</p>
+                </div>
+                <div class="info-card">
+                    <h4>⚙️ Medientechnik</h4>
+                    <p>Systemarchitektur, Signalfluss, professionelle Farbmodelle und Grundlagen der IT-Sicherheit.</p>
+                </div>
+                <div class="info-card">
+                    <h4>🎬 Technik &amp; Equipment</h4>
+                    <p>Einsatz von modernen Kamerasystemen, Drohnen, Feldmonitoren und leistungsstarken mobilen Workstations.</p>
+                </div>
+            </div>
+        </section>
 
-                <hr class="divider" style="margin: 25px 0;">
+        <!-- Preview Sektionen mit direktem visuellem Bezug -->
+        <section class="preview-section">
+            <div class="preview-card">
+                <div class="preview-text">
+                    <h3>Medientechnik 12. Klasse &ndash; Kompendium</h3>
+                    <p>Ein detaillierter Einblick in System&uuml;bersichten, Signalwege und technische Dokumentationen aus der schulischen Praxis.</p>
+                    <a href="src/schule.html#bereich-2-1" class="action-btn">Zum vollst&auml;ndigen Kompendium &rarr;</a>
+                </div>
+                <div class="preview-img">
+                    <img src="art/medienziele.jpeg" alt="Medientechnik 12. Klasse System&uuml;berblick">
+                </div>
+            </div>
 
-                <h3>Technik &amp; Equipment &ndash; Neu</h3>
-                <p>Entdecke die technische Ausr&uuml;stung und Systeme hinter meinen Medienprojekten:</p>
-
-                <p style="margin-top: 15px;">
-                    <a href="src/technik.html" class="highlight-link" style="color: #00d2ff; text-decoration: underline; font-weight: bold;">Zur Technik- &amp; Equipment-&Uuml;bersicht &rarr;</a>
-                </p>
-            </section>
-
-        </div>
+            <div class="preview-card reverse">
+                <div class="preview-text">
+                    <h3>Technik &amp; Equipment &ndash; Neu</h3>
+                    <p>Entdecke die Hardwarespezifikationen, Kameras und Tools, die hinter meinen Medienprojekten stehen.</p>
+                    <a href="src/technik.html" class="action-btn">Zur Technik-&Uuml;bersicht &rarr;</a>
+                </div>
+            </div>
+        </section>
     </main>
 
     <footer class="fixed-footer">
-        <p>&copy; 2026/2027 - Leon Wyppych - 
+        <p>&copy; 2026/2027 - Leon Wyppych &mdash; 
             <a href="src/impressum.html">Impressum</a> | 
             <a href="src/datenschutz.html">Datenschutz</a>
         </p>
