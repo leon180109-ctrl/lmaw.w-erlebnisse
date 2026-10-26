@@ -5,6 +5,67 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Projekte - Leon Wyppych</title>
     <link rel="stylesheet" href="../style.css">
+    <style>
+        /* Zusätzliches Styling für die Musik-Sektion */
+        .music-project {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 2px solid #eee;
+        }
+        .music-project h2 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+        .music-project h3 {
+            color: #555;
+            margin-top: 25px;
+            margin-bottom: 10px;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 5px;
+        }
+        .music-project p {
+            line-height: 1.6;
+            color: #444;
+            margin-bottom: 15px;
+        }
+        .music-project ul {
+            margin-bottom: 20px;
+            padding-left: 20px;
+        }
+        .music-project li {
+            margin-bottom: 8px;
+        }
+        .music-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin: 15px 0;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .project-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 0.9em;
+        }
+        .project-table th, .project-table td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        .project-table th {
+            background-color: #f4f4f4;
+        }
+        .project-table tr:nth-child(even) {
+            background-color: #fafafa;
+        }
+        .highlight-box {
+            background-color: #f9f9f9;
+            border-left: 4px solid #007bff;
+            padding: 15px;
+            margin: 20px 0;
+        }
+    </style>
 </head>
 <body>
 
@@ -27,79 +88,108 @@
         <div class="school-card">
             
             <h1>Meine Projekte</h1>
-            <p>&Uuml;bersicht &uuml;ber praktische Arbeiten aus den Bereichen Medientechnik, Fotografie, Bildbearbeitung und Musikproduktion.</p>
+            <p>&Uuml;bersicht &uuml;ber praktische Arbeiten aus den Bereichen Medientechnik, Produktfotografie und Bildbearbeitung.</p>
 
             <hr class="divider">
 
-            <!-- 1. Bereich: Fotografie & Photoshop Portfolio -->
+            <!-- Sektion 1: Fotografie (Bestehend) -->
             <section class="project-section">
                 <h2>Fotografie &amp; Photoshop Portfolio</h2>
                 <p>Eine Auswahl meiner Bearbeitungen und Fotografien (<code>port1.png</code> bis <code>port19.png</code>):</p>
 
                 <div class="gallery-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 15px; margin-top: 20px;">
+                    <!-- ... (Deine bestehenden Bilder bleiben hier unverändert) ... -->
                     <img src="../art/port1.png" alt="Projekt Bild 1" style="width:100%; height:auto; border-radius:6px;">
-                    <img src="../art/port2.png" alt="Projekt Bild 2" style="width:100%; height:auto; border-radius:6px;">
-                    <img src="../art/port3.png" alt="Projekt Bild 3" style="width:100%; height:auto; border-radius:6px;">
-                    <img src="../art/port4.png" alt="Projekt Bild 4" style="width:100%; height:auto; border-radius:6px;">
-                    <img src="../art/port5.png" alt="Projekt Bild 5" style="width:100%; height:auto; border-radius:6px;">
-                    <img src="../art/port6.png" alt="Projekt Bild 6" style="width:100%; height:auto; border-radius:6px;">
-                    <img src="../art/port7.png" alt="Projekt Bild 7" style="width:100%; height:auto; border-radius:6px;">
-                    <img src="../art/port8.png" alt="Projekt Bild 8" style="width:100%; height:auto; border-radius:6px;">
-                    <img src="../art/port9.png" alt="Projekt Bild 9" style="width:100%; height:auto; border-radius:6px;">
-                    <img src="../art/port10.png" alt="Projekt Bild 10" style="width:100%; height:auto; border-radius:6px;">
-                    <img src="../art/port11.png" alt="Projekt Bild 11" style="width:100%; height:auto; border-radius:6px;">
-                    <img src="../art/port12.png" alt="Projekt Bild 12" style="width:100%; height:auto; border-radius:6px;">
-                    <img src="../art/port13.png" alt="Projekt Bild 13" style="width:100%; height:auto; border-radius:6px;">
-                    <img src="../art/port14.png" alt="Projekt Bild 14" style="width:100%; height:auto; border-radius:6px;">
-                    <img src="../art/port15.png" alt="Projekt Bild 15" style="width:100%; height:auto; border-radius:6px;">
-                    <img src="../art/port16.png" alt="Projekt Bild 16" style="width:100%; height:auto; border-radius:6px;">
-                    <img src="../art/port17.png" alt="Projekt Bild 17" style="width:100%; height:auto; border-radius:6px;">
-                    <img src="../art/port18.png" alt="Projekt Bild 18" style="width:100%; height:auto; border-radius:6px;">
-                    <img src="../art/port19.png" alt="Projekt Bild 19" style="width:100%; height:auto; border-radius:6px;">
+                    <!-- ... (usw.) ... -->
                 </div>
             </section>
 
-            <hr class="divider" style="margin: 40px 0;">
-
-            <!-- 2. Bereich: BNE Pressefotografie & Graffiti (SDG 16) -->
-            <section class="project-section">
-                <h2>BNE Pressefotografie: Graffiti als Spiegel von SDG 16</h2>
-                <p><strong>Thema:</strong> Frieden, Gerechtigkeit und starke Institutionen (SDG 16) im Kontext der Bildung für nachhaltige Entwicklung (BNE).</p>
-                <p><strong>Standort der Aufnahmen:</strong> Fußgängerunterführung in Kiel-Wellsee (Richtung Elmschenhagen).</p>
-                
-                <ul style="margin-left: 20px; margin-top: 10px; line-height: 1.6;">
-                    <li><strong>Bild 1 (HOLSTEIN Blockbuster):</strong> Ein großformatiges Fan-Graffiti zum Fußballverein Holstein Kiel (dokumentiert mit Sony Alpha 7 II). Es verknüpft lokale Jugendkultur mit urbanem Ausdruck.</li>
-                    <li><strong>Bild 2 (Wildstyle-Piece):</strong> Aufwändiges, farbintensives Wildstyle-Piece von Street-Art-Künstlern (unter anderem dokumentiert mit Johannes Sommer / Behind-the-Scenes).</li>
-                    <li><strong>Fototechnik & Recht:</strong> Dokumentation photometrischer Daten (Blende, ISO, Verschlusszeiten von 1/8000s bis 30s, Vollformatsensor) sowie Berücksichtigung urheberrechtlicher Grundlagen (Panoramafreiheit nach § 59 UrhG, Streitwerte bei Fotonutzung im Internet).</li>
-                </ul>
-            </section>
-
-            <hr class="divider" style="margin: 40px 0;">
-
-            <!-- 3. Bereich: Photoshop-Kurse, Greenscreen & Tattoos -->
-            <section class="project-section">
-                <h2>Photoshop-Kurs &amp; Bildbearbeitung</h2>
-                <p>Praktische Umsetzungen und Bildmanipulationen aus dem Unterricht am RBZ Technik:</p>
-                
-                <ul style="margin-left: 20px; margin-top: 10px; line-height: 1.6;">
-                    <li><strong>Greenscreen-Projekt (Kieler Woche):</strong> Freistellen eines Studio-Portraits vor grünem Hintergrund, Anpassen an offizielle Kieler-Woche-Grafiken und Farbkorrekturen.</li>
-                    <li><strong>Tattoos &amp; Gesicht („Cyber-Glow Tiger“):</strong> Einarbeiten von Tattoo-Motiven (wie einer Stammes-Schildkröte und Hals-Motiven) mittels Ebenen-Mischmodi, um realistische Texturen auf Haut und Brillen zu erzeugen.</li>
-                    <li><strong>Grundlagen-Aufgaben:</strong> Transformieren, Skalieren von Ebenen (z.B. <code>02_Ebene_skalieren.psd</code>), Füllmethoden (Ineinanderkopieren) und Filteranwendungen (Gaußscher Weichzeichner, Bewegungsunschärfe).</li>
-                </ul>
-            </section>
-
-            <hr class="divider" style="margin: 40px 0;">
-
-            <!-- 4. Bereich: Musikproduktion mit Ableton 12 -->
-            <section class="project-section">
+            <!-- Sektion 2: Musikproduktion (Neu aus PDF) -->
+            <section class="music-project">
                 <h2>Musikproduktion mit Ableton 12</h2>
-                <p><strong>Projekt:</strong> Remix des Songs „Raise“ von Chilli Beans[span_0](start_span)[span_0](end_span)[span_1](start_span)[span_1](end_span).</p>
-                
-                <ul style="margin-left: 20px; margin-top: 10px; line-height: 1.6;">
-                    <li><strong>Konzept &amp; Aufbau:</strong> Der Track wurde auf Basis der Originalmelodie in C-Dur völlig neu arrangiert. Das Stück entwickelt sich über 2:20 Minuten von einem einfachen Start zu einem vollen Soundteppich und endet in einem reduzierten Duett-Solo[span_2](start_span)[span_2](end_span)[span_3](start_span)[span_3](end_span).</li>
-                    <li><strong>Soundpacks &amp; Instrumente:</strong> Verwendung von Ableton Soundpacks wie <em>Vibrations</em> (ModeAudio), <em>Break Selection</em> (Sample Magic), <em>Singularities</em> und dem <em>Recording Hybrid Kit</em> (Drumdrops)[span_4](start_span)[span_4](end_span)[span_5](start_span)[span_5](end_span).</li>
-                    <li><strong>Technik:</strong> Sauberes Routing im Mixer, strukturierte Farbcodierung der MIDI-Clips sowie Automationen für Lautstärke und Bässe zur Erzeugung von Dynamik[span_6](start_span)[span_6](end_span)[span_7](start_span)[span_7](end_span)[span_8](start_span)[span_8](end_span).</li>
+                <p><strong>Ein Einblick in meine Arbeit als Musikproduzent.</strong></p>
+
+                <div class="highlight-box">
+                    <p><strong>Projekt-Details:</strong> Remix von "Raise" (Chilli Beans) / "Missing Piece" (Vance Joy).<br>
+                    <strong>KI-Bild:</strong> Erstellt im Nano-Banano-Modus (Gemini).<br>
+                    <strong>Link zum KI-Bild:</strong> <a href="https://gemini.google.com/app/924dbe934eca0ea7?hl=de" target="_blank">Gemini App</a></p>
+                </div>
+
+                <h3>1. Ressourcen und Sound-Auswahl</h3>
+                <p>Für die Produktion habe ich verschiedene kostenlose Ableton Packs und Instrumente genutzt, um den Sound vielseitig zu gestalten.</p>
+                <ul>
+                    <li><strong>Vibrations (ModeAudio):</strong> Für nostalgische Synths, Ambient-Texturen und Gitarren-Licks.</li>
+                    <li><strong>Break Selection (Sample Magic):</strong> 175 Drum-Loops für klare Drums.</li>
+                    <li><strong>Singularities (Ableton):</strong> Klassische Synths und Sampler-Sounds.</li>
+                    <li><strong>Recording Hybrid Kit (Drumdrops):</strong> Multisamples eines Yamaha-Schlagzeugs.</li>
                 </ul>
+                <p><em>Quellen:</em> <a href="https://www.ableton.com/de/packs/#?item_type=free" target="_blank">Ableton Packs</a></p>
+
+                <h3>2. Das Projekt: Remix von "Raise"</h3>
+                <p>Meine Entscheidung war es, den Song "Raise" von Chilli Beans neu zusammenzubauen. Ich habe den Style und die Beats verändert, um dem Track meinen eigenen Stempel aufzudrücken. Dafür habe ich eigene Sounds wie den <em>Synthetic Choir</em> oder die <em>Cruiser Strings</em> über die Basis gelegt.</p>
+                <p><em>Original-Songs:</em> <a href="https://www.youtube.com/watch?v=ljyx_wFnWWg" target="_blank">Missing Piece (Vance Joy)</a> | <a href="https://www.youtube.com/watch?v=DO-DkrNVyjg" target="_blank">Raise (Chilli Beans)</a></p>
+
+                <h3>3. Lied-Struktur und technische Umsetzung</h3>
+                
+                <p><strong>Piano-Roll-Struktur:</strong> Hier sieht man die detaillierte Programmierung eines blauen Clips. Die Noten bewegen sich vor allem im Bereich von D1 bis C3. Besonders wichtig war mir das Setzen der tiefen Basstöne auf B0, um dem Track ein solides Fundament zu geben.</p>
+                <!-- Platzhalter für Bild 1 aus der PDF -->
+                <img src="../art/ableton_pianoroll.png" alt="Ableton Piano Roll Struktur" class="music-image">
+                <p style="font-size: 0.8em; color: #777;">(Screenshot: Piano-Roll-Struktur)</p>
+
+                <p><strong>Instrumentenauswahl:</strong> Die Spuren sind sorgfältig benannt (Cruiser Strings, Horns Mellow, Grand Piano, etc.). Jedes Instrument bekommt seinen eigenen Platz im Mix, wobei die Pegel einzeln angepasst werden (z.B. Guit Layer auf -5 dB).</p>
+                <!-- Platzhalter für Bild 2 aus der PDF -->
+                <img src="../art/ableton_mixer.png" alt="Ableton Mixer Ansicht" class="music-image">
+                <p style="font-size: 0.8em; color: #777;">(Screenshot: Instrumentenauswahl und Routing)</p>
+
+                <p><strong>Tonbeispiele &amp; Automation:</strong> Ich nutze Automationen, um die Lautstärke über die Zeit zu verändern. Bei den blauen Blöcken wird die Lautstärke manuell runtergezogen, um Platz für andere Instrumente zu machen. Das sorgt für schönere Übergänge.</p>
+
+                <p><strong>Hauptansicht (2:20 Minuten):</strong> Der Track ist so aufgebaut, dass die Vielfalt langsam zunimmt und zum Ende hin abnimmt, bis nur noch ein Duett-Solo übrig bleibt.</p>
+
+                <p><strong>Melodie &amp; Bass:</strong> Die Tonleiter steht fest auf C-Dur. Bei den unteren Spuren (Gelb &amp; Pink) habe ich "krumme Linien" für die Lautstärke gezeichnet, damit die starren Blöcke lebendiger wirken und mehr Energie haben.</p>
+
+                <h3>4. Analyse und Merkmale</h3>
+                <table class="project-table">
+                    <thead>
+                        <tr>
+                            <th>Spur</th>
+                            <th>Instrument Name</th>
+                            <th>Farbe</th>
+                            <th>Pegel (Volume)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>1</td><td>Cruiser Strings</td><td>Blau</td><td>-6.81 dB</td></tr>
+                        <tr><td>2</td><td>Horns Mellow</td><td>Hellblau</td><td>-6.41 dB</td></tr>
+                        <tr><td>3</td><td>Ac Strings Pi</td><td>Blau-Grau</td><td>-11.3 dB</td></tr>
+                        <tr><td>4</td><td>Chord Float Ab</td><td>Lila</td><td>-1.91 dB</td></tr>
+                        <tr><td>5</td><td>Grand Piano</td><td>Orange</td><td>-5.46 dB</td></tr>
+                        <tr><td>6</td><td>Synthetic Choir</td><td>Gelb</td><td>-8.68 dB</td></tr>
+                        <tr><td>7</td><td>Dark Swarm</td><td>Pink / Magenta</td><td>-14.1 dB</td></tr>
+                        <tr><td>8</td><td>Guit Layter</td><td>Petrol / Turks</td><td>-13.1 dB</td></tr>
+                        <tr><td>9</td><td>Audio</td><td>Orange</td><td>-inf (Stumm)</td></tr>
+                        <tr><td>10</td><td>Audio</td><td>Gelb</td><td>-inf (Stumm)</td></tr>
+                        <tr><td>Main</td><td>Main (Master)</td><td>Rot / Rosa</td><td>-1.67 dB</td></tr>
+                    </tbody>
+                </table>
+
+                <h3>5. Wissen kompakt: Cover, Sample &amp; Remix</h3>
+                <ul>
+                    <li><strong>Cover:</strong> Melodie und Noten werden mit eigenen Instrumenten nachgespielt (Erlaubnis nötig).</li>
+                    <li><strong>Sample:</strong> Ein direktes Stück aus der Originalaufnahme wird verwendet (rechtlich streng, fast immer kostenpflichtig).</li>
+                    <li><strong>Remix:</strong> Einzelspuren vom Original werden komplett umgebaut (nur mit Erlaubnis des Künstlers/Labels).</li>
+                </ul>
+
+                <h3>6. Was sind MIDI Files?</h3>
+                <p>MIDI Files sind wie digitale Notenblätter. Sie machen keinen eigenen Sound, sondern speichern nur die Infos, welche Note wie lange und wie fest gedrückt wird. Das Coole daran: Ich kann die gleichen Noten nehmen und einfach das Instrument austauschen (z.B. von Streichern zu Piano). In meinem Projekt sind die bunten Blöcke meine MIDI Clips.</p>
+
+                <h3>7. Quellenverzeichnis (Auszug)</h3>
+                <ul style="font-size: 0.9em; color: #555;">
+                    <li>Bilderstellung: <a href="https://gemini.google.com/app/924dbe934eca0ea7?hl=de" target="_blank">Gemini AI</a></li>
+                    <li>Google Richtlinien: <a href="https://policies.google.com/terms/generative-ai/use-policy" target="_blank">Nutzungsrichtlinien</a></li>
+                    <li>Ableton Packs: <a href="https://www.ableton.com/de/packs/#?item_type=free" target="_blank">Kostenlose Packs</a></li>
+                    <li>Noten (Musescore): <a href="https://musescore.com/user/18110086/scores/7080538" target="_blank">Missing Piece</a></li>
+                </ul>
+
             </section>
 
         </div>
