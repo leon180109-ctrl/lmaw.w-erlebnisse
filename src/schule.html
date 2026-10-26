@@ -3,27 +3,121 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#004e9e">
+    <meta name="theme-color" content="#0a0f19">
     <meta name="description" content="Schulische Inhalte, Projekte und Dokumentationen von Leon Wyppych (BGT25b, 2026/2027).">
     <title>Schule - Leon Wyppych</title>
     <link rel="stylesheet" href="../style.css">
     
-    <!-- Minimales Styling für die aufklappbaren Bereiche (falls nicht in style.css vorhanden) -->
+    <!-- Styling für die aufklappbaren Bereiche (nutzt deine CSS-Variablen) -->
     <style>
-        details { margin-bottom: 1rem; background: var(--white, #ffffff); border-radius: 8px; border: 1px solid var(--gray-light, #e5e9f0); padding: 1rem; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
-        summary { cursor: pointer; font-weight: 700; color: var(--vw-blue-dark, #002e5c); font-size: 1.2rem; outline: none; }
-        summary:hover { color: var(--vw-blue, #004e9e); }
-        .details-content { margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid var(--gray-light, #e5e9f0); }
-        .details-content h3 { margin-top: 1.5rem; color: var(--vw-blue, #004e9e); }
-        .details-content h4 { margin-top: 1rem; color: var(--text-dark, #1a2233); }
-        pre { background: var(--off-white, #f8fafc); padding: 1rem; border-radius: 6px; overflow-x: auto; font-size: 0.9rem; border-left: 4px solid var(--vw-blue-light, #3a7bc8); }
+        details {
+            background-color: transparent;
+            border-bottom: 1px solid var(--border-color);
+            padding: 15px 0;
+        }
+        
+        details:last-of-type {
+            border-bottom: none;
+        }
+
+        summary {
+            cursor: pointer;
+            font-weight: bold;
+            color: var(--accent-gold);
+            font-size: 1.3rem;
+            outline: none;
+            list-style: none; /* Entfernt den Standard-Pfeil */
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: color 0.2s ease;
+        }
+
+        /* Eigener Pfeil-Indikator */
+        summary::after {
+            content: '+';
+            font-size: 1.5rem;
+            color: var(--text-muted);
+            transition: transform 0.2s ease;
+        }
+
+        details[open] summary::after {
+            content: '−';
+            transform: rotate(180deg);
+        }
+
+        summary:hover {
+            color: var(--text-white);
+        }
+
+        .details-content {
+            padding: 20px 0 10px 15px;
+            color: var(--text-muted);
+            animation: fadeIn 0.3s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-5px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .details-content h3 {
+            color: var(--accent-gold);
+            margin-top: 15px;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+            border-bottom: 1px dashed var(--border-color);
+            padding-bottom: 5px;
+        }
+
+        .details-content h4 {
+            color: var(--text-white);
+            margin-top: 15px;
+            margin-bottom: 8px;
+        }
+
+        pre {
+            background-color: var(--table-bg);
+            padding: 15px;
+            border-radius: 6px;
+            overflow-x: auto;
+            border-left: 4px solid var(--accent-gold);
+            color: var(--link-blue);
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+        }
+
+        /* Überschreibt das Standard-Margin der Schule-Card für Details */
+        .school-card details p {
+            margin-bottom: 10px;
+        }
+        
+        /* TOC Styling */
+        .toc {
+            list-style: none;
+            margin-left: 0 !important;
+        }
+        .toc li {
+            margin-bottom: 8px;
+        }
+        .toc a {
+            color: var(--link-blue);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+        .toc a:hover {
+            color: var(--accent-gold);
+            text-decoration: underline;
+        }
     </style>
 </head>
 <body>
 
     <header class="fixed-header">
-        <h1>Leon Wyppych</h1>
-        <p>2026 / 2027 - Portfolio, Projekte &amp; Erfahrungen</p>
+        <div class="header-container">
+            <h1>Leon Wyppych</h1>
+            <p class="subtitle">2026 / 2027 — Portfolio, Projekte &amp; Erfahrungen</p>
+        </div>
     </header>
 
     <nav class="main-nav" aria-label="Hauptnavigation">
@@ -89,15 +183,15 @@
                             <tr><td>Kondensator (Capacitor)</td><td>Speichert elektrische Energie in einem Feld, glättet Spannungen.</td><td>Farad (F), gepolt/ungepolt</td></tr>
                             <tr><td>Diode</td><td>Lässt Strom nur in eine Richtung durch (Gleichrichter).</td><td>Anode (+), Kathode (-)</td></tr>
                             <tr><td>LED</td><td>Leuchtdiode, wandelt Strom in Licht um. Benötigt Vorwiderstand.</td><td>Anode (lang), Kathode (kurz)</td></tr>
-                            <tr><td>Spule (Induktivität)</td><td>Speichert Energie in einem Magnetfeld, widersteht Stromänderungen.</td><td>Henry (H)</td></tr>
-                            <tr><td>Transistor</td><td>Elektronischer Schalter oder Verstärker.</td><td>Basis, Kollektor, Emitter</td></tr>
+                            <tr><td>Spule (Induktivit&auml;t)</td><td>Speichert Energie in einem Magnetfeld, widersteht Strom&auml;nderungen.</td><td>Henry (H)</td></tr>
+                            <tr><td>Transistor</td><td>Elektronischer Schalter oder Verst&auml;rker.</td><td>Basis, Kollektor, Emitter</td></tr>
                         </tbody>
                     </table>
 
                     <h3>1.3 Arduino Uno R3</h3>
                     <ul>
-                        <li><strong>Digital-Pins (0-13):</strong> Für digitale Ein-/Ausgänge. Tilde (~) bedeutet PWM-fähig.</li>
-                        <li><strong>Analog-Pins (A0-A5):</strong> Für Sensoren (0-5V).</li>
+                        <li><strong>Digital-Pins (0-13):</strong> F&uuml;r digitale Ein-/Ausg&auml;nge. Tilde (~) bedeutet PWM-f&auml;hig.</li>
+                        <li><strong>Analog-Pins (A0-A5):</strong> F&uuml;r Sensoren (0-5V).</li>
                         <li><strong>Stromversorgung:</strong> 5V, 3.3V, GND.</li>
                     </ul>
                     <h4>Beispiel: Blinkende LED (Code)</h4>
@@ -114,8 +208,8 @@ void loop() {
 
                     <h3>1.4 Datenbanken &amp; SQL</h3>
                     <ul>
-                        <li><strong>ER-Modell:</strong> Entitäten (Tabellen), Attribute (Spalten), Primärschlüssel (PK), Fremdschlüssel (FK), Kardinalitäten (1:1, 1:n, m:n).</li>
-                        <li><strong>Normalformen:</strong> 1. NF (Atomarität), 2. NF (Vollständige Abhängigkeit vom PK), 3. NF (Keine transitiven Abhängigkeiten).</li>
+                        <li><strong>ER-Modell:</strong> Entit&auml;ten (Tabellen), Attribute (Spalten), Prim&auml;rschl&uuml;ssel (PK), Fremdschl&uuml;ssel (FK), Kardinalit&auml;ten (1:1, 1:n, m:n).</li>
+                        <li><strong>Normalformen:</strong> 1. NF (Atomarit&auml;t), 2. NF (Vollst&auml;ndige Abh&auml;ngigkeit vom PK), 3. NF (Keine transitiven Abh&auml;ngigkeiten).</li>
                         <li><strong>SQL Basics:</strong> <code>SELECT</code>, <code>FROM</code>, <code>WHERE</code>, <code>ORDER BY</code>, <code>GROUP BY</code>, <code>HAVING</code>.</li>
                         <li><strong>Joins:</strong> <code>INNER JOIN</code>, <code>LEFT JOIN</code>, <code>RIGHT JOIN</code>, <code>FULL JOIN</code>.</li>
                     </ul>
@@ -129,11 +223,11 @@ void loop() {
                     <h3>2.1 Kommunikationsmodelle</h3>
                     <ul>
                         <li><strong>Vier-Ohren-Modell (Schulz von Thun):</strong> Sachinhalt, Selbstkundgabe, Beziehungshinweis, Appell.</li>
-                        <li><strong>Sender-Empfänger-Modell (Shannon &amp; Weaver):</strong> Linearer, technischer Prozess (Kodierung, Kanal, Dekodierung, Störquellen).</li>
+                        <li><strong>Sender-Empf&auml;nger-Modell (Shannon &amp; Weaver):</strong> Linearer, technischer Prozess (Kodierung, Kanal, Dekodierung, St&ouml;rquellen).</li>
                         <li><strong>5 Axiome (Watzlawick):</strong> Man kann nicht nicht kommunizieren, etc.</li>
                         <li><strong>Eisbergmodell (Freud):</strong> 20% Sachebene (sichtbar), 80% Beziehungsebene (unsichtbar).</li>
                         <li><strong>Transaktionsanalyse (Berne):</strong> Eltern-Ich, Erwachsenen-Ich, Kind-Ich.</li>
-                        <li><strong>Organon-Modell (Bühler):</strong> Ausdruck, Appell, Darstellung.</li>
+                        <li><strong>Organon-Modell (B&uuml;hler):</strong> Ausdruck, Appell, Darstellung.</li>
                     </ul>
 
                     <h3>2.2 Farbmodelle im Webdesign</h3>
@@ -143,9 +237,9 @@ void loop() {
                         </thead>
                         <tbody>
                             <tr><td>HEX</td><td>#RRGGBB</td><td>#FF5733</td><td>Standard im Web</td></tr>
-                            <tr><td>RGB</td><td>rgb(R, G, B)</td><td>rgb(255, 87, 51)</td><td>Lichtintensität (0-255)</td></tr>
+                            <tr><td>RGB</td><td>rgb(R, G, B)</td><td>rgb(255, 87, 51)</td><td>Lichtintensit&auml;t (0-255)</td></tr>
                             <tr><td>RGBA</td><td>rgba(R, G, B, A)</td><td>rgba(255, 87, 51, 0.5)</td><td>Mit Transparenz (0.0-1.0)</td></tr>
-                            <tr><td>HSL</td><td>hsl(H, S%, L%)</td><td>hsl(9, 100%, 60%)</td><td>Farbton, Sättigung, Helligkeit</td></tr>
+                            <tr><td>HSL</td><td>hsl(H, S%, L%)</td><td>hsl(9, 100%, 60%)</td><td>Farbton, S&auml;ttigung, Helligkeit</td></tr>
                         </tbody>
                     </table>
 
@@ -164,25 +258,25 @@ void loop() {
                 <div class="details-content">
                     <h3>3.1 Politik (August 2026)</h3>
                     <ul>
-                        <li><strong>International:</strong> Diplomatische Eskalation um den Iran (Trump), Totale Sonnenfinsternis über Westeuropa.</li>
+                        <li><strong>International:</strong> Diplomatische Eskalation um den Iran (Trump), Totale Sonnenfinsternis &uuml;ber Westeuropa.</li>
                         <li><strong>National:</strong> Personalwechsel im Bundesverkehrsministerium (Schnieder &rarr; Bilger), Debatten um Nachrichtendienste.</li>
-                        <li><strong>Regional (Kiel):</strong> LKA-Großeinsatz wegen Chemikalienfund in der Gutenbergstraße.</li>
+                        <li><strong>Regional (Kiel):</strong> LKA-Gro&szlig;einsatz wegen Chemikalienfund in der Gutenbergstra&szlig;e.</li>
                     </ul>
 
                     <h3>3.2 Bismarck &amp; Imperialismus</h3>
                     <ul>
-                        <li><strong>Kissinger Diktat (1877):</strong> Bismarcks außenpolitisches Ziel, den Status quo zu erhalten, Koalitionen zu verhindern, England und Russland auszugleichen und Frankreich zu isolieren.</li>
-                        <li><strong>Bündnispolitik:</strong> Dreikaiserabkommen (1873), Zweibund (1879), Dreibund (1882), Rückversicherungsvertrag (1887).</li>
-                        <li><strong>Kolonialpolitik:</strong> Anfänglich skeptisch, später Erwerb von Kolonien (Deutsch-Südwestafrika, Togo, Kamerun, Deutsch-Ostafrika).</li>
-                        <li><strong>Karikaturen:</strong> Analyse von Bismarck als autoritärer Machthaber (Peitsche) und die "Kartoffel"-Karikatur zum Imperialismus.</li>
+                        <li><strong>Kissinger Diktat (1877):</strong> Bismarcks au&szlig;enpolitisches Ziel, den Status quo zu erhalten, Koalitionen zu verhindern, England und Russland auszugleichen und Frankreich zu isolieren.</li>
+                        <li><strong>B&uuml;ndnispolitik:</strong> Dreikaiserabkommen (1873), Zweibund (1879), Dreibund (1882), R&uuml;ckversicherungsvertrag (1887).</li>
+                        <li><strong>Kolonialpolitik:</strong> Anf&auml;nglich skeptisch, sp&auml;ter Erwerb von Kolonien (Deutsch-S&uuml;dwestafrika, Togo, Kamerun, Deutsch-Ostafrika).</li>
+                        <li><strong>Karikaturen:</strong> Analyse von Bismarck als autorit&auml;rer Machthaber (Peitsche) und die "Kartoffel"-Karikatur zum Imperialismus.</li>
                     </ul>
 
                     <h3>3.3 Parteien im Kaiserreich (1870-1890)</h3>
                     <ul>
-                        <li><strong>Konservative (KP/DRP):</strong> Schwerindustrielle, Beamte, Hochadel. Ziele: Unterstützung Bismarcks, Aufrüstung.</li>
+                        <li><strong>Konservative (KP/DRP):</strong> Schwerindustrielle, Beamte, Hochadel. Ziele: Unterst&uuml;tzung Bismarcks, Aufr&uuml;stung.</li>
                         <li><strong>Nationalliberale (NLP):</strong> Unternehmer, Professoren. Ziele: Freier Handel, Kolonien, Imperialismus.</li>
-                        <li><strong>Linksliberale (DFP):</strong> Handwerker, Händler. Ziele: Mehr Macht für den Reichstag, Bürgerrechte.</li>
-                        <li><strong>Zentrum:</strong> Katholiken. Ziele: Schutz der Kirche, Föderalismus.</li>
+                        <li><strong>Linksliberale (DFP):</strong> Handwerker, H&auml;ndler. Ziele: Mehr Macht f&uuml;r den Reichstag, B&uuml;rgerrechte.</li>
+                        <li><strong>Zentrum:</strong> Katholiken. Ziele: Schutz der Kirche, F&ouml;deralismus.</li>
                         <li><strong>SPD/SAP:</strong> Industriearbeiter. Ziele: Arbeiterrechte, Demokratie.</li>
                     </ul>
                 </div>
@@ -193,15 +287,15 @@ void loop() {
                 <summary>4. Deutsch (Literatur)</summary>
                 <div class="details-content">
                     <h3>4.1 Das Erdbeben in Chili (Heinrich von Kleist)</h3>
-                    <p><strong>Inhalt:</strong> Jeronimo Rugera und Donna Josephe werden wegen verbotener Liebe bestraft. Ein Erdbeben zerstört die Stadt und rettet sie kurzzeitig. Im Tal finden sie Schutz, doch in der Kathedrale werden sie von einem fanatischen Mob (angestachelt von einem Dominikaner) getötet. Nur ihr Kind Philipp überlebt und wird von Don Fernando und Donna Elvire aufgenommen.</p>
+                    <p><strong>Inhalt:</strong> Jeronimo Rugera und Donna Josephe werden wegen verbotener Liebe bestraft. Ein Erdbeben zerst&ouml;rt die Stadt und rettet sie kurzzeitig. Im Tal finden sie Schutz, doch in der Kathedrale werden sie von einem fanatischen Mob (angestachelt von einem Dominikaner) get&ouml;tet. Nur ihr Kind Philipp &uuml;berlebt und wird von Don Fernando und Donna Elvire aufgenommen.</p>
                     <p><strong>Charaktere:</strong> Jeronimo Rugera, Donna Josephe, Don Henrico Asteron, Philipp, Don Fernando Ormez, Donna Elvire, Meister Pedrillo.</p>
 
                     <h3>4.2 Die Marquise von O... (Heinrich von Kleist)</h3>
-                    <p><strong>Inhalt:</strong> Die Marquise wird von Graf F... gerettet, der sich jedoch unbemerkt an ihr vergeht, als sie ohnmächtig ist. Sie wird schwanger, der Vater verstößt sie. Durch eine Zeitungsanzeige sucht sie den Vater. Der Graf gesteht, sie heiraten zunächst pro forma, finden aber später durch seine Reue und Fürsorge zueinander.</p>
+                    <p><strong>Inhalt:</strong> Die Marquise wird von Graf F... gerettet, der sich jedoch unbemerkt an ihr vergeht, als sie ohnm&auml;chtig ist. Sie wird schwanger, der Vater verst&ouml;&szlig;t sie. Durch eine Zeitungsanzeige sucht sie den Vater. Der Graf gesteht, sie heiraten zun&auml;chst pro forma, finden aber sp&auml;ter durch seine Reue und F&uuml;rsorge zueinander.</p>
                     <p><strong>Themen:</strong> Gesellschaftliche Moral, unverschuldete Not, Wiederherstellung der Ehre.</p>
 
                     <h3>4.3 Der zerbrochene Krug (Heinrich von Kleist)</h3>
-                    <p><strong>Inhalt:</strong> Dorfrichter Adam muss den Fall eines zerbrochenen Kruges verhandeln. Es stellt sich heraus, dass er selbst der Täter ist. Er war nachts bei Eve, um sie mit einem gefälschten Attest zu erpressen (um ihren Verlobten Ruprecht vor dem Militärdienst zu bewahren). Als Ruprecht auftauchte, floh Adam und zerbrach den Krug. Am Ende wird Adam überführt und flieht.</p>
+                    <p><strong>Inhalt:</strong> Dorfrichter Adam muss den Fall eines zerbrochenen Kruges verhandeln. Es stellt sich heraus, dass er selbst der T&auml;ter ist. Er war nachts bei Eve, um sie mit einem gef&auml;lschten Attest zu erpressen (um ihren Verlobten Ruprecht vor dem Milit&auml;rdienst zu bewahren). Als Ruprecht auftauchte, floh Adam und zerbrach den Krug. Am Ende wird Adam &uuml;berf&uuml;hrt und flieht.</p>
                 </div>
             </details>
 
@@ -221,15 +315,15 @@ void loop() {
                     <h3>5.2 Gravitation &amp; Felder</h3>
                     <ul>
                         <li><strong>Gravitationsgesetz (Newton):</strong> F<sub>G</sub> = G &middot; (m<sub>1</sub> &middot; m<sub>2</sub>) / r&sup2;</li>
-                        <li><strong>Ortsfaktor (g):</strong> g = (G &middot; M<sub>E</sub>) / R<sub>E</sub>&sup2; &asymp; 9,81 m/s&sup2; (an der Erdoberfläche).</li>
-                        <li><strong>Gravitationsfeldstärke:</strong> g(r) = F<sub>G</sub> / m. Nimmt mit 1/r&sup2; ab.</li>
+                        <li><strong>Ortsfaktor (g):</strong> g = (G &middot; M<sub>E</sub>) / R<sub>E</sub>&sup2; &asymp; 9,81 m/s&sup2; (an der Erdoberfl&auml;che).</li>
+                        <li><strong>Gravitationsfeldst&auml;rke:</strong> g(r) = F<sub>G</sub> / m. Nimmt mit 1/r&sup2; ab.</li>
                     </ul>
 
                     <h3>5.3 Elektrische Kraft &amp; Influenz</h3>
                     <ul>
-                        <li><strong>Influenz:</strong> Verschiebung von Ladungsträgern in einem Leiter durch ein äußeres elektrisches Feld.</li>
+                        <li><strong>Influenz:</strong> Verschiebung von Ladungstr&auml;gern in einem Leiter durch ein &auml;u&szlig;eres elektrisches Feld.</li>
                         <li><strong>Coulombsches Gesetz:</strong> F<sub>el</sub> = (1 / (4&pi;&epsilon;<sub>0</sub>)) &middot; ((q<sub>1</sub> &middot; q<sub>2</sub>) / r&sup2;)</li>
-                        <li><strong>Vergleich:</strong> Gravitation (Massen, immer anziehend) vs. Elektrisches Feld (Ladungen, anziehend oder abstoßend).</li>
+                        <li><strong>Vergleich:</strong> Gravitation (Massen, immer anziehend) vs. Elektrisches Feld (Ladungen, anziehend oder absto&szlig;end).</li>
                     </ul>
                 </div>
             </details>
@@ -258,14 +352,14 @@ void loop() {
                 <summary>7. Wirtschaft &amp; Recht</summary>
                 <div class="details-content">
                     <h3>7.1 Streik</h3>
-                    <p><strong>Definition:</strong> Planmäßige Arbeitsniederlegung von gemeinsam handelnden Arbeitnehmern zur Durchsetzung von Zielen, organisiert von der Gewerkschaft.</p>
-                    <p><strong>Rechtmäßigkeit:</strong> Nur als letztes Mittel (Verhältnismäßigkeit), muss tariflich regelbare Ziele haben, darf nicht gegen die Friedenspflicht verstoßen, Träger muss eine Gewerkschaft sein.</p>
+                    <p><strong>Definition:</strong> Planm&auml;&szlig;ige Arbeitsniederlegung von gemeinsam handelnden Arbeitnehmern zur Durchsetzung von Zielen, organisiert von der Gewerkschaft.</p>
+                    <p><strong>Rechtm&auml;&szlig;igkeit:</strong> Nur als letztes Mittel (Verh&auml;ltnism&auml;&szlig;igkeit), muss tariflich regelbare Ziele haben, darf nicht gegen die Friedenspflicht versto&szlig;en, Tr&auml;ger muss eine Gewerkschaft sein.</p>
                     
-                    <h3>7.2 Tarifverträge</h3>
+                    <h3>7.2 Tarifvertr&auml;ge</h3>
                     <ul>
-                        <li><strong>Lohn-/Gehaltstarifvertrag:</strong> Regelt Löhne/Gehälter (kurzfristig).</li>
-                        <li><strong>Manteltarifvertrag:</strong> Regelt allgemeine Bedingungen (Arbeitszeit, Urlaub, Kündigung) (mehrjährig).</li>
-                        <li><strong>Funktionen:</strong> Schutzfunktion (Mindeststandards), Ordnungsfunktion (Planungssicherheit), Friedenspflicht (keine Streiks während der Laufzeit).</li>
+                        <li><strong>Lohn-/Gehaltstarifvertrag:</strong> Regelt L&ouml;hne/Geh&auml;lter (kurzfristig).</li>
+                        <li><strong>Manteltarifvertrag:</strong> Regelt allgemeine Bedingungen (Arbeitszeit, Urlaub, K&uuml;ndigung) (mehrj&auml;hrig).</li>
+                        <li><strong>Funktionen:</strong> Schutzfunktion (Mindeststandards), Ordnungsfunktion (Planungssicherheit), Friedenspflicht (keine Streiks w&auml;hrend der Laufzeit).</li>
                         <li><strong>Tarifbindung:</strong> Sinkt in Deutschland (West: 70% &rarr; 49%, Ost: 55% &rarr; 45%).</li>
                     </ul>
                 </div>
