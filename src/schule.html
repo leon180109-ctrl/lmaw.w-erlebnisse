@@ -26,14 +26,13 @@
             color: var(--accent-gold);
             font-size: 1.3rem;
             outline: none;
-            list-style: none; /* Entfernt den Standard-Pfeil */
+            list-style: none;
             display: flex;
             justify-content: space-between;
             align-items: center;
             transition: color 0.2s ease;
         }
 
-        /* Eigener Pfeil-Indikator */
         summary::after {
             content: '+';
             font-size: 1.5rem;
@@ -63,9 +62,9 @@
 
         .details-content h3 {
             color: var(--accent-gold);
-            margin-top: 15px;
+            margin-top: 25px;
             margin-bottom: 10px;
-            font-size: 1.1rem;
+            font-size: 1.15rem;
             border-bottom: 1px dashed var(--border-color);
             padding-bottom: 5px;
         }
@@ -74,6 +73,14 @@
             color: var(--text-white);
             margin-top: 15px;
             margin-bottom: 8px;
+        }
+
+        .details-content img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin: 15px 0;
+            border: 1px solid var(--border-color);
         }
 
         pre {
@@ -87,12 +94,10 @@
             margin-bottom: 20px;
         }
 
-        /* Überschreibt das Standard-Margin der Schule-Card für Details */
         .school-card details p {
             margin-bottom: 10px;
         }
         
-        /* TOC Styling */
         .toc {
             list-style: none;
             margin-left: 0 !important;
@@ -220,7 +225,71 @@ void loop() {
             <details id="bereich-2">
                 <summary>2. Medientechnik &amp; Webdesign</summary>
                 <div class="details-content">
-                    <h3>2.1 Kommunikationsmodelle</h3>
+                    <h3>2.1 System&uuml;berblick Medientechnik (12. Klasse)</h3>
+                    <img src="../art/medienziele.jpeg" alt="Medientechnik 12. Klasse System&uuml;berblick">
+                    
+                    <h4>1. Sicherheit</h4>
+                    <ul>
+                        <li><strong>IT-Sicherheit:</strong> SSL/TLS, RBAC (Role-Based Access Control), Firewall.</li>
+                        <li><strong>Arbeitsschutz:</strong> DGUV 3, Safeties (Sicherungsseile), Kabelbr&uuml;cken.</li>
+                    </ul>
+
+                    <h4>2. Funktion &amp; Systemarchitektur</h4>
+                    <p><strong>Signalfluss:</strong> Signalerfassung (Kamera, Mikrofon, Video) &rarr; Signalverarbeitung (Mischpult) &rarr; &Uuml;bertragung &rarr; Signalerfassung / Ausgabe (Monitor, Web).</p>
+
+                    <h4>3. Rechte &amp; Lizenzmodelle</h4>
+                    <ul>
+                        <li><strong>Urheberrecht (UrhG):</strong> Sch&ouml;pfungsh&ouml;he, Urheberpers&ouml;nlichkeitsrecht.</li>
+                        <li><strong>Lizenzen:</strong> Einfaches Recht, Ausschlie&szlig;liches Recht, Creative Commons (CC-BY, CC-NC).</li>
+                    </ul>
+
+                    <h4>4. Nutzen &amp; Zukunftstrends</h4>
+                    <ul>
+                        <li><strong>Zwecke:</strong> Bildung (E-Learning), Marketing (UX), Unterhaltung (Virtual Events).</li>
+                        <li><strong>Trends:</strong> Virtual Reality (VR), Augmented Reality (AR), KI im Workflow.</li>
+                    </ul>
+
+                    <h3>2.2 Signalverarbeitung &amp; Live-Broadcasting Workflow</h3>
+                    <img src="../art/datenbankfunkundco.jpeg" alt="Broadcast Signal Processing &amp; Live Workflow Diagramm">
+
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Prozessstufe</th>
+                                <th>Komponenten &amp; Signale</th>
+                                <th>Funktion / Beschreibung</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>1. Input Stage</strong></td>
+                                <td>Kamera (RAW Video/Audio, SDI/HDMI, Ethernet/NDI), Mikrofon (Analog Audio, XLR)</td>
+                                <td>Erfassung der physischen Bild- und Tonsignale am Aufnahmeort.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>2. Acquisition &amp; Processing</strong></td>
+                                <td>Signal Processor &amp; Encoder, Audio Interface (A/D-Wandlung), Network Switch</td>
+                                <td>Konvertierung analoger Signale in digitale Daten, Kompression und Weiterleitung im Netzwerk.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>3. Mixing Console &amp; Switcher</strong></td>
+                                <td>Production Switcher, Video Mixing (Cuts, Transitions), Audio Mixing (Levels, EQ), Graphics Overlay</td>
+                                <td>Zusammenf&uuml;hrung aller Quellen, Mischen von Bild/Ton, Einf&uuml;gen von Grafiken und Bauchbinden.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>4. Transmission &amp; Distribution</strong></td>
+                                <td>Transmission Headend, Satellite Uplink, Local Distribution (LAN), Remote Broadcast (WAN), Internet Streaming</td>
+                                <td>Verteilung des fertigen Programmsignals &uuml;ber Satellit, IP-Netzwerke oder Streaming-Server.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>5. Final Display Monitor</strong></td>
+                                <td>Endger&auml;te, TVs, Program Feed, HDMI/DP, Receiver</td>
+                                <td>Wiedergabe des Live-Signals auf Zielmonitoren und Kundenger&auml;ten.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <h3>2.3 Kommunikationsmodelle</h3>
                     <ul>
                         <li><strong>Vier-Ohren-Modell (Schulz von Thun):</strong> Sachinhalt, Selbstkundgabe, Beziehungshinweis, Appell.</li>
                         <li><strong>Sender-Empf&auml;nger-Modell (Shannon &amp; Weaver):</strong> Linearer, technischer Prozess (Kodierung, Kanal, Dekodierung, St&ouml;rquellen).</li>
@@ -230,20 +299,63 @@ void loop() {
                         <li><strong>Organon-Modell (B&uuml;hler):</strong> Ausdruck, Appell, Darstellung.</li>
                     </ul>
 
-                    <h3>2.2 Farbmodelle im Webdesign</h3>
+                    <h3>2.4 Farbmodelle im Webdesign</h3>
                     <table>
                         <thead>
-                            <tr><th>Format</th><th>Syntax</th><th>Beispiel</th><th>Eigenschaft</th></tr>
+                            <tr>
+                                <th>Farbmodell</th>
+                                <th>Format / Syntax</th>
+                                <th>Beispiel</th>
+                                <th>Eigenschaften</th>
+                            </tr>
                         </thead>
                         <tbody>
-                            <tr><td>HEX</td><td>#RRGGBB</td><td>#FF5733</td><td>Standard im Web</td></tr>
-                            <tr><td>RGB</td><td>rgb(R, G, B)</td><td>rgb(255, 87, 51)</td><td>Lichtintensit&auml;t (0-255)</td></tr>
-                            <tr><td>RGBA</td><td>rgba(R, G, B, A)</td><td>rgba(255, 87, 51, 0.5)</td><td>Mit Transparenz (0.0-1.0)</td></tr>
-                            <tr><td>HSL</td><td>hsl(H, S%, L%)</td><td>hsl(9, 100%, 60%)</td><td>Farbton, S&auml;ttigung, Helligkeit</td></tr>
+                            <tr>
+                                <td>HEX</td>
+                                <td>#RRGGBB</td>
+                                <td>#FF5733</td>
+                                <td>Standard-Code im Webdesign.</td>
+                            </tr>
+                            <tr>
+                                <td>HEX (mit Alpha)</td>
+                                <td>#RRGGBBAA</td>
+                                <td>#FF573380</td>
+                                <td>Erweiterung um 2 Stellen f&uuml;r Transparenz (00 bis FF).</td>
+                            </tr>
+                            <tr>
+                                <td>RGB</td>
+                                <td>rgb(R, G, B)</td>
+                                <td>rgb(255, 87, 51)</td>
+                                <td>Lichtintensit&auml;t von Rot, Gr&uuml;n, Blau (0&ndash;255).</td>
+                            </tr>
+                            <tr>
+                                <td>RGBA</td>
+                                <td>rgba(R, G, B, A)</td>
+                                <td>rgba(255, 87, 51, 0.5)</td>
+                                <td>RGB mit Alpha-Wert (0.0 bis 1.0) f&uuml;r Transparenz.</td>
+                            </tr>
+                            <tr>
+                                <td>HSL / HSLA</td>
+                                <td>hsl(H, S%, L%)</td>
+                                <td>hsl(9, 100%, 60%)</td>
+                                <td>Farbton (0&ndash;360&deg;), S&auml;ttigung (0&ndash;100%), Helligkeit (0&ndash;100%).</td>
+                            </tr>
+                            <tr>
+                                <td>OKLCH</td>
+                                <td>oklch(L C H)</td>
+                                <td>oklch(0.65 0.24 35)</td>
+                                <td>Wahrnehmungsgetreues Farbmodell f&uuml;r HDR/P3-Displays.</td>
+                            </tr>
+                            <tr>
+                                <td>Named Colors</td>
+                                <td>Textname</td>
+                                <td>tomato, steelblue</td>
+                                <td>&Uuml;ber 140 vordefinierte englische Farbnamen.</td>
+                            </tr>
                         </tbody>
                     </table>
 
-                    <h3>2.3 HTML &amp; CSS Grundlagen</h3>
+                    <h3>2.5 HTML &amp; CSS Grundlagen</h3>
                     <ul>
                         <li><strong>HTML:</strong> Struktur (Tags, Elemente, Attribute). Wichtige Tags: <code>&lt;header&gt;</code>, <code>&lt;nav&gt;</code>, <code>&lt;main&gt;</code>, <code>&lt;section&gt;</code>, <code>&lt;article&gt;</code>, <code>&lt;footer&gt;</code>.</li>
                         <li><strong>CSS:</strong> Design (Selektoren, Eigenschaften, Werte). Wichtige Konzepte: Flexbox (<code>display: flex</code>), Box-Model (<code>margin</code>, <code>padding</code>, <code>border</code>).</li>
@@ -395,7 +507,7 @@ void loop() {
             <details id="bereich-9">
                 <summary>9. Franz&ouml;sisch</summary>
                 <div class="details-content">
-                    <h3>9.1 Saint-Germain-des-Pr&eacute;s</h3>
+                    <h3>9.1 Saint-Germain-des-Pr&eacute;s (Pr&auml;sentation &amp; Fragen)</h3>
                     <table>
                         <thead>
                             <tr>
@@ -406,22 +518,94 @@ void loop() {
                         </thead>
                         <tbody>
                             <tr>
-                                <td><strong>C'est o&ugrave; ?</strong></td>
+                                <td><strong>C'est o&ugrave; ?</strong><br><em>(Wo ist das?)</em></td>
                                 <td>Il se trouve au centre de Paris (sur la rive gauche), dans le 6<sup>e</sup> arrondissement.</td>
-                                <td>Es befindet sich im Zentrum von Paris (am linken Seine-Ufer), im 6. Arrondissement.</td>
+                                <td>Es befindet sich im Zentrum von Paris (am linken Seine-Ufer), im 6. Arrondissement (Bezirk).</td>
                             </tr>
                             <tr>
-                                <td><strong>C'est quoi ?</strong></td>
+                                <td><strong>C'est quoi ?</strong><br><em>(Was ist das?)</em></td>
                                 <td>C'est un quartier historique et anim&eacute; avec une vieille &eacute;glise, des galeries d'art et des caf&eacute;s c&eacute;l&egrave;bres.</td>
                                 <td>Es ist ein historisches und lebhaftes Viertel mit einer alten Kirche, Kunstgalerien und ber&uuml;hmten Caf&eacute;s.</td>
                             </tr>
                             <tr>
-                                <td><strong>Tu peux faire quoi ?</strong></td>
-                                <td>Tu peux te promener dans les rues, visiter l'&eacute;glise, prendre des photos et boire un caf&eacute; en terrasse.</td>
-                                <td>Du kannst durch die Stra&szlig;en spazieren, die Kirche besichtigen, Fotos machen und einen Kaffee auf der Terrasse trinken.</td>
+                                <td><strong>Tu peux faire quoi ?</strong><br><em>(Was kann man da machen?)</em></td>
+                                <td>Tu peux te promener dans les rues, visiter l'&eacute;glise Saint-Germain-des-Pr&eacute;s, prendre des photos et boire un caf&eacute; en terrasse.</td>
+                                <td>Du kannst durch die Stra&szlig;en spazieren, die Kirche Saint-Germain-des-Pr&eacute;s besichtigen, Fotos machen und einen Kaffee auf der Terrasse trinken.</td>
                             </tr>
                         </tbody>
                     </table>
+
+                    <h3>9.2 Vokabeln &amp; Redewendungen</h3>
+                    
+                    <h4>Orientierung &amp; Ortsangaben</h4>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Franz&ouml;sisch (Fran&ccedil;ais)</th>
+                                <th>Deutsch</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>se trouver</td><td>sich befinden / liegen</td></tr>
+                            <tr><td>au centre (de)</td><td>im Zentrum (von)</td></tr>
+                            <tr><td>dans le nord / le sud / l'est / l'ouest</td><td>im Norden / S&uuml;den / Osten / Westen</td></tr>
+                            <tr><td>la rive gauche / la rive droite</td><td>das linke Seine-Ufer / das rechte Seine-Ufer</td></tr>
+                            <tr><td>un arrondissement</td><td>ein Stadtbezirk / Arrondissement</td></tr>
+                            <tr><td>le quartier</td><td>das Stadtviertel</td></tr>
+                        </tbody>
+                    </table>
+
+                    <h4>Orte, Sehensw&uuml;rdigkeiten &amp; Adjektive</h4>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Franz&ouml;sisch (Fran&ccedil;ais)</th>
+                                <th>Deutsch</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>un mus&eacute;e (m.)</td><td>ein Museum</td></tr>
+                            <tr><td>un parc (m.)</td><td>ein Park</td></tr>
+                            <tr><td>une place (f.)</td><td>ein Platz</td></tr>
+                            <tr><td>une &eacute;glise (f.)</td><td>eine Kirche</td></tr>
+                            <tr><td>un palais (m.)</td><td>ein Palast</td></tr>
+                            <tr><td>un stade (m.)</td><td>ein Stadion</td></tr>
+                            <tr><td>un monument (m.)</td><td>ein Denkmal / Monument</td></tr>
+                            <tr><td>une galerie d'art (f.)</td><td>eine Kunstgalerie</td></tr>
+                            <tr><td>une terrasse (f.)</td><td>eine Terrasse / Freisitz vor einem Caf&eacute;</td></tr>
+                            <tr><td>grand(e) / petit(e)</td><td>gro&szlig; / klein</td></tr>
+                            <tr><td>beau / belle</td><td>sch&ouml;n</td></tr>
+                            <tr><td>vieux / vieille</td><td>alt</td></tr>
+                            <tr><td>moderne / anim&eacute;(e) / historique</td><td>modern / belebt / historisch</td></tr>
+                        </tbody>
+                    </table>
+
+                    <h4>Aktivit&auml;ten &amp; Verben</h4>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Franz&ouml;sisch (Fran&ccedil;ais)</th>
+                                <th>Deutsch</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>voir</td><td>sehen</td></tr>
+                            <tr><td>visiter</td><td>besichtigen / besuchen (Orte)</td></tr>
+                            <tr><td>regarder</td><td>anschauen / ansehen</td></tr>
+                            <tr><td>se promener</td><td>spazieren gehen</td></tr>
+                            <tr><td>se reposer</td><td>sich ausruhen</td></tr>
+                            <tr><td>prendre des photos</td><td>Fotos machen</td></tr>
+                            <tr><td>jouer au football</td><td>Fu&szlig;ball spielen</td></tr>
+                            <tr><td>boire un caf&eacute;</td><td>einen Kaffee trinken</td></tr>
+                        </tbody>
+                    </table>
+
+                    <h4>Zusatzinformationen &amp; Kultur</h4>
+                    <ul>
+                        <li><strong>L'&Eacute;glise Saint-Germain-des-Pr&eacute;s:</strong> L'une des plus anciennes &eacute;glises de Paris, fond&eacute;e au VI<sup>e</sup> si&egrave;cle (Eine der &auml;ltesten Kirchen von Paris, gegr&uuml;ndet im 6. Jahrhundert).</li>
+                        <li><strong>Les Caf&eacute;s litt&eacute;raires:</strong> Le Caf&eacute; de Flore et Les Deux Magots &eacute;taient les lieux de rencontre c&eacute;l&egrave;bres des &eacute;crivains et philosophes (z. B. Jean-Paul Sartre, Simone de Beauvoir).</li>
+                        <li><strong>La Rive Gauche:</strong> Quartier r&eacute;put&eacute; pour son atmosph&egrave;re culturelle, intellectuelle et ses boutiques de luxe (Bekannt f&uuml;r seine kulturelle, intellektuelle Atmosph&auml;re und Luxusboutiquen).</li>
+                    </ul>
                 </div>
             </details>
 
@@ -431,9 +615,14 @@ void loop() {
             <h2 id="bereich-quellen">Quellenverzeichnis</h2>
             <ul class="sources-list">
                 <li><strong>Unterrichtsmaterialien &amp; Mitschriften:</strong> BGT25b (2026/2027), RBZ Technik.</li>
-                <li><strong>Grafiken &amp; Diagramme:</strong> Eigene Erstellungen und Unterrichtsmaterialien.</li>
+                <li><strong>Grafiken &amp; Diagramme (Ordner: art/):</strong>
+                    <ul>
+                        <li><code>medienziele.jpeg</code>: Infografik &bdquo;Medientechnik 12. Klasse: System&uuml;berblick&ldquo; (Sicherheit, Funktion, Rechte, Trends).</li>
+                        <li><code>datenbankfunkundco.jpeg</code>: Ablaufdiagramm &bdquo;Broadcast Signal Processing &amp; Live Workflow&ldquo; (Input bis Final Display).</li>
+                    </ul>
+                </li>
                 <li><strong>Literatur (Deutsch):</strong> Heinrich von Kleist (Das Erdbeben in Chili, Die Marquise von O..., Der zerbrochene Krug).</li>
-                <li><strong>Nachrichtenquellen (GMK):</strong> Tagesschau, ZDFheute (August 2026).</li>
+                <li><strong>Nachrichtenquellen (GMK):</strong> Tagesschau, ZDFheute, Presseportal LKA SH, SAT.1 Regional (August 2026).</li>
             </ul>
 
         </div>
