@@ -5,15 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#0a0f19">
     <meta name="description" content="Schulische Inhalte, Projekte und Dokumentationen von Leon Wyppych (BGT25b, 2026/2027).">
+    <meta name="author" content="Leon Wyppych">
     <title>Schule - Leon Wyppych</title>
     <link rel="stylesheet" href="../style.css">
     
-    <!-- Styling für die aufklappbaren Bereiche (nutzt deine CSS-Variablen) -->
+    <!-- Professionelles Styling für Akkordeons, Tabellen und Galerie (nutzt deine CSS-Variablen) -->
     <style>
+        /* Akkordeon (Details) Styling */
         details {
             background-color: transparent;
             border-bottom: 1px solid var(--border-color);
             padding: 15px 0;
+            transition: background-color 0.3s ease;
         }
         
         details:last-of-type {
@@ -31,39 +34,49 @@
             justify-content: space-between;
             align-items: center;
             transition: color 0.2s ease;
+            padding: 5px 0;
         }
 
+        /* Eigenes Plus/Minus Icon */
         summary::after {
             content: '+';
-            font-size: 1.5rem;
+            font-size: 1.6rem;
             color: var(--text-muted);
-            transition: transform 0.2s ease;
+            transition: transform 0.3s ease, color 0.3s ease;
         }
 
         details[open] summary::after {
             content: '−';
             transform: rotate(180deg);
+            color: var(--accent-gold);
         }
 
         summary:hover {
             color: var(--text-white);
         }
+        summary:hover::after {
+            color: var(--accent-gold);
+        }
 
+        /* Inhalt der Akkordeons */
         .details-content {
             padding: 20px 0 10px 15px;
             color: var(--text-muted);
-            animation: fadeIn 0.3s ease-in-out;
+            animation: fadeIn 0.4s ease-in-out;
+            border-left: 2px solid var(--border-color);
+            margin-top: 10px;
+            margin-left: 5px;
         }
 
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(-5px); }
+            from { opacity: 0; transform: translateY(-10px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
         .details-content h3 {
             color: var(--accent-gold);
             margin-top: 25px;
-            margin-bottom: 10px;
+            margin-bottom: 12px;
             font-size: 1.15rem;
             border-bottom: 1px dashed var(--border-color);
             padding-bottom: 5px;
@@ -71,18 +84,36 @@
 
         .details-content h4 {
             color: var(--text-white);
-            margin-top: 15px;
-            margin-bottom: 8px;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            font-size: 1rem;
         }
 
+        /* Responsive Tabellen */
+        .table-container {
+            width: 100%;
+            overflow-x: auto;
+            margin: 15px 0;
+            border-radius: 6px;
+            border: 1px solid var(--border-color);
+        }
+
+        .school-card table {
+            margin: 0; /* Margin wird vom Container übernommen */
+            border: none;
+        }
+
+        /* Bilder im Fließtext */
         .details-content img {
             max-width: 100%;
             height: auto;
             border-radius: 8px;
             margin: 15px 0;
             border: 1px solid var(--border-color);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
         }
 
+        /* Code-Blöcke */
         pre {
             background-color: var(--table-bg);
             padding: 15px;
@@ -92,27 +123,75 @@
             color: var(--link-blue);
             font-size: 0.9rem;
             margin-bottom: 20px;
+            font-family: 'Courier New', Courier, monospace;
         }
 
-        .school-card details p {
-            margin-bottom: 10px;
-        }
-        
+        /* Inhaltsverzeichnis */
         .toc {
             list-style: none;
             margin-left: 0 !important;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 10px;
         }
         .toc li {
-            margin-bottom: 8px;
+            margin-bottom: 0;
         }
         .toc a {
             color: var(--link-blue);
             text-decoration: none;
             transition: color 0.2s ease;
+            display: block;
+            padding: 8px 12px;
+            background-color: var(--table-bg);
+            border-radius: 4px;
+            border: 1px solid transparent;
         }
         .toc a:hover {
             color: var(--accent-gold);
-            text-decoration: underline;
+            border-color: var(--accent-gold);
+            background-color: rgba(255, 204, 0, 0.05);
+        }
+
+        /* Professionelle Galerie */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+            margin-bottom: 30px;
+        }
+
+        .gallery-item {
+            background-color: var(--table-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            overflow: hidden;
+            text-align: center;
+            padding: 10px;
+            transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-gold);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.4);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 130px;
+            object-fit: cover;
+            border-radius: 4px;
+            margin: 0 0 10px 0;
+            border: none;
+        }
+
+        .gallery-item figcaption {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            word-break: break-all;
+            font-weight: bold;
         }
     </style>
 </head>
@@ -139,11 +218,15 @@
     <main class="content">
         <div class="school-card">
             
-            <section class="info-block">
-                <h2>Schul-Informationen</h2>
-                <p><strong>Sch&uuml;ler:</strong> Leon Wyppych</p>
-                <p><strong>Jahrgang:</strong> BGT25b (2026/2027)</p>
-                <p><strong>Schule:</strong> RBZ Technik (Regionales Berufsbildungszentrum)</p>
+            <!-- Info & Hero Bereich -->
+            <section class="info-block" style="display: flex; align-items: center; gap: 20px; flex-wrap: wrap;">
+                <div>
+                    <h2>Schul-Informationen</h2>
+                    <p><strong>Sch&uuml;ler:</strong> Leon Wyppych</p>
+                    <p><strong>Jahrgang:</strong> BGT25b (2026/2027)</p>
+                    <p><strong>Schule:</strong> RBZ Technik (Regionales Berufsbildungszentrum)</p>
+                </div>
+                <img src="../art/leonhero.jpeg" alt="Leon Wyppych" style="max-width: 150px; border-radius: 50%; border: 2px solid var(--accent-gold); margin-left: auto;">
             </section>
 
             <hr class="divider">
@@ -152,46 +235,50 @@
             <ul class="toc">
                 <li><a href="#bereich-1">1. Berufliche Informatik &amp; Elektrotechnik</a></li>
                 <li><a href="#bereich-2">2. Medientechnik &amp; Webdesign</a></li>
-                <li><a href="#bereich-3">3. Gesellschaft, Medien &amp; Kultur (GMK) / Geschichte</a></li>
+                <li><a href="#bereich-3">3. Gesellschaft, Medien &amp; Kultur (GMK)</a></li>
                 <li><a href="#bereich-4">4. Deutsch (Literatur)</a></li>
                 <li><a href="#bereich-5">5. Physik</a></li>
                 <li><a href="#bereich-6">6. Englisch</a></li>
                 <li><a href="#bereich-7">7. Wirtschaft &amp; Recht</a></li>
                 <li><a href="#bereich-8">8. Chemie</a></li>
                 <li><a href="#bereich-9">9. Franz&ouml;sisch</a></li>
+                <li><a href="#bereich-galerie">10. Bildergalerie (Alle Dokumente)</a></li>
             </ul>
 
             <hr class="divider">
 
-            <!-- 1. BERUFLICHE INFORMATIK -->
+            <!-- 1. BERUFLICHE INFORMATIK & ELEKTROTECHNIK -->
             <details id="bereich-1">
                 <summary>1. Berufliche Informatik &amp; Elektrotechnik</summary>
                 <div class="details-content">
-                    <h3>1.1 Grundlagen &amp; Werkzeuge</h3>
+                    
+                    <h3>1.1 IT-Grundlagen &amp; Werkzeuge</h3>
                     <ul>
                         <li><strong>Netzwerkweg:</strong> Handy &rarr; Drucker &rarr; WLAN &rarr; Provider &rarr; Web &rarr; Server</li>
-                        <li><strong>Calc:</strong> Datum, Kalender, Sonderzeichen, Rechnungen, Feiertage, Schriftart, Short-Commands, Ma&szlig;e &amp; Einheiten.</li>
-                        <li><strong>Writer:</strong> Formatierung, Titel-, Untertitel-, Normaltext-, Fu&szlig;zeile-, Kopfzeile- &amp; Randformatierung.</li>
+                        <li><strong>Calc (Tabellenkalkulation):</strong> Datum, Kalender, Sonderzeichen, Rechnungen, Feiertage, Schriftart, Short-Commands, Ma&szlig;e &amp; Einheiten/Units/Skale.</li>
+                        <li><strong>Writer (Textverarbeitung):</strong> Formatierung, Titel-, Untertitel-, Normaltext-, Fu&szlig;zeile-, Kopfzeile- &amp; Randformatierung.</li>
                     </ul>
 
                     <h3>1.2 Elektrotechnik &amp; Bauteile</h3>
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Bauteil</th>
-                                <th>Funktion &amp; Beschreibung</th>
-                                <th>Einheit / Merkmal</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr><td>Widerstand (Resistor)</td><td>Begrenzt den Stromfluss, setzt Energie in Wärme um.</td><td>Ohm (&Omega;), Farbcode</td></tr>
-                            <tr><td>Kondensator (Capacitor)</td><td>Speichert elektrische Energie in einem Feld, glättet Spannungen.</td><td>Farad (F), gepolt/ungepolt</td></tr>
-                            <tr><td>Diode</td><td>Lässt Strom nur in eine Richtung durch (Gleichrichter).</td><td>Anode (+), Kathode (-)</td></tr>
-                            <tr><td>LED</td><td>Leuchtdiode, wandelt Strom in Licht um. Benötigt Vorwiderstand.</td><td>Anode (lang), Kathode (kurz)</td></tr>
-                            <tr><td>Spule (Induktivit&auml;t)</td><td>Speichert Energie in einem Magnetfeld, widersteht Strom&auml;nderungen.</td><td>Henry (H)</td></tr>
-                            <tr><td>Transistor</td><td>Elektronischer Schalter oder Verst&auml;rker.</td><td>Basis, Kollektor, Emitter</td></tr>
-                        </tbody>
-                    </table>
+                    <div class="table-container">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th scope="col">Bauteil (Fachbegriff)</th>
+                                    <th scope="col">Funktion &amp; Beschreibung</th>
+                                    <th scope="col">Einheit / Merkmal</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr><td>Widerstand (Resistor)</td><td>Begrenzt den Stromfluss, setzt Energie in Wärme um.</td><td>Ohm (&Omega;), Farbcode</td></tr>
+                                <tr><td>Kondensator (Capacitor)</td><td>Speichert elektrische Energie in einem Feld, glättet Spannungen.</td><td>Farad (F), gepolt/ungepolt</td></tr>
+                                <tr><td>Diode</td><td>Lässt Strom nur in eine Richtung durch (Gleichrichter).</td><td>Anode (+), Kathode (-)</td></tr>
+                                <tr><td>LED</td><td>Leuchtdiode, wandelt Strom in Licht um. Benötigt Vorwiderstand.</td><td>Anode (lang), Kathode (kurz)</td></tr>
+                                <tr><td>Spule (Induktivit&auml;t)</td><td>Speichert Energie in einem Magnetfeld, widersteht Strom&auml;nderungen.</td><td>Henry (H)</td></tr>
+                                <tr><td>Transistor</td><td>Elektronischer Schalter oder Verst&auml;rker.</td><td>Basis, Kollektor, Emitter</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
 
                     <h3>1.3 Arduino Uno R3</h3>
                     <ul>
@@ -199,7 +286,7 @@
                         <li><strong>Analog-Pins (A0-A5):</strong> F&uuml;r Sensoren (0-5V).</li>
                         <li><strong>Stromversorgung:</strong> 5V, 3.3V, GND.</li>
                     </ul>
-                    <h4>Beispiel: Blinkende LED (Code)</h4>
+                    <h4>Code-Beispiel: Blinkende LED</h4>
                     <pre><code>const int ledPin = 13;
 void setup() {
   pinMode(ledPin, OUTPUT);
@@ -218,6 +305,7 @@ void loop() {
                         <li><strong>SQL Basics:</strong> <code>SELECT</code>, <code>FROM</code>, <code>WHERE</code>, <code>ORDER BY</code>, <code>GROUP BY</code>, <code>HAVING</code>.</li>
                         <li><strong>Joins:</strong> <code>INNER JOIN</code>, <code>LEFT JOIN</code>, <code>RIGHT JOIN</code>, <code>FULL JOIN</code>.</li>
                     </ul>
+                    <img src="../art/datenbankfunkundco.jpeg" alt="Datenbank und Funk Diagramm">
                 </div>
             </details>
 
@@ -233,61 +321,38 @@ void loop() {
                         <li><strong>IT-Sicherheit:</strong> SSL/TLS, RBAC (Role-Based Access Control), Firewall.</li>
                         <li><strong>Arbeitsschutz:</strong> DGUV 3, Safeties (Sicherungsseile), Kabelbr&uuml;cken.</li>
                     </ul>
-
                     <h4>2. Funktion &amp; Systemarchitektur</h4>
                     <p><strong>Signalfluss:</strong> Signalerfassung (Kamera, Mikrofon, Video) &rarr; Signalverarbeitung (Mischpult) &rarr; &Uuml;bertragung &rarr; Signalerfassung / Ausgabe (Monitor, Web).</p>
-
                     <h4>3. Rechte &amp; Lizenzmodelle</h4>
                     <ul>
                         <li><strong>Urheberrecht (UrhG):</strong> Sch&ouml;pfungsh&ouml;he, Urheberpers&ouml;nlichkeitsrecht.</li>
                         <li><strong>Lizenzen:</strong> Einfaches Recht, Ausschlie&szlig;liches Recht, Creative Commons (CC-BY, CC-NC).</li>
                     </ul>
-
                     <h4>4. Nutzen &amp; Zukunftstrends</h4>
                     <ul>
                         <li><strong>Zwecke:</strong> Bildung (E-Learning), Marketing (UX), Unterhaltung (Virtual Events).</li>
                         <li><strong>Trends:</strong> Virtual Reality (VR), Augmented Reality (AR), KI im Workflow.</li>
                     </ul>
 
-                    <h3>2.2 Signalverarbeitung &amp; Live-Broadcasting Workflow</h3>
-                    <img src="../art/datenbankfunkundco.jpeg" alt="Broadcast Signal Processing &amp; Live Workflow Diagramm">
-
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Prozessstufe</th>
-                                <th>Komponenten &amp; Signale</th>
-                                <th>Funktion / Beschreibung</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td><strong>1. Input Stage</strong></td>
-                                <td>Kamera (RAW Video/Audio, SDI/HDMI, Ethernet/NDI), Mikrofon (Analog Audio, XLR)</td>
-                                <td>Erfassung der physischen Bild- und Tonsignale am Aufnahmeort.</td>
-                            </tr>
-                            <tr>
-                                <td><strong>2. Acquisition &amp; Processing</strong></td>
-                                <td>Signal Processor &amp; Encoder, Audio Interface (A/D-Wandlung), Network Switch</td>
-                                <td>Konvertierung analoger Signale in digitale Daten, Kompression und Weiterleitung im Netzwerk.</td>
-                            </tr>
-                            <tr>
-                                <td><strong>3. Mixing Console &amp; Switcher</strong></td>
-                                <td>Production Switcher, Video Mixing (Cuts, Transitions), Audio Mixing (Levels, EQ), Graphics Overlay</td>
-                                <td>Zusammenf&uuml;hrung aller Quellen, Mischen von Bild/Ton, Einf&uuml;gen von Grafiken und Bauchbinden.</td>
-                            </tr>
-                            <tr>
-                                <td><strong>4. Transmission &amp; Distribution</strong></td>
-                                <td>Transmission Headend, Satellite Uplink, Local Distribution (LAN), Remote Broadcast (WAN), Internet Streaming</td>
-                                <td>Verteilung des fertigen Programmsignals &uuml;ber Satellit, IP-Netzwerke oder Streaming-Server.</td>
-                            </tr>
-                            <tr>
-                                <td><strong>5. Final Display Monitor</strong></td>
-                                <td>Endger&auml;te, TVs, Program Feed, HDMI/DP, Receiver</td>
-                                <td>Wiedergabe des Live-Signals auf Zielmonitoren und Kundenger&auml;ten.</td>
-                            </tr>
-                        </tbody>
-                    </table>
+                    <h3>2.2 Live-Broadcasting Workflow</h3>
+                    <div class="table-container">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th scope="col">Prozessstufe</th>
+                                    <th scope="col">Komponenten &amp; Signale</th>
+                                    <th scope="col">Funktion / Beschreibung</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr><td><strong>1. Input Stage</strong></td><td>Kamera (RAW Video/Audio, SDI/HDMI, Ethernet/NDI), Mikrofon (Analog Audio, XLR)</td><td>Erfassung der physischen Bild- und Tonsignale am Aufnahmeort.</td></tr>
+                                <tr><td><strong>2. Acquisition &amp; Processing</strong></td><td>Signal Processor &amp; Encoder, Audio Interface (A/D-Wandlung), Network Switch</td><td>Konvertierung analoger Signale in digitale Daten, Kompression und Weiterleitung im Netzwerk.</td></tr>
+                                <tr><td><strong>3. Mixing Console &amp; Switcher</strong></td><td>Production Switcher, Video Mixing (Cuts, Transitions), Audio Mixing (Levels, EQ), Graphics Overlay</td><td>Zusammenf&uuml;hrung aller Quellen, Mischen von Bild/Ton, Einf&uuml;gen von Grafiken und Bauchbinden.</td></tr>
+                                <tr><td><strong>4. Transmission &amp; Distribution</strong></td><td>Transmission Headend, Satellite Uplink, Local Distribution (LAN), Remote Broadcast (WAN), Internet Streaming</td><td>Verteilung des fertigen Programmsignals &uuml;ber Satellit, IP-Netzwerke oder Streaming-Server.</td></tr>
+                                <tr><td><strong>5. Final Display Monitor</strong></td><td>Endger&auml;te, TVs, Program Feed, HDMI/DP, Receiver</td><td>Wiedergabe des Live-Signals auf Zielmonitoren und Kundenger&auml;ten.</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
 
                     <h3>2.3 Kommunikationsmodelle</h3>
                     <ul>
@@ -300,73 +365,32 @@ void loop() {
                     </ul>
 
                     <h3>2.4 Farbmodelle im Webdesign</h3>
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Farbmodell</th>
-                                <th>Format / Syntax</th>
-                                <th>Beispiel</th>
-                                <th>Eigenschaften</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>HEX</td>
-                                <td>#RRGGBB</td>
-                                <td>#FF5733</td>
-                                <td>Standard-Code im Webdesign.</td>
-                            </tr>
-                            <tr>
-                                <td>HEX (mit Alpha)</td>
-                                <td>#RRGGBBAA</td>
-                                <td>#FF573380</td>
-                                <td>Erweiterung um 2 Stellen f&uuml;r Transparenz (00 bis FF).</td>
-                            </tr>
-                            <tr>
-                                <td>RGB</td>
-                                <td>rgb(R, G, B)</td>
-                                <td>rgb(255, 87, 51)</td>
-                                <td>Lichtintensit&auml;t von Rot, Gr&uuml;n, Blau (0&ndash;255).</td>
-                            </tr>
-                            <tr>
-                                <td>RGBA</td>
-                                <td>rgba(R, G, B, A)</td>
-                                <td>rgba(255, 87, 51, 0.5)</td>
-                                <td>RGB mit Alpha-Wert (0.0 bis 1.0) f&uuml;r Transparenz.</td>
-                            </tr>
-                            <tr>
-                                <td>HSL / HSLA</td>
-                                <td>hsl(H, S%, L%)</td>
-                                <td>hsl(9, 100%, 60%)</td>
-                                <td>Farbton (0&ndash;360&deg;), S&auml;ttigung (0&ndash;100%), Helligkeit (0&ndash;100%).</td>
-                            </tr>
-                            <tr>
-                                <td>OKLCH</td>
-                                <td>oklch(L C H)</td>
-                                <td>oklch(0.65 0.24 35)</td>
-                                <td>Wahrnehmungsgetreues Farbmodell f&uuml;r HDR/P3-Displays.</td>
-                            </tr>
-                            <tr>
-                                <td>Named Colors</td>
-                                <td>Textname</td>
-                                <td>tomato, steelblue</td>
-                                <td>&Uuml;ber 140 vordefinierte englische Farbnamen.</td>
-                            </tr>
-                        </tbody>
-                    </table>
-
-                    <h3>2.5 HTML &amp; CSS Grundlagen</h3>
-                    <ul>
-                        <li><strong>HTML:</strong> Struktur (Tags, Elemente, Attribute). Wichtige Tags: <code>&lt;header&gt;</code>, <code>&lt;nav&gt;</code>, <code>&lt;main&gt;</code>, <code>&lt;section&gt;</code>, <code>&lt;article&gt;</code>, <code>&lt;footer&gt;</code>.</li>
-                        <li><strong>CSS:</strong> Design (Selektoren, Eigenschaften, Werte). Wichtige Konzepte: Flexbox (<code>display: flex</code>), Box-Model (<code>margin</code>, <code>padding</code>, <code>border</code>).</li>
-                        <li><strong>Semantik:</strong> Verwendung von Tags, die ihre Bedeutung beschreiben (z.B. <code>&lt;strong&gt;</code> statt <code>&lt;b&gt;</code>).</li>
-                    </ul>
+                    <div class="table-container">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th scope="col">Farbmodell</th>
+                                    <th scope="col">Format / Syntax</th>
+                                    <th scope="col">Beispiel</th>
+                                    <th scope="col">Eigenschaften</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr><td>HEX</td><td>#RRGGBB</td><td>#FF5733</td><td>Standard-Code im Webdesign.</td></tr>
+                                <tr><td>HEX (mit Alpha)</td><td>#RRGGBBAA</td><td>#FF573380</td><td>Erweiterung um 2 Stellen f&uuml;r Transparenz.</td></tr>
+                                <tr><td>RGB</td><td>rgb(R, G, B)</td><td>rgb(255, 87, 51)</td><td>Lichtintensit&auml;t (0&ndash;255).</td></tr>
+                                <tr><td>RGBA</td><td>rgba(R, G, B, A)</td><td>rgba(255, 87, 51, 0.5)</td><td>Mit Alpha-Wert (0.0 bis 1.0) f&uuml;r Transparenz.</td></tr>
+                                <tr><td>HSL / HSLA</td><td>hsl(H, S%, L%)</td><td>hsl(9, 100%, 60%)</td><td>Farbton, S&auml;ttigung, Helligkeit.</td></tr>
+                                <tr><td>OKLCH</td><td>oklch(L C H)</td><td>oklch(0.65 0.24 35)</td><td>Wahrnehmungsgetreues Modell f&uuml;r HDR/P3.</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </details>
 
             <!-- 3. GMK / GESCHICHTE -->
             <details id="bereich-3">
-                <summary>3. Gesellschaft, Medien &amp; Kultur (GMK) / Geschichte</summary>
+                <summary>3. Gesellschaft, Medien &amp; Kultur (GMK)</summary>
                 <div class="details-content">
                     <h3>3.1 Politik (August 2026)</h3>
                     <ul>
@@ -377,20 +401,30 @@ void loop() {
 
                     <h3>3.2 Bismarck &amp; Imperialismus</h3>
                     <ul>
-                        <li><strong>Kissinger Diktat (1877):</strong> Bismarcks au&szlig;enpolitisches Ziel, den Status quo zu erhalten, Koalitionen zu verhindern, England und Russland auszugleichen und Frankreich zu isolieren.</li>
+                        <li><strong>Kissinger Diktat (1877):</strong> Status quo erhalten, Koalitionen verhindern, England und Russland ausgleichen, Frankreich isolieren.</li>
                         <li><strong>B&uuml;ndnispolitik:</strong> Dreikaiserabkommen (1873), Zweibund (1879), Dreibund (1882), R&uuml;ckversicherungsvertrag (1887).</li>
                         <li><strong>Kolonialpolitik:</strong> Anf&auml;nglich skeptisch, sp&auml;ter Erwerb von Kolonien (Deutsch-S&uuml;dwestafrika, Togo, Kamerun, Deutsch-Ostafrika).</li>
-                        <li><strong>Karikaturen:</strong> Analyse von Bismarck als autorit&auml;rer Machthaber (Peitsche) und die "Kartoffel"-Karikatur zum Imperialismus.</li>
                     </ul>
 
                     <h3>3.3 Parteien im Kaiserreich (1870-1890)</h3>
-                    <ul>
-                        <li><strong>Konservative (KP/DRP):</strong> Schwerindustrielle, Beamte, Hochadel. Ziele: Unterst&uuml;tzung Bismarcks, Aufr&uuml;stung.</li>
-                        <li><strong>Nationalliberale (NLP):</strong> Unternehmer, Professoren. Ziele: Freier Handel, Kolonien, Imperialismus.</li>
-                        <li><strong>Linksliberale (DFP):</strong> Handwerker, H&auml;ndler. Ziele: Mehr Macht f&uuml;r den Reichstag, B&uuml;rgerrechte.</li>
-                        <li><strong>Zentrum:</strong> Katholiken. Ziele: Schutz der Kirche, F&ouml;deralismus.</li>
-                        <li><strong>SPD/SAP:</strong> Industriearbeiter. Ziele: Arbeiterrechte, Demokratie.</li>
-                    </ul>
+                    <div class="table-container">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th scope="col">Partei</th>
+                                    <th scope="col">Klientel (Wer?)</th>
+                                    <th scope="col">Ziele</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr><td>Konservative (KP/DRP)</td><td>Schwerindustrielle, Beamte, Hochadel</td><td>Unterst&uuml;tzung Bismarcks, Aufr&uuml;stung.</td></tr>
+                                <tr><td>Nationalliberale (NLP)</td><td>Unternehmer, Professoren</td><td>Freier Handel, Kolonien, Imperialismus.</td></tr>
+                                <tr><td>Linksliberale (DFP)</td><td>Handwerker, H&auml;ndler</td><td>Mehr Macht f&uuml;r den Reichstag, B&uuml;rgerrechte.</td></tr>
+                                <tr><td>Zentrum</td><td>Katholiken</td><td>Schutz der Kirche, F&ouml;deralismus.</td></tr>
+                                <tr><td>SPD/SAP</td><td>Industriearbeiter</td><td>Arbeiterrechte, Demokratie.</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </details>
 
@@ -399,15 +433,13 @@ void loop() {
                 <summary>4. Deutsch (Literatur)</summary>
                 <div class="details-content">
                     <h3>4.1 Das Erdbeben in Chili (Heinrich von Kleist)</h3>
-                    <p><strong>Inhalt:</strong> Jeronimo Rugera und Donna Josephe werden wegen verbotener Liebe bestraft. Ein Erdbeben zerst&ouml;rt die Stadt und rettet sie kurzzeitig. Im Tal finden sie Schutz, doch in der Kathedrale werden sie von einem fanatischen Mob (angestachelt von einem Dominikaner) get&ouml;tet. Nur ihr Kind Philipp &uuml;berlebt und wird von Don Fernando und Donna Elvire aufgenommen.</p>
-                    <p><strong>Charaktere:</strong> Jeronimo Rugera, Donna Josephe, Don Henrico Asteron, Philipp, Don Fernando Ormez, Donna Elvire, Meister Pedrillo.</p>
-
+                    <p><strong>Inhalt:</strong> Jeronimo Rugera und Donna Josephe werden wegen verbotener Liebe bestraft. Ein Erdbeben zerst&ouml;rt die Stadt und rettet sie kurzzeitig. Im Tal finden sie Schutz, doch in der Kathedrale werden sie von einem fanatischen Mob get&ouml;tet. Nur ihr Kind Philipp &uuml;berlebt und wird von Don Fernando und Donna Elvire aufgenommen.</p>
+                    
                     <h3>4.2 Die Marquise von O... (Heinrich von Kleist)</h3>
                     <p><strong>Inhalt:</strong> Die Marquise wird von Graf F... gerettet, der sich jedoch unbemerkt an ihr vergeht, als sie ohnm&auml;chtig ist. Sie wird schwanger, der Vater verst&ouml;&szlig;t sie. Durch eine Zeitungsanzeige sucht sie den Vater. Der Graf gesteht, sie heiraten zun&auml;chst pro forma, finden aber sp&auml;ter durch seine Reue und F&uuml;rsorge zueinander.</p>
-                    <p><strong>Themen:</strong> Gesellschaftliche Moral, unverschuldete Not, Wiederherstellung der Ehre.</p>
 
                     <h3>4.3 Der zerbrochene Krug (Heinrich von Kleist)</h3>
-                    <p><strong>Inhalt:</strong> Dorfrichter Adam muss den Fall eines zerbrochenen Kruges verhandeln. Es stellt sich heraus, dass er selbst der T&auml;ter ist. Er war nachts bei Eve, um sie mit einem gef&auml;lschten Attest zu erpressen (um ihren Verlobten Ruprecht vor dem Milit&auml;rdienst zu bewahren). Als Ruprecht auftauchte, floh Adam und zerbrach den Krug. Am Ende wird Adam &uuml;berf&uuml;hrt und flieht.</p>
+                    <p><strong>Inhalt:</strong> Dorfrichter Adam muss den Fall eines zerbrochenen Kruges verhandeln. Es stellt sich heraus, dass er selbst der T&auml;ter ist. Er war nachts bei Eve, um sie mit einem gef&auml;lschten Attest zu erpressen. Als Ruprecht auftauchte, floh Adam und zerbrach den Krug. Am Ende wird Adam &uuml;berf&uuml;hrt und flieht.</p>
                 </div>
             </details>
 
@@ -418,25 +450,37 @@ void loop() {
                     <h3>5.1 Mechanik &amp; Energie</h3>
                     <ul>
                         <li><strong>Mechanische Arbeit:</strong> W = F &middot; s (Kraft mal Weg). Einheit: Joule (J) oder Newtonmeter (Nm).</li>
-                        <li><strong>Kinetische Energie (Bewegung):</strong> E<sub>kin</sub> = &frac12; &middot; m &middot; v&sup2;</li>
-                        <li><strong>Potentielle Energie (Lage):</strong> E<sub>pot</sub> = m &middot; g &middot; h</li>
-                        <li><strong>Energieerhaltungssatz:</strong> Energie kann weder erzeugt noch vernichtet, nur umgewandelt werden (E<sub>ges</sub> = konstant).</li>
-                        <li><strong>Goldene Regel der Mechanik:</strong> Was an Kraft gespart wird, muss an Weg zugesetzt werden (F<sub>1</sub> &middot; s<sub>1</sub> = F<sub>2</sub> &middot; s<sub>2</sub>).</li>
+                        <li><strong>Kinetische Energie:</strong> E<sub>kin</sub> = &frac12; &middot; m &middot; v&sup2;</li>
+                        <li><strong>Potentielle Energie:</strong> E<sub>pot</sub> = m &middot; g &middot; h</li>
+                        <li><strong>Energieerhaltungssatz:</strong> Energie kann weder erzeugt noch vernichtet, nur umgewandelt werden.</li>
+                        <li><strong>Goldene Regel der Mechanik:</strong> Was an Kraft gespart wird, muss an Weg zugesetzt werden.</li>
                     </ul>
 
-                    <h3>5.2 Gravitation &amp; Felder</h3>
+                    <h3>5.2 Gravitation &amp; Elektrische Felder</h3>
                     <ul>
                         <li><strong>Gravitationsgesetz (Newton):</strong> F<sub>G</sub> = G &middot; (m<sub>1</sub> &middot; m<sub>2</sub>) / r&sup2;</li>
                         <li><strong>Ortsfaktor (g):</strong> g = (G &middot; M<sub>E</sub>) / R<sub>E</sub>&sup2; &asymp; 9,81 m/s&sup2; (an der Erdoberfl&auml;che).</li>
-                        <li><strong>Gravitationsfeldst&auml;rke:</strong> g(r) = F<sub>G</sub> / m. Nimmt mit 1/r&sup2; ab.</li>
+                        <li><strong>Coulombsches Gesetz:</strong> F<sub>el</sub> = (1 / (4&pi;&epsilon;<sub>0</sub>)) &middot; ((q<sub>1</sub> &middot; q<sub>2</sub>) / r&sup2;)</li>
                     </ul>
 
-                    <h3>5.3 Elektrische Kraft &amp; Influenz</h3>
-                    <ul>
-                        <li><strong>Influenz:</strong> Verschiebung von Ladungstr&auml;gern in einem Leiter durch ein &auml;u&szlig;eres elektrisches Feld.</li>
-                        <li><strong>Coulombsches Gesetz:</strong> F<sub>el</sub> = (1 / (4&pi;&epsilon;<sub>0</sub>)) &middot; ((q<sub>1</sub> &middot; q<sub>2</sub>) / r&sup2;)</li>
-                        <li><strong>Vergleich:</strong> Gravitation (Massen, immer anziehend) vs. Elektrisches Feld (Ladungen, anziehend oder absto&szlig;end).</li>
-                    </ul>
+                    <h3>5.3 Formelsammlung &amp; Einheiten</h3>
+                    <div class="table-container">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th scope="col">Gr&ouml;&szlig;e</th>
+                                    <th scope="col">Formel</th>
+                                    <th scope="col">Einheit</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr><td>Kraft (F)</td><td>F = m &middot; a</td><td>Newton (N)</td></tr>
+                                <tr><td>Energie / Arbeit (E, W)</td><td>W = F &middot; s</td><td>Joule (J) = N&middot;m</td></tr>
+                                <tr><td>Leistung (P)</td><td>P = W / t</td><td>Watt (W) = J/s</td></tr>
+                                <tr><td>Druck (p)</td><td>p = F / A</td><td>Pascal (Pa) = N/m&sup2;</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </details>
 
@@ -452,10 +496,6 @@ void loop() {
                     <h3>6.2 Mediation (Team Performance)</h3>
                     <p><strong>Rules:</strong> German to English, no personal opinion, simple present, generalization, no specific quotes.</p>
                     <p><strong>Content:</strong> Shared financial bonuses improve group speed and success. Traditional managers think bonuses only help routine tasks. An escape room experiment showed teams solve complex tasks faster with shared rewards. Financial rewards do not harm inner motivation if tasks are interesting.</p>
-
-                    <h3>6.3 UK Identity</h3>
-                    <p><strong>Audrey Ferrand:</strong> British first, then Scottish. Devolution didn't change much.</p>
-                    <p><strong>David McQueen:</strong> Born in London, parents from Caribbean. Identifies as British, loves English culture.</p>
                 </div>
             </details>
 
@@ -472,7 +512,6 @@ void loop() {
                         <li><strong>Lohn-/Gehaltstarifvertrag:</strong> Regelt L&ouml;hne/Geh&auml;lter (kurzfristig).</li>
                         <li><strong>Manteltarifvertrag:</strong> Regelt allgemeine Bedingungen (Arbeitszeit, Urlaub, K&uuml;ndigung) (mehrj&auml;hrig).</li>
                         <li><strong>Funktionen:</strong> Schutzfunktion (Mindeststandards), Ordnungsfunktion (Planungssicherheit), Friedenspflicht (keine Streiks w&auml;hrend der Laufzeit).</li>
-                        <li><strong>Tarifbindung:</strong> Sinkt in Deutschland (West: 70% &rarr; 49%, Ost: 55% &rarr; 45%).</li>
                     </ul>
                 </div>
             </details>
@@ -482,24 +521,19 @@ void loop() {
                 <summary>8. Chemie</summary>
                 <div class="details-content">
                     <h3>8.1 Basen &amp; alkalische Haushaltsmittel</h3>
-                    <table>
-                        <thead>
-                            <tr><th>Stoff</th><th>Formel</th><th>Verwendung</th></tr>
-                        </thead>
-                        <tbody>
-                            <tr><td>Natriumhydroxid (Natronlauge)</td><td>NaOH</td><td>Kraftvoller Rohrreiniger</td></tr>
-                            <tr><td>Natriumcarbonat (Waschsoda)</td><td>Na<sub>2</sub>CO<sub>3</sub></td><td>Reinigen, Einweichen, Entkalken</td></tr>
-                            <tr><td>Natriumhydrogencarbonat (Natron)</td><td>NaHCO<sub>3</sub></td><td>Mildes Scheuermittel, Backtriebmittel</td></tr>
-                            <tr><td>Ammoniak (Salmiakgeist)</td><td>NH<sub>3</sub></td><td>Glas- und Allzweckreiniger</td></tr>
-                        </tbody>
-                    </table>
-
-                    <h3>8.2 Organische Chemie</h3>
-                    <ul>
-                        <li><strong>Kohlenwasserstoffe:</strong> Alkane, Alkene, Alkine.</li>
-                        <li><strong>Aromaten:</strong> Benzol, Mesomerie, elektrophile aromatische Substitution.</li>
-                        <li><strong>Reaktionsmechanismen:</strong> Radikalische Substitution, elektrophile Addition, nukleophile Substitution.</li>
-                    </ul>
+                    <div class="table-container">
+                        <table>
+                            <thead>
+                                <tr><th scope="col">Stoff</th><th scope="col">Formel</th><th scope="col">Verwendung</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr><td>Natriumhydroxid (Natronlauge)</td><td>NaOH</td><td>Kraftvoller Rohrreiniger</td></tr>
+                                <tr><td>Natriumcarbonat (Waschsoda)</td><td>Na<sub>2</sub>CO<sub>3</sub></td><td>Reinigen, Einweichen, Entkalken</td></tr>
+                                <tr><td>Natriumhydrogencarbonat (Natron)</td><td>NaHCO<sub>3</sub></td><td>Mildes Scheuermittel, Backtriebmittel</td></tr>
+                                <tr><td>Ammoniak (Salmiakgeist)</td><td>NH<sub>3</sub></td><td>Glas- und Allzweckreiniger</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </details>
 
@@ -507,105 +541,99 @@ void loop() {
             <details id="bereich-9">
                 <summary>9. Franz&ouml;sisch</summary>
                 <div class="details-content">
-                    <h3>9.1 Saint-Germain-des-Pr&eacute;s (Pr&auml;sentation &amp; Fragen)</h3>
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Frage / Question</th>
-                                <th>R&eacute;ponse en fran&ccedil;ais</th>
-                                <th>Deutsche &Uuml;bersetzung</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td><strong>C'est o&ugrave; ?</strong><br><em>(Wo ist das?)</em></td>
-                                <td>Il se trouve au centre de Paris (sur la rive gauche), dans le 6<sup>e</sup> arrondissement.</td>
-                                <td>Es befindet sich im Zentrum von Paris (am linken Seine-Ufer), im 6. Arrondissement (Bezirk).</td>
-                            </tr>
-                            <tr>
-                                <td><strong>C'est quoi ?</strong><br><em>(Was ist das?)</em></td>
-                                <td>C'est un quartier historique et anim&eacute; avec une vieille &eacute;glise, des galeries d'art et des caf&eacute;s c&eacute;l&egrave;bres.</td>
-                                <td>Es ist ein historisches und lebhaftes Viertel mit einer alten Kirche, Kunstgalerien und ber&uuml;hmten Caf&eacute;s.</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Tu peux faire quoi ?</strong><br><em>(Was kann man da machen?)</em></td>
-                                <td>Tu peux te promener dans les rues, visiter l'&eacute;glise Saint-Germain-des-Pr&eacute;s, prendre des photos et boire un caf&eacute; en terrasse.</td>
-                                <td>Du kannst durch die Stra&szlig;en spazieren, die Kirche Saint-Germain-des-Pr&eacute;s besichtigen, Fotos machen und einen Kaffee auf der Terrasse trinken.</td>
-                            </tr>
-                        </tbody>
-                    </table>
+                    <h3>9.1 Saint-Germain-des-Pr&eacute;s (Fragen)</h3>
+                    <div class="table-container">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th scope="col">Frage / Question</th>
+                                    <th scope="col">R&eacute;ponse en fran&ccedil;ais</th>
+                                    <th scope="col">Deutsche &Uuml;bersetzung</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr><td><strong>C'est o&ugrave; ?</strong></td><td>Il se trouve au centre de Paris (sur la rive gauche), dans le 6<sup>e</sup> arrondissement.</td><td>Es befindet sich im Zentrum von Paris (am linken Seine-Ufer), im 6. Arrondissement.</td></tr>
+                                <tr><td><strong>C'est quoi ?</strong></td><td>C'est un quartier historique et anim&eacute; avec une vieille &eacute;glise, des galeries d'art et des caf&eacute;s c&eacute;l&egrave;bres.</td><td>Es ist ein historisches und lebhaftes Viertel mit einer alten Kirche, Kunstgalerien und ber&uuml;hmten Caf&eacute;s.</td></tr>
+                                <tr><td><strong>Tu peux faire quoi ?</strong></td><td>Tu peux te promener dans les rues, visiter l'&eacute;glise Saint-Germain-des-Pr&eacute;s, prendre des photos et boire un caf&eacute; en terrasse.</td><td>Du kannst durch die Stra&szlig;en spazieren, die Kirche besichtigen, Fotos machen und einen Kaffee auf der Terrasse trinken.</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
 
                     <h3>9.2 Vokabeln &amp; Redewendungen</h3>
-                    
                     <h4>Orientierung &amp; Ortsangaben</h4>
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Franz&ouml;sisch (Fran&ccedil;ais)</th>
-                                <th>Deutsch</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr><td>se trouver</td><td>sich befinden / liegen</td></tr>
-                            <tr><td>au centre (de)</td><td>im Zentrum (von)</td></tr>
-                            <tr><td>dans le nord / le sud / l'est / l'ouest</td><td>im Norden / S&uuml;den / Osten / Westen</td></tr>
-                            <tr><td>la rive gauche / la rive droite</td><td>das linke Seine-Ufer / das rechte Seine-Ufer</td></tr>
-                            <tr><td>un arrondissement</td><td>ein Stadtbezirk / Arrondissement</td></tr>
-                            <tr><td>le quartier</td><td>das Stadtviertel</td></tr>
-                        </tbody>
-                    </table>
+                    <div class="table-container">
+                        <table>
+                            <thead><tr><th scope="col">Franz&ouml;sisch</th><th scope="col">Deutsch</th></tr></thead>
+                            <tbody>
+                                <tr><td>se trouver</td><td>sich befinden / liegen</td></tr>
+                                <tr><td>au centre (de)</td><td>im Zentrum (von)</td></tr>
+                                <tr><td>la rive gauche / la rive droite</td><td>das linke Seine-Ufer / das rechte Seine-Ufer</td></tr>
+                                <tr><td>le quartier</td><td>das Stadtviertel</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
 
                     <h4>Orte, Sehensw&uuml;rdigkeiten &amp; Adjektive</h4>
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Franz&ouml;sisch (Fran&ccedil;ais)</th>
-                                <th>Deutsch</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr><td>un mus&eacute;e (m.)</td><td>ein Museum</td></tr>
-                            <tr><td>un parc (m.)</td><td>ein Park</td></tr>
-                            <tr><td>une place (f.)</td><td>ein Platz</td></tr>
-                            <tr><td>une &eacute;glise (f.)</td><td>eine Kirche</td></tr>
-                            <tr><td>un palais (m.)</td><td>ein Palast</td></tr>
-                            <tr><td>un stade (m.)</td><td>ein Stadion</td></tr>
-                            <tr><td>un monument (m.)</td><td>ein Denkmal / Monument</td></tr>
-                            <tr><td>une galerie d'art (f.)</td><td>eine Kunstgalerie</td></tr>
-                            <tr><td>une terrasse (f.)</td><td>eine Terrasse / Freisitz vor einem Caf&eacute;</td></tr>
-                            <tr><td>grand(e) / petit(e)</td><td>gro&szlig; / klein</td></tr>
-                            <tr><td>beau / belle</td><td>sch&ouml;n</td></tr>
-                            <tr><td>vieux / vieille</td><td>alt</td></tr>
-                            <tr><td>moderne / anim&eacute;(e) / historique</td><td>modern / belebt / historisch</td></tr>
-                        </tbody>
-                    </table>
+                    <div class="table-container">
+                        <table>
+                            <thead><tr><th scope="col">Franz&ouml;sisch</th><th scope="col">Deutsch</th></tr></thead>
+                            <tbody>
+                                <tr><td>un mus&eacute;e (m.)</td><td>ein Museum</td></tr>
+                                <tr><td>un parc (m.)</td><td>ein Park</td></tr>
+                                <tr><td>une &eacute;glise (f.)</td><td>eine Kirche</td></tr>
+                                <tr><td>un monument (m.)</td><td>ein Denkmal</td></tr>
+                                <tr><td>grand(e) / petit(e)</td><td>gro&szlig; / klein</td></tr>
+                                <tr><td>beau / belle</td><td>sch&ouml;n</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </details>
 
-                    <h4>Aktivit&auml;ten &amp; Verben</h4>
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Franz&ouml;sisch (Fran&ccedil;ais)</th>
-                                <th>Deutsch</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr><td>voir</td><td>sehen</td></tr>
-                            <tr><td>visiter</td><td>besichtigen / besuchen (Orte)</td></tr>
-                            <tr><td>regarder</td><td>anschauen / ansehen</td></tr>
-                            <tr><td>se promener</td><td>spazieren gehen</td></tr>
-                            <tr><td>se reposer</td><td>sich ausruhen</td></tr>
-                            <tr><td>prendre des photos</td><td>Fotos machen</td></tr>
-                            <tr><td>jouer au football</td><td>Fu&szlig;ball spielen</td></tr>
-                            <tr><td>boire un caf&eacute;</td><td>einen Kaffee trinken</td></tr>
-                        </tbody>
-                    </table>
+            <!-- 10. BILDERGALERIE (Alle Bilder aus dem art-Ordner) -->
+            <details id="bereich-galerie">
+                <summary>10. Bildergalerie &amp; Dokumente</summary>
+                <div class="details-content">
+                    <p>Hier sind alle Bilder und Dokumente aus dem <code>art</code>-Ordner &uuml;bersichtlich zusammengefasst.</p>
 
-                    <h4>Zusatzinformationen &amp; Kultur</h4>
-                    <ul>
-                        <li><strong>L'&Eacute;glise Saint-Germain-des-Pr&eacute;s:</strong> L'une des plus anciennes &eacute;glises de Paris, fond&eacute;e au VI<sup>e</sup> si&egrave;cle (Eine der &auml;ltesten Kirchen von Paris, gegr&uuml;ndet im 6. Jahrhundert).</li>
-                        <li><strong>Les Caf&eacute;s litt&eacute;raires:</strong> Le Caf&eacute; de Flore et Les Deux Magots &eacute;taient les lieux de rencontre c&eacute;l&egrave;bres des &eacute;crivains et philosophes (z. B. Jean-Paul Sartre, Simone de Beauvoir).</li>
-                        <li><strong>La Rive Gauche:</strong> Quartier r&eacute;put&eacute; pour son atmosph&egrave;re culturelle, intellectuelle et ses boutiques de luxe (Bekannt f&uuml;r seine kulturelle, intellektuelle Atmosph&auml;re und Luxusboutiquen).</li>
-                    </ul>
+                    <h3>Portfolio &amp; Fotografie</h3>
+                    <div class="gallery-grid">
+                        <figure class="gallery-item"><img src="../art/port1.png" alt="Portfolio 1"><figcaption>port1.png</figcaption></figure>
+                        <figure class="gallery-item"><img src="../art/port2.png" alt="Portfolio 2"><figcaption>port2.png</figcaption></figure>
+                        <figure class="gallery-item"><img src="../art/port3.png" alt="Portfolio 3"><figcaption>port3.png</figcaption></figure>
+                        <figure class="gallery-item"><img src="../art/port4.png" alt="Portfolio 4"><figcaption>port4.png</figcaption></figure>
+                        <figure class="gallery-item"><img src="../art/port5.png" alt="Portfolio 5"><figcaption>port5.png</figcaption></figure>
+                        <figure class="gallery-item"><img src="../art/port6.png" alt="Portfolio 6"><figcaption>port6.png</figcaption></figure>
+                        <figure class="gallery-item"><img src="../art/port7.png" alt="Portfolio 7"><figcaption>port7.png</figcaption></figure>
+                        <figure class="gallery-item"><img src="../art/port8.png" alt="Portfolio 8"><figcaption>port8.png</figcaption></figure>
+                        <figure class="gallery-item"><img src="../art/port9.png" alt="Portfolio 9"><figcaption>port9.png</figcaption></figure>
+                        <figure class="gallery-item"><img src="../art/port10.png" alt="Portfolio 10"><figcaption>port10.png</figcaption></figure>
+                        <figure class="gallery-item"><img src="../art/port11.png" alt="Portfolio 11"><figcaption>port11.png</figcaption></figure>
+                        <figure class="gallery-item"><img src="../art/port12.png" alt="Portfolio 12"><figcaption>port12.png</figcaption></figure>
+                        <figure class="gallery-item"><img src="../art/port13.png" alt="Portfolio 13"><figcaption>port13.png</figcaption></figure>
+                        <figure class="gallery-item"><img src="../art/port14.png" alt="Portfolio 14"><figcaption>port14.png</figcaption></figure>
+                        <figure class="gallery-item"><img src="../art/port15.png" alt="Portfolio 15"><figcaption>port15.png</figcaption></figure>
+                        <figure class="gallery-item"><img src="../art/port16.png" alt="Portfolio 16"><figcaption>port16.png</figcaption></figure>
+                        <figure class="gallery-item"><img src="../art/port17.png" alt="Portfolio 17"><figcaption>port17.png</figcaption></figure>
+                        <figure class="gallery-item"><img src="../art/port18.png" alt="Portfolio 18"><figcaption>port18.png</figcaption></figure>
+                        <figure class="gallery-item"><img src="../art/port19.png" alt="Portfolio 19"><figcaption>port19.png</figcaption></figure>
+                        <figure class="gallery-item"><img src="../art/DSC2466.PNG" alt="DSC2466"><figcaption>DSC2466.PNG</figcaption></figure>
+                        <figure class="gallery-item"><img src="../art/DSC2467.JPG" alt="DSC2467"><figcaption>DSC2467.JPG</figcaption></figure>
+                        <figure class="gallery-item"><img src="../art/DSC2472.JPG" alt="DSC2472"><figcaption>DSC2472.JPG</figcaption></figure>
+                        <figure class="gallery-item"><img src="../art/IMG_5943.jpeg" alt="IMG_5943"><figcaption>IMG_5943.jpeg</figcaption></figure>
+                        <figure class="gallery-item"><img src="../art/Thaifest Kiel Halle 400.jpeg" alt="Thaifest Kiel"><figcaption>Thaifest Kiel.jpeg</figcaption></figure>
+                    </div>
+
+                    <h3>Dokumente &amp; Diagramme</h3>
+                    <div class="gallery-grid">
+                        <figure class="gallery-item"><img src="../art/152976FE-19D9-4856-8800-9D4E74AB3DD5.png" alt="Dokument 1"><figcaption>152976FE-...png</figcaption></figure>
+                        <figure class="gallery-item"><img src="../art/165EF64D-8031-40B7-9FD1-2601009DDB4A.png" alt="Dokument 2"><figcaption>165EF64D-...png</figcaption></figure>
+                        <figure class="gallery-item"><img src="../art/24F4ABE2-723A-40A0-ACAA-A0D23CA3B9F1.png" alt="Dokument 3"><figcaption>24F4ABE2-...png</figcaption></figure>
+                        <figure class="gallery-item"><img src="../art/B1BA0378-A058-481E-8EB0-0983D6680D4B.png" alt="Dokument 4"><figcaption>B1BA0378-...png</figcaption></figure>
+                        <figure class="gallery-item"><img src="../art/B522DA4B-BBDD-41A5-B889-134119E40C2C.png" alt="Dokument 5"><figcaption>B522DA4B-...png</figcaption></figure>
+                        <figure class="gallery-item"><img src="../art/E8C722DC-AF4F-409B-847D-1B3979C577E8.png" alt="Dokument 6"><figcaption>E8C722DC-...png</figcaption></figure>
+                        <figure class="gallery-item"><img src="../art/F7B3D1F9-94C8-42BE-9FC4-75A422676A4C.png" alt="Dokument 7"><figcaption>F7B3D1F9-...png</figcaption></figure>
+                    </div>
                 </div>
             </details>
 
@@ -615,12 +643,7 @@ void loop() {
             <h2 id="bereich-quellen">Quellenverzeichnis</h2>
             <ul class="sources-list">
                 <li><strong>Unterrichtsmaterialien &amp; Mitschriften:</strong> BGT25b (2026/2027), RBZ Technik.</li>
-                <li><strong>Grafiken &amp; Diagramme (Ordner: art/):</strong>
-                    <ul>
-                        <li><code>medienziele.jpeg</code>: Infografik &bdquo;Medientechnik 12. Klasse: System&uuml;berblick&ldquo; (Sicherheit, Funktion, Rechte, Trends).</li>
-                        <li><code>datenbankfunkundco.jpeg</code>: Ablaufdiagramm &bdquo;Broadcast Signal Processing &amp; Live Workflow&ldquo; (Input bis Final Display).</li>
-                    </ul>
-                </li>
+                <li><strong>Grafiken &amp; Diagramme (Ordner: art/):</strong> Alle im Ordner <code>art/</code> befindlichen Bilder (Portfolio, Dokumente, Diagramme).</li>
                 <li><strong>Literatur (Deutsch):</strong> Heinrich von Kleist (Das Erdbeben in Chili, Die Marquise von O..., Der zerbrochene Krug).</li>
                 <li><strong>Nachrichtenquellen (GMK):</strong> Tagesschau, ZDFheute, Presseportal LKA SH, SAT.1 Regional (August 2026).</li>
             </ul>
