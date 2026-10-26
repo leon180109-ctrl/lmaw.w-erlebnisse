@@ -8,21 +8,15 @@
     <meta name="author" content="Leon Wyppych">
     <title>Schule - Leon Wyppych</title>
     <link rel="stylesheet" href="../style.css">
-    
-    <!-- Professionelles Styling für Akkordeons, Tabellen und Galerie (nutzt deine CSS-Variablen) -->
     <style>
-        /* Akkordeon (Details) Styling */
+        /* ===== ACCORDION / DETAILS ===== */
         details {
             background-color: transparent;
             border-bottom: 1px solid var(--border-color);
             padding: 15px 0;
             transition: background-color 0.3s ease;
         }
-        
-        details:last-of-type {
-            border-bottom: none;
-        }
-
+        details:last-of-type { border-bottom: none; }
         summary {
             cursor: pointer;
             font-weight: bold;
@@ -36,29 +30,21 @@
             transition: color 0.2s ease;
             padding: 5px 0;
         }
-
-        /* Eigenes Plus/Minus Icon */
+        summary::-webkit-details-marker { display: none; }
         summary::after {
             content: '+';
             font-size: 1.6rem;
             color: var(--text-muted);
             transition: transform 0.3s ease, color 0.3s ease;
         }
-
         details[open] summary::after {
             content: '−';
             transform: rotate(180deg);
             color: var(--accent-gold);
         }
+        summary:hover { color: var(--text-white); }
+        summary:hover::after { color: var(--accent-gold); }
 
-        summary:hover {
-            color: var(--text-white);
-        }
-        summary:hover::after {
-            color: var(--accent-gold);
-        }
-
-        /* Inhalt der Akkordeons */
         .details-content {
             padding: 20px 0 10px 15px;
             color: var(--text-muted);
@@ -67,43 +53,40 @@
             margin-top: 10px;
             margin-left: 5px;
         }
-
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(-10px); }
             to { opacity: 1; transform: translateY(0); }
         }
-
         .details-content h3 {
             color: var(--accent-gold);
-            margin-top: 25px;
+            margin-top: 30px;
             margin-bottom: 12px;
-            font-size: 1.15rem;
+            font-size: 1.2rem;
             border-bottom: 1px dashed var(--border-color);
             padding-bottom: 5px;
         }
-
+        .details-content h3:first-child { margin-top: 5px; }
         .details-content h4 {
             color: var(--text-white);
             margin-top: 20px;
             margin-bottom: 10px;
-            font-size: 1rem;
+            font-size: 1.05rem;
         }
-
-        /* Responsive Tabellen */
-        .table-container {
-            width: 100%;
-            overflow-x: auto;
-            margin: 15px 0;
-            border-radius: 6px;
-            border: 1px solid var(--border-color);
+        .details-content h5 {
+            color: var(--link-blue);
+            margin-top: 15px;
+            margin-bottom: 8px;
+            font-size: 0.95rem;
         }
-
-        .school-card table {
-            margin: 0; /* Margin wird vom Container übernommen */
-            border: none;
+        .details-content p { margin-bottom: 12px; line-height: 1.7; }
+        .details-content ul, .details-content ol {
+            margin-left: 22px;
+            margin-bottom: 15px;
         }
-
-        /* Bilder im Fließtext */
+        .details-content li {
+            margin-bottom: 6px;
+            line-height: 1.6;
+        }
         .details-content img {
             max-width: 100%;
             height: auto;
@@ -112,8 +95,18 @@
             border: 1px solid var(--border-color);
             box-shadow: 0 4px 10px rgba(0,0,0,0.3);
         }
-
-        /* Code-Blöcke */
+        .table-container {
+            width: 100%;
+            overflow-x: auto;
+            margin: 15px 0;
+            border-radius: 6px;
+            border: 1px solid var(--border-color);
+        }
+        .table-container table {
+            margin: 0;
+            border: none;
+            min-width: 100%;
+        }
         pre {
             background-color: var(--table-bg);
             padding: 15px;
@@ -121,22 +114,29 @@
             overflow-x: auto;
             border-left: 4px solid var(--accent-gold);
             color: var(--link-blue);
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             margin-bottom: 20px;
-            font-family: 'Courier New', Courier, monospace;
+            font-family: 'Courier New', monospace;
+            line-height: 1.5;
         }
+        code {
+            background-color: var(--table-bg);
+            padding: 2px 6px;
+            border-radius: 3px;
+            color: var(--link-blue);
+            font-size: 0.9em;
+        }
+        pre code { background: none; padding: 0; }
 
-        /* Inhaltsverzeichnis */
+        /* TOC */
         .toc {
             list-style: none;
             margin-left: 0 !important;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 10px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 8px;
         }
-        .toc li {
-            margin-bottom: 0;
-        }
+        .toc li { margin-bottom: 0; }
         .toc a {
             color: var(--link-blue);
             text-decoration: none;
@@ -146,6 +146,7 @@
             background-color: var(--table-bg);
             border-radius: 4px;
             border: 1px solid transparent;
+            font-size: 0.9rem;
         }
         .toc a:hover {
             color: var(--accent-gold);
@@ -153,15 +154,13 @@
             background-color: rgba(255, 204, 0, 0.05);
         }
 
-        /* Professionelle Galerie */
+        /* Galerie */
         .gallery-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
             gap: 15px;
-            margin-top: 20px;
-            margin-bottom: 30px;
+            margin: 20px 0 30px;
         }
-
         .gallery-item {
             background-color: var(--table-bg);
             border: 1px solid var(--border-color);
@@ -169,29 +168,63 @@
             overflow: hidden;
             text-align: center;
             padding: 10px;
+            margin: 0;
             transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
         }
-
         .gallery-item:hover {
             transform: translateY(-5px);
             border-color: var(--accent-gold);
             box-shadow: 0 8px 15px rgba(0,0,0,0.4);
         }
-
         .gallery-item img {
             width: 100%;
-            height: 130px;
+            height: 140px;
             object-fit: cover;
             border-radius: 4px;
             margin: 0 0 10px 0;
             border: none;
         }
-
         .gallery-item figcaption {
             font-size: 0.75rem;
             color: var(--text-muted);
             word-break: break-all;
             font-weight: bold;
+        }
+
+        /* Info-Box */
+        .info-box {
+            background-color: rgba(255, 204, 0, 0.08);
+            border-left: 4px solid var(--accent-gold);
+            padding: 15px 20px;
+            border-radius: 6px;
+            margin: 15px 0;
+        }
+        .info-box p { margin-bottom: 5px; }
+
+        /* Vorher-Nachher Grid */
+        .before-after-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin: 20px 0;
+        }
+        .before-after-grid figure {
+            margin: 0;
+            text-align: center;
+        }
+        .before-after-grid img {
+            width: 100%;
+            border-radius: 8px;
+            border: 2px solid var(--border-color);
+        }
+        .before-after-grid figcaption {
+            margin-top: 8px;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            font-weight: bold;
+        }
+        @media (max-width: 700px) {
+            .before-after-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -218,421 +251,1781 @@
     <main class="content">
         <div class="school-card">
             
-            <!-- Info & Hero Bereich -->
+            <!-- INFO -->
             <section class="info-block" style="display: flex; align-items: center; gap: 20px; flex-wrap: wrap;">
                 <div>
                     <h2>Schul-Informationen</h2>
                     <p><strong>Sch&uuml;ler:</strong> Leon Wyppych</p>
                     <p><strong>Jahrgang:</strong> BGT25b (2026/2027)</p>
-                    <p><strong>Schule:</strong> RBZ Technik (Regionales Berufsbildungszentrum)</p>
+                    <p><strong>Schule:</strong> RBZ Technik (Regionales Berufsbildungszentrum Kiel)</p>
                 </div>
-                <img src="../art/leonhero.jpeg" alt="Leon Wyppych" style="max-width: 150px; border-radius: 50%; border: 2px solid var(--accent-gold); margin-left: auto;">
+                <img src="../art/leonhero.jpeg" alt="Leon Wyppych" style="max-width: 140px; border-radius: 50%; border: 2px solid var(--accent-gold); margin-left: auto;">
             </section>
 
             <hr class="divider">
 
             <h2>Inhaltsverzeichnis</h2>
             <ul class="toc">
-                <li><a href="#bereich-1">1. Berufliche Informatik &amp; Elektrotechnik</a></li>
-                <li><a href="#bereich-2">2. Medientechnik &amp; Webdesign</a></li>
-                <li><a href="#bereich-3">3. Gesellschaft, Medien &amp; Kultur (GMK)</a></li>
-                <li><a href="#bereich-4">4. Deutsch (Literatur)</a></li>
-                <li><a href="#bereich-5">5. Physik</a></li>
-                <li><a href="#bereich-6">6. Englisch</a></li>
-                <li><a href="#bereich-7">7. Wirtschaft &amp; Recht</a></li>
-                <li><a href="#bereich-8">8. Chemie</a></li>
-                <li><a href="#bereich-9">9. Franz&ouml;sisch</a></li>
-                <li><a href="#bereich-galerie">10. Bildergalerie (Alle Dokumente)</a></li>
+                <li><a href="#bereich-1">1. Berufliche Informatik &amp; IT</a></li>
+                <li><a href="#bereich-2">2. Elektrotechnik &amp; Elektronik</a></li>
+                <li><a href="#bereich-3">3. Arduino &amp; Jump Game</a></li>
+                <li><a href="#bereich-4">4. Medientechnik &amp; Kommunikation</a></li>
+                <li><a href="#bereich-5">5. Produktfotografie-Portfolio</a></li>
+                <li><a href="#bereich-6">6. Physik</a></li>
+                <li><a href="#bereich-7">7. Geschichte / GMK</a></li>
+                <li><a href="#bereich-8">8. Deutsch (Kleist)</a></li>
+                <li><a href="#bereich-9">9. Heinrich von Kleist – Rezeption</a></li>
+                <li><a href="#bereich-10">10. Englisch</a></li>
+                <li><a href="#bereich-11">11. Wirtschaft &amp; Recht</a></li>
+                <li><a href="#bereich-12">12. Chemie</a></li>
+                <li><a href="#bereich-13">13. Französisch</a></li>
+                <li><a href="#bereich-galerie">14. Bildergalerie</a></li>
             </ul>
 
             <hr class="divider">
 
-            <!-- 1. BERUFLICHE INFORMATIK & ELEKTROTECHNIK -->
+            <!-- ============================================================ -->
+            <!-- 1. BERUFLICHE INFORMATIK & IT -->
+            <!-- ============================================================ -->
             <details id="bereich-1">
-                <summary>1. Berufliche Informatik &amp; Elektrotechnik</summary>
+                <summary>1. Berufliche Informatik &amp; IT</summary>
                 <div class="details-content">
                     
-                    <h3>1.1 IT-Grundlagen &amp; Werkzeuge</h3>
+                    <h3>1.1 IT-Grundlagen &amp; Netzwerke</h3>
                     <ul>
                         <li><strong>Netzwerkweg:</strong> Handy &rarr; Drucker &rarr; WLAN &rarr; Provider &rarr; Web &rarr; Server</li>
                         <li><strong>Calc (Tabellenkalkulation):</strong> Datum, Kalender, Sonderzeichen, Rechnungen, Feiertage, Schriftart, Short-Commands, Ma&szlig;e &amp; Einheiten/Units/Skale.</li>
                         <li><strong>Writer (Textverarbeitung):</strong> Formatierung, Titel-, Untertitel-, Normaltext-, Fu&szlig;zeile-, Kopfzeile- &amp; Randformatierung.</li>
                     </ul>
 
-                    <h3>1.2 Elektrotechnik &amp; Bauteile</h3>
+                    <h3>1.2 HTML-Grundlagen (Spickzettel)</h3>
                     <div class="table-container">
                         <table>
-                            <thead>
-                                <tr>
-                                    <th scope="col">Bauteil (Fachbegriff)</th>
-                                    <th scope="col">Funktion &amp; Beschreibung</th>
-                                    <th scope="col">Einheit / Merkmal</th>
-                                </tr>
-                            </thead>
+                            <thead><tr><th>Tag</th><th>Funktion</th></tr></thead>
                             <tbody>
-                                <tr><td>Widerstand (Resistor)</td><td>Begrenzt den Stromfluss, setzt Energie in Wärme um.</td><td>Ohm (&Omega;), Farbcode</td></tr>
-                                <tr><td>Kondensator (Capacitor)</td><td>Speichert elektrische Energie in einem Feld, glättet Spannungen.</td><td>Farad (F), gepolt/ungepolt</td></tr>
-                                <tr><td>Diode</td><td>Lässt Strom nur in eine Richtung durch (Gleichrichter).</td><td>Anode (+), Kathode (-)</td></tr>
-                                <tr><td>LED</td><td>Leuchtdiode, wandelt Strom in Licht um. Benötigt Vorwiderstand.</td><td>Anode (lang), Kathode (kurz)</td></tr>
-                                <tr><td>Spule (Induktivit&auml;t)</td><td>Speichert Energie in einem Magnetfeld, widersteht Strom&auml;nderungen.</td><td>Henry (H)</td></tr>
-                                <tr><td>Transistor</td><td>Elektronischer Schalter oder Verst&auml;rker.</td><td>Basis, Kollektor, Emitter</td></tr>
+                                <tr><td><code>&lt;!DOCTYPE html&gt;</code></td><td>Deklariert das Dokument als HTML5.</td></tr>
+                                <tr><td><code>&lt;html&gt;</code></td><td>Umschließt den gesamten Seiteninhalt.</td></tr>
+                                <tr><td><code>&lt;head&gt;</code></td><td>Enthält Hintergrund-Infos wie Titel oder CSS.</td></tr>
+                                <tr><td><code>&lt;body&gt;</code></td><td>Sichtbare Inhalte der Seite.</td></tr>
+                                <tr><td><code>&lt;h1&gt;</code> bis <code>&lt;h6&gt;</code></td><td>Überschriften (h1 = wichtigste).</td></tr>
+                                <tr><td><code>&lt;p&gt;</code></td><td>Textabsatz (Paragraph).</td></tr>
+                                <tr><td><code>&lt;a href="..."&gt;</code></td><td>Hyperlink zu anderer Seite.</td></tr>
+                                <tr><td><code>&lt;img src="..." alt="..."&gt;</code></td><td>Bild einbinden (mit Alternativtext).</td></tr>
+                                <tr><td><code>&lt;ul&gt;</code> / <code>&lt;li&gt;</code></td><td>Ungeordnete Liste mit Aufzählungspunkten.</td></tr>
+                                <tr><td><code>&lt;div&gt;</code> / <code>&lt;section&gt;</code></td><td>Container zur Strukturierung.</td></tr>
                             </tbody>
                         </table>
                     </div>
 
-                    <h3>1.3 Arduino Uno R3</h3>
+                    <h3>1.3 CSS-Grundlagen (Spickzettel)</h3>
                     <ul>
-                        <li><strong>Digital-Pins (0-13):</strong> F&uuml;r digitale Ein-/Ausg&auml;nge. Tilde (~) bedeutet PWM-f&auml;hig.</li>
-                        <li><strong>Analog-Pins (A0-A5):</strong> F&uuml;r Sensoren (0-5V).</li>
-                        <li><strong>Stromversorgung:</strong> 5V, 3.3V, GND.</li>
+                        <li><strong>color:</strong> Textfarbe ändern.</li>
+                        <li><strong>background-color:</strong> Hintergrundfarbe ändern.</li>
+                        <li><strong>margin:</strong> Äußerer Abstand.</li>
+                        <li><strong>padding:</strong> Innerer Abstand.</li>
+                        <li><strong>display: flex / grid:</strong> Elemente nebeneinander oder im Raster ausrichten.</li>
                     </ul>
-                    <h4>Code-Beispiel: Blinkende LED</h4>
-                    <pre><code>const int ledPin = 13;
-void setup() {
-  pinMode(ledPin, OUTPUT);
-}
-void loop() {
-  digitalWrite(ledPin, HIGH);
-  delay(1000);
-  digitalWrite(ledPin, LOW);
-  delay(1000);
-}</code></pre>
 
-                    <h3>1.4 Datenbanken &amp; SQL</h3>
+                    <h3>1.4 GitHub Pages – Website veröffentlichen</h3>
+                    <ol>
+                        <li><strong>Repository anlegen:</strong> Auf GitHub <code>+</code> &rarr; <code>New repository</code>.</li>
+                        <li><strong>Dateien hochladen:</strong> Alle HTML-, CSS-Dateien und Bilder per Drag-and-Drop. Hauptseite muss <code>index.html</code> heißen.</li>
+                        <li><strong>Webseite schalten:</strong> <code>Settings</code> &rarr; <code>Pages</code> &rarr; Branch <code>main</code> &rarr; <code>Save</code>.</li>
+                        <li><strong>URL:</strong> Nach 1-2 Minuten unter <code>https://&lt;username&gt;.github.io/&lt;repo-name&gt;/</code> erreichbar.</li>
+                    </ol>
+
+                    <h3>1.5 Datenbanken &amp; ER-Modell</h3>
                     <ul>
-                        <li><strong>ER-Modell:</strong> Entit&auml;ten (Tabellen), Attribute (Spalten), Prim&auml;rschl&uuml;ssel (PK), Fremdschl&uuml;ssel (FK), Kardinalit&auml;ten (1:1, 1:n, m:n).</li>
-                        <li><strong>Normalformen:</strong> 1. NF (Atomarit&auml;t), 2. NF (Vollst&auml;ndige Abh&auml;ngigkeit vom PK), 3. NF (Keine transitiven Abh&auml;ngigkeiten).</li>
-                        <li><strong>SQL Basics:</strong> <code>SELECT</code>, <code>FROM</code>, <code>WHERE</code>, <code>ORDER BY</code>, <code>GROUP BY</code>, <code>HAVING</code>.</li>
-                        <li><strong>Joins:</strong> <code>INNER JOIN</code>, <code>LEFT JOIN</code>, <code>RIGHT JOIN</code>, <code>FULL JOIN</code>.</li>
+                        <li><strong>Entitäten (Tabellen):</strong> Reale Dinge/Konzepte (z.B. Mitarbeiter, Kunde).</li>
+                        <li><strong>Attribute (Spalten):</strong> Eigenschaften einer Entität (z.B. Name, Datum).</li>
+                        <li><strong>Primärschlüssel (PK):</strong> Eindeutige Identifikation jedes Datensatzes.</li>
+                        <li><strong>Fremdschlüssel (FK):</strong> Verweis auf PK einer anderen Tabelle.</li>
+                        <li><strong>Kardinalitäten:</strong> 1:1, 1:n, m:n</li>
+                        <li><strong>Kardinalitätsrestriktion [1,1]:</strong> Jede Abteilung wird von genau einem Angestellten geleitet.</li>
+                        <li><strong>Kardinalitätsrestriktion [0,1]:</strong> Ein Angestellter leitet entweder keine oder eine Abteilung.</li>
                     </ul>
-                    <img src="../art/datenbankfunkundco.jpeg" alt="Datenbank und Funk Diagramm">
+
+                    <h3>1.6 Normalformen</h3>
+                    <ul>
+                        <li><strong>1. Normalform (1. NF):</strong> Alle Attributwerte sind atomar (nicht weiter zerlegbar).</li>
+                        <li><strong>2. Normalform (2. NF):</strong> Jedes Nicht-Schlüssel-Attribut ist voll funktional abhängig vom gesamten Primärschlüssel.</li>
+                        <li><strong>3. Normalform (3. NF):</strong> Keine transitiven Abhängigkeiten (Nicht-Schlüssel-Attribute hängen nur vom PK ab).</li>
+                    </ul>
+
+                    <h3>1.7 SQL – SELECT &amp; Aggregatfunktionen</h3>
+                    
+                    <h4>Übung 1-5: Grundlagen</h4>
+                    <pre><code>-- Übung 1: Alle Kunden anzeigen
+SELECT * FROM Customers
+
+-- Übung 2: Nur bestimmte Spalten
+SELECT CompanyName, City, Country FROM Customers
+
+-- Übung 3: Sortieren
+SELECT * FROM Products ORDER BY UnitPrice DESC
+
+-- Übung 4: Kunden aus einem Land
+SELECT * FROM Customers WHERE Country = 'Germany'
+
+-- Übung 5: Produkte mit hohem Preis
+SELECT * FROM Products WHERE UnitPrice >= '50'</code></pre>
+
+                    <h4>Übung 6-10: Bereichsabfragen &amp; Aggregation</h4>
+                    <pre><code>-- Übung 6: Bereichsabfrage
+SELECT * FROM Products WHERE UnitPrice BETWEEN '10' AND '20'
+
+-- Übung 7: Firmennamen mit "A"
+SELECT * FROM Customers WHERE CompanyName LIKE 'A%'
+
+-- Übung 8: Städte mit "on"
+SELECT * FROM Customers WHERE City LIKE '%on%'
+
+-- Übung 9: Anzahl Datensätze
+SELECT COUNT(CustomerID) FROM Customers
+
+-- Übung 10: Durchschnittspreis
+SELECT AVG(UnitPrice) FROM Products</code></pre>
+
+                    <h4>Übung 11-17: Erweiterte Abfragen</h4>
+                    <pre><code>-- Übung 11: Teuerstes Produkt
+SELECT MAX(UnitPrice) FROM Products
+
+-- Übung 12: Gesamter Lagerwert
+SELECT SUM(UnitPrice * UnitsInStock) FROM Products
+
+-- Übung 13: Länder-Liste
+SELECT DISTINCT Country FROM Customers
+
+-- Übung 14: Bestimmte Länder
+SELECT * FROM Customers WHERE Country IN ('Germany','France','UK')
+
+-- Übung 15: Top 5 Produkte
+SELECT TOP 5 * FROM Products ORDER BY UnitPrice DESC
+
+-- Übung 16: Älteste Bestellungen
+SELECT TOP (10) OrderID, CustomerID, OrderDate FROM Orders ORDER BY OrderDate ASC
+
+-- Übung 17: Lagerbestand kritisch
+SELECT * FROM Products WHERE UnitsInStock <= '10'</code></pre>
+
+                    <h4>SQL Joins</h4>
+                    <div class="table-container">
+                        <table>
+                            <thead><tr><th>Join-Art</th><th>Erklärung</th></tr></thead>
+                            <tbody>
+                                <tr><td><strong>INNER JOIN</strong></td><td>Nur Zeilen mit Partnern in beiden Tabellen.</td></tr>
+                                <tr><td><strong>LEFT JOIN</strong></td><td>Alle Zeilen der linken Tabelle, rechts NULL wenn kein Partner.</td></tr>
+                                <tr><td><strong>RIGHT JOIN</strong></td><td>Alle Zeilen der rechten Tabelle, links NULL wenn kein Partner.</td></tr>
+                                <tr><td><strong>FULL JOIN</strong></td><td>Alle Zeilen beider Tabellen.</td></tr>
+                                <tr><td><strong>LEFT EXCLUDING</strong></td><td>Nur Zeilen der linken Tabelle ohne Partner rechts.</td></tr>
+                                <tr><td><strong>RIGHT EXCLUDING</strong></td><td>Nur Zeilen der rechten Tabelle ohne Partner links.</td></tr>
+                                <tr><td><strong>OUTER EXCLUDING</strong></td><td>Alle Zeilen ohne Partner, egal auf welcher Seite.</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <h4>SQL Aufgaben mit Datum, TOP, GROUP BY, HAVING</h4>
+                    <pre><code>-- Aufgabe 3: Datumsfilter
+SELECT * FROM Bestellungen 
+WHERE Bestelldatum >= '1997-01-01' AND Bestelldatum <= '1997-12-31' 
+ORDER BY Bestelldatum DESC;
+
+-- Aufgabe 4: Berechnete Werte
+SELECT Produktname, Preis, Lagerbestand, (Preis * Lagerbestand) AS Lagerwert 
+FROM Produkte WHERE (Preis * Lagerbestand) > 1000 ORDER BY Lagerwert DESC;
+
+-- Aufgabe 5: TOP und Filter
+SELECT Produktname, Preis FROM Produkte 
+WHERE Eingestellt = 0 ORDER BY Preis DESC LIMIT 7;
+
+-- Aufgabe 6: Gruppierung
+SELECT KategorieID, COUNT(*) AS AnzahlProdukte FROM Produkte GROUP BY KategorieID;
+
+-- Aufgabe 7: HAVING
+SELECT KategorieID, COUNT(*) AS AnzahlProdukte FROM Produkte 
+GROUP BY KategorieID HAVING COUNT(*) >= 10 ORDER BY AnzahlProdukte;
+
+-- Aufgabe 8: DISTINCT
+SELECT COUNT(DISTINCT Land) AS AnzahlLaender FROM Kunden;
+
+-- Aufgabe 9: Zeichenketten
+SELECT Firmenname, LENGTH(Firmenname) AS Namenslaenge FROM Kunden ORDER BY Namenslaenge DESC;
+
+-- Aufgabe 10: CASE-Ausdruck
+SELECT Produktname, Preis,
+CASE WHEN Preis < 20 THEN 'günstig'
+     WHEN Preis BETWEEN 20 AND 50 THEN 'mittel'
+     ELSE 'teuer' END AS Preiskategorie
+FROM Produkte;</code></pre>
+
                 </div>
             </details>
 
-            <!-- 2. MEDIENTECHNIK -->
+            <!-- ============================================================ -->
+            <!-- 2. ELEKTROTECHNIK -->
+            <!-- ============================================================ -->
             <details id="bereich-2">
-                <summary>2. Medientechnik &amp; Webdesign</summary>
+                <summary>2. Elektrotechnik &amp; Elektronik</summary>
                 <div class="details-content">
-                    <h3>2.1 System&uuml;berblick Medientechnik (12. Klasse)</h3>
-                    <img src="../art/medienziele.jpeg" alt="Medientechnik 12. Klasse System&uuml;berblick">
                     
-                    <h4>1. Sicherheit</h4>
+                    <h3>2.1 Elektronische Bauteile</h3>
+                    <div class="table-container">
+                        <table>
+                            <thead>
+                                <tr><th>Bauteil</th><th>Funktion</th><th>Einheit / Merkmal</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr><td><strong>Widerstand (Resistor)</strong></td><td>Begrenzt den Stromfluss, setzt Energie in Wärme um. Farbcodierung (Ringe).</td><td>Ohm (&Omega;)</td></tr>
+                                <tr><td><strong>Kondensator (Capacitor)</strong></td><td>Speichert elektrische Energie in einem Feld, glättet Spannungen.</td><td>Farad (F)</td></tr>
+                                <tr><td><strong>Diode</strong></td><td>Lässt Strom nur in eine Richtung durch (Gleichrichter).</td><td>Anode (+), Kathode (-)</td></tr>
+                                <tr><td><strong>LED</strong></td><td>Leuchtdiode, wandelt Strom in Licht. Benötigt Vorwiderstand.</td><td>Anode (lang), Kathode (kurz)</td></tr>
+                                <tr><td><strong>Spule (Induktivität)</strong></td><td>Speichert Energie in einem Magnetfeld, widersteht Stromänderungen.</td><td>Henry (H)</td></tr>
+                                <tr><td><strong>Transistor</strong></td><td>Elektronischer Schalter oder Verstärker.</td><td>Basis, Kollektor, Emitter</td></tr>
+                                <tr><td><strong>Potentiometer</strong></td><td>Manuell veränderbarer Widerstand (Lautstärke, Helligkeit).</td><td>RP / POT</td></tr>
+                                <tr><td><strong>LDR (Foto-Widerstand)</strong></td><td>Lichtabhängiger Widerstand, sinkt bei Lichteinfall.</td><td>Optischer Sensor</td></tr>
+                                <tr><td><strong>Thermistor (NTC/PTC)</strong></td><td>Temperaturabhängiger Widerstand (NTC: fällt bei Hitze, PTC: steigt).</td><td>Temperatursensor</td></tr>
+                                <tr><td><strong>Varistor (VDR)</strong></td><td>Spannungsabhängiger Widerstand, wird bei hoher Spannung leitend.</td><td>Überspannungsschutz</td></tr>
+                                <tr><td><strong>Spannungsregler</strong></td><td>Konstante Ausgangsspannung (z.B. LM78xx).</td><td>Vin, GND, Vout</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <h3>2.2 Grundlagenbegriffe</h3>
+                    <ul>
+                        <li><strong>Anode &amp; Kathode:</strong> Anschlüsse polarisierter Bauteile. Anode = positiv (+), Kathode = negativ (-).</li>
+                        <li><strong>SMD:</strong> Surface Mount Device – direkt auf Platine gelötet.</li>
+                        <li><strong>THT:</strong> Through-Hole Technology – bedrahtet, durch Platine gesteckt.</li>
+                        <li><strong>Farbcode:</strong> Farbringe auf Widerstand geben Wert (Ohm), Multiplikator und Toleranz an.</li>
+                    </ul>
+
+                    <h3>2.3 Ohmsches Gesetz &amp; Grundformeln</h3>
+                    <div class="info-box">
+                        <p><strong>U = R · I</strong> (Spannung = Widerstand × Stromstärke)</p>
+                        <p><strong>I = U / R</strong> (Stromstärke = Spannung / Widerstand)</p>
+                        <p><strong>R = U / I</strong> (Widerstand = Spannung / Stromstärke)</p>
+                        <p>Einheiten: U in Volt (V), I in Ampere (A), R in Ohm (&Omega;)</p>
+                    </div>
+
+                    <h4>Aufgabe 1 – Spannung berechnen</h4>
+                    <p>Durch einen Widerstand von 220 &Omega; fließt ein Strom von 0,02 A. Berechne U.</p>
+                    <p><strong>Lösung:</strong> U = R · I = 220 &Omega; · 0,02 A = <strong>4,4 V</strong></p>
+
+                    <h4>Aufgabe 2 – Stromstärke berechnen</h4>
+                    <p>An einem Widerstand von 1 k&Omega; liegen 5 V an. Berechne I in A und mA.</p>
+                    <p><strong>Lösung:</strong> I = U / R = 5 V / 1000 &Omega; = <strong>0,005 A = 5 mA</strong></p>
+
+                    <h4>Aufgabe 3 – Widerstand berechnen</h4>
+                    <p>Bei einer Spannung von 12 V fließt ein Strom von 0,06 A. Wie groß ist R?</p>
+                    <p><strong>Lösung:</strong> R = U / I = 12 V / 0,06 A = <strong>200 &Omega;</strong></p>
+
+                    <h4>Aufgabe 4 – Einheiten beachten</h4>
+                    <p>An einem Widerstand von 470 &Omega; fließt ein Strom von 15 mA. Berechne U.</p>
+                    <p><strong>Lösung:</strong> U = R · I = 470 &Omega; · 0,015 A = <strong>7,05 V</strong></p>
+
+                    <h4>Aufgabe 5 – Proportionaler Zusammenhang</h4>
+                    <p>Ein Verbraucher hat konstanten Widerstand. Die Spannung wird von 4 V auf 8 V verdoppelt. Was passiert mit der Stromstärke?</p>
+                    <p><strong>Lösung:</strong> Die Stromstärke verdoppelt sich. Nach dem Ohmschen Gesetz (I = U/R) ist die Stromstärke direkt proportional zur Spannung bei konstantem Widerstand.</p>
+
+                    <h4>Aufgabe 6 – Antiproportionaler Zusammenhang</h4>
+                    <p>An einer Spannungsquelle liegen konstant 12 V. Ein Widerstand wird von 200 &Omega; auf 400 &Omega; vergrößert. Was passiert mit der Stromstärke?</p>
+                    <p><strong>Lösung:</strong> Die Stromstärke halbiert sich. Nach dem Ohmschen Gesetz (I = U/R) ist die Stromstärke umgekehrt proportional zum Widerstand bei konstanter Spannung.</p>
+
+                    <h3>2.4 Zentrale Grundgesetze</h3>
+                    <ul>
+                        <li><strong>Ohmsches Gesetz:</strong> U = R · I</li>
+                        <li><strong>Elektrische Leistung:</strong> P = U · I = I² · R = U² / R</li>
+                        <li><strong>Kirchhoffsches Knotenpunktgesetz (1. Gesetz):</strong> Die Summe aller zufließenden Ströme = Summe aller abfließenden Ströme (Σ I<sub>zu</sub> = Σ I<sub>ab</sub>).</li>
+                        <li><strong>Kirchhoffsches Maschengesetz (2. Gesetz):</strong> Die Summe aller Teilspannungen in einer geschlossenen Masche ist Null (Σ U = 0).</li>
+                    </ul>
+
+                    <h4>Reihenschaltung</h4>
+                    <ul>
+                        <li>Stromstärke: I<sub>ges</sub> = I<sub>1</sub> = I<sub>2</sub></li>
+                        <li>Gesamtwiderstand: R<sub>ges</sub> = R<sub>1</sub> + R<sub>2</sub></li>
+                    </ul>
+
+                    <h4>Parallelschaltung</h4>
+                    <ul>
+                        <li>Spannung: U<sub>ges</sub> = U<sub>1</sub> = U<sub>2</sub></li>
+                        <li>Gesamtwiderstand: 1/R<sub>ges</sub> = 1/R<sub>1</sub> + 1/R<sub>2</sub></li>
+                    </ul>
+
+                    <h3>2.5 Größen &amp; Einheiten</h3>
+                    <div class="table-container">
+                        <table>
+                            <thead><tr><th>Größe</th><th>Formelzeichen</th><th>Einheit</th><th>Beschreibung</th></tr></thead>
+                            <tbody>
+                                <tr><td>Elektrische Spannung</td><td>U</td><td>Volt (V)</td><td>Ursache des Stromflusses (U = W / Q)</td></tr>
+                                <tr><td>Elektrische Stromstärke</td><td>I</td><td>Ampere (A)</td><td>Ladung pro Sekunde (I = Q / t)</td></tr>
+                                <tr><td>Elektrischer Widerstand</td><td>R</td><td>Ohm (&Omega;)</td><td>Hemmung des Stromflusses (R = U / I)</td></tr>
+                                <tr><td>Elektrische Leistung</td><td>P</td><td>Watt (W)</td><td>Energie pro Zeit (P = U · I)</td></tr>
+                                <tr><td>Elektrische Energie/Arbeit</td><td>W / E</td><td>Joule / Wh</td><td>Gesamtenergie (W = P · t)</td></tr>
+                                <tr><td>Elektrische Kapazität</td><td>C</td><td>Farad (F)</td><td>Ladungsspeicherung (C = Q / U)</td></tr>
+                                <tr><td>Induktivität</td><td>L</td><td>Henry (H)</td><td>Eigenschaft einer Spule</td></tr>
+                                <tr><td>Frequenz</td><td>f</td><td>Hertz (Hz)</td><td>Schwingungen pro Sekunde (f = 1 / T)</td></tr>
+                                <tr><td>Leitwert</td><td>G</td><td>Siemens (S)</td><td>Kehrwert des Widerstands (G = 1 / R)</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <h3>2.6 Dämmerungsschalter (Beispielschaltung)</h3>
+                    <ul>
+                        <li><strong>Spannungsteiler:</strong> Festwiderstand R1 (10k&Omega;) und LDR in Reihe an +9V.</li>
+                        <li><strong>Transistoransteuerung:</strong> Abgriffsspannung zwischen R1 und LDR an Basis von NPN-Transistor Q1.</li>
+                        <li><strong>Schaltvorgang bei Dunkelheit:</strong> Bei Dunkelheit steigt LDR-Widerstand, Spannung an Basis steigt über 0,7V.</li>
+                        <li><strong>Lastkreis:</strong> Q1 schaltet durch, LED leuchtet (über Vorwiderstand 470&Omega;).</li>
+                    </ul>
+
+                </div>
+            </details>
+
+            <!-- ============================================================ -->
+            <!-- 3. ARDUINO & JUMP GAME -->
+            <!-- ============================================================ -->
+            <details id="bereich-3">
+                <summary>3. Arduino &amp; Jump Game</summary>
+                <div class="details-content">
+                    
+                    <h3>3.1 Arduino Uno R3 – Hardware</h3>
+                    <div class="table-container">
+                        <table>
+                            <thead><tr><th>Komponente</th><th>Funktion</th></tr></thead>
+                            <tbody>
+                                <tr><td>USB-Anschluss</td><td>Stromversorgung + Programm-Upload + serielle Datenübertragung</td></tr>
+                                <tr><td>Hohlbuchse</td><td>Externe Stromversorgung (7-12 V)</td></tr>
+                                <tr><td>Digital-Pins (0-13)</td><td>Digitale Ein-/Ausgänge. Tilde (~) = PWM-fähig.</td></tr>
+                                <tr><td>Analog-Pins (A0-A5)</td><td>Für Sensoren (0-5V)</td></tr>
+                                <tr><td>Power Pins</td><td>5V, 3.3V, RESET, IOREF, GND</td></tr>
+                                <tr><td>I2C-Pins (SCL &amp; SDA)</td><td>Für LCD-Displays und spezielle Sensoren</td></tr>
+                                <tr><td>Mikrocontroller</td><td>ATmega328P (SRAM + Flash)</td></tr>
+                                <tr><td>Reset-Button</td><td>Startet Programm neu</td></tr>
+                                <tr><td>ICSP-Header</td><td>Direkte Programmierung</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <h3>3.2 Starter Kit Bauteile</h3>
+                    <ul>
+                        <li><strong>Steuerung:</strong> Arduino Uno R3, USB-Kabel, Breadboard, Jumper-Kabel, 9V-Batterie-Adapter, Netzteil.</li>
+                        <li><strong>Anzeigen:</strong> LEDs (Rot, Grün, Blau, Gelb, Weiß, RGB), 16x2 LCD, 7-Segment-Anzeige, 8x8 LED-Matrix.</li>
+                        <li><strong>Motoren:</strong> Servo SG90, Schrittmotor mit ULN2003, DC-Motor, Relais, Summer.</li>
+                        <li><strong>Sensoren:</strong> Ultraschall HC-SR04, DHT11, PIR, Sound, Regen, RFID, RTC, Joystick, LDR.</li>
+                        <li><strong>Bausteine:</strong> Widerstände (220&Omega;, 1k&Omega;, 10k&Omega;), Potentiometer, Taster, 74HC595, Dioden, Transistoren, Kondensatoren.</li>
+                    </ul>
+
+                    <h3>3.3 Erstes Projekt: Blinkende LED</h3>
+                    <h4>Benötigte Materialien</h4>
+                    <ul>
+                        <li>1x Arduino Uno R3</li>
+                        <li>1x Breadboard</li>
+                        <li>1x LED (beliebige Farbe)</li>
+                        <li>1x Widerstand 220 &Omega; (Vorwiderstand)</li>
+                        <li>2x Jumper-Kabel</li>
+                    </ul>
+                    <h4>Schritt-für-Schritt</h4>
+                    <ol>
+                        <li>GND-Pin des Arduino mit blauer Minus-Leiste des Breadboards verbinden.</li>
+                        <li>LED in zwei freie Zeilen stecken. Längeres Bein = Anode (+), kürzeres = Kathode (-).</li>
+                        <li>220-&Omega;-Widerstand zwischen Kathode und GND-Leiste.</li>
+                        <li>Digital-Pin 13 mit Anode verbinden.</li>
+                        <li>Arduino per USB anschließen.</li>
+                    </ol>
+                    <h4>Programmcode</h4>
+                    <pre><code>const int ledPin = 13;
+
+void setup() {
+  pinMode(ledPin, OUTPUT);
+}
+
+void loop() {
+  digitalWrite(ledPin, HIGH); // LED ein (5V)
+  delay(1000);                // 1 Sekunde
+  digitalWrite(ledPin, LOW);  // LED aus (0V)
+  delay(1000);                // 1 Sekunde
+}</code></pre>
+
+                    <h3>3.4 Jump Game / Dino-Spiel (Projekt)</h3>
+                    <p>Ein LCD-Spiel mit einem Spieler (P), der Hindernissen ausweicht. Der Taster an Pin 10 lässt den Spieler springen.</p>
+
+                    <h4>Benötigte Bauteile</h4>
+                    <ul>
+                        <li>Arduino Nano (oder Uno)</li>
+                        <li>128x64 Graphical LCD (ST7920) oder 16x2 LCD mit I2C</li>
+                        <li>10 k&Omega; Potentiometer (Kontrast)</li>
+                        <li>Taster an Pin 10</li>
+                        <li>Jumper-Kabel, Breadboard</li>
+                    </ul>
+
+                    <h4>Vollständiger Code (Dino Jump Game)</h4>
+                    <pre><code>#include &lt;Wire.h&gt;
+#include &lt;LiquidCrystal_I2C.h&gt;
+
+LiquidCrystal_I2C lcd(0x27, 16, 2);
+
+int tasterPin = 10;
+int spielerY = 1;
+int hindernis1X = 15;
+int hindernis2X = 14;
+
+long alteZeit = 0;
+int geschwindigkeit = 400;
+
+void setup() {
+  pinMode(tasterPin, INPUT);
+  lcd.init();
+  lcd.backlight();
+}
+
+void loop() {
+  int knopf = digitalRead(tasterPin);
+  if (knopf == HIGH) {
+    spielerY = 0;   // Spieler springt hoch
+  } else {
+    spielerY = 1;   // Spieler bleibt unten
+  }
+
+  long aktuelleZeit = millis();
+  if (aktuelleZeit - alteZeit > geschwindigkeit) {
+    alteZeit = aktuelleZeit;
+    lcd.clear();
+
+    // Spieler zeichnen
+    lcd.setCursor(1, spielerY);
+    lcd.print("P");
+
+    // Hindernisse zeichnen
+    lcd.setCursor(hindernis1X, 1);
+    lcd.print("*");
+    lcd.setCursor(hindernis2X, 0);
+    lcd.print("*");
+
+    // Hindernisse bewegen
+    hindernis1X = hindernis1X - 1;
+    hindernis2X = hindernis2X - 4;
+
+    if (hindernis1X &lt; 0) hindernis1X = 15;
+    if (hindernis2X &lt; 0) hindernis2X = 15;
+
+    // Kollisionsprüfung
+    if (hindernis1X == 1 &amp;&amp; spielerY == 1) {
+      lcd.clear();
+      lcd.setCursor(3, 0);
+      lcd.print("GAME OVER");
+      while (true);
+    }
+    if (hindernis2X == 1 &amp;&amp; spielerY == 0) {
+      lcd.clear();
+      lcd.setCursor(3, 0);
+      lcd.print("GAME OVER");
+      while (true);
+    }
+  }
+}</code></pre>
+
+                    <h4>Code-Erklärung (Zeile für Zeile)</h4>
+                    <div class="table-container">
+                        <table>
+                            <thead><tr><th>Code</th><th>Bedeutung</th></tr></thead>
+                            <tbody>
+                                <tr><td><code>#include &lt;Wire.h&gt;</code></td><td>Bibliothek für I2C-Kommunikation mit dem Display.</td></tr>
+                                <tr><td><code>#include &lt;LiquidCrystal_I2C.h&gt;</code></td><td>Bibliothek für LCD-Display-Ansteuerung.</td></tr>
+                                <tr><td><code>LiquidCrystal_I2C lcd(0x27, 16, 2);</code></td><td>Display einrichten: Adresse 0x27, 16 Spalten, 2 Zeilen.</td></tr>
+                                <tr><td><code>int tasterPin = 10;</code></td><td>Taster ist an Pin 10.</td></tr>
+                                <tr><td><code>int spielerY = 1;</code></td><td>Aktuelle Zeile des Spielers (Start: 1).</td></tr>
+                                <tr><td><code>int hindernis1X = 15;</code></td><td>Waagerechte Position des ersten Hindernisses.</td></tr>
+                                <tr><td><code>void setup()</code></td><td>Startfunktion: Pin 10 als Eingang, LCD initialisieren.</td></tr>
+                                <tr><td><code>void loop()</code></td><td>Endlosschleife des Spiels.</td></tr>
+                                <tr><td><code>int knopf = digitalRead(tasterPin);</code></td><td>Taster lesen (HIGH = gedrückt).</td></tr>
+                                <tr><td><code>spielerY = 0;</code></td><td>Spieler springt in obere Zeile.</td></tr>
+                                <tr><td><code>millis();</code></td><td>Aktuelle Laufzeit in Millisekunden.</td></tr>
+                                <tr><td><code>if (aktuelleZeit - alteZeit &gt; geschwindigkeit)</code></td><td>Prüft, ob 400 ms vergangen sind (Spielgeschwindigkeit).</td></tr>
+                                <tr><td><code>lcd.clear();</code></td><td>Display leeren.</td></tr>
+                                <tr><td><code>lcd.setCursor(x, y);</code></td><td>Cursor auf Position x/y setzen.</td></tr>
+                                <tr><td><code>lcd.print("*");</code></td><td>Hindernis als Stern zeichnen.</td></tr>
+                                <tr><td><code>hindernis1X = hindernis1X - 1;</code></td><td>Hindernis einen Schritt nach links.</td></tr>
+                                <tr><td><code>if (hindernis1X &lt; 0) hindernis1X = 15;</code></td><td>Wenn links raus, rechts wieder einblenden.</td></tr>
+                                <tr><td><code>if (hindernis1X == 1 &amp;&amp; spielerY == 1)</code></td><td>Kollisionsprüfung: Hindernis auf Position 1, Spieler unten.</td></tr>
+                                <tr><td><code>while (true);</code></td><td>Endlosschleife bei Game Over (Spiel einfrieren).</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <h4>Erweiterte Version mit 3 Hindernissen &amp; Punkten</h4>
+                    <pre><code>#include &lt;Wire.h&gt;
+#include &lt;LiquidCrystal_I2C.h&gt;
+
+LiquidCrystal_I2C lcd(0x27, 16, 2);
+
+int tasterPin = 10;
+int spielerZeile = 1;
+int hindernis1_X = 0;
+int hindernis2_X = 0;
+int hindernis3_X = 0;
+int abstand = 0;
+int punkte = 0;
+
+unsigned long zeitSpiel = 0;
+unsigned long zeitLcd = 0;
+
+void setup() {
+  pinMode(tasterPin, INPUT);
+  lcd.init();
+  lcd.backlight();
+  randomSeed(analogRead(0));
+}
+
+void loop() {
+  if (digitalRead(tasterPin) == HIGH) {
+    spielerZeile = 0;
+  } else {
+    spielerZeile = 1;
+  }
+
+  unsigned long jetzt = millis();
+
+  // Spielschritt alle 300 ms
+  if (jetzt - zeitSpiel &gt;= 300) {
+    zeitSpiel = jetzt;
+    if (hindernis1_X &gt; 0) hindernis1_X--;
+    if (hindernis2_X &gt; 0) hindernis2_X--;
+    if (hindernis3_X &gt; 0) hindernis3_X--;
+    if (abstand &gt; 0) abstand--;
+
+    if (abstand == 0) {
+      int zufall = random(0, 10);
+      if (zufall == 1 &amp;&amp; hindernis1_X == 0) { hindernis1_X = 15; abstand = 5; }
+      if (zufall == 2 &amp;&amp; hindernis2_X == 0) { hindernis2_X = 15; abstand = 5; }
+      if (zufall == 3 &amp;&amp; hindernis3_X == 0) { hindernis3_X = 15; abstand = 5; }
+    }
+
+    // Kollisionsprüfung
+    if (hindernis1_X == 1 &amp;&amp; spielerZeile == 1) {
+      lcd.clear();
+      lcd.setCursor(3, 0);
+      lcd.print("GAME OVER");
+      delay(500);
+      while (digitalRead(tasterPin) == LOW) { }
+      // Reset
+      hindernis1_X = 0; hindernis2_X = 0; hindernis3_X = 0;
+      punkte = 0;
+    }
+  }
+
+  // LCD-Update alle 50 ms
+  if (jetzt - zeitLcd &gt;= 50) {
+    zeitLcd = jetzt;
+    lcd.clear();
+    lcd.setCursor(1, spielerZeile);
+    lcd.print("P");
+    if (hindernis1_X &gt; 0) { lcd.setCursor(hindernis1_X, 1); lcd.print("$"); }
+    if (hindernis2_X &gt; 0) { lcd.setCursor(hindernis2_X, 0); lcd.print("#"); }
+    if (hindernis3_X &gt; 0) { lcd.setCursor(hindernis3_X, 0); lcd.print("%"); }
+    lcd.setCursor(12, 0);
+    lcd.print(punkte);
+  }
+}</code></pre>
+
+                    <h4>Code-Erklärung (Erweiterte Version)</h4>
+                    <div class="table-container">
+                        <table>
+                            <thead><tr><th>Code</th><th>Bedeutung</th></tr></thead>
+                            <tbody>
+                                <tr><td><code>randomSeed(analogRead(0));</code></td><td>Zufallsgenerator mit Rauschen von Pin 0 initialisieren.</td></tr>
+                                <tr><td><code>random(0, 10);</code></td><td>Zufallszahl zwischen 0 und 9 (entscheidet, welches Hindernis kommt).</td></tr>
+                                <tr><td><code>abstand = 5;</code></td><td>Pause zwischen zwei Hindernissen (5 Schritte).</td></tr>
+                                <tr><td><code>if (abstand == 0)</code></td><td>Nur wenn Pause vorbei, darf neues Hindernis kommen.</td></tr>
+                                <tr><td><code>hindernis1_X = 15;</code></td><td>Hindernis startet ganz rechts (Spalte 15).</td></tr>
+                                <tr><td><code>while (digitalRead(tasterPin) == LOW) { }</code></td><td>Wartet, bis Taster gedrückt wird (Neustart).</td></tr>
+                                <tr><td><code>punkte = 0;</code></td><td>Punktestand zurücksetzen.</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <h3>3.5 Temperatur-Messer mit LCD &amp; DHT11</h3>
+                    <p>Anzeige von Temperatur (24,5 °C) und Luftfeuchtigkeit (44,0 %) auf einem 128x64 Display.</p>
+                    <h4>Steckanleitung</h4>
+                    <div class="table-container">
+                        <table>
+                            <thead><tr><th>LCD Pin</th><th>Verbindung</th></tr></thead>
+                            <tbody>
+                                <tr><td>Pin 1 (GND)</td><td>GND (Arduino)</td></tr>
+                                <tr><td>Pin 2 (VCC)</td><td>5V (Arduino)</td></tr>
+                                <tr><td>Pin 3 (V0)</td><td>Mittelabgriff 10-kΩ-Potentiometer (Kontrast)</td></tr>
+                                <tr><td>Pin 4 (RS / CS)</td><td>Digital Pin 12</td></tr>
+                                <tr><td>Pin 5 (R/W / SID)</td><td>Digital Pin 11</td></tr>
+                                <tr><td>Pin 6 (E / SCLK)</td><td>Digital Pin 13</td></tr>
+                                <tr><td>Pin 15 (PSB)</td><td>GND (serieller/SPI-Modus)</td></tr>
+                                <tr><td>Pin 19 (BLA)</td><td>3.3V oder 5V (Hintergrundbeleuchtung)</td></tr>
+                                <tr><td>Pin 20 (BLK)</td><td>GND</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <h4>DHT11 Sensor</h4>
+                    <ul>
+                        <li>VCC (+) &rarr; 5V (Arduino)</li>
+                        <li>GND (-) &rarr; GND (Arduino)</li>
+                        <li>Data &rarr; Digital Pin (z.B. D4) mit Pull-up-Widerstand (4,7kΩ - 10kΩ) gegen 5V</li>
+                    </ul>
+
+                </div>
+            </details>
+
+            <!-- ============================================================ -->
+            <!-- 4. MEDIENTECHNIK & KOMMUNIKATION -->
+            <!-- ============================================================ -->
+            <details id="bereich-4">
+                <summary>4. Medientechnik &amp; Kommunikation</summary>
+                <div class="details-content">
+                    
+                    <h3>4.1 Systemüberblick Medientechnik</h3>
+                    <img src="../art/medienziele.jpeg" alt="Medientechnik 12. Klasse Systemüberblick">
+                    
+                    <h4>Sicherheit</h4>
                     <ul>
                         <li><strong>IT-Sicherheit:</strong> SSL/TLS, RBAC (Role-Based Access Control), Firewall.</li>
-                        <li><strong>Arbeitsschutz:</strong> DGUV 3, Safeties (Sicherungsseile), Kabelbr&uuml;cken.</li>
+                        <li><strong>Arbeitsschutz:</strong> DGUV 3, Safeties (Sicherungsseile), Kabelbrücken.</li>
                     </ul>
-                    <h4>2. Funktion &amp; Systemarchitektur</h4>
-                    <p><strong>Signalfluss:</strong> Signalerfassung (Kamera, Mikrofon, Video) &rarr; Signalverarbeitung (Mischpult) &rarr; &Uuml;bertragung &rarr; Signalerfassung / Ausgabe (Monitor, Web).</p>
-                    <h4>3. Rechte &amp; Lizenzmodelle</h4>
+                    <h4>Funktion &amp; Systemarchitektur</h4>
+                    <p><strong>Signalfluss:</strong> Signalerfassung (Kamera, Mikrofon) &rarr; Signalverarbeitung (Mischpult) &rarr; Übertragung &rarr; Ausgabe (Monitor, Web).</p>
+                    <h4>Rechte &amp; Lizenzmodelle</h4>
                     <ul>
-                        <li><strong>Urheberrecht (UrhG):</strong> Sch&ouml;pfungsh&ouml;he, Urheberpers&ouml;nlichkeitsrecht.</li>
-                        <li><strong>Lizenzen:</strong> Einfaches Recht, Ausschlie&szlig;liches Recht, Creative Commons (CC-BY, CC-NC).</li>
+                        <li><strong>Urheberrecht (UrhG):</strong> Schöpfungshöhe, Urheberpersönlichkeitsrecht.</li>
+                        <li><strong>Lizenzen:</strong> Einfaches Recht, Ausschließliches Recht, Creative Commons (CC-BY, CC-NC).</li>
                     </ul>
-                    <h4>4. Nutzen &amp; Zukunftstrends</h4>
+                    <h4>Nutzen &amp; Zukunftstrends</h4>
                     <ul>
                         <li><strong>Zwecke:</strong> Bildung (E-Learning), Marketing (UX), Unterhaltung (Virtual Events).</li>
                         <li><strong>Trends:</strong> Virtual Reality (VR), Augmented Reality (AR), KI im Workflow.</li>
                     </ul>
 
-                    <h3>2.2 Live-Broadcasting Workflow</h3>
+                    <h3>4.2 Live-Broadcasting Workflow</h3>
+                    <img src="../art/datenbankfunkundco.jpeg" alt="Broadcast Signal Processing Diagramm">
                     <div class="table-container">
                         <table>
                             <thead>
-                                <tr>
-                                    <th scope="col">Prozessstufe</th>
-                                    <th scope="col">Komponenten &amp; Signale</th>
-                                    <th scope="col">Funktion / Beschreibung</th>
-                                </tr>
+                                <tr><th>Prozessstufe</th><th>Komponenten &amp; Signale</th><th>Funktion</th></tr>
                             </thead>
                             <tbody>
-                                <tr><td><strong>1. Input Stage</strong></td><td>Kamera (RAW Video/Audio, SDI/HDMI, Ethernet/NDI), Mikrofon (Analog Audio, XLR)</td><td>Erfassung der physischen Bild- und Tonsignale am Aufnahmeort.</td></tr>
-                                <tr><td><strong>2. Acquisition &amp; Processing</strong></td><td>Signal Processor &amp; Encoder, Audio Interface (A/D-Wandlung), Network Switch</td><td>Konvertierung analoger Signale in digitale Daten, Kompression und Weiterleitung im Netzwerk.</td></tr>
-                                <tr><td><strong>3. Mixing Console &amp; Switcher</strong></td><td>Production Switcher, Video Mixing (Cuts, Transitions), Audio Mixing (Levels, EQ), Graphics Overlay</td><td>Zusammenf&uuml;hrung aller Quellen, Mischen von Bild/Ton, Einf&uuml;gen von Grafiken und Bauchbinden.</td></tr>
-                                <tr><td><strong>4. Transmission &amp; Distribution</strong></td><td>Transmission Headend, Satellite Uplink, Local Distribution (LAN), Remote Broadcast (WAN), Internet Streaming</td><td>Verteilung des fertigen Programmsignals &uuml;ber Satellit, IP-Netzwerke oder Streaming-Server.</td></tr>
-                                <tr><td><strong>5. Final Display Monitor</strong></td><td>Endger&auml;te, TVs, Program Feed, HDMI/DP, Receiver</td><td>Wiedergabe des Live-Signals auf Zielmonitoren und Kundenger&auml;ten.</td></tr>
+                                <tr><td><strong>1. Input Stage</strong></td><td>Kamera (RAW, SDI/HDMI, NDI), Mikrofon (XLR)</td><td>Erfassung der physischen Bild- und Tonsignale.</td></tr>
+                                <tr><td><strong>2. Acquisition</strong></td><td>Signal Processor, Audio Interface, Network Switch</td><td>Konvertierung analoger in digitale Daten, Kompression.</td></tr>
+                                <tr><td><strong>3. Mixing</strong></td><td>Production Switcher, Video/Audio Mixing, Graphics</td><td>Zusammenführung aller Quellen, Mischen von Bild/Ton.</td></tr>
+                                <tr><td><strong>4. Transmission</strong></td><td>Satellite Uplink, LAN, WAN, Internet Streaming</td><td>Verteilung des Programmsignals.</td></tr>
+                                <tr><td><strong>5. Final Display</strong></td><td>Endgeräte, TVs, Program Feed</td><td>Wiedergabe des Live-Signals.</td></tr>
                             </tbody>
                         </table>
                     </div>
 
-                    <h3>2.3 Kommunikationsmodelle</h3>
-                    <ul>
-                        <li><strong>Vier-Ohren-Modell (Schulz von Thun):</strong> Sachinhalt, Selbstkundgabe, Beziehungshinweis, Appell.</li>
-                        <li><strong>Sender-Empf&auml;nger-Modell (Shannon &amp; Weaver):</strong> Linearer, technischer Prozess (Kodierung, Kanal, Dekodierung, St&ouml;rquellen).</li>
-                        <li><strong>5 Axiome (Watzlawick):</strong> Man kann nicht nicht kommunizieren, etc.</li>
-                        <li><strong>Eisbergmodell (Freud):</strong> 20% Sachebene (sichtbar), 80% Beziehungsebene (unsichtbar).</li>
-                        <li><strong>Transaktionsanalyse (Berne):</strong> Eltern-Ich, Erwachsenen-Ich, Kind-Ich.</li>
-                        <li><strong>Organon-Modell (B&uuml;hler):</strong> Ausdruck, Appell, Darstellung.</li>
-                    </ul>
-
-                    <h3>2.4 Farbmodelle im Webdesign</h3>
-                    <div class="table-container">
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th scope="col">Farbmodell</th>
-                                    <th scope="col">Format / Syntax</th>
-                                    <th scope="col">Beispiel</th>
-                                    <th scope="col">Eigenschaften</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr><td>HEX</td><td>#RRGGBB</td><td>#FF5733</td><td>Standard-Code im Webdesign.</td></tr>
-                                <tr><td>HEX (mit Alpha)</td><td>#RRGGBBAA</td><td>#FF573380</td><td>Erweiterung um 2 Stellen f&uuml;r Transparenz.</td></tr>
-                                <tr><td>RGB</td><td>rgb(R, G, B)</td><td>rgb(255, 87, 51)</td><td>Lichtintensit&auml;t (0&ndash;255).</td></tr>
-                                <tr><td>RGBA</td><td>rgba(R, G, B, A)</td><td>rgba(255, 87, 51, 0.5)</td><td>Mit Alpha-Wert (0.0 bis 1.0) f&uuml;r Transparenz.</td></tr>
-                                <tr><td>HSL / HSLA</td><td>hsl(H, S%, L%)</td><td>hsl(9, 100%, 60%)</td><td>Farbton, S&auml;ttigung, Helligkeit.</td></tr>
-                                <tr><td>OKLCH</td><td>oklch(L C H)</td><td>oklch(0.65 0.24 35)</td><td>Wahrnehmungsgetreues Modell f&uuml;r HDR/P3.</td></tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </details>
-
-            <!-- 3. GMK / GESCHICHTE -->
-            <details id="bereich-3">
-                <summary>3. Gesellschaft, Medien &amp; Kultur (GMK)</summary>
-                <div class="details-content">
-                    <h3>3.1 Politik (August 2026)</h3>
-                    <ul>
-                        <li><strong>International:</strong> Diplomatische Eskalation um den Iran (Trump), Totale Sonnenfinsternis &uuml;ber Westeuropa.</li>
-                        <li><strong>National:</strong> Personalwechsel im Bundesverkehrsministerium (Schnieder &rarr; Bilger), Debatten um Nachrichtendienste.</li>
-                        <li><strong>Regional (Kiel):</strong> LKA-Gro&szlig;einsatz wegen Chemikalienfund in der Gutenbergstra&szlig;e.</li>
-                    </ul>
-
-                    <h3>3.2 Bismarck &amp; Imperialismus</h3>
-                    <ul>
-                        <li><strong>Kissinger Diktat (1877):</strong> Status quo erhalten, Koalitionen verhindern, England und Russland ausgleichen, Frankreich isolieren.</li>
-                        <li><strong>B&uuml;ndnispolitik:</strong> Dreikaiserabkommen (1873), Zweibund (1879), Dreibund (1882), R&uuml;ckversicherungsvertrag (1887).</li>
-                        <li><strong>Kolonialpolitik:</strong> Anf&auml;nglich skeptisch, sp&auml;ter Erwerb von Kolonien (Deutsch-S&uuml;dwestafrika, Togo, Kamerun, Deutsch-Ostafrika).</li>
-                    </ul>
-
-                    <h3>3.3 Parteien im Kaiserreich (1870-1890)</h3>
-                    <div class="table-container">
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th scope="col">Partei</th>
-                                    <th scope="col">Klientel (Wer?)</th>
-                                    <th scope="col">Ziele</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr><td>Konservative (KP/DRP)</td><td>Schwerindustrielle, Beamte, Hochadel</td><td>Unterst&uuml;tzung Bismarcks, Aufr&uuml;stung.</td></tr>
-                                <tr><td>Nationalliberale (NLP)</td><td>Unternehmer, Professoren</td><td>Freier Handel, Kolonien, Imperialismus.</td></tr>
-                                <tr><td>Linksliberale (DFP)</td><td>Handwerker, H&auml;ndler</td><td>Mehr Macht f&uuml;r den Reichstag, B&uuml;rgerrechte.</td></tr>
-                                <tr><td>Zentrum</td><td>Katholiken</td><td>Schutz der Kirche, F&ouml;deralismus.</td></tr>
-                                <tr><td>SPD/SAP</td><td>Industriearbeiter</td><td>Arbeiterrechte, Demokratie.</td></tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </details>
-
-            <!-- 4. DEUTSCH -->
-            <details id="bereich-4">
-                <summary>4. Deutsch (Literatur)</summary>
-                <div class="details-content">
-                    <h3>4.1 Das Erdbeben in Chili (Heinrich von Kleist)</h3>
-                    <p><strong>Inhalt:</strong> Jeronimo Rugera und Donna Josephe werden wegen verbotener Liebe bestraft. Ein Erdbeben zerst&ouml;rt die Stadt und rettet sie kurzzeitig. Im Tal finden sie Schutz, doch in der Kathedrale werden sie von einem fanatischen Mob get&ouml;tet. Nur ihr Kind Philipp &uuml;berlebt und wird von Don Fernando und Donna Elvire aufgenommen.</p>
+                    <h3>4.3 Kommunikationsmodelle</h3>
                     
-                    <h3>4.2 Die Marquise von O... (Heinrich von Kleist)</h3>
-                    <p><strong>Inhalt:</strong> Die Marquise wird von Graf F... gerettet, der sich jedoch unbemerkt an ihr vergeht, als sie ohnm&auml;chtig ist. Sie wird schwanger, der Vater verst&ouml;&szlig;t sie. Durch eine Zeitungsanzeige sucht sie den Vater. Der Graf gesteht, sie heiraten zun&auml;chst pro forma, finden aber sp&auml;ter durch seine Reue und F&uuml;rsorge zueinander.</p>
+                    <h4>1. Vier-Ohren-Modell (Schulz von Thun)</h4>
+                    <p><strong>Prinzipielle Funktion:</strong> Jede Nachricht besitzt zeitgleich vier Dimensionen: den <strong>Sachinhalt</strong> (Daten/Fakten), die <strong>Selbstkundgabe</strong> (was der Sender über sich offenbart), den <strong>Beziehungshinweis</strong> (was er vom Empfänger hält) und den <strong>Appell</strong> (was er erreichen möchte). Der Sender spricht mit „vier Schnäbeln", der Empfänger hört mit „vier Ohren".</p>
 
-                    <h3>4.3 Der zerbrochene Krug (Heinrich von Kleist)</h3>
-                    <p><strong>Inhalt:</strong> Dorfrichter Adam muss den Fall eines zerbrochenen Kruges verhandeln. Es stellt sich heraus, dass er selbst der T&auml;ter ist. Er war nachts bei Eve, um sie mit einem gef&auml;lschten Attest zu erpressen. Als Ruprecht auftauchte, floh Adam und zerbrach den Krug. Am Ende wird Adam &uuml;berf&uuml;hrt und flieht.</p>
+                    <h4>2. Sender-Empfänger-Modell (Shannon &amp; Weaver)</h4>
+                    <p><strong>Prinzipielle Funktion:</strong> Beschreibt Kommunikation als standardisierten, linearen und rein technischen Prozess. Ein Sender kodiert Gedanken in ein Signal, das über einen Übertragungskanal an einen Empfänger gesendet wird, welcher die Signale dekodiert. Störquellen im Kanal können die Botschaft verzerren.</p>
+                    <p><strong>Entwicklungsgrund (1948):</strong> Claude Shannon und Warren Weaver entwickelten das Konzept für die Bell Telephone Laboratories. Ziel war die mathematische und technische Effizienz von Telefonleitungen und Funksystemen zu optimieren – maximale Daten mit minimalem Signalverlust durch fehleranfällige Medien.</p>
+
+                    <h4>3. 5 Axiome (Paul Watzlawick)</h4>
+                    <p><strong>Prinzipielle Funktion:</strong> Fünf unumstößliche Grundregeln (Axiome), die das menschliche Verhalten im Austausch bestimmen. Es erklärt, wie Kommunikation unbewusst durch bloßes Vorhandensein einer Person abläuft, dass sie immer einen Beziehungsaspekt enthält und sich in kreisförmigen Reiz-Reaktions-Mustern bewegt.</p>
+                    <p><strong>Entwicklungsgrund (1969):</strong> Paul Watzlawick entwickelte die Axiome am Mental Research Institute (USA). Seine Motivation: Erforschung psychischer Verhaltensstörungen und familiärer Konflikte. Er wollte beweisen, dass gestörte Kommunikation nicht das Problem einzelner Personen ist, sondern aus einem fehlerhaften System resultiert.</p>
+
+                    <h4>4. Eisbergmodell (nach Sigmund Freud)</h4>
+                    <p><strong>Prinzipielle Funktion:</strong> Teilt Kommunikation in sichtbaren und unsichtbaren Teil. Die sichtbare <strong>Sachebene</strong> (ca. 20 %) transportiert rationale Daten, Zahlen und verbale Fakten. Die unsichtbare <strong>Beziehungsebene</strong> (ca. 80 %) umfasst Gefühle, Instinkte, Ängste, Werte und Vorurteile, welche die Sachebene massiv steuern.</p>
+                    <p><strong>Entwicklungsgrund:</strong> Basiert auf Freuds Schichtenmodell der Psyche (Bewusstsein/Unterbewusstsein), wurde von Kommunikationswissenschaftlern wie Watzlawick für die Gesprächsführung adaptiert. Konflikte auf der Sachebene sind oft unlösbar, weil die eigentliche Ursache tief in emotionalen Spannungen liegt.</p>
+
+                    <h4>5. Transaktionsanalyse (Eric Berne)</h4>
+                    <p><strong>Prinzipielle Funktion:</strong> Analysiert Kommunikationseinheiten (Transaktionen) basierend auf psychologischen Rollenmustern. Es untersucht, aus welchem inneren Zustand heraus eine Person spricht: <strong>Eltern-Ich</strong> (belehrend/fürsorglich), <strong>Erwachsenen-Ich</strong> (sachlich/konstruktiv) oder <strong>Kind-Ich</strong> (emotional/trotzig).</p>
+                    <p><strong>Entwicklungsgrund (1950er):</strong> Eric Berne entwickelte die Transaktionsanalyse als verständliche Alternative zur klassischen Psychoanalyse. Ziel: Ein nahbares, leicht vermittelbares psychotherapeutisches Konzept, mit dem Patienten eigene Verhaltensmuster schnell durchschauen und gezielt ins sachliche „Erwachsenen-Ich" steuern können.</p>
+
+                    <h4>6. Organon-Modell (Karl Bühler)</h4>
+                    <p><strong>Prinzipielle Funktion:</strong> Definiert das sprachliche Zeichen (gesprochenes Wort) als Werkzeug. Ordnet der Sprache drei Kernfunktionen in Abhängigkeit von Sender, Empfänger und Gegenstand zu: <strong>Ausdrucksfunktion</strong> (Sender teilt Gefühle mit), <strong>Appellfunktion</strong> (Empfänger wird gelenkt) und <strong>Darstellungsfunktion</strong> (Sachverhalte der Welt werden beschrieben).</p>
+                    <p><strong>Entwicklungsgrund (1934):</strong> Karl Bühler veröffentlichte das Modell in „Sprachtheorie". Er wollte die Linguistik aus ihrer rein grammatikalischen Verengung befreien und ein Modell schaffen, das Sprache als dynamisches, soziales Handlungswerkzeug erfasst.</p>
+
+                    <h4>7. NLP-Modell (Neurolinguistisches Programmieren)</h4>
+                    <p><strong>Prinzipielle Funktion:</strong> Beschreibt, wie neurologische Prozesse („Neuro") durch Sprache („Linguistisch") organisiert und im Verhalten verankert („Programmieren") werden. Menschen erzeugen über Filter subjektiv verzerrte „innere Landkarten".</p>
+                    <p><strong>Entwicklungsgrund (1970er):</strong> Richard Bandler und John Grinder entwickelten NLP an der University of California. Ziel: Verhaltens- und Sprachmuster erfolgreicher Therapeuten (Virginia Satir, Milton Erickson) entschlüsseln und kopierbar machen („Modeling").</p>
+
+                    <h3>4.4 Farbmodelle im Webdesign</h3>
+                    <div class="table-container">
+                        <table>
+                            <thead><tr><th>Farbmodell</th><th>Syntax</th><th>Beispiel</th><th>Eigenschaften</th></tr></thead>
+                            <tbody>
+                                <tr><td>HEX</td><td>#RRGGBB</td><td>#FF5733</td><td>Standard im Web.</td></tr>
+                                <tr><td>HEX (Alpha)</td><td>#RRGGBBAA</td><td>#FF573380</td><td>Transparenz (00 unsichtbar, FF deckend).</td></tr>
+                                <tr><td>RGB</td><td>rgb(R, G, B)</td><td>rgb(255, 87, 51)</td><td>Lichtintensität (0-255).</td></tr>
+                                <tr><td>RGBA</td><td>rgba(R, G, B, A)</td><td>rgba(255, 87, 51, 0.5)</td><td>RGB + Alpha (0.0-1.0).</td></tr>
+                                <tr><td>HSL</td><td>hsl(H, S%, L%)</td><td>hsl(9, 100%, 60%)</td><td>Farbton (0-360°), Sättigung (0-100%), Helligkeit (0-100%).</td></tr>
+                                <tr><td>HSLA</td><td>hsla(H, S%, L%, A)</td><td>hsla(9, 100%, 60%, 0.5)</td><td>HSL + Alpha.</td></tr>
+                                <tr><td>OKLCH</td><td>oklch(L C H)</td><td>oklch(0.65 0.24 35)</td><td>Wahrnehmungsgetreu für HDR/P3.</td></tr>
+                                <tr><td>Named Colors</td><td>Textname</td><td>tomato, steelblue</td><td>Über 140 englische Farbnamen.</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <h4>Beliebte Standard- &amp; Akzentfarben</h4>
+                    <div class="table-container">
+                        <table>
+                            <thead><tr><th>Farbname</th><th>HEX</th><th>RGB</th><th>Einsatzbereich</th></tr></thead>
+                            <tbody>
+                                <tr><td>Gold / Gelb (Akzent)</td><td>#FFCC00</td><td>rgb(255, 204, 0)</td><td>Highlights, Buttons, Portfolio</td></tr>
+                                <tr><td>Sky Blue</td><td>#38BDF8</td><td>rgb(56, 189, 248)</td><td>Links, moderne UIs</td></tr>
+                                <tr><td>Royal Blue</td><td>#2563EB</td><td>rgb(37, 99, 235)</td><td>Corporate Design</td></tr>
+                                <tr><td>Emerald Green</td><td>#10B981</td><td>rgb(16, 185, 129)</td><td>Erfolgsmeldungen</td></tr>
+                                <tr><td>Coral Red</td><td>#EF4444</td><td>rgb(239, 68, 68)</td><td>Fehlermeldungen</td></tr>
+                                <tr><td>Purple</td><td>#8B5CF6</td><td>rgb(139, 92, 246)</td><td>Kreativbereich, KI</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+
                 </div>
             </details>
 
-            <!-- 5. PHYSIK -->
+            <!-- ============================================================ -->
+            <!-- 5. PRODUKTFOTOGRAFIE-PORTFOLIO -->
+            <!-- ============================================================ -->
             <details id="bereich-5">
-                <summary>5. Physik</summary>
+                <summary>5. Produktfotografie-Portfolio (Vorher-Nachher)</summary>
                 <div class="details-content">
-                    <h3>5.1 Mechanik &amp; Energie</h3>
-                    <ul>
-                        <li><strong>Mechanische Arbeit:</strong> W = F &middot; s (Kraft mal Weg). Einheit: Joule (J) oder Newtonmeter (Nm).</li>
-                        <li><strong>Kinetische Energie:</strong> E<sub>kin</sub> = &frac12; &middot; m &middot; v&sup2;</li>
-                        <li><strong>Potentielle Energie:</strong> E<sub>pot</sub> = m &middot; g &middot; h</li>
-                        <li><strong>Energieerhaltungssatz:</strong> Energie kann weder erzeugt noch vernichtet, nur umgewandelt werden.</li>
-                        <li><strong>Goldene Regel der Mechanik:</strong> Was an Kraft gespart wird, muss an Weg zugesetzt werden.</li>
-                    </ul>
-
-                    <h3>5.2 Gravitation &amp; Elektrische Felder</h3>
-                    <ul>
-                        <li><strong>Gravitationsgesetz (Newton):</strong> F<sub>G</sub> = G &middot; (m<sub>1</sub> &middot; m<sub>2</sub>) / r&sup2;</li>
-                        <li><strong>Ortsfaktor (g):</strong> g = (G &middot; M<sub>E</sub>) / R<sub>E</sub>&sup2; &asymp; 9,81 m/s&sup2; (an der Erdoberfl&auml;che).</li>
-                        <li><strong>Coulombsches Gesetz:</strong> F<sub>el</sub> = (1 / (4&pi;&epsilon;<sub>0</sub>)) &middot; ((q<sub>1</sub> &middot; q<sub>2</sub>) / r&sup2;)</li>
-                    </ul>
-
-                    <h3>5.3 Formelsammlung &amp; Einheiten</h3>
-                    <div class="table-container">
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th scope="col">Gr&ouml;&szlig;e</th>
-                                    <th scope="col">Formel</th>
-                                    <th scope="col">Einheit</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr><td>Kraft (F)</td><td>F = m &middot; a</td><td>Newton (N)</td></tr>
-                                <tr><td>Energie / Arbeit (E, W)</td><td>W = F &middot; s</td><td>Joule (J) = N&middot;m</td></tr>
-                                <tr><td>Leistung (P)</td><td>P = W / t</td><td>Watt (W) = J/s</td></tr>
-                                <tr><td>Druck (p)</td><td>p = F / A</td><td>Pascal (Pa) = N/m&sup2;</td></tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </details>
-
-            <!-- 6. ENGLISCH -->
-            <details id="bereich-6">
-                <summary>6. Englisch</summary>
-                <div class="details-content">
-                    <h3>6.1 AI in Job Interviews</h3>
-                    <p><strong>Pros:</strong> No bias, cheaper, works continuously, can be less intimidating.</p>
-                    <p><strong>Cons:</strong> Systemic inequality (wealth bias), lacks human interaction/judgment, candidates can fake responses, no soft skills assessment.</p>
-                    <p><strong>Conclusion:</strong> AI should support, but humans should make the final decision.</p>
-
-                    <h3>6.2 Mediation (Team Performance)</h3>
-                    <p><strong>Rules:</strong> German to English, no personal opinion, simple present, generalization, no specific quotes.</p>
-                    <p><strong>Content:</strong> Shared financial bonuses improve group speed and success. Traditional managers think bonuses only help routine tasks. An escape room experiment showed teams solve complex tasks faster with shared rewards. Financial rewards do not harm inner motivation if tasks are interesting.</p>
-                </div>
-            </details>
-
-            <!-- 7. WIRTSCHAFT -->
-            <details id="bereich-7">
-                <summary>7. Wirtschaft &amp; Recht</summary>
-                <div class="details-content">
-                    <h3>7.1 Streik</h3>
-                    <p><strong>Definition:</strong> Planm&auml;&szlig;ige Arbeitsniederlegung von gemeinsam handelnden Arbeitnehmern zur Durchsetzung von Zielen, organisiert von der Gewerkschaft.</p>
-                    <p><strong>Rechtm&auml;&szlig;igkeit:</strong> Nur als letztes Mittel (Verh&auml;ltnism&auml;&szlig;igkeit), muss tariflich regelbare Ziele haben, darf nicht gegen die Friedenspflicht versto&szlig;en, Tr&auml;ger muss eine Gewerkschaft sein.</p>
                     
-                    <h3>7.2 Tarifvertr&auml;ge</h3>
+                    <div class="info-box">
+                        <p><strong>Projekt:</strong> Eine Vorher-Nachher-Fallstudie zur visuellen Inszenierung von Produkten.</p>
+                        <p><strong>Bewerbung für ein Pflichtpraktikum zur Vervollständigung der Fachhochschulreife</strong></p>
+                        <p><strong>Fotografie &amp; Retusche</strong> — Leon Wyppych</p>
+                        <p>Kontakt: leon180109@gmail.com | +49 1573 0276737</p>
+                    </div>
+
+                    <h3>5.1 Das Projekt im Überblick</h3>
+                    <p>Drei Parfümflakons wurden bei Dämmerung in natürlicher Kulisse fotografiert und in Adobe Lightroom professionell nachbearbeitet. Das Ziel: Die Produkte in ein edles, mystisches Licht zu rücken und ihre jeweilige Charakteristik herauszuarbeiten.</p>
+
+                    <img src="../art/DSC2467.JPG" alt="Produktfoto Ensemble – Dämmerungslicht">
+
+                    <h3>5.2 Die drei Produkte</h3>
+                    
+                    <h4>1. Hättric Classic After Shave</h4>
                     <ul>
-                        <li><strong>Lohn-/Gehaltstarifvertrag:</strong> Regelt L&ouml;hne/Geh&auml;lter (kurzfristig).</li>
-                        <li><strong>Manteltarifvertrag:</strong> Regelt allgemeine Bedingungen (Arbeitszeit, Urlaub, K&uuml;ndigung) (mehrj&auml;hrig).</li>
-                        <li><strong>Funktionen:</strong> Schutzfunktion (Mindeststandards), Ordnungsfunktion (Planungssicherheit), Friedenspflicht (keine Streiks w&auml;hrend der Laufzeit).</li>
+                        <li><strong>Tradition:</strong> Absoluter Klassiker unter den Rasierwassern im deutschsprachigen Raum, seit Jahrzehnten fest im Drogerie-Segment etabliert.</li>
+                        <li><strong>Duftprofil:</strong> Zeitloser, würzig-frischer und meeresartiger Herrenduft mit holzigen und leichten Zitrusnoten.</li>
+                        <li><strong>Wirkung:</strong> Beruhigt und erfrischt die Haut nach der Nassrasur, wirkt desinfizierend, hinterlässt angenehm kühles Hautgefühl.</li>
                     </ul>
+
+                    <h4>2. Clouds of Love Man Eau de Toilette</h4>
+                    <ul>
+                        <li><strong>Dufttyp:</strong> Erschwingliche Duft-Alternative („Duftzwilling" oder „Flakon-Hommage"), vom Design inspiriert an ikonische Flakons wie Thierry Muglers „A*Men" mit Stern-Motiv.</li>
+                        <li><strong>Duftprofil:</strong> Süß-orientalisch, gourmand oder intensiv holzig, oft mit Vanille, Amber, Tonkabohne oder Kaffee-Schokolade.</li>
+                        <li><strong>Verwendungszweck:</strong> Eau de Toilette (EdT) mit höherer Duftöl-Konzentration als After Shave, langanhaltendes Parfum für Tag oder Abend.</li>
+                    </ul>
+
+                    <h4>3. Moschus After Shave</h4>
+                    <ul>
+                        <li><strong>Duftcharakter:</strong> Sinnlich, warm und leicht pudrig-holziger Moschus-Duft.</li>
+                        <li><strong>Markenzeichen:</strong> Roter &amp; schwarzer Kreis-Ausschnitt auf golden-amberfarbenem Ton im transparenten Glasflakon – typisch für klassische Moschus-Herren-Serien, bekannt aus den 70ern, 80ern &amp; 90ern.</li>
+                        <li><strong>Wirkung:</strong> Verbindet hautberuhigende After-Shave-Funktion mit prägnantem, maskulinem, nostalgischem Moschus-Aroma.</li>
+                    </ul>
+
+                    <h3>5.3 Location Scouting</h3>
+                    <p><strong>Freifläche / Wiese am Wellseedamm in Kiel (Kiel-Wellsee)</strong></p>
+                    <p>Die leicht erhöhte Wiesenlandschaft bietet freien Blick Richtung Westen/Südwesten, um das natürliche Restlicht der Abenddämmerung und den Farbverlauf des Himmels ohne störende Gebäude-Silhouetten als Kulisse zu nutzen.</p>
+                    <p>Ein wichtiger Schritt war das Location Scouting. Auf der Wiese am Wellseedamm habe ich den perfekten Spot gefunden: freier Blick zum Horizont und super Licht. Dadurch konnte ich die Dämmerung voll ausnutzen, um Reflexionen im Glas einzufangen.</p>
+                    
+                    <h4>Lichtverhältnisse</h4>
+                    <p>Wichtig war, das warme Licht kurz vor und nach Sonnenuntergang einzufangen. Die Wiese auf dem Hügel war perfekt, da das Gegenlicht genau so auf das Glas trifft, dass die Konturen der Parfümflakons knackig hervorgehoben werden, während der Hintergrund fließend in die Dämmerung übergeht.</p>
+
+                    <h3>5.4 Der Workflow im Überblick</h3>
+                    
+                    <h4>a) Set-Aufbau &amp; Licht</h4>
+                    <p>Produkte in natürlicher Kulisse bei Dämmerung/Sonnenuntergang. Klares Einfangen der Marken und natürlichen Reflexionen. Gegenlicht betont Konturen vor dem Abendhimmel.</p>
+
+                    <h4>b) RAW / Fotoaufnahme</h4>
+                    <p>Klares Einfangen der Marken, natürlichen Reflexionen, Gegenlicht-Konturen vor dem Abendhimmel.</p>
+
+                    <h4>c) Post-Production in Adobe Lightroom</h4>
+                    <ul>
+                        <li><strong>Culling:</strong> Sichtung aller Fotos, Vergleich verschiedener Winkel und Lichtverhältnisse.</li>
+                        <li><strong>Belichtung:</strong> -1.17 (Hintergrund abdunkeln)</li>
+                        <li><strong>Kontrast:</strong> +100 (Kanten betonen)</li>
+                        <li><strong>Lichter:</strong> +100 (Glasreflexe herausarbeiten)</li>
+                        <li><strong>Tiefen:</strong> +45 (Details in Schatten)</li>
+                        <li><strong>Weiß:</strong> +100 (Glanzlichter)</li>
+                        <li><strong>Schwarz:</strong> +100 (tiefe Kontraste)</li>
+                        <li><strong>Gradationskurve:</strong> Gezielte S-Kurve für Lichtreflexe</li>
+                        <li><strong>Color Grading:</strong> Abendhimmel von schlichtem Graublau in dramatisches Violett-Rot verwandelt</li>
+                    </ul>
+
+                    <h3>5.5 Technische Bildbearbeitung – Lightroom-Einstellungen</h3>
+                    <div class="table-container">
+                        <table>
+                            <thead><tr><th>Parameter</th><th>Wert</th><th>Effekt</th></tr></thead>
+                            <tbody>
+                                <tr><td>Belichtung</td><td>-1,17</td><td>Hintergrund abdunkeln</td></tr>
+                                <tr><td>Kontrast</td><td>+100</td><td>Kanten der Flakons betonen</td></tr>
+                                <tr><td>Lichter</td><td>+100</td><td>Glasreflexe herausarbeiten</td></tr>
+                                <tr><td>Tiefen</td><td>+45</td><td>Details in Schatten</td></tr>
+                                <tr><td>Weiß</td><td>+100</td><td>Glanzlichter verstärken</td></tr>
+                                <tr><td>Schwarz</td><td>+100</td><td>Tiefe Kontraste</td></tr>
+                                <tr><td>Gradationskurve</td><td>S-Kurve</td><td>Gezielte Lichtreflexe</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <h3>5.6 Ergebnisse – Vorher/Nachher</h3>
+                    <p><strong>Visuelles Storytelling:</strong> Produkte gezielt in Szene setzen und Emotionen erzeugen.</p>
+                    <p><strong>Technisches Know-how:</strong> Beherrschung von Adobe-Werkzeugen zur professionellen Nachbearbeitung.</p>
+                    <p><strong>Präzision &amp; Struktur:</strong> Sauberes Dokumentieren von Arbeitsschritten von der Idee bis zum Endprodukt.</p>
+
+                    <div class="before-after-grid">
+                        <figure>
+                            <img src="../art/port1.png" alt="Vorher – Produktfoto">
+                            <figcaption>Vorher (RAW)</figcaption>
+                        </figure>
+                        <figure>
+                            <img src="../art/port2.png" alt="Nachher – Produktfoto">
+                            <figcaption>Nachher (Lightroom)</figcaption>
+                        </figure>
+                    </div>
+
+                    <h3>5.7 Quellen (Produktfotografie)</h3>
+                    <ul>
+                        <li>[1] Hattric – CLASSIC After Shave (hattric.eu, Zugriff 03.08.2026)</li>
+                        <li>[2] Parfimo – Hättric Classic Rasierwasser (parfimo.de, Zugriff 03.08.2026)</li>
+                        <li>[3] Der 24h Shop – Omerta Clouds of Love for Men (der24shop.de, Zugriff 03.08.2026)</li>
+                        <li>[4] CosmeticWelt – Omerta Clouds of Love Man EdT (cosmeticwelt.com, Zugriff 03.08.2026)</li>
+                        <li>[5] Müller Drogerie – Axe Aftershave Moschus (mueller.de, Zugriff 03.08.2026)</li>
+                        <li>[6] Idealo – Moschus After Shave Übersicht (idealo.de, Zugriff 03.08.2026)</li>
+                    </ul>
+
                 </div>
             </details>
 
-            <!-- 8. CHEMIE -->
+            <!-- ============================================================ -->
+            <!-- 6. PHYSIK -->
+            <!-- ============================================================ -->
+            <details id="bereich-6">
+                <summary>6. Physik</summary>
+                <div class="details-content">
+                    
+                    <h3>6.1 Mechanik &amp; Energie</h3>
+                    <h4>Mechanische Arbeit</h4>
+                    <p><strong>Definition:</strong> Arbeit ist das Produkt aus der wirkenden Kraft F und dem zurückgelegten Weg s in Kraftrichtung.</p>
+                    <p><strong>Formel:</strong> W = F · s</p>
+                    <p><strong>Einheit:</strong> Newtonmeter (Nm) oder Joule (J), 1 J = 1 Nm = 1 Ws</p>
+
+                    <h4>Arbeitskomponente und arbeitslose Komponente</h4>
+                    <ul>
+                        <li><strong>Arbeitskomponente F<sub>x</sub>:</strong> F<sub>x</sub> = F · cos α (parallel zur Wegrichtung)</li>
+                        <li><strong>Arbeitslose Komponente F<sub>y</sub>:</strong> F<sub>y</sub> = F · sin α (senkrecht zur Wegrichtung, verrichtet keine Arbeit)</li>
+                        <li><strong>Mechanische Arbeit (schräg):</strong> W = F · cos α · s</li>
+                    </ul>
+
+                    <h4>Hubarbeit und potentielle Energie</h4>
+                    <p><strong>Hubarbeit:</strong> W<sub>h</sub> = F<sub>G</sub> · h = m · g · h</p>
+                    <p><strong>Potentielle Energie:</strong> W<sub>pot</sub> = m · g · h</p>
+
+                    <h4>Kinetische Energie</h4>
+                    <p><strong>Bewegungsenergie:</strong> E<sub>kin</sub> = ½ · m · v²</p>
+
+                    <h4>Energieerhaltungssatz</h4>
+                    <p>In einem energetisch abgeschlossenen System ist die Gesamtenergie konstant. Energie kann weder erzeugt noch vernichtet, sondern lediglich von einer Energieform in eine andere umgewandelt werden.</p>
+
+                    <h4>Goldene Regel der Mechanik</h4>
+                    <p>„Was an Kraft gespart wird, muss an Weg zugesetzt werden." In einem idealen System: F<sub>1</sub> · s<sub>1</sub> = F<sub>2</sub> · s<sub>2</sub></p>
+
+                    <h3>6.2 Aufgaben mit Lösungen</h3>
+                    
+                    <h4>M1: Kurbel (Drehmoment und Arbeit)</h4>
+                    <p>Ein Mann dreht eine Kurbel mit Radius r = 0,5 m bei Handkraft F<sub>H</sub> = 250 N insgesamt 80-mal herum.</p>
+                    <p><strong>a) Drehmoment:</strong> M = F<sub>H</sub> · r = 250 N · 0,5 m = <strong>125 Nm</strong></p>
+                    <p><strong>b) Arbeit:</strong></p>
+                    <ul>
+                        <li>Weg für 1 Umdrehung: s<sub>1</sub> = 2 · π · r = 2 · π · 0,5 = π ≈ 3,1416 m</li>
+                        <li>Gesamtweg: s<sub>ges</sub> = 80 · 3,1416 ≈ 251,33 m</li>
+                        <li>Arbeit: W = F<sub>H</sub> · s<sub>ges</sub> = 250 · 251,33 ≈ <strong>62.831,85 J ≈ 62,83 kJ</strong></li>
+                    </ul>
+                    <p><strong>Typischer Fehler:</strong> Nur den Radius oder nur 1 Umdrehung rechnen, ohne die 80 Umdrehungen zu berücksichtigen.</p>
+
+                    <h4>M2: Arbeiter im Treppenhaus</h4>
+                    <p>Ein Arbeiter (75 kg) geht vom 1. Stock in den 3. Stock, trägt 250 N Last. Geschosshöhe = 3,2 m.</p>
+                    <p><strong>Fehler 1:</strong> Falsche Etagenanzahl (vom 1. in den 3. Stock sind es 2 Geschosse, nicht 3). Höhe = 2 · 3,2 = 6,4 m.</p>
+                    <p><strong>Fehler 2:</strong> Vergessen des eigenen Körpergewichts. FG<sub>Körper</sub> = 75 · 9,81 = 735,75 N. F<sub>ges</sub> = 735,75 + 250 = 985,75 N.</p>
+                    <p><strong>Lösung:</strong> W = F<sub>ges</sub> · h = 985,75 N · 6,4 m = 6.308,8 J ≈ <strong>6,31 kJ</strong></p>
+
+                    <h4>Ü1: Arbeitslose Komponente</h4>
+                    <p>Handkraft F<sub>H</sub> = 450 N, Winkel α = 30°, Weg s = 1000 m.</p>
+                    <p><strong>a) Arbeitslose Komponente:</strong> F<sub>⊥</sub> = F<sub>H</sub> · sin(30°) = 450 · 0,5 = <strong>225 N</strong></p>
+                    <p><strong>b) Arbeitskomponente:</strong> F<sub>∥</sub> = F<sub>H</sub> · cos(30°) = 450 · 0,866 ≈ <strong>389,71 N</strong></p>
+                    <p><strong>c) Arbeit:</strong> W = F<sub>∥</sub> · s = 389,71 · 1000 = <strong>389.710 J ≈ 389,71 kJ</strong></p>
+
+                    <h4>Ü2: Energieeinheiten</h4>
+                    <ul>
+                        <li>Joule (J) / Wattsekunde (Ws) – SI-Einheit</li>
+                        <li>Kilojoule (kJ) / Megajoule (MJ)</li>
+                        <li>Wattstunde (Wh) / Kilowattstunde (kWh)</li>
+                        <li>Kalorie (cal) / Kilokalorie (kcal)</li>
+                        <li>Elektronenvolt (eV)</li>
+                    </ul>
+
+                    <h4>Ü3: Goldene Regel der Mechanik</h4>
+                    <p>„Was man an Kraft spart, muss man an Weg zusetzen." In einem idealen System: W = F<sub>1</sub> · s<sub>1</sub> = F<sub>2</sub> · s<sub>2</sub></p>
+
+                    <h4>Ü4: Energieerhaltungssatz</h4>
+                    <p>In einem energetisch abgeschlossenen System ist die Gesamtenergie konstant. Energie wird nie erzeugt oder vernichtet, nur umgewandelt.</p>
+
+                    <h4>Ü5: Wagen ohne Reibung</h4>
+                    <p>m = 5 kg, v<sub>0</sub> = 0 m/s, h<sub>1</sub> = 10 m, h<sub>2</sub> = 14 m, g = 9,81 m/s².</p>
+                    <p><strong>Analyse:</strong> Ohne externe Antriebskraft reicht die potentielle Energie allein nicht aus (Δh = 4 m > 0). Der Wagen bleibt vor dem Ziel stehen.</p>
+
+                    <h4>Ü6: Grundgedanke von Ü5</h4>
+                    <p>Der Lösungsweg beruht auf dem Energieerhaltungssatz der Mechanik. Die potentielle Energie am Start muss größer sein als die potentielle Energie am Ziel, sonst kann das Ziel nicht erreicht werden.</p>
+
+                    <h4>Ü7: Endgeschwindigkeit mit Antriebskraft</h4>
+                    <p>F = 100 N, s<sub>ges</sub> = 93 m, Δh = 4 m, m = 5 kg.</p>
+                    <ol>
+                        <li>Zugeführte Arbeit: W<sub>zufuhr</sub> = 100 · 93 = <strong>9.300 J</strong></li>
+                        <li>Nötige Hubarbeit: E<sub>pot,nötig</sub> = 5 · 9,81 · 4 = <strong>196,2 J</strong></li>
+                        <li>Verbleibende E<sub>kin</sub>: 9.300 - 196,2 = <strong>9.103,8 J</strong></li>
+                        <li>Endgeschwindigkeit: v = √(2 · 9.103,8 / 5) ≈ <strong>60,34 m/s ≈ 217,2 km/h</strong></li>
+                    </ol>
+
+                    <h4>Ü8: Energie eines Stausees</h4>
+                    <p>V = 80.000 m³ (m = 80.000.000 kg), h = 360 m, g = 9,81 m/s²</p>
+                    <ul>
+                        <li>Joule: E<sub>pot</sub> = 80.000.000 · 9,81 · 360 = <strong>282.528.000.000 J (282,53 GJ)</strong></li>
+                        <li>Kilowattstunde: 282.528.000.000 / 3.600.000 = <strong>78.480 kWh</strong></li>
+                    </ul>
+
+                    <h4>Musterlösung: Energie bei Kuppe und Rampe</h4>
+                    <p>m = 5 kg, v<sub>0</sub> = 9 m/s, h<sub>1</sub> = 2 m (Kuppe), α = 30° (Rampe), g = 9,81 m/s².</p>
+                    <p><strong>a) Geschwindigkeit auf der Kuppe:</strong></p>
+                    <p>E<sub>kin,0</sub> = E<sub>kin,1</sub> + E<sub>pot,1</sub></p>
+                    <p>½ · m · v<sub>0</sub>² = ½ · m · v<sub>1</sub>² + m · g · h<sub>1</sub></p>
+                    <p>½ · v<sub>1</sub>² = ½ · v<sub>0</sub>² - g · h<sub>1</sub></p>
+                    <p>v<sub>1</sub> = √(v<sub>0</sub>² - 2 · g · h<sub>1</sub>) = √(81 - 39,24) ≈ <strong>6,46 m/s</strong></p>
+                    <p><strong>b) Maximale Höhe auf der Rampe:</strong></p>
+                    <p>E<sub>kin,0</sub> = E<sub>pot,2</sub></p>
+                    <p>½ · v<sub>0</sub>² = g · h<sub>2</sub></p>
+                    <p>h<sub>2</sub> = v<sub>0</sub>² / (2 · g) = 81 / 19,62 ≈ <strong>4,13 m</strong></p>
+                    <p><strong>c) Rolle der Kuppe:</strong> Die Höhe der Kuppe hat keinen Einfluss auf das Endergebnis (sofern h<sub>1</sub> ≤ h<sub>2</sub>). Beim Überfahren wird vorübergehend kinetische in potentielle Energie umgewandelt, beim Hinabfahren vollständig zurückverwandelt. Die erreichbare Höhe h<sub>2</sub> hängt ausschließlich von der Anfangsenergie ab.</p>
+
+                    <h3>6.3 Gravitation &amp; Ortsfaktor</h3>
+                    <p><strong>Allgemeines Gravitationsgesetz (Newton):</strong> F<sub>G</sub> = G · (m<sub>1</sub> · m<sub>2</sub>) / r²</p>
+                    <p>G ≈ 6,67430 · 10<sup>-11</sup> m³/(kg·s²)</p>
+                    <p><strong>Ortsfaktor an der Erdoberfläche:</strong> g = (G · M<sub>E</sub>) / R<sub>E</sub>² ≈ 9,81 m/s²</p>
+                    <p>M<sub>E</sub> = 5,97 · 10<sup>24</sup> kg, R<sub>E</sub> = 6,37 · 10<sup>6</sup> m</p>
+                    <p><strong>Gewichtskraft:</strong> F<sub>G</sub> = m · g</p>
+                    <p><strong>Gravitationsfeldstärke:</strong> g(r) = F<sub>G</sub>(r) / m – nimmt mit 1/r² ab.</p>
+                    <p><strong>Kern-Erkenntnis:</strong> Bei doppelter Entfernung (2·R<sub>E</sub>) sinkt die Feldstärke auf ein Viertel (1/4).</p>
+
+                    <h3>6.4 Physikalische Systeme</h3>
+                    <div class="table-container">
+                        <table>
+                            <thead><tr><th>Systemtyp</th><th>Materie</th><th>Energie</th><th>Beispiel</th></tr></thead>
+                            <tbody>
+                                <tr><td>Offenes System</td><td>Ja</td><td>Ja</td><td>Kochtopf, Verbrennungsmotor</td></tr>
+                                <tr><td>Geschlossenes System</td><td>Nein</td><td>Ja</td><td>Schnellkochtopf, Zylinder mit Kolben</td></tr>
+                                <tr><td>Abgeschlossenes System</td><td>Nein</td><td>Nein</td><td>Thermoskanne, Universum</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <h3>6.5 Influenz &amp; Elektrisches Feld</h3>
+                    <p><strong>Influenz:</strong> Verschiebung von Ladungsträgern (Elektronen) in einem Leiter unter Einfluss eines äußeren elektrischen Feldes.</p>
+                    <p><strong>Coulombsches Gesetz:</strong> F<sub>el</sub> = (1 / (4π·ε<sub>0</sub>)) · ((q<sub>1</sub> · q<sub>2</sub>) / r²)</p>
+                    <p><strong>Vergleich:</strong> Gravitation (Massen, immer anziehend) vs. Elektrisches Feld (Ladungen, anziehend oder abstoßend).</p>
+                    <p><strong>Elektroskop positiv:</strong> Elektronenmangel, Zeiger und Stab stoßen sich ab.</p>
+                    <p><strong>Elektroskop negativ:</strong> Elektronenüberschuss, Zeiger und Stab stoßen sich ab.</p>
+                    <p><strong>Influenzmaschine:</strong> Nutzt Influenz + positive Rückkopplung zur Erzeugung hoher Spannungen.</p>
+
+                </div>
+            </details>
+
+            <!-- ============================================================ -->
+            <!-- 7. GESCHICHTE / GMK -->
+            <!-- ============================================================ -->
+            <details id="bereich-7">
+                <summary>7. Geschichte / Gesellschaft, Medien &amp; Kultur (GMK)</summary>
+                <div class="details-content">
+                    
+                    <h3>7.1 Politik (August 2026)</h3>
+                    <h4>International</h4>
+                    <ul>
+                        <li><strong>Diplomatische Eskalation:</strong> US-Präsident Trump erklärte Verhandlungen mit dem Iran für gescheitert. Forderung nach Abgaben für Handelsschiffe im Persischen Golf stieß auf Widerstand (Tagesschau, 03.08.2026).</li>
+                        <li><strong>Totale Sonnenfinsternis (12. August):</strong> Vollständige Beschattung in Teilen Spaniens, teilweise in Deutschland sichtbar (Tagesschau, 12.08.2026).</li>
+                    </ul>
+                    <h4>National</h4>
+                    <ul>
+                        <li><strong>Personalwechsel:</strong> Rücktritt von Bundesverkehrsminister Patrick Schnieder (CDU); Steffen Bilger (CDU) als Nachfolger Ende Juli (ZDFheute, 26.07.2026).</li>
+                        <li><strong>Nachrichtendienste:</strong> Debatten über Befugnisse von Sicherheitsbehörden (Tagesschau, 12.08.2026).</li>
+                    </ul>
+                    <h4>Regional (Schleswig-Holstein / Kiel)</h4>
+                    <ul>
+                        <li><strong>LKA-Großeinsatz in Kiel (10./11. August):</strong> Fund ungesicherter Chemikalien und eines improvisierten Labors in der Gutenbergstraße. Mehrtägige Evakuierung durch Kampfmittelräumdienst und LKA (Presseportal LKA SH &amp; SAT.1 Regional, 11.08.2026).</li>
+                    </ul>
+
+                    <h3>7.2 Bismarck &amp; Imperialismus</h3>
+                    
+                    <h4>Kissinger Diktat (15. Juni 1877)</h4>
+                    <p>Bismarcks außenpolitisches Ziel: Erhaltung des Status quo, Verhinderung von Koalitionen („le cauchemar des coalitions"), Ausgleich zwischen England und Russland, Konflikte nach Osten lenken, Frankreich isolieren.</p>
+
+                    <h4>Übersichtstabelle der Bündnisse</h4>
+                    <div class="table-container">
+                        <table>
+                            <thead><tr><th>Bündnis</th><th>Jahr</th><th>Ziel</th></tr></thead>
+                            <tbody>
+                                <tr><td>Dreikaiserabkommen</td><td>1873</td><td>Konsultativabkommen zur Festigung des Friedens, um Konflikte auf dem Balkan zu verhindern.</td></tr>
+                                <tr><td>Zweibund</td><td>1879</td><td>Defensivbündnis mit Österreich-Ungarn gegen russischen Angriff.</td></tr>
+                                <tr><td>Österreichisch-Rumänischer Beistandsvertrag</td><td>1883</td><td>Erweiterung des Absicherungssystems im Südosten Europas.</td></tr>
+                                <tr><td>Dreibund</td><td>1882</td><td>Italien lose angebunden, Defensivbündnis gegen unprovozierten Angriff durch Frankreich.</td></tr>
+                                <tr><td>Dreikaiservertrag</td><td>1881</td><td>Entspannung zwischen Deutschland, Russland, Österreich-Ungarn; gegenseitige Neutralität.</td></tr>
+                                <tr><td>Rückversicherungsvertrag</td><td>1887</td><td>Geheimvertrag mit Russland, verhinderte Annäherung Russlands an Frankreich.</td></tr>
+                                <tr><td>Mittelmeerabkommen</td><td>1887</td><td>England, Italien, Österreich-Ungarn gegen russische Expansion im Mittelmeer.</td></tr>
+                                <tr><td>Angestrebtes Bündnis mit England</td><td>—</td><td>Wollte Bismarck, gelang aber nicht.</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <h4>Deutsche Kolonien bis 1890</h4>
+                    <div class="table-container">
+                        <table>
+                            <thead><tr><th>Kolonie</th><th>Jahr</th><th>Bismarcks Haltung</th></tr></thead>
+                            <tbody>
+                                <tr><td>Deutsch-Südwestafrika</td><td>1884</td><td>Skeptisch, stimmte Handelsschutz zu.</td></tr>
+                                <tr><td>Togo</td><td>1884</td><td>Gegen teure Eroberungen, nutzte Private.</td></tr>
+                                <tr><td>Kamerun</td><td>1884</td><td>Gegen Staatskolonie, sicherte Firmen ab.</td></tr>
+                                <tr><td>Deutsch-Ostafrika</td><td>1885</td><td>Zögernd, gab nach Konferenz Schutzbrief.</td></tr>
+                                <tr><td>Kaiser-Wilhelms-Land (Neuguinea)</td><td>1884/85</td><td>Pragmatisch, übertrug Verwaltung an Privat.</td></tr>
+                                <tr><td>Bismarck-Archipel</td><td>1885</td><td>Durch Verträge geschützt.</td></tr>
+                                <tr><td>Marschallinseln</td><td>1885</td><td>Betreuung durch Handelshäuser.</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <h4>Karikatur: „Das heutige Europa" (Nebelspalter 1887)</h4>
+                    <p>Beschreiben Sie die Karikatur und deuten Sie ihren Sinn.</p>
+                    <p>Kolonialpolitik trug die Gefahr von Konflikten in sich, die den Status quo in Europa gefährdeten. Bismarck war gegen den Erwerb von Kolonien. Dennoch kam es (unterstützt vom Deutschen Kolonialverein 1882) zur Errichtung von Handelsniederlassungen. Die Kongo-Konferenz 1884 legte Grenzen Afrikas fest, Deutschlands Erwerbungen wurden anerkannt und unter Reichsschutz gestellt.</p>
+
+                    <h4>Karikatur: Bismarck mit Peitsche (Seite 332 GMK)</h4>
+                    <p><strong>Art:</strong> Historische Karikatur</p>
+                    <p><strong>Wer:</strong> Otto von Bismarck, Personen wie Affen (Abgeordnete)</p>
+                    <p><strong>Vordergrund:</strong> Stehender Mann mit Glatze, Schnurrbart, Anzug und Peitsche</p>
+                    <p><strong>Hintergrund:</strong> Mehrere gekrümmte/duckende Männer (Abgeordnete)</p>
+                    <p><strong>Was:</strong> Mann schwingt Peitsche drohend über den Köpfen, Abgeordnete verstecken sich unter Bänken</p>
+                    <p><strong>Wo:</strong> Parlamentssaal Reichstag</p>
+                    <p><strong>Wann:</strong> 1877-19. Jahrhundert, Deutsches Kaiserreich</p>
+                    <p><strong>Wie:</strong> Schwarz-Weiß-Strichzeichnung, autoritäre Haltung, unterwürfige Reaktion</p>
+                    <p><strong>Bildunterschrift:</strong> „Entschieden ist er – und ein gewaltiger Redner, das muss man ihm lassen"</p>
+                    <p><strong>Quelle:</strong> Zeitung Figaro von 1870</p>
+                    <p><strong>Aussage:</strong> Kritik an Bismarcks Umgang mit dem Parlament. Parlament verkommt zur eingeschüchterten Masse.</p>
+
+                    <h3>7.3 Parteien im Kaiserreich (1870-1890)</h3>
+                    <div class="table-container">
+                        <table>
+                            <thead><tr><th>Partei</th><th>Klientel (Wer?)</th><th>Ziele</th></tr></thead>
+                            <tbody>
+                                <tr><td><strong>Freikonservative DRP</strong></td><td>Schwerindustrielle, Beamte, Hochadel</td><td>Volle Unterstützung Bismarcks, Aufrüstung, Schutz von Industrie und Agrar.</td></tr>
+                                <tr><td><strong>Nationalliberale NLP</strong></td><td>Reiches Bürgertum (Unternehmer, Professoren)</td><td>Einiges Reich, freier Handel, Wirtschaftswachstum, Kolonien, Imperialismus.</td></tr>
+                                <tr><td><strong>Linksliberale DFP</strong></td><td>Handwerker, Händler, kleine Bürger</td><td>Mehr Macht für den Reichstag, Rechtsstaat, Bürgerrechte, gegen Bismarcks Sondergesetze.</td></tr>
+                                <tr><td><strong>Zentrum</strong></td><td>Katholiken aller Schichten</td><td>Schutz der katholischen Kirche, Föderalismus, Abwehr preußischer Übermacht.</td></tr>
+                                <tr><td><strong>Sozialdemokraten SAP/SPD</strong></td><td>Industriearbeiter</td><td>Arbeiterrechte, soziale Gerechtigkeit, Demokratie, Abschaffung des Kapitalismus.</td></tr>
+                                <tr><td><strong>Minderheiten</strong></td><td>Polen, Dänen, Elsass-Lothringer, Welfen</td><td>Regionale Eigenständigkeit, Schutz der Sprache und Kultur.</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <h4>Parteien-Entwicklung (Verschmelzungen)</h4>
+                    <ul>
+                        <li><strong>Sozialdemokraten SAP &rarr; SPD:</strong> Einzige direkte Nachfolgerin.</li>
+                        <li><strong>Zentrum &amp; Konservative KP/DRP &rarr; CDU/CSU:</strong> Zusammenschluss katholischer und protestantisch-konservativer Kräfte nach 1945.</li>
+                        <li><strong>Nationalliberale NLP &amp; Linksliberale DFP &rarr; FDP:</strong> Vereinigung rechter und linker Liberaler 1948.</li>
+                        <li><strong>Minderheitenparteien &rarr; SSW:</strong> Vertretung dänischer Interessen seit dem Kaiserreich.</li>
+                    </ul>
+
+                    <h4>Kulturkampf – Fachbegriffe</h4>
+                    <div class="table-container">
+                        <table>
+                            <thead><tr><th>Fachbegriff</th><th>Erklärung</th></tr></thead>
+                            <tbody>
+                                <tr><td>Reichsfeinde</td><td>Schimpfwort von Bismarck für politische Gegner, um das Volk gegen sie zu vereinen.</td></tr>
+                                <tr><td>Deutsche Zentrumspartei</td><td>Die Partei der deutschen Katholiken.</td></tr>
+                                <tr><td>Kanzelparagraph</td><td>Gesetz von 1871, das Pfarrer bestrafte, wenn sie in der Kirche Politik machten.</td></tr>
+                                <tr><td>Zivilehe</td><td>Gesetzliche Heirat auf dem Amt, nicht nur in der Kirche.</td></tr>
+                                <tr><td>Standesbeamte</td><td>Beamte, die amtliche Eheschließungen durchführen.</td></tr>
+                                <tr><td>Kulturkampf</td><td>Bismarcks Machtkampf gegen die katholische Kirche.</td></tr>
+                                <tr><td>SPD</td><td>Arbeiterpartei, die für den Sozialismus kämpfte.</td></tr>
+                                <tr><td>Sozialistengesetz (1878)</td><td>Verbot der SPD und ihrer Vereine sowie Zeitungen.</td></tr>
+                                <tr><td>Sozialgesetzgebung</td><td>Versicherungen (Kranken-, Unfall-, Rentenversicherung), um Arbeiter vom Sozialismus abzubringen.</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+            </details>
+
+            <!-- ============================================================ -->
+            <!-- 8. DEUTSCH (KLEIST) -->
+            <!-- ============================================================ -->
             <details id="bereich-8">
-                <summary>8. Chemie</summary>
+                <summary>8. Deutsch (Heinrich von Kleist)</summary>
                 <div class="details-content">
-                    <h3>8.1 Basen &amp; alkalische Haushaltsmittel</h3>
+                    
+                    <h3>8.1 Das Erdbeben in Chili</h3>
+                    
+                    <h4>Inhaltsangabe</h4>
+                    <p>In der Novelle „Das Erdbeben in Chili" von Heinrich von Kleist geht es um zwei junge Menschen in St. Jago im Jahr 1647, die wegen ihrer verbotenen Liebe bestraft werden sollen. Der junge Lehrer Jeronimo Rugera und die edle Donna Josephe (Tochter von Don Henrico Asteron) haben ein heimliches Kind namens Philipp bekommen. Jeronimo wird ins Gefängnis gesperrt, Josephe soll enthauptet werden – Erzbischof, Äbtissin und Vizekönig verurteilen die Tat streng.</p>
+                    <p>Genau im Moment der Hinrichtung bricht ein riesiges Erdbeben aus und zerstört fast die ganze Stadt. Jeronimo entkommt durch einstürzende Mauern, Josephe rettet ihr Baby aus dem brennenden Kloster. Beide fliehen unabhängig und treffen sich glücklich im grünen Tal wieder.</p>
+                    <p>Im Tal treffen sie auf Don Fernando und Donna Elvire, die helfen wollen. Alle Menschen wirken nach der Katastrophe friedlich, sie beschließen in die Kathedrale zu gehen. Doch ein Dominikaner hält eine Hetzpredigt und gibt den Liebenden die Schuld am Gottesurteil. Meister Pedrillo (früher für Henrico tätig) erkennt das Paar und ruft zum Mord auf.</p>
+                    <p>Es kommt zum Tumult, Jeronimo und Josephe werden erschlagen. Don Fernando verteidigt die Kinder, aber Pedrillo packt seinen Sohn Juan und zerschmettert ihn an einem Kirchpfeiler. Am Ende überlebt Philipp, Don Fernando und Donna Elvire nehmen ihn als Pflegesohn auf.</p>
+
+                    <h4>Charaktere (13 namentlich genannt)</h4>
+                    <ol>
+                        <li>Jeronimo Rugera (Hauptcharakter)</li>
+                        <li>Donna Josephe (seine Geliebte)</li>
+                        <li>Don Henrico Asteron (Josephes Vater)</li>
+                        <li>Philipp (Kind von Jeronimo &amp; Josephe)</li>
+                        <li>Äbtissin (Leiterin des Karmeliterklosters)</li>
+                        <li>Erzbischof</li>
+                        <li>Vizekönig</li>
+                        <li>Don Fernando Ormez (edler Retter)</li>
+                        <li>Donna Elvire (Gemahlin von Don Fernando)</li>
+                        <li>Donna Elisabeth (Verwandte)</li>
+                        <li>Donna Constanze (Verwandte)</li>
+                        <li>Juan (Sohn von Don Fernando)</li>
+                        <li>Meister Pedrillo (Anführer des Mobs / Schuster)</li>
+                    </ol>
+
+                    <h4>Varianten Einleitung</h4>
+                    <p><strong>Variante 1:</strong> Heinrich von Kleists Novelle „Das Erdbeben in Chili" erzählt von einem jungen Paar, das wegen einer verbotenen Liebe von Kirche und Gesellschaft zum Tode verurteilt wird. Genau im Moment der Hinrichtung zerstört ein Erdbeben die Stadt. Was zuerst wie eine göttliche Rettung wirkt, entlarvt am Ende die wahre Grausamkeit der Menschen und die Heuchelei einer Ordnung, die sich auf Moral und Glauben beruft.</p>
+                    <p><strong>Variante 2:</strong> Im Jahr 1647 steht in St. Jago ein junges Paar vor dem Untergang: Ihre Liebe gilt als Verbrechen, die Strafe ist der Tod. Doch bevor das Urteil vollstreckt werden kann, reißt ein Erdbeben die Stadt in den Abgrund. Kleist zeigt damit, wie dünn die Schicht von Zivilisation und christlicher Moral wirklich ist – und dass die Menschen nach der Katastrophe noch grausamer handeln als die Natur selbst.</p>
+                    <p><strong>Variante 3:</strong> Kleists Novelle „Das Erdbeben in Chili" stellt die Frage, wie viel Moral und Menschlichkeit in einer Gesellschaft steckt, die sich auf Kirche und Ordnung beruft. Ein verbotenes Liebespaar wird vernichtet, zuerst durch die geistliche und weltliche Macht, später durch den Fanatismus der Menge. Das Erdbeben rettet die beiden nur kurz – und macht sichtbar, dass die eigentliche Katastrophe nicht von der Natur, sondern von den Menschen kommt.</p>
+
+                    <h3>8.2 Die Marquise von O...</h3>
+                    
+                    <h4>Thema</h4>
+                    <p>Unverschuldete Not und gesellschaftliche Isolation durch eine Tat eines Menschen, der Retter gilt aber die Situation missbrauchte.</p>
+
+                    <h4>Ablauf</h4>
+                    <ol>
+                        <li>Graf F... rettet die Marquise vor Soldaten; er vergeht sich unbemerkt an der Bewusstlosen.</li>
+                        <li>Die Marquise bemerkt ihre Schwangerschaft, hat aber keine Erinnerung an ein Vergehen.</li>
+                        <li>Die Familie glaubt ihr nicht; der Vater schmeißt sie wütend aus dem Haus.</li>
+                        <li>Die Marquise sucht per Zeitungsanzeige öffentlich nach dem Vater ihres Kindes.</li>
+                        <li>Graf F... gesteht die Tat. Nach einer Zwangsheirat zur Ehrettung und Zeit der Reue verzeiht sie ihm.</li>
+                    </ol>
+
+                    <h4>Moral</h4>
+                    <p>Keine reinen Schwarz-Weiß-Kategorien: Menschen sind vielschichtig – der edle Retter kann gleichzeitig der Täter sein („Teufel und Engel").</p>
+
+                    <h4>Struktur (klassisch)</h4>
                     <div class="table-container">
                         <table>
-                            <thead>
-                                <tr><th scope="col">Stoff</th><th scope="col">Formel</th><th scope="col">Verwendung</th></tr>
-                            </thead>
+                            <thead><tr><th>Phase</th><th>Seiten</th><th>Kernereignis</th><th>Analyse-Fokus</th></tr></thead>
                             <tbody>
-                                <tr><td>Natriumhydroxid (Natronlauge)</td><td>NaOH</td><td>Kraftvoller Rohrreiniger</td></tr>
-                                <tr><td>Natriumcarbonat (Waschsoda)</td><td>Na<sub>2</sub>CO<sub>3</sub></td><td>Reinigen, Einweichen, Entkalken</td></tr>
-                                <tr><td>Natriumhydrogencarbonat (Natron)</td><td>NaHCO<sub>3</sub></td><td>Mildes Scheuermittel, Backtriebmittel</td></tr>
-                                <tr><td>Ammoniak (Salmiakgeist)</td><td>NH<sub>3</sub></td><td>Glas- und Allzweckreiniger</td></tr>
+                                <tr><td>1. Exposition &amp; Rettung</td><td>S. 1-4</td><td>Annonce; Graf F. rettet Marquise; gilt als tot</td><td>Tabubruch, Verklärung des Retters</td></tr>
+                                <tr><td>2. Rückkehr &amp; Symptome</td><td>S. 5-10</td><td>Graf kehrt zurück, drängt auf Heirat; Schwangerschaftssymptome</td><td>Verdrängung, Schuldgefühle</td></tr>
+                                <tr><td>3. Gewissheit &amp; Verstoßung</td><td>S. 11-14</td><td>Arzt/Hebamme bestätigen Schwangerschaft; Vater verstößt sie</td><td>Maximale Eskalation, Konflikt</td></tr>
+                                <tr><td>4. Emanzipation &amp; Annonce</td><td>S. 15-19</td><td>Umzug aufs Land; eigene Anzeige zur Tätersuche</td><td>Selbstermächtigung, Wendepunkt</td></tr>
+                                <tr><td>5. Versöhnung der Familie</td><td>S. 20-22</td><td>Mutter bringt Klärung (Test); Wiederherstellung der Beziehung</td><td>Wiederherstellung</td></tr>
+                                <tr><td>6. Enthüllung &amp; Auflösung</td><td>—</td><td>Graf als Täter enthüllt; stille und spätere echte Hochzeit</td><td>Sühne, Retter als Täter, Harmonie</td></tr>
                             </tbody>
                         </table>
                     </div>
+
+                    <h4>Neue Struktur mit Geständnis am Anfang</h4>
+                    <p>Den dramatischen Wendepunkt und die Auflösung bildet die Szene im Sommerhaus der Familie in V..., in der sich der Graf F... persönlich offenbart: Nach der Zeitungsanzeige erscheint er, bricht vor ihr zusammen, gesteht seine Schuld und deckt die Tat auf. Es stellt sich heraus, dass er sich damals im Kriegswirbel an der ohnmächtigen Marquise vergangen hat, während sie ihn für ihren edlen Retter hielt.</p>
+                    <p>Von diesem Höhepunkt aus rollt die Erzählung die Vorgeschichte auf: Die Marquise lebte nach dem Tod ihres Mannes zurückgezogen im Haus ihres Vaters, des Kommandanten einer Zitadelle. Als russische Truppen die Festung stürmten und das Kommandantenhaus Feuer fing, musste sie fliehen. Auf dem Vorplatz geriet sie in feindliches Getümmel, Graf F... rettete sie, verlor sie aber im Chaos.</p>
+                    <p>Sie zog sich auf das Landgut nach V... zurück, bemerkte die Schwangerschaft, schwor Unschuld, wurde vom Vater verstoßen. Als sie ihn aufsuchen wollte, riss er eine Pistole von der Wand, die losging und in die Decke schoss. Der Bruder forderte, sie solle die Kinder zurücklassen; sie weigerte sich. Sie schaltete die Zeitungsanzeige.</p>
+
+                    <h3>8.3 Der zerbrochene Krug</h3>
+                    
+                    <h4>Inhaltsangabe</h4>
+                    <p><strong>Ausgangssituation:</strong> Handlung spielt in Huisum (Niederlande). Dorfrichter Adam wacht morgens auf mit Kopfschmerzen, verletztem Bein und ohne Perücke. Adam war nachts heimlich bei Eve, der Verlobten von Ruprecht.</p>
+                    <p><strong>Der Konflikt:</strong> Gerichtsrat Walter kommt überraschend zur strengen Kontrolle ins Dorf. Bäuerin Marthe kommt wütend mit Scherben ihres wertvollen Kruges und wirft Ruprecht vor, den Krug nachts zerstört zu haben.</p>
+                    <p><strong>Die Verhandlung:</strong> Ruprecht streitet alles ab und nennt einen unbekannten Fliehenden. Eve schweigt erst aus Schutz, will dann aber die Wahrheit sagen. Frau Brigitte bringt Adams verlorene Perücke und Fußspuren vom Pferdefuß als Beweis.</p>
+                    <p><strong>Das Ende:</strong> Adam gerät in die Enge, fällt ein falsches Urteil und flieht. Walter deckt Adams Erpressung mit einem falschen ärztlichen Attest auf. Ruprecht und Eve werden freigesprochen, das Paar bleibt zusammen.</p>
+
+                    <h4>Spannungskurve</h4>
+                    <ul>
+                        <li><strong>Exposition:</strong> Adam ist verletzt und Walter kündigt strenge Kontrolle an.</li>
+                        <li><strong>Steigende Handlung:</strong> Marthe bringt den zerbrochenen Krug, Zeugen werden befragt, Adam lenkt panisch ab.</li>
+                        <li><strong>Höhepunkt:</strong> Brigitte bringt Perücke und Fußspuren als Beweis, Adam wird überführt und flieht.</li>
+                        <li><strong>Fallende Handlung:</strong> Walter klärt die Erpressung auf und rehabilitiert Ruprecht und Eve.</li>
+                    </ul>
+
+                    <h4>Wichtige Worterklärungen</h4>
+                    <ul>
+                        <li><strong>Gevatter:</strong> Guter Freund oder Nachbar</li>
+                        <li><strong>Ältervater:</strong> Urgroßvater (hier gemeint als Adam)</li>
+                        <li><strong>Klumpfuß:</strong> Kranker oder unförmiger Fuß</li>
+                        <li><strong>Schubiack:</strong> Schlechter, unzuverlässiger Mensch</li>
+                        <li><strong>Konskription:</strong> Offizielle Liste für den Zwangsdienst beim Militär</li>
+                    </ul>
+
+                    <h4>Adams Erpressung (Auflösung)</h4>
+                    <p>Adam wollte Ruprecht mit einem falschen Attest vor dem Krieg in Asien retten. Als Gegenleistung sollte Eve ihm gehorchen.</p>
+                    <p><strong>Der nächtliche Vorfall:</strong> Adam schloss Eves Tür ab, legte seine Perücke auf den Krug. Als Ruprecht anklopfte, sprang Adam aus dem Fenster und warf den Krug um.</p>
+                    <p><strong>Happy End:</strong> Walter erklärt, dass die Soldaten in Holland bleiben und Adams Erpressung eine Lüge war. Eve bekommt Geld als Entschädigung, die Hochzeit findet statt.</p>
+
                 </div>
             </details>
 
-            <!-- 9. FRANZÖSISCH -->
+            <!-- ============================================================ -->
+            <!-- 9. HEINRICH VON KLEIST - REZEPTION -->
+            <!-- ============================================================ -->
             <details id="bereich-9">
-                <summary>9. Franz&ouml;sisch</summary>
+                <summary>9. Heinrich von Kleist – Rezeption (Präsentation)</summary>
                 <div class="details-content">
-                    <h3>9.1 Saint-Germain-des-Pr&eacute;s (Fragen)</h3>
+                    
+                    <h3>9.1 Rezeption vor 1871</h3>
+                    <p>Die Rezeption von Kleist vor 1871 – ein selbst verschuldeter Misserfolg?</p>
                     <div class="table-container">
                         <table>
-                            <thead>
-                                <tr>
-                                    <th scope="col">Frage / Question</th>
-                                    <th scope="col">R&eacute;ponse en fran&ccedil;ais</th>
-                                    <th scope="col">Deutsche &Uuml;bersetzung</th>
-                                </tr>
-                            </thead>
+                            <thead><tr><th>Gesellschaftsschicht</th><th>Meinung über Kleist</th><th>Begründung</th></tr></thead>
                             <tbody>
-                                <tr><td><strong>C'est o&ugrave; ?</strong></td><td>Il se trouve au centre de Paris (sur la rive gauche), dans le 6<sup>e</sup> arrondissement.</td><td>Es befindet sich im Zentrum von Paris (am linken Seine-Ufer), im 6. Arrondissement.</td></tr>
-                                <tr><td><strong>C'est quoi ?</strong></td><td>C'est un quartier historique et anim&eacute; avec une vieille &eacute;glise, des galeries d'art et des caf&eacute;s c&eacute;l&egrave;bres.</td><td>Es ist ein historisches und lebhaftes Viertel mit einer alten Kirche, Kunstgalerien und ber&uuml;hmten Caf&eacute;s.</td></tr>
-                                <tr><td><strong>Tu peux faire quoi ?</strong></td><td>Tu peux te promener dans les rues, visiter l'&eacute;glise Saint-Germain-des-Pr&eacute;s, prendre des photos et boire un caf&eacute; en terrasse.</td><td>Du kannst durch die Stra&szlig;en spazieren, die Kirche besichtigen, Fotos machen und einen Kaffee auf der Terrasse trinken.</td></tr>
+                                <tr><td>Intellektuelle Elite</td><td>Missfiel ihm</td><td>Still nicht gemocht</td></tr>
+                                <tr><td>Adel</td><td>Missfiel ihm</td><td>Unmoralisch / provozierend</td></tr>
+                                <tr><td>Publikum</td><td>Missfiel ihm (Ausnahme: Käthchen von Heilbronn)</td><td>Wurde als langweilig empfunden</td></tr>
                             </tbody>
                         </table>
                     </div>
 
-                    <h3>9.2 Vokabeln &amp; Redewendungen</h3>
+                    <h3>9.2 Rezeption nach 1871 (Deutsches Kaiserreich)</h3>
+                    <p>Wichtigste Werke in diesem Zeitraum: Die Hermannsschlacht (Theaterstück), Prinz Friedrich von Homburg (Theaterstück), Kriegslied der Deutschen (Gedicht).</p>
+
+                    <h4>Die Hermannsschlacht nach 1871</h4>
+                    <div class="table-container">
+                        <table>
+                            <thead><tr><th>Werk</th><th>Prämisse</th><th>Eigentliche Message</th><th>Instrumentalisierung/Rezeption</th></tr></thead>
+                            <tbody>
+                                <tr><td>Die Hermannsschlacht (1808)</td><td>Hermann versucht, germanische Völker zu vereinen, um gegen Römer zu kämpfen.</td><td>Aufruf zum Widerstand gegen napoleonische Besetzungsmacht.</td><td>Wurde zur Rechtfertigung des Deutsch-Französischen Krieges 1870/71 und als Kriegspropaganda im 1. Weltkrieg genutzt. Meininger Durchbruch 1875.</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <h4>Prinz Friedrich von Homburg nach 1871</h4>
+                    <div class="table-container">
+                        <table>
+                            <thead><tr><th>Werk</th><th>Prämisse</th><th>Eigentliche Message</th><th>Instrumentalisierung/Rezeption</th></tr></thead>
+                            <tbody>
+                                <tr><td>Prinz Friedrich von Homburg (1809/10)</td><td>Friedrich von Homburg ist preußischer Offizier, handelt eigenmächtig in einer Schlacht und siegt, verstößt aber gegen einen Befehl.</td><td>Fragen über Gehorsam und Krieg: Was ist im Krieg erlaubt? Wie viel Gehorsam ist nötig? Müssen Regeln immer befolgt werden?</td><td>Vor Kaiserreich kritisch gesehen (Bismarck: „schwaches Rohr"). Später als Beispiel für Pflicht, Gehorsam und Unterordnung unter den Kaiser genutzt.</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <h4>Das Kriegslied der Deutschen</h4>
+                    <div class="table-container">
+                        <table>
+                            <thead><tr><th>Werk</th><th>Prämisse</th><th>Eigentliche Message</th><th>Instrumentalisierung/Rezeption</th></tr></thead>
+                            <tbody>
+                                <tr><td>Das Kriegslied der Deutschen</td><td>Gefährliche Tiere verschwinden nach und nach, bis nur noch der „Franzmann" übrig bleibt, gegen den die „Brüder" vorgehen.</td><td>Aufruf an die Deutschen, sich gemeinsam gegen französische Herrschaft zu wehren.</td><td>Nach dem Sieg über Frankreich 1870/71 passte die Frankreichfeindlichkeit gut zum nationalistischen und chauvinistischen Zeitgeist.</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <h4>Kleists Rezeption als Person nach 1871</h4>
+                    <p>Biografie auf preußische Herkunft und anti-französischen Patriotismus reduziert. Kleist zum „Dichter der deutschen Nationsbildung" stilisiert.</p>
+
+                    <h3>9.3 Rezeption während der NS-Zeit</h3>
+                    <p>Werke: Die Hermannsschlacht (wieder), Prinz Friedrich von Homburg (wieder), Michael Kohlhaas (Erzählung).</p>
+
+                    <h4>Die Hermannsschlacht während der NS-Zeit</h4>
+                    <p>Im NS-Regime wurde „Die Hermannsschlacht" für Propaganda genutzt. Die Nazis deuteten das Stück im Sinne von Führerkult und Faschismus und führten es u.a. auf Wehrmachtstourneen und Reichsautobahnbühnen auf.</p>
+
+                    <h4>Prinz Friedrich Homburg während der NS-Zeit</h4>
+                    <p>Die Nazis deuteten das Stück im Sinne der Führerideologie und stellten es in die Tradition des preußischen Militarismus. Kleist wurde als idealer „Soldatendichter" dargestellt.</p>
+
+                    <h4>Michael Kohlhaas während der NS-Zeit</h4>
+                    <p><strong>Prämisse:</strong> Michael Kohlhaas, ein Pferdehändler, wird auf dem Weg nach Sachsen von Adligem Wenzel von Tronka aufgehalten.</p>
+                    <p><strong>Message:</strong> Konflikt mit dem Recht und der Selbstjustiz: Wie weit darf jemand gehen, dem der Staat sein Recht verweigert? Wann ist Widerstand legitim?</p>
+                    <p><strong>NS-Propaganda:</strong> Deutete „Michael Kohlhaas" als Rechtfertigung von Notwehr, stellte Kohlhaas als aufopfernden Kämpfer für eine „größere Sache" dar.</p>
+
+                    <h4>Kleists Rezeption als Person während der NS-Zeit</h4>
+                    <ul>
+                        <li>Von den Nationalsozialisten positiv aufgenommen und ideologisch vereinnahmt.</li>
+                        <li>Goebbels lobte Kleist nach einer Aufführung des Prinzen von Homburg.</li>
+                        <li>Unter „Heinrich von Kleist ist unser Kleist" wurde er für die NS-Ideologie umgedeutet.</li>
+                        <li>Kleist wurde zum heroischen, preußischen „Vorzeigekämpfer" stilisiert.</li>
+                        <li>Seine widersprüchliche Persönlichkeit wurde hinter einer Propaganda-Darstellung verborgen.</li>
+                    </ul>
+
+                    <h3>9.4 Neuentdeckung um 1900</h3>
+                    <p>Um 1900 wurde Kleist von Schriftstellern wie Thomas Mann neu entdeckt und als bedeutender moderner Dichter anerkannt. Ab 1912 hat der Kleist-Preis und die Kleist-Gesellschaft (1920) seinen Status als bedeutender deutscher Autor gefestigt.</p>
+
+                    <h3>9.5 Datumstabelle aller Werke</h3>
+                    <div class="table-container">
+                        <table>
+                            <thead><tr><th>Werk</th><th>Entstehung</th><th>Uraufführung</th></tr></thead>
+                            <tbody>
+                                <tr><td>Die Familie Schroffenstein</td><td>1802/03</td><td>1804, Graz</td></tr>
+                                <tr><td>Der zerbrochne Krug</td><td>1803</td><td>1808, Weimar</td></tr>
+                                <tr><td>Amphitryon</td><td>1803</td><td>1899, Berlin</td></tr>
+                                <tr><td>Penthesilea</td><td>1807</td><td>1876, Berlin</td></tr>
+                                <tr><td>Das Käthchen von Heilbronn</td><td>1807/08</td><td>1810, Wien</td></tr>
+                                <tr><td>Die Hermannsschlacht</td><td>1808</td><td>1839, Pyrmont</td></tr>
+                                <tr><td>Prinz Friedrich von Homburg</td><td>1809/10</td><td>1821, Wien</td></tr>
+                                <tr><td>Robert Guiskard</td><td>1802/03</td><td>1901, Berlin</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <h3>9.6 Kleists Theater – Was ist daran besonders?</h3>
+                    <ul>
+                        <li>Wut, Angst, Verzweiflung und Konflikte</li>
+                        <li>Die eigentliche Tat ist häufig bereits geschehen.</li>
+                        <li>Informationen werden Stück für Stück enthüllt.</li>
+                    </ul>
+
+                    <h3>9.7 Der zerbrochne Krug – Uraufführung 1808 in Weimar</h3>
+                    <p><strong>Goethe und die Bearbeitung:</strong> Kleist war bei der Vermittlung nicht in Weimar. Goethe bekam das Manuskript 1807, sah es eher fürs „unsichtbare Theater", zweifelte an der Bühnenwirkung, kürzte, änderte und teilte es in drei Akte.</p>
+                    <p><strong>Probleme der Premiere:</strong></p>
+                    <ul>
+                        <li>Sehr langsames Spiel</li>
+                        <li>Probleme bei der Besetzung</li>
+                        <li>Der lange Theaterabend (17:30 Einlass, 21:30 geplantes Ende)</li>
+                    </ul>
+                    <p><strong>Publikumstumult:</strong> „Skandal" &rarr; Erschöpfung &rarr; Ungeduld &rarr; Protest</p>
+                    <p><strong>Eskalation:</strong> Ein herzoglicher Beamter pfiff die Aufführung aus. Daraufhin ließ Herzog Carl August ihn für drei Tage verhaften.</p>
+                    <p><strong>Rezeption damals vs. heute:</strong></p>
+                    <ul>
+                        <li><strong>Damals (1808):</strong> schwierig, neuartig, schwer verständlich &rarr; Misserfolg.</li>
+                        <li><strong>Heute:</strong> bekannt, Unterricht, Theater, Wissenschaft &rarr; häufige Beschäftigung.</li>
+                    </ul>
+
+                    <h3>9.8 Weitere Werke mit Uraufführungsorten</h3>
+                    <ul>
+                        <li><strong>Das Käthchen von Heilbronn (1810):</strong> Theater an der Wien.</li>
+                        <li><strong>Prinz Friedrich von Homburg (1821):</strong> Burgtheater Wien.</li>
+                        <li><strong>Die Hermannsschlacht (1839):</strong> Pyrmont.</li>
+                        <li><strong>Penthesilea (1876):</strong> Königliches Schauspielhaus Berlin.</li>
+                        <li><strong>Amphitryon (1899):</strong> Neues Theater Berlin.</li>
+                        <li><strong>Die Familie Schroffenstein (1804):</strong> Oper Graz.</li>
+                    </ul>
+
+                    <h3>9.9 Warum ist „Der zerbrochne Krug" sein erfolgreichstes Werk?</h3>
+                    <ul>
+                        <li>Das Thema Machtmissbrauch ist immer noch aktuell.</li>
+                        <li>Mischung aus Komödie und Gesellschaftskritik.</li>
+                        <li>Konflikt lässt sich auf die Gesellschaft und bestimmte Rollenbilder übertragen.</li>
+                        <li>Es wird nicht eindeutig klar, warum nur der zerbrochne Krug so erfolgreich wurde – andere Werke sind bspw. auch gesellschaftskritisch.</li>
+                    </ul>
+
+                    <h3>9.10 Wie werden Kleist und sein Schaffen heute betrachtet?</h3>
+                    <p><strong>Geschätzt für:</strong></p>
+                    <ul>
+                        <li>Gesellschaftskritische Texte</li>
+                        <li>Lyrische Raffinesse</li>
+                        <li>Werke: „Der zerbrochne Krug", „Michael Kohlhaas", „Die Marquise von O.", „Das Käthchen von Heilbronn"</li>
+                    </ul>
+                    <p><strong>Kritik und Vorwürfe:</strong></p>
+                    <ul>
+                        <li>Nationalistische Gesinnung</li>
+                        <li>Rassismus</li>
+                        <li>Werke unter Kritik: „Die Hermannsschlacht", „Das Kriegslied der Deutschen", „Die Verlobung in St. Domingo"</li>
+                    </ul>
+
+                </div>
+            </details>
+
+            <!-- ============================================================ -->
+            <!-- 10. ENGLISCH -->
+            <!-- ============================================================ -->
+            <details id="bereich-10">
+                <summary>10. Englisch</summary>
+                <div class="details-content">
+                    
+                    <h3>10.1 AI in Job Interviews</h3>
+                    <div class="table-container">
+                        <table>
+                            <thead><tr><th>Category</th><th>Pros (Arguments For)</th><th>Cons (Arguments Against)</th></tr></thead>
+                            <tbody>
+                                <tr><td><strong>Fairness &amp; Bias</strong></td><td>No bias towards people as long as the system is fair and open (evaluates based on grades and skills only, removing human racism/prejudice).</td><td>Systemic inequality: Candidates from disadvantaged families may lack the financial means for elite education, which AI heavily weights.</td></tr>
+                                <tr><td><strong>Efficiency &amp; Operations</strong></td><td>Cheaper and lower costs for companies. Better integration of supervisor administration with reduced overall workload. Operates continuously without needing breaks.</td><td>Candidates could potentially fake demeanor or responses to trick the AI. Lack of experience with AI tools among candidates.</td></tr>
+                                <tr><td><strong>Human Factors &amp; Assessment</strong></td><td>Provides a consistent and objective baseline; can be less intimidating for socially anxious applicants.</td><td>Lacks human interaction, common sense, and genuine judgment. Fails to assess: Real background &amp; context, real knowledge &amp; potential, real personality &amp; social skills.</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <h4>Detailed Breakdown – Pros</h4>
+                    <ul>
+                        <li><strong>Objective Evaluation:</strong> Reduces human bias and discrimination, evaluating candidates strictly on measurable criteria.</li>
+                        <li><strong>Operational Efficiency:</strong> Reduces administrative workload and operational costs while improving managerial oversight.</li>
+                        <li><strong>Availability &amp; Scalability:</strong> Functions constantly without needing breaks, enabling faster processing.</li>
+                        <li><strong>Candidate Comfort:</strong> Can offer a more structured, lower-pressure environment for individuals who experience social anxiety.</li>
+                        <li><strong>Continuous Improvement:</strong> System capabilities and accuracy constantly evolving.</li>
+                    </ul>
+
+                    <h4>Detailed Breakdown – Cons</h4>
+                    <ul>
+                        <li><strong>Inability to Evaluate Soft Skills:</strong> Fails to accurately capture a candidate's true personality, social skills, adaptability, and underlying potential.</li>
+                        <li><strong>Socioeconomic Disadvantages:</strong> Over-reliance on formal education metrics can unfairly penalize applicants who lacked financial resources.</li>
+                        <li><strong>Gaming the System:</strong> Applicants may learn to manipulate their posture, demeanor, or keywords.</li>
+                        <li><strong>Lack of Human Connection:</strong> Devoid of empathy, nuance, and human sense.</li>
+                        <li><strong>User Resistance:</strong> Many applicants feel uncomfortable with automated evaluation.</li>
+                    </ul>
+
+                    <h4>Opinion &amp; Conclusion</h4>
+                    <p>We are generally against relying entirely on AI for job interviews. Automated systems reduce candidates to raw test scores and grades without understanding their unique experiences or full potential. Human interviewers provide a much more open, empathetic, and flexible environment for meaningful dialogue. Companies can use AI a little bit, but real people should always make the final choice.</p>
+
+                    <h3>10.2 Mediation (Team Performance)</h3>
+                    <h4>Rules</h4>
+                    <ol>
+                        <li>German to English</li>
+                        <li>Don't add anything</li>
+                        <li>Introduction reference content, no sentences</li>
+                        <li>Simple Present</li>
+                        <li>Leave out everything that is unnecessary</li>
+                        <li>No conclusion</li>
+                        <li>Generalisation, no specific numbers and quotes</li>
+                        <li>No structural content or integration content</li>
+                        <li>No personal opinion – neutral</li>
+                    </ol>
+
+                    <h4>Text Structure</h4>
+                    <ol>
+                        <li>Read text carefully</li>
+                        <li>Divide it into parts (content information)</li>
+                        <li>Give the parts headlines</li>
+                        <li>Summarize each part</li>
+                    </ol>
+
+                    <h4>My Notes &amp; Headlines</h4>
+                    <ul>
+                        <li><strong>Part 1 (Lines 41-48) Team Performance:</strong> Researchers study bonus effects on teamwork, shared financial bonuses improve group speed and success, groups perform better than individuals working alone.</li>
+                        <li><strong>Part 2 (Lines 49-54) Previous Assumptions:</strong> Traditional belief, financial incentives only help routine tasks, complex or creative tasks assumed immune to bonuses.</li>
+                        <li><strong>Part 3 (Lines 55-60) Escape Room Experiment:</strong> Tests complex tasks with bonuses, teams solve tasks significantly faster with shared rewards, higher success rate for teams than for individuals.</li>
+                        <li><strong>Part 4 (Lines 61-72) Inner Motivation:</strong> Financial rewards do not harm inner motivation if tasks are interesting, shared bonuses encourage initiative and mutual help, people prefer helping others over working purely alone.</li>
+                        <li><strong>Part 5 (Lines 73-80) Working World:</strong> Companies search for new business applications, test whether team bonuses suit regular workplaces and company goals.</li>
+                    </ul>
+
+                    <h4>Final Mediation Text</h4>
+                    <p>The behavioral researchers study bonus effects on teamwork and shared financial bonuses improve group speed and success so groups perform better than individuals working alone. Traditional managers believe that financial incentives only help routine tasks because complex or creative tasks are assumed immune to bonuses. An escape room experiment tests complex tasks with bonuses and teams solve tasks significantly faster with shared rewards leading to a higher success rate for teams than for individuals. Financial rewards do not harm inner motivation if tasks are interesting and shared bonuses encourage initiative and mutual help because people prefer helping others over working purely alone. Companies search for new business applications and test whether team bonuses suit regular workplaces and company goals.</p>
+                    <p><em>Datum: 2. Juni 2018 | Autorin: Larissa Holzki | Uni: Ludwig</em></p>
+
+                    <h3>10.3 UK Identity</h3>
+                    <h4>Audrey Ferrand (42, Scottish goods shop in Stirling)</h4>
+                    <p>„I think I would say I am British first and then definitely Scottish – probably the Scottish side has got a stronger feel to it. Scottish people have always been proud of being Scottish, but I don't think devolution or the parliament has made a great difference to us, in terms of having an even stronger identity. We are still British first."</p>
+                    <h4>David McQueen (career coach, London)</h4>
+                    <p>„I was born in London. I have spent most of my life being educated, working and travelling in London. My parents are both from the Caribbean and were invited over here as 'subjects of the British Empire' to start a new life here. My passport is British. I identify my nationality as British. I speak Queen's Standard English. I support the English football, rugby and cricket teams. I love the English countryside and love the different components from Morris dancing to tea shops that form the British culture. Although it had its shortcomings I am very proud."</p>
+
+                </div>
+            </details>
+
+            <!-- ============================================================ -->
+            <!-- 11. WIRTSCHAFT & RECHT -->
+            <!-- ============================================================ -->
+            <details id="bereich-11">
+                <summary>11. Wirtschaft &amp; Recht</summary>
+                <div class="details-content">
+                    
+                    <h3>11.1 Streik – Definition</h3>
+                    <p>Ein Streik ist eine <strong>planmäßig durchgeführte Arbeitsniederlegung</strong> von <strong>gemeinsam</strong> handelnden Arbeitnehmern mit <strong>Durchführungszielen</strong>, die von der <strong>Gewerkschaft</strong> organisiert wird und mit der <strong>Durchsetzung der Vereinbarung</strong> endet.</p>
+
+                    <h3>11.2 Ziele von Streiks</h3>
+                    <ul>
+                        <li><strong>Druck machen:</strong> Die Arbeitgeber sollen merken, dass ohne die Beschäftigten nichts läuft.</li>
+                        <li><strong>Mehr Kohle:</strong> Höhere Löhne und Boni als Ausgleich für steigende Preise (Inflation).</li>
+                        <li><strong>Bessere Arbeitszeiten:</strong> Weniger Wochenstunden, mehr Urlaub, besserer Arbeitsschutz.</li>
+                        <li><strong>Faire Verhandlungen:</strong> Ausgleich, damit die Chefs nicht alles alleine bestimmen.</li>
+                    </ul>
+
+                    <h3>11.3 Wird in Deutschland zu viel gestreikt?</h3>
+                    <p><strong>Ja:</strong> Streiks bei Bahn, Flughäfen oder ÖPNV nerven im Alltag extrem und schaden der Wirtschaft.</p>
+                    <p><strong>Nein:</strong> Streiken ist ein Grundrecht im Grundgesetz. Im Vergleich zu Frankreich oder Dänemark gibt es in Deutschland voll wenige Streiktage.</p>
+                    <p><strong>Fazit:</strong> Streiks sind in Deutschland gesetzlich streng geregelt und werden meist erst nach erfolglosen Tarifverhandlungen als letztes Mittel eingesetzt. Deutschland liegt bei jährlichen Ausfalltagen im internationalen Vergleich lediglich im Mittelfeld.</p>
+
+                    <h3>11.4 Rechtmäßigkeit eines Streiks</h3>
+                    <p>Der Streik steht unter dem Gebot der <strong>Verhältnismäßigkeit</strong>:</p>
+                    <ul>
+                        <li>Nur als letztes Mittel nach Ausschöpfung aller Verständigungsmöglichkeiten.</li>
+                        <li>Darf nicht auf Vernichtung des Tarifgegners abzielen.</li>
+                        <li>Muss möglichst rasch beendet werden, sobald Zweck erreicht.</li>
+                        <li>Träger können nur Gewerkschaften sein (kein Betriebsrat).</li>
+                        <li>Muss tariflich regelbare Ziele haben (keine politischen Streiks).</li>
+                        <li>Darf nicht gegen geltenden Tarifvertrag verstoßen (Friedenspflicht).</li>
+                    </ul>
+
+                    <h3>11.5 Streik-Arten</h3>
+                    <div class="table-container">
+                        <table>
+                            <thead><tr><th>Art</th><th>Definition</th><th>Rechtmäßig?</th></tr></thead>
+                            <tbody>
+                                <tr><td>Vollstreik</td><td>Alle Arbeitgeber einer Branche oder alle Arbeitnehmer eines Betriebes.</td><td>Ja (unter Voraussetzungen)</td></tr>
+                                <tr><td>Generalstreik</td><td>Alle Arbeitnehmer eines Landes für politische Ziele.</td><td>Nein (politisch)</td></tr>
+                                <tr><td>Wilder Streik</td><td>Spontan, ohne Absprache mit Gewerkschaft.</td><td>Nein</td></tr>
+                                <tr><td>Schwerpunktstreik</td><td>Nur bestimmte Schlüsselbetriebe (z.B. Zulieferer).</td><td>Ja</td></tr>
+                                <tr><td>Sympathiestreik</td><td>Unterstützung für Beschäftigte anderer Branchen.</td><td>Meist nein (umstritten)</td></tr>
+                                <tr><td>Warnstreik</td><td>Kurze Arbeitsniederlegung (z.B. 30 Min.) zum Einlenken.</td><td>Ja</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <h3>11.6 Tarifverträge – Begriffe &amp; Definitionen</h3>
+                    <div class="table-container">
+                        <table>
+                            <thead><tr><th>Begriff</th><th>Definition</th></tr></thead>
+                            <tbody>
+                                <tr><td><strong>Tarifvertragsparteien</strong></td><td>Arbeitnehmer: Gewerkschaften. Arbeitgeber: Arbeitgeberverbände.</td></tr>
+                                <tr><td><strong>Lohn-/Gehaltstarifvertrag</strong></td><td>Regelt Höhe der Löhne/Gehälter und Ausbildungsvergütungen (kurzfristig, z.B. 1 Jahr).</td></tr>
+                                <tr><td><strong>Manteltarifvertrag</strong></td><td>Regelt allgemeine Arbeitsbedingungen (Arbeitszeit, Urlaub, Kündigungsfristen) – mehrjährig.</td></tr>
+                                <tr><td><strong>Branchen-/Verbands-/Flächentarifvertrag</strong></td><td>Zwischen Gewerkschaften und Arbeitgeberverbänden einer Branche. Räumlicher Geltungsbereich: Tarifbezirk, Bundesland, West/Ost oder ganz Deutschland.</td></tr>
+                                <tr><td><strong>Firmen-/Haustarifvertrag</strong></td><td>Zwischen einer Einzelgewerkschaft und einem einzelnen Arbeitgeber (z.B. VW, Daimler, Bosch).</td></tr>
+                                <tr><td><strong>Tarifautonomie</strong></td><td>Durch Grundrecht der Vereinigungsfreiheit garantiert. Tarifverträge ohne Einmischung des Staates.</td></tr>
+                                <tr><td><strong>Tarifbindung</strong></td><td>Tarifgebunden sind die Mitglieder der Tarifvertragsparteien.</td></tr>
+                                <tr><td><strong>Friedenspflicht</strong></td><td>Während Laufzeit keine Streiks zur Verbesserung bisheriger Inhalte.</td></tr>
+                                <tr><td><strong>Allgemeinverbindlichkeit</strong></td><td>Auf Antrag kann Bundesminister für Arbeit Tarifvertrag für allgemeinverbindlich erklären.</td></tr>
+                                <tr><td><strong>Öffnungsklausel</strong></td><td>Abweichungen vom Flächentarifvertrag möglich. Betriebe erhalten mehr Gestaltungsrechte.</td></tr>
+                                <tr><td><strong>Schutzfunktion</strong></td><td>Schützt Arbeitnehmer vor einseitiger Festlegung durch Arbeitgeber.</td></tr>
+                                <tr><td><strong>Ordnungsfunktion</strong></td><td>Gibt allen Arbeitsverhältnissen einen genau definierten Inhalt.</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <h3>11.7 Tarifbindung-Entwicklung 2000-2025</h3>
+                    <ul>
+                        <li><strong>Westdeutschland:</strong> Sinkt kontinuierlich von ca. 70 % (2000) auf rund 49 % (2025).</li>
+                        <li><strong>Ostdeutschland:</strong> Sinkt von rund 55 % (2000) auf rund 45 % (2025).</li>
+                        <li>Das Westniveau lag stets über dem ostdeutschen Niveau, die Kurven haben sich angenähert.</li>
+                    </ul>
+
+                    <h4>Ursachen für Rückgang der Tarifbindung</h4>
+                    <ol>
+                        <li><strong>Wandel des Wirtschaftssystems (Branchenstruktur):</strong> Branchen gewachsen, in denen Tarifverträge untypisch sind (Start-ups, privater Dienstleistungssektor).</li>
+                        <li><strong>Organisationsschwierigkeiten bei kleineren Betrieben:</strong> Kleinere Betriebe sind für Gewerkschaften schwer zu organisieren.</li>
+                        <li><strong>Aufweichen des Automatismus „Industrie gleich Tarif":</strong> Gilt nicht mehr uneingeschränkt (Beispiel: Tesla in Grünheide).</li>
+                    </ol>
+
+                    <h3>11.8 Beurteilung „Baukastenprinzip"</h3>
+                    <div class="table-container">
+                        <table>
+                            <thead><tr><th>Sicht der Start-up-Gründerin (15 Beschäftigte)</th><th>Sicht der IG Metall</th></tr></thead>
+                            <tbody>
+                                <tr><td>Flächentarifverträge sind oft zu komplex für kleine Unternehmen.</td><td>Befürchtung einer Aushöhlung und Verwässerung des gesamten Tarifsystems.</td></tr>
+                                <tr><td>Das Baukastenprinzip erlaubt es, gezielt einzelne Bausteine (z.B. Löhne) zu wählen und andere (z.B. starre Arbeitszeitregeln) anzupassen.</td><td>Arbeitgeber könnten sich nur die vorteilhaften Teile heraussuchen und den Schutz der Arbeitnehmer (z.B. Arbeitszeiten) untergraben.</td></tr>
+                                <tr><td>Dies senkt die Hürde für junge Firmen, sich an Tarifstrukturen anzunähern, und erhöht die Flexibilität.</td><td>Standards und Errungenschaften der Gewerkschaften würden gefährdet.</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <p><strong>Mein Urteil:</strong> Insgesamt halte ich das Baukastenprinzip für einen diskussionswürdigen, aber kritischen Kompromiss. Aus Sicht der Gründerin spricht dafür, dass Flexibilität für kleine Start-ups dringend benötigt wird. Dagegen lässt sich einwenden, dass die Gewerkschaft befürchtet, dass das Tarifsystem dadurch ausgehöhlt werden könnte und Arbeitnehmerrechte an Gewicht verlieren. Ich spreche mich gegen ein unkontrolliertes Baukastenprinzip aus, da verlässliche Mindeststandards für Arbeitnehmer geschützt bleiben müssen, befürworte jedoch vereinfachte und passgenaue Regelwerke für Kleinbetriebe.</p>
+
+                </div>
+            </details>
+
+            <!-- ============================================================ -->
+            <!-- 12. CHEMIE -->
+            <!-- ============================================================ -->
+            <details id="bereich-12">
+                <summary>12. Chemie</summary>
+                <div class="details-content">
+                    
+                    <h3>12.1 Basen &amp; alkalische Haushaltsmittel</h3>
+                    <div class="table-container">
+                        <table>
+                            <thead><tr><th>Stoff</th><th>Formel</th><th>Verwendung</th><th>Produkte</th></tr></thead>
+                            <tbody>
+                                <tr><td>Natriumhydroxid (Natronlauge)</td><td>NaOH</td><td>Kraftvoller Rohrreiniger, löst Haare und Fett.</td><td>Rorax, Dr. Becher, Bref Power</td></tr>
+                                <tr><td>Natriumcarbonat (Waschsoda)</td><td>Na<sub>2</sub>CO<sub>3</sub></td><td>Intensives Reinigen, Einweichen, Fettlösen, Entkalken.</td><td>Heitmann, Denkmit (dm), Kuhnt</td></tr>
+                                <tr><td>Natriumhydrogencarbonat (Natron)</td><td>NaHCO<sub>3</sub></td><td>Mildes Scheuermittel, Geruchsneutralisation, Backtriebmittel.</td><td>Kaiser Natron, Dr. Oetker</td></tr>
+                                <tr><td>Ammoniak (Salmiakgeist)</td><td>NH<sub>3</sub></td><td>Glas-, Fenster- und Allzweckreiniger gegen hartnäckigen Schmutz.</td><td>Frosch, Meister Proper, Heitmann</td></tr>
+                                <tr><td>Calciumhydroxid (Kalkwasser)</td><td>Ca(OH)<sub>2</sub></td><td>Kalken von Wänden, Wasseraufbereitung.</td><td>Baumärkte / Chemikalienhandel</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <h3>12.2 Organische Chemie</h3>
+                    <ul>
+                        <li><strong>Kohlenwasserstoffe:</strong> Alkane, Alkene, Alkine. Eigenschaften, Verbrennungswärme, Standard-Reaktionsenthalpien (Kalorimeter).</li>
+                        <li><strong>Aromaten (z.B. Benzol):</strong> Mesomerie, induktiver und mesomerer Effekt, elektrophile aromatische Substitution.</li>
+                        <li><strong>Reaktionsmechanismen:</strong> Radikalische Substitution, elektrophile Addition, nukleophile Substitution.</li>
+                    </ul>
+
+                    <h3>12.3 Reaktionsgeschwindigkeit &amp; Kinetik</h3>
+                    <ul>
+                        <li><strong>Einflussfaktoren:</strong> Konzentration, Temperatur (RGT-Regel), Zerteilungsgrad, Katalysatoren.</li>
+                        <li><strong>Teilchenebene:</strong> Stoßtheorie, Aktivierungsenergie, Maxwell-Boltzmann-Verteilung.</li>
+                    </ul>
+
+                    <h3>12.4 Chemisches Gleichgewicht</h3>
+                    <ul>
+                        <li><strong>Dynamisches Gleichgewicht:</strong> Reversible Reaktionen in geschlossenen Systemen.</li>
+                        <li><strong>Prinzip von Le Chatelier:</strong> Vorhersage, wie Störungen (Druck, Temperatur, Konzentration) auf Gleichgewicht wirken.</li>
+                        <li><strong>Massenwirkungsgesetz (MWG):</strong> Mathematische Berechnung von Gleichgewichtskonstanten (K<sub>c</sub>) und Ausbeuten (z.B. Haber-Bosch-Verfahren).</li>
+                    </ul>
+
+                    <h3>12.5 Elektrochemie &amp; Energetik</h3>
+                    <ul>
+                        <li><strong>Galvanische Zellen &amp; Spannungsreihe:</strong> Aufbau von Halbzellen, Potentialdifferenzen, Standardwasserstoffhalbzelle.</li>
+                        <li><strong>Technische Anwendungen:</strong> Primärzellen (Batterien), Sekundärzellen (Akkus), Brennstoffzellen.</li>
+                        <li><strong>Thermodynamik (Leistungskurs):</strong> Elektrolyse als endergone Reaktion, Enthalpie und Entropie (Gibbs-Helmholtz-Gleichung).</li>
+                    </ul>
+
+                    <h3>12.6 Analytische Chemie</h3>
+                    <ul>
+                        <li><strong>Klassische Analytik:</strong> Ionennachweise, Fällungsreaktionen, Farbreaktionen.</li>
+                        <li><strong>Titrationen:</strong> Redox-Titrationen (Manganometrie), komplexometrische Titrationen (Wasserhärte).</li>
+                        <li><strong>Instrumentelle Analytik:</strong> Gaschromatographie (GC), HPLC.</li>
+                    </ul>
+
+                </div>
+            </details>
+
+            <!-- ============================================================ -->
+            <!-- 13. FRANZÖSISCH -->
+            <!-- ============================================================ -->
+            <details id="bereich-13">
+                <summary>13. Französisch</summary>
+                <div class="details-content">
+                    
+                    <h3>13.1 Saint-Germain-des-Prés – Fragen &amp; Antworten</h3>
+                    <div class="table-container">
+                        <table>
+                            <thead><tr><th>Frage / Question</th><th>Réponse en français</th><th>Deutsche Übersetzung</th></tr></thead>
+                            <tbody>
+                                <tr><td><strong>C'est où ?</strong> (Wo ist das?)</td><td>Il se trouve au centre de Paris (sur la rive gauche), dans le 6<sup>e</sup> arrondissement.</td><td>Es befindet sich im Zentrum von Paris (am linken Seine-Ufer), im 6. Arrondissement (Bezirk).</td></tr>
+                                <tr><td><strong>C'est quoi ?</strong> (Was ist das?)</td><td>C'est un quartier historique et animé avec une vieille église, des galeries d'art et des cafés célèbres.</td><td>Es ist ein historisches und lebhaftes Viertel mit einer alten Kirche, Kunstgalerien und berühmten Cafés.</td></tr>
+                                <tr><td><strong>Tu peux faire quoi ?</strong> (Was kann man da machen?)</td><td>Tu peux te promener dans les rues, visiter l'église Saint-Germain-des-Prés, prendre des photos et boire un café en terrasse.</td><td>Du kannst durch die Straßen spazieren, die Kirche Saint-Germain-des-Prés besichtigen, Fotos machen und einen Kaffee auf der Terrasse trinken.</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <h3>13.2 Vokabelliste (Deutsch – Français)</h3>
+                    <h4>Grundvokabular</h4>
+                    <div class="table-container">
+                        <table>
+                            <thead><tr><th>Deutsch (Allemand)</th><th>Français (Französisch)</th></tr></thead>
+                            <tbody>
+                                <tr><td>die Hauptstadt Frankreichs</td><td>la capitale de la France</td></tr>
+                                <tr><td>im Zentrum / im Norden / im Westen / im Süden</td><td>au centre / au nord / à l'ouest / au sud</td></tr>
+                                <tr><td>Stadtviertel / Stadtbezirk</td><td>le quartier / l'arrondissement (m.)</td></tr>
+                                <tr><td>das Denkmal / die Sehenswürdigkeit</td><td>le monument</td></tr>
+                                <tr><td>der Park / die Gartenanlage</td><td>le parc / le jardin</td></tr>
+                                <tr><td>die Kathedrale / die Kirche</td><td>la cathédrale / l'église</td></tr>
+                                <tr><td>das Museum / die Kunstgalerie</td><td>le musée / la galerie d'art</td></tr>
+                                <tr><td>eine große Allee / Straße</td><td>une grande avenue</td></tr>
+                                <tr><td>eine Insel</td><td>une île</td></tr>
+                                <tr><td>das Grab von Napoleon</td><td>le tombeau de Napoléon</td></tr>
+                                <tr><td>Fotos machen / knipsen</td><td>prendre des photos</td></tr>
+                                <tr><td>sich ausruhen / entspannen</td><td>se reposer</td></tr>
+                                <tr><td>spazieren gehen</td><td>se promener / faire une balade</td></tr>
+                                <tr><td>besuchen / besichtigen</td><td>visiter / voir</td></tr>
+                                <tr><td>das Frühstück</td><td>le petit déjeuner</td></tr>
+                                <tr><td>das Mittagessen / das Abendessen</td><td>le déjeuner / le dîner</td></tr>
+                                <tr><td>ein Milchkaffee</td><td>un café au lait</td></tr>
+                                <tr><td>zu Fuß / mit dem Fahrrad</td><td>à pied / à vélo</td></tr>
+                                <tr><td>die U-Bahn / der Bus</td><td>le métro / le bus</td></tr>
+                                <tr><td>Wie kommt man dorthin?</td><td>Comment on y va? / Comment y aller?</td></tr>
+                                <tr><td>Wo befindet es sich?</td><td>Où est-ce que ça se trouve? / C'est où?</td></tr>
+                                <tr><td>Was kann man dort machen?</td><td>Qu'est-ce qu'on peut faire? / Tu peux faire quoi?</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <h3>13.3 Ausführliche Vokabelliste</h3>
                     <h4>Orientierung &amp; Ortsangaben</h4>
                     <div class="table-container">
                         <table>
-                            <thead><tr><th scope="col">Franz&ouml;sisch</th><th scope="col">Deutsch</th></tr></thead>
+                            <thead><tr><th>Französisch (Français)</th><th>Deutsch</th></tr></thead>
                             <tbody>
                                 <tr><td>se trouver</td><td>sich befinden / liegen</td></tr>
                                 <tr><td>au centre (de)</td><td>im Zentrum (von)</td></tr>
+                                <tr><td>dans le nord / le sud / l'est / l'ouest</td><td>im Norden / Süden / Osten / Westen</td></tr>
                                 <tr><td>la rive gauche / la rive droite</td><td>das linke Seine-Ufer / das rechte Seine-Ufer</td></tr>
+                                <tr><td>un arrondissement</td><td>ein Stadtbezirk / Arrondissement</td></tr>
                                 <tr><td>le quartier</td><td>das Stadtviertel</td></tr>
                             </tbody>
                         </table>
                     </div>
 
-                    <h4>Orte, Sehensw&uuml;rdigkeiten &amp; Adjektive</h4>
+                    <h4>Orte &amp; Sehenswürdigkeiten (Nomen &amp; Adjektive)</h4>
                     <div class="table-container">
                         <table>
-                            <thead><tr><th scope="col">Franz&ouml;sisch</th><th scope="col">Deutsch</th></tr></thead>
+                            <thead><tr><th>Französisch (Français)</th><th>Deutsch</th></tr></thead>
                             <tbody>
-                                <tr><td>un mus&eacute;e (m.)</td><td>ein Museum</td></tr>
+                                <tr><td>un musée (m.)</td><td>ein Museum</td></tr>
                                 <tr><td>un parc (m.)</td><td>ein Park</td></tr>
-                                <tr><td>une &eacute;glise (f.)</td><td>eine Kirche</td></tr>
-                                <tr><td>un monument (m.)</td><td>ein Denkmal</td></tr>
-                                <tr><td>grand(e) / petit(e)</td><td>gro&szlig; / klein</td></tr>
-                                <tr><td>beau / belle</td><td>sch&ouml;n</td></tr>
+                                <tr><td>une place (f.)</td><td>ein Platz</td></tr>
+                                <tr><td>une église (f.)</td><td>eine Kirche</td></tr>
+                                <tr><td>un palais (m.)</td><td>ein Palast</td></tr>
+                                <tr><td>un stade (m.)</td><td>ein Stadion</td></tr>
+                                <tr><td>un monument (m.)</td><td>ein Denkmal / Monument</td></tr>
+                                <tr><td>une galerie d'art (f.)</td><td>eine Kunstgalerie</td></tr>
+                                <tr><td>une terrasse (f.)</td><td>eine Terrasse / Freisitz vor einem Café</td></tr>
+                                <tr><td>grand(e) / petit(e)</td><td>groß / klein</td></tr>
+                                <tr><td>beau / belle</td><td>schön</td></tr>
+                                <tr><td>vieux / vieille</td><td>alt</td></tr>
+                                <tr><td>moderne / animé(e) / historique</td><td>modern / belebt / historisch</td></tr>
                             </tbody>
                         </table>
                     </div>
+
+                    <h4>Aktivitäten &amp; Verben</h4>
+                    <div class="table-container">
+                        <table>
+                            <thead><tr><th>Französisch (Français)</th><th>Deutsch</th></tr></thead>
+                            <tbody>
+                                <tr><td>voir</td><td>sehen</td></tr>
+                                <tr><td>visiter</td><td>besichtigen / besuchen (Orte)</td></tr>
+                                <tr><td>regarder</td><td>anschauen / ansehen</td></tr>
+                                <tr><td>se promener</td><td>spazieren gehen</td></tr>
+                                <tr><td>se reposer</td><td>sich ausruhen</td></tr>
+                                <tr><td>prendre des photos</td><td>Fotos machen</td></tr>
+                                <tr><td>jouer au football</td><td>Fußball spielen</td></tr>
+                                <tr><td>boire un café</td><td>einen Kaffee trinken</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <h3>13.4 Zusatzinformationen &amp; Kultur</h3>
+                    <ul>
+                        <li><strong>L'Église Saint-Germain-des-Prés:</strong> L'une des plus anciennes églises de Paris, fondée au VI<sup>e</sup> siècle. (Eine der ältesten Kirchen von Paris, gegründet im 6. Jahrhundert).</li>
+                        <li><strong>Les Cafés littéraires:</strong> Le Café de Flore et Les Deux Magots étaient les lieux de rencontre célèbres des écrivains et philosophes (z.B. Jean-Paul Sartre, Simone de Beauvoir).</li>
+                        <li><strong>La Rive Gauche:</strong> Quartier réputé pour son atmosphère culturelle, intellectuelle et ses boutiques de luxe. (Bekannt für kulturelle, intellektuelle Atmosphäre und Luxusboutiquen).</li>
+                    </ul>
+
                 </div>
             </details>
 
-            <!-- 10. BILDERGALERIE (Alle Bilder aus dem art-Ordner) -->
+            <!-- ============================================================ -->
+            <!-- 14. BILDERGALERIE -->
+            <!-- ============================================================ -->
             <details id="bereich-galerie">
-                <summary>10. Bildergalerie &amp; Dokumente</summary>
+                <summary>14. Bildergalerie &amp; Dokumente</summary>
                 <div class="details-content">
-                    <p>Hier sind alle Bilder und Dokumente aus dem <code>art</code>-Ordner &uuml;bersichtlich zusammengefasst.</p>
+                    <p>Alle Bilder und Dokumente aus dem <code>art</code>-Ordner, übersichtlich zusammengefasst.</p>
 
                     <h3>Portfolio &amp; Fotografie</h3>
                     <div class="gallery-grid">
-                        <figure class="gallery-item"><img src="../art/port1.png" alt="Portfolio 1"><figcaption>port1.png</figcaption></figure>
-                        <figure class="gallery-item"><img src="../art/port2.png" alt="Portfolio 2"><figcaption>port2.png</figcaption></figure>
-                        <figure class="gallery-item"><img src="../art/port3.png" alt="Portfolio 3"><figcaption>port3.png</figcaption></figure>
-                        <figure class="gallery-item"><img src="../art/port4.png" alt="Portfolio 4"><figcaption>port4.png</figcaption></figure>
-                        <figure class="gallery-item"><img src="../art/port5.png" alt="Portfolio 5"><figcaption>port5.png</figcaption></figure>
-                        <figure class="gallery-item"><img src="../art/port6.png" alt="Portfolio 6"><figcaption>port6.png</figcaption></figure>
-                        <figure class="gallery-item"><img src="../art/port7.png" alt="Portfolio 7"><figcaption>port7.png</figcaption></figure>
-                        <figure class="gallery-item"><img src="../art/port8.png" alt="Portfolio 8"><figcaption>port8.png</figcaption></figure>
-                        <figure class="gallery-item"><img src="../art/port9.png" alt="Portfolio 9"><figcaption>port9.png</figcaption></figure>
-                        <figure class="gallery-item"><img src="../art/port10.png" alt="Portfolio 10"><figcaption>port10.png</figcaption></figure>
-                        <figure class="gallery-item"><img src="../art/port11.png" alt="Portfolio 11"><figcaption>port11.png</figcaption></figure>
-                        <figure class="gallery-item"><img src="../art/port12.png" alt="Portfolio 12"><figcaption>port12.png</figcaption></figure>
-                        <figure class="gallery-item"><img src="../art/port13.png" alt="Portfolio 13"><figcaption>port13.png</figcaption></figure>
-                        <figure class="gallery-item"><img src="../art/port14.png" alt="Portfolio 14"><figcaption>port14.png</figcaption></figure>
-                        <figure class="gallery-item"><img src="../art/port15.png" alt="Portfolio 15"><figcaption>port15.png</figcaption></figure>
-                        <figure class="gallery-item"><img src="../art/port16.png" alt="Portfolio 16"><figcaption>port16.png</figcaption></figure>
-                        <figure class="gallery-item"><img src="../art/port17.png" alt="Portfolio 17"><figcaption>port17.png</figcaption></figure>
-                        <figure class="gallery-item"><img src="../art/port18.png" alt="Portfolio 18"><figcaption>port18.png</figcaption></figure>
-                        <figure class="gallery-item"><img src="../art/port19.png" alt="Portfolio 19"><figcaption>port19.png</figcaption></figure>
-                        <figure class="gallery-item"><img src="../art/DSC2466.PNG" alt="DSC2466"><figcaption>DSC2466.PNG</figcaption></figure>
-                        <figure class="gallery-item"><img src="../art/DSC2467.JPG" alt="DSC2467"><figcaption>DSC2467.JPG</figcaption></figure>
-                        <figure class="gallery-item"><img src="../art/DSC2472.JPG" alt="DSC2472"><figcaption>DSC2472.JPG</figcaption></figure>
-                        <figure class="gallery-item"><img src="../art/IMG_5943.jpeg" alt="IMG_5943"><figcaption>IMG_5943.jpeg</figcaption></figure>
-                        <figure class="gallery-item"><img src="../art/Thaifest Kiel Halle 400.jpeg" alt="Thaifest Kiel"><figcaption>Thaifest Kiel.jpeg</figcaption></figure>
+                        <figure class="gallery-item"><img src="../art/port1.png" alt="Portfolio 1" loading="lazy"><figcaption>port1.png</figcaption></figure>
+                        <figure class="gallery-item"><img src="../art/port2.png" alt="Portfolio 2" loading="lazy"><figcaption>port2.png</figcaption></figure>
+                        <figure class="gallery-item"><img src="../art/port3.png" alt="Portfolio 3" loading="lazy"><figcaption>port3.png</figcaption></figure>
+                        <figure class="gallery-item"><img src="../art/port4.png" alt="Portfolio 4" loading="lazy"><figcaption>port4.png</figcaption></figure>
+                        <figure class="gallery-item"><img src="../art/port5.png" alt="Portfolio 5" loading="lazy"><figcaption>port5.png</figcaption></figure>
+                        <figure class="gallery-item"><img src="../art/port6.png" alt="Portfolio 6" loading="lazy"><figcaption>port6.png</figcaption></figure>
+                        <figure class="gallery-item"><img src="../art/port7.png" alt="Portfolio 7" loading="lazy"><figcaption>port7.png</figcaption></figure>
+                        <figure class="gallery-item"><img src="../art/port8.png" alt="Portfolio 8" loading="lazy"><figcaption>port8.png</figcaption></figure>
+                        <figure class="gallery-item"><img src="../art/port9.png" alt="Portfolio 9" loading="lazy"><figcaption>port9.png</figcaption></figure>
+                        <figure class="gallery-item"><img src="../art/port10.png" alt="Portfolio 10" loading="lazy"><figcaption>port10.png</figcaption></figure>
+                        <figure class="gallery-item"><img src="../art/port11.png" alt="Portfolio 11" loading="lazy"><figcaption>port11.png</figcaption></figure>
+                        <figure class="gallery-item"><img src="../art/port12.png" alt="Portfolio 12" loading="lazy"><figcaption>port12.png</figcaption></figure>
+                        <figure class="gallery-item"><img src="../art/port13.png" alt="Portfolio 13" loading="lazy"><figcaption>port13.png</figcaption></figure>
+                        <figure class="gallery-item"><img src="../art/port14.png" alt="Portfolio 14" loading="lazy"><figcaption>port14.png</figcaption></figure>
+                        <figure class="gallery-item"><img src="../art/port15.png" alt="Portfolio 15" loading="lazy"><figcaption>port15.png</figcaption></figure>
+                        <figure class="gallery-item"><img src="../art/port16.png" alt="Portfolio 16" loading="lazy"><figcaption>port16.png</figcaption></figure>
+                        <figure class="gallery-item"><img src="../art/port17.png" alt="Portfolio 17" loading="lazy"><figcaption>port17.png</figcaption></figure>
+                        <figure class="gallery-item"><img src="../art/port18.png" alt="Portfolio 18" loading="lazy"><figcaption>port18.png</figcaption></figure>
+                        <figure class="gallery-item"><img src="../art/port19.png" alt="Portfolio 19" loading="lazy"><figcaption>port19.png</figcaption></figure>
+                        <figure class="gallery-item"><img src="../art/DSC2466.PNG" alt="DSC2466" loading="lazy"><figcaption>DSC2466.PNG</figcaption></figure>
+                        <figure class="gallery-item"><img src="../art/DSC2467.JPG" alt="DSC2467" loading="lazy"><figcaption>DSC2467.JPG</figcaption></figure>
+                        <figure class="gallery-item"><img src="../art/DSC2472.JPG" alt="DSC2472" loading="lazy"><figcaption>DSC2472.JPG</figcaption></figure>
+                        <figure class="gallery-item"><img src="../art/IMG_5943.jpeg" alt="IMG_5943" loading="lazy"><figcaption>IMG_5943.jpeg</figcaption></figure>
+                        <figure class="gallery-item"><img src="../art/Thaifest Kiel Halle 400.jpeg" alt="Thaifest Kiel" loading="lazy"><figcaption>Thaifest Kiel.jpeg</figcaption></figure>
                     </div>
 
                     <h3>Dokumente &amp; Diagramme</h3>
                     <div class="gallery-grid">
-                        <figure class="gallery-item"><img src="../art/152976FE-19D9-4856-8800-9D4E74AB3DD5.png" alt="Dokument 1"><figcaption>152976FE-...png</figcaption></figure>
-                        <figure class="gallery-item"><img src="../art/165EF64D-8031-40B7-9FD1-2601009DDB4A.png" alt="Dokument 2"><figcaption>165EF64D-...png</figcaption></figure>
-                        <figure class="gallery-item"><img src="../art/24F4ABE2-723A-40A0-ACAA-A0D23CA3B9F1.png" alt="Dokument 3"><figcaption>24F4ABE2-...png</figcaption></figure>
-                        <figure class="gallery-item"><img src="../art/B1BA0378-A058-481E-8EB0-0983D6680D4B.png" alt="Dokument 4"><figcaption>B1BA0378-...png</figcaption></figure>
-                        <figure class="gallery-item"><img src="../art/B522DA4B-BBDD-41A5-B889-134119E40C2C.png" alt="Dokument 5"><figcaption>B522DA4B-...png</figcaption></figure>
-                        <figure class="gallery-item"><img src="../art/E8C722DC-AF4F-409B-847D-1B3979C577E8.png" alt="Dokument 6"><figcaption>E8C722DC-...png</figcaption></figure>
-                        <figure class="gallery-item"><img src="../art/F7B3D1F9-94C8-42BE-9FC4-75A422676A4C.png" alt="Dokument 7"><figcaption>F7B3D1F9-...png</figcaption></figure>
+                        <figure class="gallery-item"><img src="../art/152976FE-19D9-4856-8800-9D4E74AB3DD5.png" alt="Dokument 1" loading="lazy"><figcaption>152976FE-…png</figcaption></figure>
+                        <figure class="gallery-item"><img src="../art/165EF64D-8031-40B7-9FD1-2601009DDB4A.png" alt="Dokument 2" loading="lazy"><figcaption>165EF64D-…png</figcaption></figure>
+                        <figure class="gallery-item"><img src="../art/24F4ABE2-723A-40A0-ACAA-A0D23CA3B9F1.png" alt="Dokument 3" loading="lazy"><figcaption>24F4ABE2-…png</figcaption></figure>
+                        <figure class="gallery-item"><img src="../art/B1BA0378-A058-481E-8EB0-0983D6680D4B.png" alt="Dokument 4" loading="lazy"><figcaption>B1BA0378-…png</figcaption></figure>
+                        <figure class="gallery-item"><img src="../art/B522DA4B-BBDD-41A5-B889-134119E40C2C.png" alt="Dokument 5" loading="lazy"><figcaption>B522DA4B-…png</figcaption></figure>
+                        <figure class="gallery-item"><img src="../art/E8C722DC-AF4F-409B-847D-1B3979C577E8.png" alt="Dokument 6" loading="lazy"><figcaption>E8C722DC-…png</figcaption></figure>
+                        <figure class="gallery-item"><img src="../art/F7B3D1F9-94C8-42BE-9FC4-75A422676A4C.png" alt="Dokument 7" loading="lazy"><figcaption>F7B3D1F9-…png</figcaption></figure>
                     </div>
                 </div>
             </details>
@@ -641,11 +2034,13 @@ void loop() {
 
             <!-- QUELLENVERZEICHNIS -->
             <h2 id="bereich-quellen">Quellenverzeichnis</h2>
-            <ul class="sources-list">
-                <li><strong>Unterrichtsmaterialien &amp; Mitschriften:</strong> BGT25b (2026/2027), RBZ Technik.</li>
-                <li><strong>Grafiken &amp; Diagramme (Ordner: art/):</strong> Alle im Ordner <code>art/</code> befindlichen Bilder (Portfolio, Dokumente, Diagramme).</li>
-                <li><strong>Literatur (Deutsch):</strong> Heinrich von Kleist (Das Erdbeben in Chili, Die Marquise von O..., Der zerbrochene Krug).</li>
+            <ul>
+                <li><strong>Unterrichtsmaterialien &amp; Mitschriften:</strong> BGT25b (2026/2027), RBZ Technik Kiel.</li>
+                <li><strong>Grafiken &amp; Diagramme:</strong> Alle Bilder im <code>art/</code>-Ordner.</li>
+                <li><strong>Literatur (Deutsch):</strong> Heinrich von Kleist (Das Erdbeben in Chili, Die Marquise von O..., Der zerbrochene Krug, Die Hermannsschlacht, Prinz Friedrich von Homburg, Michael Kohlhaas, Penthesilea, Amphitryon, Die Familie Schroffenstein, Das Käthchen von Heilbronn).</li>
                 <li><strong>Nachrichtenquellen (GMK):</strong> Tagesschau, ZDFheute, Presseportal LKA SH, SAT.1 Regional (August 2026).</li>
+                <li><strong>Produktfotografie:</strong> Hattric, Parfimo, Der 24h Shop, CosmeticWelt, Müller Drogerie, Idealo.</li>
+                <li><strong>Kleist-Rezeption:</strong> Präsentation von Leon Wyppych (Schuljahr 2026/27).</li>
             </ul>
 
         </div>
