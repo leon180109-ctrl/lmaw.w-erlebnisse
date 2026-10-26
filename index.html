@@ -1,26 +1,301 @@
-
 <!DOCTYPE html>
 <html lang="de">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Leon Wyppych — Portfolio, Projekte & Medientechnik</title>
-    <!-- Open Graph Meta-Tags für perfekte Vorschauen beim Teilen -->
-    <meta property="og:title" content="Leon Wyppych - Portfolio 2026/2027">
+    <meta name="theme-color" content="#004e9e">
+    <meta name="description" content="Portfolio von Leon Wyppych aus Kiel – Fotografie, Design, Medientechnik und IT-Sicherheit. Projekte, Praktika und Equipment im Überblick.">
+    <meta name="author" content="Leon Wyppych">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Leon Wyppych – Portfolio 2026/2027">
     <meta property="og:description" content="Portfolio für Fotografie, Design, Medientechnik und IT-Sicherheit aus Kiel.">
     <meta property="og:image" content="art/leonhero.jpeg">
+    <meta property="og:locale" content="de_DE">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Leon Wyppych – Portfolio 2026/2027">
+    <meta name="twitter:description" content="Portfolio für Fotografie, Design, Medientechnik und IT-Sicherheit aus Kiel.">
+    <meta name="twitter:image" content="art/leonhero.jpeg">
+
+    <title>Leon Wyppych — Portfolio, Projekte &amp; Medientechnik</title>
+
     <link rel="stylesheet" href="style.css">
+    <link rel="preload" as="image" href="art/leonhero.jpeg">
+
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Leon Wyppych",
+      "address": { "@type": "PostalAddress", "addressLocality": "Kiel", "addressCountry": "DE" },
+      "jobTitle": "Medientechniker & Fotograf",
+      "knowsAbout": ["Fotografie", "Videoproduktion", "Medientechnik", "IT-Sicherheit", "Systemarchitektur"],
+      "url": "index.html"
+    }
+    </script>
+
+    <!-- Farbsystem: VW-Golf-Blau & Weiß -->
+    <style>
+        :root {
+            --vw-blue:            #004e9e;
+            --vw-blue-dark:       #002e5c;
+            --vw-blue-light:      #3a7bc8;
+            --vw-blue-ultralight: #e6effa;
+            --white:              #ffffff;
+            --off-white:          #f8fafc;
+            --gray-light:         #e5e9f0;
+            --text-dark:          #1a2233;
+            --text-mid:           #4a5568;
+            --shadow-soft:        0 4px 20px rgba(0, 78, 158, 0.08);
+            --shadow-hover:       0 10px 30px rgba(0, 78, 158, 0.18);
+            --radius:             14px;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background: var(--off-white);
+            color: var(--text-dark);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a { color: var(--vw-blue); text-decoration: none; transition: color .2s; }
+        a:hover { color: var(--vw-blue-light); }
+
+        img { max-width: 100%; display: block; }
+
+        /* Skip-Link für Barrierefreiheit */
+        .skip-link {
+            position: absolute; left: -9999px; top: 0;
+            background: var(--vw-blue); color: var(--white);
+            padding: .75rem 1.25rem; z-index: 1000; border-radius: 0 0 8px 0;
+        }
+        .skip-link:focus { left: 0; color: var(--white); }
+
+        /* ---------- Fixed Header ---------- */
+        .fixed-header {
+            position: sticky; top: 0; z-index: 100;
+            background: var(--white);
+            border-bottom: 3px solid var(--vw-blue);
+            box-shadow: var(--shadow-soft);
+        }
+
+        .header-container {
+            display: flex; align-items: baseline; justify-content: space-between;
+            flex-wrap: wrap; gap: .5rem 1.5rem;
+            max-width: 1200px; margin: 0 auto;
+            padding: 1rem 2rem .5rem;
+        }
+
+        .fixed-header h1 {
+            font-size: 1.6rem; font-weight: 800;
+            color: var(--vw-blue-dark); letter-spacing: -.5px;
+        }
+
+        .fixed-header h1::before {
+            content: ""; display: inline-block;
+            width: 10px; height: 10px; border-radius: 50%;
+            background: var(--vw-blue); margin-right: .6rem;
+            vertical-align: middle;
+        }
+
+        .subtitle {
+            font-size: .85rem; color: var(--text-mid);
+            font-weight: 500; letter-spacing: .3px;
+        }
+
+        .main-nav { width: 100%; }
+        .main-nav ul {
+            list-style: none; display: flex; flex-wrap: wrap;
+            justify-content: center; gap: .25rem;
+            max-width: 1200px; margin: 0 auto;
+            padding: 0 1rem .75rem;
+            border-top: 1px solid var(--gray-light);
+        }
+        .main-nav li { display: block; }
+
+        .main-nav a {
+            display: block; padding: .55rem 1.1rem;
+            font-size: .9rem; font-weight: 600;
+            color: var(--text-mid); border-radius: 8px;
+            transition: all .2s;
+        }
+        .main-nav a:hover { background: var(--vw-blue-ultralight); color: var(--vw-blue-dark); }
+        .main-nav a.active {
+            background: var(--vw-blue); color: var(--white);
+            box-shadow: 0 2px 10px rgba(0, 78, 158, .3);
+        }
+
+        /* ---------- Main / Content ---------- */
+        .content {
+            max-width: 1200px; margin: 0 auto;
+            padding: 3rem 2rem 4rem;
+        }
+
+        /* ---------- Hero ---------- */
+        .hero-section { margin-bottom: 4rem; }
+
+        .hero-grid {
+            display: grid; grid-template-columns: 1.4fr 1fr;
+            gap: 3rem; align-items: center;
+        }
+
+        .hero-text h2 {
+            font-size: 2.6rem; font-weight: 800;
+            color: var(--vw-blue-dark); margin-bottom: 1rem;
+            letter-spacing: -.75px; line-height: 1.15;
+        }
+
+        .lead {
+            font-size: 1.1rem; color: var(--text-mid);
+            max-width: 55ch; margin-bottom: 1.75rem;
+        }
+
+        .quick-tags {
+            display: flex; flex-wrap: wrap; gap: .6rem;
+        }
+        .quick-tags span {
+            display: inline-block; padding: .45rem 1rem;
+            background: var(--white); color: var(--vw-blue-dark);
+            font-size: .82rem; font-weight: 600;
+            border: 1.5px solid var(--vw-blue-light);
+            border-radius: 50px;
+            transition: all .2s;
+        }
+        .quick-tags span:hover {
+            background: var(--vw-blue); color: var(--white);
+            border-color: var(--vw-blue); transform: translateY(-2px);
+        }
+
+        .hero-image img {
+            width: 100%; aspect-ratio: 1/1; object-fit: cover;
+            border-radius: var(--radius);
+            border: 4px solid var(--white);
+            box-shadow: var(--shadow-hover);
+        }
+
+        /* ---------- Cards Grid ---------- */
+        .grid-section { margin-bottom: 4rem; }
+
+        .grid-section h3,
+        .preview-text h3 {
+            font-size: 1.6rem; font-weight: 700;
+            color: var(--vw-blue-dark); margin-bottom: 1.5rem;
+            letter-spacing: -.3px;
+        }
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .info-card {
+            background: var(--white);
+            padding: 1.75rem;
+            border-radius: var(--radius);
+            border-top: 4px solid var(--vw-blue);
+            box-shadow: var(--shadow-soft);
+            transition: transform .25s, box-shadow .25s;
+        }
+        .info-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .info-card h4 {
+            font-size: 1.15rem; color: var(--vw-blue-dark);
+            margin-bottom: .6rem; font-weight: 700;
+        }
+        .info-card p { color: var(--text-mid); font-size: .95rem; }
+
+        /* ---------- Preview Cards ---------- */
+        .preview-section {
+            display: flex; flex-direction: column; gap: 2rem;
+        }
+
+        .preview-card {
+            display: grid; grid-template-columns: 1.3fr 1fr;
+            gap: 2rem; align-items: center;
+            background: var(--white);
+            border-radius: var(--radius);
+            padding: 2rem;
+            box-shadow: var(--shadow-soft);
+            border-left: 6px solid var(--vw-blue);
+            transition: box-shadow .25s;
+        }
+        .preview-card:hover { box-shadow: var(--shadow-hover); }
+
+        .preview-card.reverse { border-left: none; border-right: 6px solid var(--vw-blue-light); }
+        .preview-card.reverse .preview-text { order: 2; }
+
+        .preview-text p { color: var(--text-mid); margin-bottom: 1.25rem; }
+
+        .action-btn {
+            display: inline-block; padding: .75rem 1.5rem;
+            background: var(--vw-blue); color: var(--white);
+            font-weight: 700; font-size: .9rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 14px rgba(0, 78, 158, .28);
+            transition: all .2s;
+        }
+        .action-btn:hover {
+            background: var(--vw-blue-dark); color: var(--white);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 18px rgba(0, 46, 92, .35);
+        }
+
+        .preview-img img {
+            width: 100%; border-radius: 10px;
+            box-shadow: var(--shadow-soft);
+        }
+
+        /* ---------- Footer ---------- */
+        .fixed-footer {
+            background: var(--vw-blue-dark);
+            color: var(--white);
+            text-align: center;
+            padding: 1.25rem 2rem;
+            font-size: .85rem;
+        }
+        .fixed-footer a { color: var(--vw-blue-ultralight); font-weight: 600; }
+        .fixed-footer a:hover { color: var(--white); text-decoration: underline; }
+
+        /* ---------- Responsive ---------- */
+        @media (max-width: 860px) {
+            .hero-grid,
+            .preview-card,
+            .preview-card.reverse {
+                grid-template-columns: 1fr;
+            }
+            .preview-card.reverse .preview-text { order: 0; }
+            .hero-text h2 { font-size: 2rem; }
+            .content { padding: 2rem 1.25rem 3rem; }
+            .header-container { padding: 1rem 1.25rem .5rem; }
+        }
+    </style>
 </head>
 <body>
+
+    <a href="#main" class="skip-link">Zum Hauptinhalt springen</a>
 
     <header class="fixed-header">
         <div class="header-container">
             <h1>Leon Wyppych</h1>
             <p class="subtitle">2026 / 2027 — Portfolio, Projekte &amp; Erfahrungen</p>
         </div>
-        <nav class="main-nav">
+        <nav class="main-nav" aria-label="Hauptnavigation">
             <ul>
-                <li><a href="index.html" class="active">&Uuml;ber mich</a></li>
+                <li><a href="index.html" class="active" aria-current="page">&Uuml;ber mich</a></li>
                 <li><a href="src/projekte.html">Projekte</a></li>
                 <li><a href="src/schule.html">Schule</a></li>
                 <li><a href="src/praktikum.html">Praktikum</a></li>
@@ -30,72 +305,74 @@
         </nav>
     </header>
 
-    <main class="content">
-        <!-- Hero Section: Sofortiger Fokus auf Person & Kernkompetenz -->
-        <section class="hero-section">
+    <main id="main" class="content">
+
+        <!-- Hero Section -->
+        <section class="hero-section" aria-labelledby="hero-title">
             <div class="hero-grid">
                 <div class="hero-text">
-                    <h2>Moin, ich bin Leon.</h2>
+                    <h2 id="hero-title">Moin, ich bin Leon.</h2>
                     <p class="lead">Ich komme aus Kiel und pr&auml;sentiere auf diesem Portfolio meine Arbeiten aus den Bereichen Fotografie, Design und Medientechnik sowie Einblicke in schulische Projekte, Praktika und professionelles Equipment.</p>
-                    
-                    <div class="quick-tags">
-                        <span>Fotografie &amp; Video</span>
-                        <span>Medientechnik</span>
-                        <span>Systemarchitektur</span>
-                        <span>IT-Sicherheit</span>
+
+                    <div class="quick-tags" role="list" aria-label="Kernkompetenzen">
+                        <span role="listitem">Fotografie &amp; Video</span>
+                        <span role="listitem">Medientechnik</span>
+                        <span role="listitem">Systemarchitektur</span>
+                        <span role="listitem">IT-Sicherheit</span>
                     </div>
                 </div>
                 <div class="hero-image">
-                    <img src="art/leonhero.jpeg" alt="Foto von Leon Wyppych">
+                    <img src="art/leonhero.jpeg" alt="Porträtfoto von Leon Wyppych" width="600" height="600" loading="eager">
                 </div>
             </div>
         </section>
 
-        <!-- Schwerpunkte im modernen Bento-Grid / Card-Layout -->
-        <section class="grid-section">
-            <h3>Meine Schwerpunkte</h3>
+        <!-- Schwerpunkte -->
+        <section class="grid-section" aria-labelledby="focus-title">
+            <h3 id="focus-title">Meine Schwerpunkte</h3>
             <div class="cards-grid">
-                <div class="info-card">
+                <article class="info-card">
                     <h4>📸 Fotografie &amp; Video</h4>
                     <p>Produktfotografie, Videoproduktion und professionelle Bildbearbeitung mit Adobe Lightroom &amp; Photoshop.</p>
-                </div>
-                <div class="info-card">
+                </article>
+                <article class="info-card">
                     <h4>⚙️ Medientechnik</h4>
                     <p>Systemarchitektur, Signalfluss, professionelle Farbmodelle und Grundlagen der IT-Sicherheit.</p>
-                </div>
-                <div class="info-card">
+                </article>
+                <article class="info-card">
                     <h4>🎬 Technik &amp; Equipment</h4>
                     <p>Einsatz von modernen Kamerasystemen, Drohnen, Feldmonitoren und leistungsstarken mobilen Workstations.</p>
-                </div>
+                </article>
             </div>
         </section>
 
-        <!-- Preview Sektionen mit direktem visuellem Bezug -->
-        <section class="preview-section">
-            <div class="preview-card">
+        <!-- Preview Sektionen -->
+        <section class="preview-section" aria-label="Projektvorschauen">
+            <article class="preview-card">
                 <div class="preview-text">
                     <h3>Medientechnik 12. Klasse &ndash; Kompendium</h3>
                     <p>Ein detaillierter Einblick in System&uuml;bersichten, Signalwege und technische Dokumentationen aus der schulischen Praxis.</p>
                     <a href="src/schule.html#bereich-2-1" class="action-btn">Zum vollst&auml;ndigen Kompendium &rarr;</a>
                 </div>
                 <div class="preview-img">
-                    <img src="art/medienziele.jpeg" alt="Medientechnik 12. Klasse System&uuml;berblick">
+                    <img src="art/medienziele.jpeg" alt="Systemübersicht Medientechnik 12. Klasse" loading="lazy">
                 </div>
-            </div>
+            </article>
 
-            <div class="preview-card reverse">
+            <article class="preview-card reverse">
                 <div class="preview-text">
                     <h3>Technik &amp; Equipment &ndash; Neu</h3>
                     <p>Entdecke die Hardwarespezifikationen, Kameras und Tools, die hinter meinen Medienprojekten stehen.</p>
                     <a href="src/technik.html" class="action-btn">Zur Technik-&Uuml;bersicht &rarr;</a>
                 </div>
-            </div>
+            </article>
         </section>
+
     </main>
 
     <footer class="fixed-footer">
-        <p>&copy; 2026/2027 - Leon Wyppych &mdash; 
-            <a href="src/impressum.html">Impressum</a> | 
+        <p>&copy; 2026/2027 &mdash; Leon Wyppych &nbsp;·&nbsp;
+            <a href="src/impressum.html">Impressum</a> &nbsp;|&nbsp;
             <a href="src/datenschutz.html">Datenschutz</a>
         </p>
     </footer>
