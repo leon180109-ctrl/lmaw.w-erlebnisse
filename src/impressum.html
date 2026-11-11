@@ -3,49 +3,70 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Impressum</title>
+    <meta name="theme-color" content="#0a0f19">
+    <meta name="description" content="Impressum und rechtliche Angaben gemäß § 5 DDG für das Portfolio von Leon Wyppych.">
+    <meta name="author" content="Leon Wyppych">
+    <meta name="robots" content="noindex, follow"> <!-- Impressum muss nicht in Suchmaschinen indexiert werden -->
+    
+    <title>Impressum — Leon Wyppych</title>
+    
+    <!-- Einzige CSS-Quelle: dein globales Stylesheet -->
     <link rel="stylesheet" href="../style.css">
 </head>
 <body>
 
+    <a href="#main" class="skip-link">Zum Hauptinhalt springen</a>
+
     <header class="fixed-header">
-        <h1>Leon Wypych</h1>
-        <p>Willkommen auf meinem Portfolio</p>
+        <div class="header-container">
+            <h1>Leon Wyppych</h1>
+            <p class="subtitle">2026 / 2027 — Portfolio, Projekte &amp; Erfahrungen</p>
+        </div>
+        <nav class="main-nav" aria-label="Hauptnavigation">
+            <ul>
+                <li><a href="../index.html">Über mich</a></li>
+                <li><a href="projekte.html">Projekte</a></li>
+                <li><a href="schule.html">Schule</a></li>
+                <li><a href="praktikum.html">Praktikum</a></li>
+                <li><a href="hobbys.html">Hobbys</a></li>
+                <li><a href="technik.html">Technik &amp; Equipment</a></li>
+            </ul>
+        </nav>
     </header>
 
-    <nav class="main-nav">
-        <ul>
-            <li><a href="../index.html">Über mich</a></li>
-            <li><a href="projekte.html">Meine Projekte</a></li>
-            <li><a href="praktikum.html">Praktikum & Bewerbung</a></li>
-            <li><a href="hobbys.html">Hobbys & Aktivitäten</a></li>
-            <li><a href="schule.html">Schulische Arbeiten</a></li>
-        </ul>
-    </nav>
-
-    <main class="content">
+    <main id="main" class="content">
         <div class="school-card">
+            
             <h1>Impressum</h1>
+            
             <h2>Angaben gemäß § 5 DDG</h2>
             <p>
-                Leon Wypych<br>
+                Leon Wyppych<br>
+                <!-- BITTE HIER DEINE ECHTE ADRESSE EINTRAGEN -->
                 Musterstraße 1<br>
                 24100 Kiel
             </p>
 
             <h2>Kontakt</h2>
             <p>
-                E-Mail: <a href="mailto:leon180109@gmail.com">leon180109@gmail.com</a><br>
-                Instagram: <a href="https://instagram.com" target="_blank">@Leon.Wypp.kiel</a>
+                <strong>E-Mail:</strong> <a href="mailto:leon180109@gmail.com">leon180109@gmail.com</a><br>
+                <strong>Instagram:</strong> <a href="https://instagram.com" target="_blank" rel="noopener">@Leon.Wypp.kiel</a>
             </p>
 
             <hr class="divider">
-            <p><a href="../index.html">&larr; Zurück zur Startseite</a></p>
+            
+            <p style="text-align: center; margin-top: 20px;">
+                <a href="../index.html" class="action-btn">&larr; Zurück zur Startseite</a>
+            </p>
+            
         </div>
     </main>
 
     <footer class="fixed-footer">
-        <p>&copy; 2026 Leon Wypych | <a href="impressum.html">Impressum</a> | <a href="datenschutz.html">Datenschutzerklärung</a></p>
+        <p>&copy; 2026/2027 &mdash; Leon Wyppych &nbsp;·&nbsp;
+            <a href="impressum.html">Impressum</a> &nbsp;|&nbsp;
+            <a href="datenschutz.html">Datenschutz</a>
+        </p>
     </footer>
 
 </body>
