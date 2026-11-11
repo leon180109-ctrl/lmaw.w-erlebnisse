@@ -3,60 +3,93 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Praktikum & Bewerbung</title>
+    <meta name="theme-color" content="#0a0f19">
+    <meta name="description" content="Praktikum & Bewerbung von Leon Wyppych – Einblick in Erfahrungen und Qualifikationen im Medien- und Designbereich.">
+    <meta name="author" content="Leon Wyppych">
+    <title>Praktikum &amp; Bewerbung — Leon Wyppych</title>
+    
+    <!-- Einzige CSS-Quelle: dein globales Stylesheet -->
     <link rel="stylesheet" href="../style.css">
 </head>
 <body>
 
+    <a href="#main" class="skip-link">Zum Hauptinhalt springen</a>
+
     <header class="fixed-header">
-        <h1>Leon Wypych</h1>
-        <p>Willkommen auf meinem Portfolio</p>
+        <div class="header-container">
+            <h1>Leon Wyppych</h1>
+            <p class="subtitle">2026 / 2027 — Portfolio, Projekte &amp; Erfahrungen</p>
+        </div>
+        <nav class="main-nav" aria-label="Hauptnavigation">
+            <ul>
+                <li><a href="../index.html">Über mich</a></li>
+                <li><a href="projekte.html">Projekte</a></li>
+                <li><a href="schule.html">Schule</a></li>
+                <li><a href="praktikum.html" class="active" aria-current="page">Praktikum</a></li>
+                <li><a href="hobbys.html">Hobbys</a></li>
+                <li><a href="technik.html">Technik &amp; Equipment</a></li>
+            </ul>
+        </nav>
     </header>
 
-    <nav class="main-nav">
-        <ul>
-            <li><a href="../index.html">Über mich</a></li>
-            <li><a href="projekte.html">Meine Projekte</a></li>
-            <li><a href="praktikum.html" class="active">Praktikum & Bewerbung</a></li>
-            <li><a href="hobbys.html">Hobbys & Aktivitäten</a></li>
-            <li><a href="schule.html">Schulische Arbeiten</a></li>
-        </ul>
-    </nav>
-
-    <main class="content">
+    <main id="main" class="content">
         <div class="school-card">
-            <h1>Praktikum & Bewerbung</h1>
-            <p>Hier erhältst du einen Einblick in meine bisherigen Praktikumserfahrungen sowie meine Qualifikationen für künftige Berufsfelder im Medien- und Designbereich.</p>
             
+            <h1>Praktikum &amp; Bewerbung</h1>
+            <p>Hier erhältst du einen Einblick in meine bisherigen Praktikumserfahrungen sowie meine Qualifikationen für künftige Berufsfelder im Medien- und Designbereich.</p>
+
+            <hr class="divider">
+
             <h2>Praktikumsübersicht</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Zeitraum</th>
-                        <th>Unternehmen / Bereich</th>
-                        <th>Tätigkeiten</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Schülerpraktikum</td>
-                        <td>Fotografie & Medienproduktion</td>
-                        <td>Kameraführung, Bildbearbeitung mit Lightroom, Studioaufbau</td>
-                    </tr>
-                </tbody>
-            </table>
+            <!-- Tabellen-Wrapper für bessere Darstellung auf Smartphones -->
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Zeitraum</th>
+                            <th>Unternehmen / Bereich</th>
+                            <th>Tätigkeiten</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Schülerpraktikum</strong></td>
+                            <td>Fotografie &amp; Medienproduktion</td>
+                            <td>Kameraführung, Bildbearbeitung mit Lightroom, Studioaufbau</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
 
             <h2>Erworbene Kenntnisse</h2>
-            <ul>
-                <li>Umgang mit Spiegelreflex- und Systemkameras</li>
-                <li>Grundlagen der professionellen Beleuchtung im Fotostudio</li>
-                <li>Digitales Verwalten und Optimieren von Bilddateien</li>
-            </ul>
+            <p>Während meines Praktikums konnte ich mir folgende praktische Fähigkeiten aneignen:</p>
+            
+            <!-- Kenntnisse als moderne Karten im Grid-Layout -->
+            <div class="cards-grid" style="margin-top: 20px;">
+                <article class="info-card">
+                    <h4>📷 Kameratechnik</h4>
+                    <p>Sicherer Umgang mit Spiegelreflex- und Systemkameras in unterschiedlichen Aufnahmesituationen.</p>
+                </article>
+                
+                <article class="info-card">
+                    <h4>💡 Studio &amp; Licht</h4>
+                    <p>Grundlagen der professionellen Beleuchtung im Fotostudio (Set-Aufbau und Lichtsetzung).</p>
+                </article>
+                
+                <article class="info-card">
+                    <h4>💻 Post-Production</h4>
+                    <p>Digitales Verwalten, Sortieren und Optimieren von Bilddateien in Adobe Lightroom.</p>
+                </article>
+            </div>
+
         </div>
     </main>
 
     <footer class="fixed-footer">
-        <p>&copy; 2026 Leon Wypych | <a href="impressum.html">Impressum</a> | <a href="datenschutz.html">Datenschutzerklärung</a></p>
+        <p>&copy; 2026/2027 &mdash; Leon Wyppych &nbsp;·&nbsp;
+            <a href="impressum.html">Impressum</a> &nbsp;|&nbsp;
+            <a href="datenschutz.html">Datenschutz</a>
+        </p>
     </footer>
 
 </body>
