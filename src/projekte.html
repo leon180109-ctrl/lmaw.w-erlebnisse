@@ -3,322 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projekte - Leon Wyppych</title>
+    <meta name="theme-color" content="#004e9e">
+    <meta name="description" content="Projekte von Leon Wyppych – Fotografie, Photoshop, Produktfotografie und Musikproduktion.">
+    <meta name="author" content="Leon Wyppych">
+    <title>Projekte — Leon Wyppych</title>
+    
+    <!-- Einzige CSS-Quelle: dein globales Stylesheet -->
     <link rel="stylesheet" href="../style.css">
-    <style>
-        /* ============================================
-           DUNKLES FARBSCHEMA FÜR DIE GESAMTE SEITE
-           ============================================ */
-        :root {
-            --bg-dark: #121212;
-            --bg-card: #1e1e1e;
-            --bg-elevated: #2a2a2a;
-            --text-primary: #e0e0e0;
-            --text-secondary: #a0a0a0;
-            --accent: #ff6b35;
-            --accent-hover: #ff8c5a;
-            --border-color: #333333;
-            --shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
-        }
-
-        body {
-            background-color: var(--bg-dark);
-            color: var(--text-primary);
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            margin: 0;
-            padding: 0;
-        }
-
-        /* Header & Navigation */
-        .fixed-header {
-            background-color: var(--bg-card);
-            border-bottom: 1px solid var(--border-color);
-            padding: 20px;
-            text-align: center;
-            box-shadow: var(--shadow);
-        }
-
-        .fixed-header h1 {
-            margin: 0;
-            color: var(--accent);
-            font-size: 2rem;
-            letter-spacing: 1px;
-        }
-
-        .fixed-header p {
-            margin: 5px 0 0;
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-        }
-
-        .main-nav {
-            background-color: var(--bg-elevated);
-            padding: 10px 20px;
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        .main-nav ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 15px;
-        }
-
-        .main-nav a {
-            color: var(--text-primary);
-            text-decoration: none;
-            padding: 8px 16px;
-            border-radius: 4px;
-            transition: background 0.3s, color 0.3s;
-            font-weight: 500;
-        }
-
-        .main-nav a:hover,
-        .main-nav a.active {
-            background-color: var(--accent);
-            color: #121212;
-        }
-
-        /* Main Content */
-        .content {
-            max-width: 1200px;
-            margin: 40px auto;
-            padding: 0 20px;
-        }
-
-        .school-card {
-            background-color: var(--bg-card);
-            border-radius: 12px;
-            padding: 30px;
-            box-shadow: var(--shadow);
-            border: 1px solid var(--border-color);
-        }
-
-        h1, h2, h3 {
-            color: var(--accent);
-        }
-
-        h2 {
-            border-bottom: 2px solid var(--accent);
-            padding-bottom: 10px;
-            margin-top: 30px;
-        }
-
-        h3 {
-            color: var(--text-primary);
-            border-left: 3px solid var(--accent);
-            padding-left: 10px;
-            margin-top: 25px;
-        }
-
-        p, li {
-            color: var(--text-primary);
-            line-height: 1.7;
-        }
-
-        .divider {
-            border: 0;
-            height: 1px;
-            background: var(--border-color);
-            margin: 30px 0;
-        }
-
-        /* Galerie – Allgemein */
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 20px;
-            margin-top: 20px;
-        }
-
-        .gallery-grid figure {
-            margin: 0;
-            background: var(--bg-elevated);
-            border-radius: 8px;
-            overflow: hidden;
-            border: 1px solid var(--border-color);
-            transition: transform 0.3s, border-color 0.3s;
-        }
-
-        .gallery-grid figure:hover {
-            transform: scale(1.02);
-            border-color: var(--accent);
-        }
-
-        .gallery-grid img {
-            width: 100%;
-            height: auto;
-            display: block;
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        .gallery-grid figcaption {
-            padding: 12px;
-            font-size: 0.85rem;
-            color: var(--text-secondary);
-            text-align: center;
-            background: var(--bg-elevated);
-            line-height: 1.5;
-        }
-
-        /* Musikprojekt-Sektion */
-        .music-project {
-            margin-top: 40px;
-            padding-top: 20px;
-            border-top: 1px solid var(--border-color);
-        }
-
-        .info-box {
-            background-color: var(--bg-elevated);
-            padding: 20px;
-            border-left: 4px solid var(--accent);
-            margin: 20px 0;
-            border-radius: 6px;
-            box-shadow: inset 0 0 10px rgba(0,0,0,0.3);
-        }
-
-        .info-box p {
-            margin: 5px 0;
-            color: var(--text-primary);
-        }
-
-        .info-box strong {
-            color: var(--accent);
-        }
-
-        blockquote {
-            background-color: var(--bg-elevated);
-            padding: 15px 20px;
-            border-left: 4px solid var(--accent);
-            font-style: italic;
-            margin: 20px 0;
-            border-radius: 6px;
-            color: var(--text-secondary);
-        }
-
-        /* Spezifische Galerie für Ableton-Bilder */
-        .ableton-gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
-            margin-top: 20px;
-        }
-
-        .ableton-gallery figure {
-            margin: 0;
-            background: var(--bg-elevated);
-            border-radius: 8px;
-            overflow: hidden;
-            border: 1px solid var(--border-color);
-            transition: border-color 0.3s;
-        }
-
-        .ableton-gallery figure:hover {
-            border-color: var(--accent);
-        }
-
-        .ableton-gallery img {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-
-        .ableton-gallery figcaption {
-            padding: 12px;
-            font-size: 0.85rem;
-            color: var(--text-secondary);
-            text-align: center;
-            background: var(--bg-elevated);
-            line-height: 1.5;
-        }
-
-        /* Quellenverzeichnis */
-        .source-list {
-            list-style: none;
-            padding: 0;
-        }
-
-        .source-list li {
-            margin-bottom: 10px;
-            padding: 10px 15px;
-            background: var(--bg-elevated);
-            border-radius: 6px;
-            border-left: 3px solid var(--accent);
-        }
-
-        .source-list a {
-            color: var(--accent);
-            text-decoration: none;
-            word-break: break-all;
-            transition: color 0.3s;
-        }
-
-        .source-list a:hover {
-            color: var(--accent-hover);
-            text-decoration: underline;
-        }
-
-        /* Footer */
-        .fixed-footer {
-            background-color: var(--bg-card);
-            border-top: 1px solid var(--border-color);
-            padding: 20px;
-            text-align: center;
-            color: var(--text-secondary);
-            margin-top: 40px;
-        }
-
-        .fixed-footer a {
-            color: var(--accent);
-            text-decoration: none;
-        }
-
-        .fixed-footer a:hover {
-            text-decoration: underline;
-        }
-
-        /* Responsive */
-        @media (max-width: 600px) {
-            .school-card {
-                padding: 20px;
-            }
-            .fixed-header h1 {
-                font-size: 1.5rem;
-            }
-        }
-    </style>
 </head>
 <body>
 
+    <a href="#main" class="skip-link">Zum Hauptinhalt springen</a>
+
     <header class="fixed-header">
-        <h1>Leon Wyppych</h1>
-        <p>2026 / 2027 - Portfolio, Projekte &amp; Erfahrungen</p>
+        <div class="header-container">
+            <h1>Leon Wyppych</h1>
+            <p class="subtitle">2026 / 2027 — Portfolio, Projekte &amp; Erfahrungen</p>
+        </div>
+        <nav class="main-nav" aria-label="Hauptnavigation">
+            <ul>
+                <li><a href="../index.html">Über mich</a></li>
+                <li><a href="projekte.html" class="active" aria-current="page">Projekte</a></li>
+                <li><a href="schule.html">Schule</a></li>
+                <li><a href="praktikum.html">Praktikum</a></li>
+                <li><a href="hobbys.html">Hobbys</a></li>
+                <li><a href="technik.html">Technik &amp; Equipment</a></li>
+            </ul>
+        </nav>
     </header>
 
-    <nav class="main-nav">
-        <ul>
-            <li><a href="../index.html">&Uuml;ber mich</a></li>
-            <li><a href="projekte.html" class="active">Projekte</a></li>
-            <li><a href="schule.html">Schule</a></li>
-            <li><a href="praktikum.html">Praktikum</a></li>
-            <li><a href="hobbys.html">Hobbys</a></li>
-        </ul>
-    </nav>
-
-    <main class="content">
+    <main id="main" class="content">
         <div class="school-card">
             
             <h1>Meine Projekte</h1>
-            <p>&Uuml;bersicht &uuml;ber praktische Arbeiten aus den Bereichen Medientechnik, Produktfotografie und Bildbearbeitung.</p>
+            <p>Übersicht über praktische Arbeiten aus den Bereichen Medientechnik, Produktfotografie und Bildbearbeitung.</p>
 
             <hr class="divider">
 
-            <!-- ============================================ -->
             <!-- SEKTION 1: FOTOGRAFIE & PHOTOSHOP PORTFOLIO -->
-            <!-- ============================================ -->
             <section class="project-section">
                 <h2>Fotografie &amp; Photoshop Portfolio</h2>
                 <p>Eine Auswahl meiner Bearbeitungen und Fotografien (<code>port1.png</code> bis <code>port19.png</code>). Jedes Bild zeigt einen anderen Schwerpunkt meiner Arbeit – von Compositing und Farbkorrektur bis hin zu kreativen Experimenten.</p>
@@ -342,7 +64,7 @@
                     </figure>
                     <figure>
                         <img src="../art/port5.png" alt="Portfolio-Projekt 5 – Doppelbelichtung">
-                        <figcaption>Projekt 5: Doppelbelichtung – Kreative Überlagerung zweier Motive für einen surreale Effekt.</figcaption>
+                        <figcaption>Projekt 5: Doppelbelichtung – Kreative Überlagerung zweier Motive für einen surrealen Effekt.</figcaption>
                     </figure>
                     <figure>
                         <img src="../art/port6.png" alt="Portfolio-Projekt 6 – Produktfreistellung">
@@ -403,9 +125,7 @@
                 </div>
             </section>
 
-            <!-- ============================================ -->
             <!-- SEKTION 2: MUSIKPRODUKTION MIT ABLETON 12 -->
-            <!-- ============================================ -->
             <section class="project-section music-project">
                 <h2>Musikproduktion mit Ableton 12</h2>
                 <p>Ein Einblick in meine Arbeit als Musikproduzent. Hier dokumentiere ich meinen Prozess bei der Erstellung eines Remixes, von der Soundauswahl bis zum fertigen Arrangement.</p>
@@ -499,8 +219,8 @@
     </main>
 
     <footer class="fixed-footer">
-        <p>&copy; 2026/2027 - Leon Wyppych - 
-            <a href="impressum.html">Impressum</a> | 
+        <p>&copy; 2026/2027 &mdash; Leon Wyppych &nbsp;·&nbsp;
+            <a href="impressum.html">Impressum</a> &nbsp;|&nbsp;
             <a href="datenschutz.html">Datenschutz</a>
         </p>
     </footer>
