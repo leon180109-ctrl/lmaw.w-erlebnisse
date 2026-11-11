@@ -2,7 +2,6 @@
    1. VARIABLEN, RESET & GLOBALE EINSTELLUNGEN
    ========================================================================== */
 :root {
-    /* Deine Farbpalette (Dark Mode mit Gold-Akzenten) */
     --primary-bg: #0a0f19;
     --card-bg: rgba(15, 23, 42, 0.94);
     --table-bg: rgba(30, 41, 59, 0.6);
@@ -12,7 +11,6 @@
     --border-color: #334155;
     --link-blue: #38bdf8;
     
-    /* Schatten für den Premium-Look */
     --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.5);
     --shadow-md: 0 10px 25px -3px rgba(0, 0, 0, 0.7);
     --shadow-lg: 0 20px 40px -5px rgba(0, 0, 0, 0.8);
@@ -24,23 +22,17 @@
     padding: 0;
 }
 
-html {
-    scroll-behavior: smooth;
-}
+html { scroll-behavior: smooth; }
 
 body {
-    /* Moderner System-Font-Stack für edlen Look */
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
     color: var(--text-white);
     background-color: var(--primary-bg);
-    
-    /* Hintergrundbild */
     background-image: url('art/backroundleon.jpeg'), url('../art/backroundleon.jpeg'), url('backroundleon.jpeg');
     background-repeat: no-repeat;
     background-position: center center;
     background-attachment: fixed;
     background-size: cover;
-    
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -48,20 +40,17 @@ body {
     -webkit-font-smoothing: antialiased;
 }
 
-/* Edle, dunkle Scrollbar */
 ::-webkit-scrollbar { width: 12px; }
 ::-webkit-scrollbar-track { background: var(--primary-bg); }
 ::-webkit-scrollbar-thumb { background: var(--border-color); border-radius: 6px; border: 3px solid var(--primary-bg); }
 ::-webkit-scrollbar-thumb:hover { background: var(--accent-gold); }
 
-/* Tastatur-Fokus (Barrierefreiheit) */
 a:focus-visible, button:focus-visible {
     outline: 2px solid var(--accent-gold);
     outline-offset: 4px;
     border-radius: 4px;
 }
 
-/* Barrierefreier Sprunglink (Skip-Link) */
 .skip-link {
     position: absolute;
     top: -100px;
@@ -75,9 +64,7 @@ a:focus-visible, button:focus-visible {
     border-radius: 0 0 8px 0;
     transition: top 0.3s;
 }
-.skip-link:focus {
-    top: 0;
-}
+.skip-link:focus { top: 0; }
 
 /* ==========================================================================
    2. HEADER & NAVIGATION
@@ -97,8 +84,7 @@ a:focus-visible, button:focus-visible {
     text-shadow: 0 2px 10px rgba(255, 204, 0, 0.2);
 }
 
-.fixed-header .subtitle,
-.fixed-header p {
+.fixed-header .subtitle, .fixed-header p {
     color: var(--text-muted);
     font-size: 1rem;
     font-weight: 500;
@@ -133,8 +119,7 @@ a:focus-visible, button:focus-visible {
     border-bottom: 2px solid transparent;
 }
 
-.main-nav a.active, 
-.main-nav a:hover {
+.main-nav a.active, .main-nav a:hover {
     color: var(--accent-gold);
     border-bottom: 2px solid var(--accent-gold);
     background-color: rgba(255, 204, 0, 0.08);
@@ -167,7 +152,6 @@ main.content {
     box-shadow: var(--shadow-md);
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
-    transition: transform 0.4s ease;
 }
 
 .hero-grid {
@@ -193,7 +177,6 @@ main.content {
     margin-bottom: 30px;
 }
 
-/* Tags */
 .quick-tags { display: flex; flex-wrap: wrap; gap: 10px; }
 
 .quick-tags span {
@@ -229,12 +212,9 @@ main.content {
 }
 .hero-image img:hover { transform: scale(1.02); }
 
-/* Grid-Sections */
 .grid-section { width: 100%; }
 
-.grid-section h3, 
-.preview-section h3, 
-.school-card h2 {
+.grid-section h3, .preview-section h3, .school-card h2 {
     color: var(--accent-gold);
     font-size: 1.6rem;
     margin-bottom: 20px;
@@ -265,15 +245,9 @@ main.content {
     box-shadow: var(--shadow-md);
 }
 
-.info-card h4 {
-    color: var(--accent-gold);
-    font-size: 1.25rem;
-    margin-bottom: 12px;
-}
-
+.info-card h4 { color: var(--accent-gold); font-size: 1.25rem; margin-bottom: 12px; }
 .info-card p { color: var(--text-muted); font-size: 1rem; }
 
-/* Preview Sektionen */
 .preview-section { width: 100%; display: flex; flex-direction: column; gap: 30px; }
 
 .preview-card {
@@ -306,16 +280,9 @@ main.content {
     box-shadow: var(--shadow-sm);
 }
 
-.preview-img img {
-    width: 100%;
-    height: auto;
-    display: block;
-    transition: transform 0.5s ease;
-}
-
+.preview-img img { width: 100%; height: auto; display: block; transition: transform 0.5s ease; }
 .preview-card:hover .preview-img img { transform: scale(1.05); }
 
-/* Buttons */
 .action-btn {
     display: inline-block;
     background-color: rgba(255, 204, 0, 0.1);
@@ -357,12 +324,7 @@ main.content {
     text-shadow: 0 2px 10px rgba(255, 204, 0, 0.15);
 }
 
-.school-card h3 {
-    color: var(--text-white);
-    font-size: 1.3rem;
-    margin-top: 25px;
-    margin-bottom: 15px;
-}
+.school-card h3 { color: var(--text-white); font-size: 1.3rem; margin-top: 25px; margin-bottom: 15px; }
 
 .school-card p, .school-card li {
     color: var(--text-muted);
@@ -371,12 +333,7 @@ main.content {
 }
 
 .school-card p { margin-bottom: 15px; }
-
-.school-card ul, .school-card ol {
-    margin-left: 25px;
-    margin-bottom: 25px;
-}
-
+.school-card ul, .school-card ol { margin-left: 25px; margin-bottom: 25px; }
 .school-card li { margin-bottom: 8px; }
 
 .school-card img {
@@ -395,10 +352,7 @@ main.content {
     transition: all 0.2s ease;
 }
 
-.school-card a:hover {
-    color: var(--accent-gold);
-    border-bottom: 1px solid var(--accent-gold);
-}
+.school-card a:hover { color: var(--accent-gold); border-bottom: 1px solid var(--accent-gold); }
 
 .divider {
     border: 0;
@@ -408,7 +362,7 @@ main.content {
 }
 
 /* ==========================================================================
-   6. TABELLEN (RESPONSIVE)
+   6. TABELLEN
    ========================================================================== */
 .table-responsive {
     width: 100%;
@@ -420,12 +374,7 @@ main.content {
     box-shadow: var(--shadow-sm);
 }
 
-.school-card table {
-    width: 100%;
-    border-collapse: collapse;
-    background-color: var(--table-bg);
-    min-width: 600px;
-}
+.school-card table { width: 100%; border-collapse: collapse; background-color: var(--table-bg); min-width: 600px; }
 
 .school-card th {
     background-color: rgba(10, 15, 25, 0.95);
@@ -447,7 +396,7 @@ main.content {
 .school-card tr:hover { background-color: rgba(255, 204, 0, 0.08); }
 
 /* ==========================================================================
-   7. PROJEKTE-SEITE (GALERIEN, INFO-BOXEN)
+   7. PROJEKTE & GALERIEN
    ========================================================================== */
 .project-section { margin-bottom: 50px; }
 
@@ -499,7 +448,6 @@ main.content {
     border-radius: 0 8px 8px 0;
     box-shadow: var(--shadow-sm);
 }
-
 .info-box p { margin: 5px 0; color: var(--text-white); }
 .info-box strong { color: var(--accent-gold); }
 
@@ -515,34 +463,11 @@ blockquote {
     box-shadow: inset 0 2px 10px rgba(0,0,0,0.2);
 }
 
-.source-list {
-    list-style: none;
-    padding: 0;
-    margin-top: 15px;
-}
-
-.source-list li {
-    margin-bottom: 12px;
-    padding: 12px 18px;
-    background: var(--table-bg);
-    border-radius: 8px;
-    border-left: 3px solid var(--accent-gold);
-    transition: background 0.3s ease;
-}
-
+.source-list { list-style: none; padding: 0; margin-top: 15px; }
+.source-list li { margin-bottom: 12px; padding: 12px 18px; background: var(--table-bg); border-radius: 8px; border-left: 3px solid var(--accent-gold); transition: background 0.3s ease; }
 .source-list li:hover { background: rgba(30, 41, 59, 0.9); }
-
-.source-list a {
-    color: var(--link-blue);
-    text-decoration: none;
-    word-break: break-all;
-    font-weight: 500;
-}
-
-.source-list a:hover {
-    color: var(--accent-gold);
-    text-decoration: underline;
-}
+.source-list a { color: var(--link-blue); text-decoration: none; word-break: break-all; font-weight: 500; }
+.source-list a:hover { color: var(--accent-gold); text-decoration: underline; }
 
 code {
     background-color: var(--table-bg);
@@ -576,34 +501,14 @@ code {
     border: 1px solid var(--border-color);
 }
 
-.img-caption {
-    color: var(--text-muted);
-    font-size: 0.9rem;
-    margin-top: 10px;
-    font-style: italic;
-    text-align: center;
-}
+.img-caption { color: var(--text-muted); font-size: 0.9rem; margin-top: 10px; font-style: italic; text-align: center; }
 
 /* ==========================================================================
    9. TECHNIK & EQUIPMENT
    ========================================================================== */
 .equipment-item { margin-bottom: 40px; }
-
-.image-container {
-    margin: 20px 0;
-    text-align: center;
-}
-
-.image-container img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 8px;
-    display: block;
-    margin: 0 auto 15px auto;
-    border: 1px solid var(--border-color);
-    box-shadow: var(--shadow-sm);
-}
-
+.image-container { margin: 20px 0; text-align: center; }
+.image-container img { max-width: 100%; height: auto; border-radius: 8px; display: block; margin: 0 auto 15px auto; border: 1px solid var(--border-color); box-shadow: var(--shadow-sm); }
 .image-container img.stacked-img { margin-bottom: 20px; }
 
 .specs-box {
@@ -613,100 +518,25 @@ code {
     border-left: 4px solid var(--accent-gold);
     box-shadow: var(--shadow-sm);
 }
-
-.specs-box h4 {
-    color: var(--accent-gold);
-    margin-bottom: 12px;
-    font-size: 1.1rem;
-}
-
+.specs-box h4 { color: var(--accent-gold); margin-bottom: 12px; font-size: 1.1rem; }
 .specs-box ul { margin-left: 20px; margin-bottom: 0; }
-
-.specs-box li {
-    color: var(--text-muted);
-    margin-bottom: 8px;
-    font-size: 0.95rem;
-    line-height: 1.6;
-}
-
+.specs-box li { color: var(--text-muted); margin-bottom: 8px; font-size: 0.95rem; line-height: 1.6; }
 .specs-box li strong { color: var(--text-white); }
 
 /* ==========================================================================
    10. HOBBYS (TIMELINE, FOTO-GRID)
    ========================================================================== */
-.img-medium {
-    max-width: 60%;
-    height: auto;
-    border-radius: 8px;
-    display: block;
-    margin: 0 auto;
-    border: 1px solid var(--border-color);
-    box-shadow: var(--shadow-sm);
-}
+.img-medium { max-width: 60%; height: auto; border-radius: 8px; display: block; margin: 0 auto; border: 1px solid var(--border-color); box-shadow: var(--shadow-sm); }
 
-.photo-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 15px;
-    margin: 20px 0 10px 0;
-}
+.photo-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin: 20px 0 10px 0; }
+.photo-grid img { width: 100%; height: auto; border-radius: 8px; display: block; border: 1px solid var(--border-color); box-shadow: var(--shadow-sm); transition: transform 0.3s ease, border-color 0.3s ease; }
+.photo-grid img:hover { transform: scale(1.02); border-color: var(--accent-gold); }
 
-.photo-grid img {
-    width: 100%;
-    height: auto;
-    border-radius: 8px;
-    display: block;
-    border: 1px solid var(--border-color);
-    box-shadow: var(--shadow-sm);
-    transition: transform 0.3s ease, border-color 0.3s ease;
-}
-
-.photo-grid img:hover {
-    transform: scale(1.02);
-    border-color: var(--accent-gold);
-}
-
-/* Timeline */
-.timeline {
-    position: relative;
-    margin: 25px 0;
-    padding-left: 30px;
-    border-left: 3px solid var(--accent-gold);
-}
-
-.timeline-item {
-    position: relative;
-    margin-bottom: 25px;
-    background: var(--table-bg);
-    padding: 15px 20px;
-    border-radius: 0 8px 8px 0;
-    box-shadow: var(--shadow-sm);
-}
-
-.timeline-item::before {
-    content: '';
-    position: absolute;
-    left: -38px;
-    top: 20px;
-    width: 12px;
-    height: 12px;
-    background-color: var(--accent-gold);
-    border: 3px solid var(--primary-bg);
-    border-radius: 50%;
-    box-shadow: 0 0 10px var(--accent-gold);
-}
-
-.timeline-item h4 {
-    color: var(--accent-gold);
-    margin-bottom: 8px;
-    font-size: 1.1rem;
-}
-
-.timeline-item p {
-    color: var(--text-muted);
-    font-size: 0.95rem;
-    margin-bottom: 0;
-}
+.timeline { position: relative; margin: 25px 0; padding-left: 30px; border-left: 3px solid var(--accent-gold); }
+.timeline-item { position: relative; margin-bottom: 25px; background: var(--table-bg); padding: 15px 20px; border-radius: 0 8px 8px 0; box-shadow: var(--shadow-sm); }
+.timeline-item::before { content: ''; position: absolute; left: -38px; top: 20px; width: 12px; height: 12px; background-color: var(--accent-gold); border: 3px solid var(--primary-bg); border-radius: 50%; box-shadow: 0 0 10px var(--accent-gold); }
+.timeline-item h4 { color: var(--accent-gold); margin-bottom: 8px; font-size: 1.1rem; }
+.timeline-item p { color: var(--text-muted); font-size: 0.95rem; margin-bottom: 0; }
 
 /* ==========================================================================
    11. FOOTER
@@ -721,56 +551,20 @@ code {
     color: var(--text-muted);
 }
 
-.fixed-footer a {
-    color: var(--accent-gold);
-    text-decoration: none;
-    margin: 0 8px;
-    font-weight: 600;
-    transition: all 0.2s;
-}
-
-.fixed-footer a:hover {
-    color: var(--text-white);
-    text-decoration: underline;
-}
+.fixed-footer a { color: var(--accent-gold); text-decoration: none; margin: 0 8px; font-weight: 600; transition: all 0.2s; }
+.fixed-footer a:hover { color: var(--text-white); text-decoration: underline; }
 
 /* ==========================================================================
-   12. RESPONSIVE ANPASSUNGEN (MOBILE & TABLET)
+   12. RESPONSIVE ANPASSUNGEN
    ========================================================================== */
 @media (max-width: 768px) {
-    .hero-section, .preview-card, .school-card {
-        padding: 25px;
-    }
-
+    .hero-section, .preview-card, .school-card { padding: 25px; }
     .hero-text h2 { font-size: 1.9rem; }
     .school-card h1 { font-size: 1.7rem; }
-
-    .hero-grid, .preview-card, .preview-card.reverse {
-        flex-direction: column;
-        gap: 30px;
-    }
-
-    .hero-image, .preview-img {
-        flex: 1 1 100%;
-        width: 100%;
-        margin-top: 10px;
-    }
-
-    .main-nav ul {
-        gap: 10px;
-        padding: 10px 5px;
-    }
-    
-    .main-nav a {
-        font-size: 0.9rem;
-        padding: 6px 10px;
-    }
-
-    .gallery-grid img, .ableton-gallery img {
-        height: 200px;
-    }
-    
-    .img-medium {
-        max-width: 100%;
-    }
+    .hero-grid, .preview-card, .preview-card.reverse { flex-direction: column; gap: 30px; }
+    .hero-image, .preview-img { flex: 1 1 100%; width: 100%; margin-top: 10px; }
+    .main-nav ul { gap: 10px; padding: 10px 5px; }
+    .main-nav a { font-size: 0.9rem; padding: 6px 10px; }
+    .gallery-grid img, .ableton-gallery img { height: 200px; }
+    .img-medium { max-width: 100%; }
 }
