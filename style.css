@@ -1,426 +1,104 @@
 /* ==========================================================================
-   1. RESET & GLOBALE EINSTELLUNGEN
+   8. PROJEKTE-SEITE (GALERIEN & INFO-BOXEN)
    ========================================================================== */
-*, *::before, *::after {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+.project-section {
+    margin-bottom: 40px;
 }
 
-:root {
-    --primary-bg: #0a0f19;
-    --card-bg: rgba(15, 23, 42, 0.94);
-    --table-bg: rgba(30, 41, 59, 0.6);
-    --accent-gold: #ffcc00;
-    --text-white: #ffffff;
-    --text-muted: #cbd5e1;
-    --border-color: #334155;
-    --link-blue: #38bdf8;
-}
-
-body {
-    font-family: Arial, Helvetica, sans-serif;
-    color: var(--text-white);
-    background-color: var(--primary-bg);
-    /* Pfad zeigt auf das Hintergrundbild im Ordner art/ oder alternativ im Root */
-    background-image: url('art/backroundleon.jpeg'), url('../art/backroundleon.jpeg'), url('backroundleon.jpeg');
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-attachment: fixed;
-    background-size: cover;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-}
-
-/* ==========================================================================
-   2. HEADER & NAVIGATION
-   ========================================================================== */
-.fixed-header {
-    background-color: rgba(10, 15, 25, 0.95);
-    text-align: center;
-    padding: 20px 10px 10px 10px;
-    border-bottom: 1px solid var(--border-color);
-}
-
-.header-container h1 {
-    color: var(--accent-gold);
-    font-size: 2.2rem;
-    margin-bottom: 5px;
-}
-
-.fixed-header .subtitle,
-.fixed-header p {
-    color: var(--text-muted);
-    font-size: 1rem;
-}
-
-.main-nav {
-    background-color: rgba(10, 15, 25, 0.95);
-    border-bottom: 2px solid var(--accent-gold);
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-}
-
-.main-nav ul {
-    list-style: none;
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 15px;
-    padding: 12px;
-}
-
-.main-nav a {
-    color: var(--text-white);
-    text-decoration: none;
-    font-weight: bold;
-    padding: 6px 12px;
-    border-radius: 4px;
-    transition: all 0.2s ease-in-out;
-}
-
-.main-nav a.active, 
-.main-nav a:hover {
-    color: var(--accent-gold);
-    border-bottom: 2px solid var(--accent-gold);
-    background-color: rgba(255, 204, 0, 0.05);
-}
-
-/* ==========================================================================
-   3. INHALT-CONTAINER & NEUE PORTFOLIO-SEKTIONEN
-   ========================================================================== */
-main.content {
-    flex: 1;
-    padding: 45px 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 35px;
-    max-width: 1100px;
-    margin: 0 auto;
-    width: 100%;
-}
-
-/* Hero Section (Startbereich mit Profilbild & Text nebeneinander) */
-.hero-section {
-    background-color: var(--card-bg);
-    border: 1px solid var(--border-color);
-    border-radius: 12px;
-    padding: 40px;
-    width: 100%;
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.7);
-    backdrop-filter: blur(6px);
-}
-
-.hero-grid {
-    display: flex;
-    align-items: center;
-    gap: 40px;
-    flex-wrap: wrap;
-}
-
-.hero-text {
-    flex: 1;
-    min-width: 280px;
-}
-
-.hero-text h2 {
-    color: var(--accent-gold);
-    font-size: 2rem;
-    margin-bottom: 15px;
-}
-
-.hero-text .lead {
-    color: var(--text-muted);
-    font-size: 1.05rem;
-    line-height: 1.7;
-    margin-bottom: 25px;
-}
-
-/* Quick Tags unter dem Hero-Text */
-.quick-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-}
-
-.quick-tags span {
-    background-color: rgba(255, 204, 0, 0.1);
-    color: var(--accent-gold);
-    border: 1px solid rgba(255, 204, 0, 0.3);
-    padding: 6px 14px;
-    border-radius: 20px;
-    font-size: 0.85rem;
-    font-weight: bold;
-}
-
-.hero-image {
-    flex: 0 0 300px;
-    max-width: 100%;
-}
-
-.hero-image img {
-    width: 100%;
-    height: auto;
-    border-radius: 10px;
-    border: 2px solid var(--accent-gold);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
-    display: block;
-}
-
-/* Grid-Section für Schwerpunkte (Bento / Cards) */
-.grid-section {
-    width: 100%;
-}
-
-.grid-section h3, 
-.preview-section h3 {
-    color: var(--accent-gold);
-    font-size: 1.5rem;
-    margin-bottom: 20px;
-    border-bottom: 1px solid var(--border-color);
-    padding-bottom: 8px;
-}
-
-.cards-grid {
+.gallery-grid, .ableton-gallery {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 20px;
-    width: 100%;
+    margin-top: 20px;
 }
 
-.info-card {
-    background-color: var(--card-bg);
+.gallery-grid figure, .ableton-gallery figure {
+    margin: 0;
+    background: var(--card-bg);
+    border-radius: 8px;
+    overflow: hidden;
     border: 1px solid var(--border-color);
-    border-radius: 10px;
-    padding: 25px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
-    backdrop-filter: blur(6px);
-    transition: transform 0.2s ease, border-color 0.2s ease;
+    transition: transform 0.3s ease, border-color 0.3s ease;
 }
 
-.info-card:hover {
-    transform: translateY(-4px);
+.gallery-grid figure:hover, .ableton-gallery figure:hover {
+    transform: scale(1.02);
     border-color: var(--accent-gold);
 }
 
-.info-card h4 {
-    color: var(--accent-gold);
-    font-size: 1.15rem;
-    margin-bottom: 12px;
-}
-
-.info-card p {
-    color: var(--text-muted);
-    font-size: 0.95rem;
-    line-height: 1.6;
-}
-
-/* Preview Sektionen (Unterseiten-Teaser) */
-.preview-section {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: 25px;
-}
-
-.preview-card {
-    background-color: var(--card-bg);
-    border: 1px solid var(--border-color);
-    border-radius: 10px;
-    padding: 30px;
-    display: flex;
-    align-items: center;
-    gap: 30px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
-    backdrop-filter: blur(6px);
-    flex-wrap: wrap;
-}
-
-.preview-card.reverse {
-    flex-direction: row-reverse;
-}
-
-.preview-text {
-    flex: 1;
-    min-width: 280px;
-}
-
-.preview-text h3 {
-    border: none;
-    padding: 0;
-    margin-bottom: 10px;
-}
-
-.preview-text p {
-    color: var(--text-muted);
-    font-size: 0.95rem;
-    line-height: 1.6;
-    margin-bottom: 20px;
-}
-
-.preview-img {
-    flex: 0 0 350px;
-    max-width: 100%;
-}
-
-.preview-img img {
+.gallery-grid img, .ableton-gallery img {
     width: 100%;
     height: auto;
-    border-radius: 6px;
-    border: 1px solid var(--border-color);
     display: block;
-}
-
-/* Modernes Button-Styling für Aktionen */
-.action-btn {
-    display: inline-block;
-    background-color: rgba(255, 204, 0, 0.1);
-    color: var(--accent-gold);
-    border: 1px solid var(--accent-gold);
-    padding: 10px 18px;
-    border-radius: 6px;
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 0.95rem;
-    transition: all 0.2s ease;
-}
-
-.action-btn:hover {
-    background-color: var(--accent-gold);
-    color: var(--primary-bg);
-    box-shadow: 0 4px 12px rgba(255, 204, 0, 0.3);
-}
-
-/* ==========================================================================
-   4. KLASSISCHE SCHOOL-CARD (FÜR UNTERSEITEN WIE SCHULE, PRAKTIKUM ETC.)
-   ========================================================================== */
-.school-card {
-    background-color: var(--card-bg);
-    border: 1px solid var(--border-color);
-    border-radius: 10px;
-    padding: 35px;
-    max-width: 1000px;
-    width: 100%;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.7);
-    backdrop-filter: blur(6px);
-}
-
-.school-card h1 {
-    color: var(--accent-gold);
-    font-size: 1.8rem;
-    margin-bottom: 15px;
-}
-
-.school-card h2 {
-    color: var(--accent-gold);
-    font-size: 1.3rem;
-    margin: 25px 0 10px 0;
     border-bottom: 1px solid var(--border-color);
-    padding-bottom: 5px;
 }
 
-.school-card p {
-    color: var(--text-muted);
-    line-height: 1.6;
-    font-size: 1rem;
-    margin-bottom: 15px;
-}
-
-.school-card ul, 
-.school-card ol {
-    margin-left: 20px;
-    margin-bottom: 20px;
-}
-
-.school-card li {
-    color: var(--text-muted);
-    line-height: 1.6;
-    margin-bottom: 6px;
-}
-
-.school-card img {
-    max-width: 100%;
-    height: auto;
-    display: block;
-    border-radius: 6px;
-    border: 1px solid var(--border-color);
-    margin: 20px 0;
-}
-
-.school-card a {
-    color: var(--link-blue);
-    text-decoration: underline;
-}
-
-.school-card a:hover {
-    color: var(--accent-gold);
-}
-
-.divider {
-    border: 0;
-    height: 1px;
-    background: var(--border-color);
-    margin: 25px 0;
-}
-
-/* ==========================================================================
-   5. TABELLEN (Z. B. FÜR PRAKTIKUM & SCHULE)
-   ========================================================================== */
-.school-card table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 20px 0;
-    background-color: var(--table-bg);
-    border: 1px solid var(--accent-gold);
-    border-radius: 6px;
-    overflow: hidden;
-}
-
-.school-card th {
-    background-color: rgba(10, 15, 25, 0.9);
-    color: var(--accent-gold);
+.gallery-grid figcaption, .ableton-gallery figcaption {
     padding: 12px;
-    text-align: left;
-    font-size: 0.95rem;
-    border-bottom: 2px solid var(--accent-gold);
-}
-
-.school-card td {
-    padding: 10px 12px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    color: var(--text-white);
-    font-size: 0.9rem;
-}
-
-.school-card tr:hover {
-    background-color: rgba(255, 204, 0, 0.1);
-}
-
-/* ==========================================================================
-   6. FOOTER
-   ========================================================================== */
-.fixed-footer {
-    background-color: rgba(10, 15, 25, 0.95);
-    border-top: 1px solid var(--accent-gold);
-    text-align: center;
-    padding: 15px 10px;
     font-size: 0.85rem;
-    margin-top: auto;
+    color: var(--text-muted);
+    text-align: center;
+    background: var(--card-bg);
+    line-height: 1.5;
 }
 
-.fixed-footer p {
+/* Info-Box und Blockquote für das Musikprojekt */
+.info-box {
+    background-color: var(--table-bg);
+    padding: 20px;
+    border-left: 4px solid var(--accent-gold);
+    margin: 20px 0;
+    border-radius: 6px;
+}
+
+.info-box p {
+    margin: 5px 0;
+}
+
+.info-box strong {
+    color: var(--accent-gold);
+}
+
+blockquote {
+    background-color: var(--table-bg);
+    padding: 15px 20px;
+    border-left: 4px solid var(--accent-gold);
+    font-style: italic;
+    margin: 20px 0;
+    border-radius: 6px;
     color: var(--text-muted);
 }
 
-.fixed-footer a {
-    color: var(--accent-gold);
-    text-decoration: none;
-    margin: 0 5px;
+/* Quellenverzeichnis */
+.source-list {
+    list-style: none;
+    padding: 0;
 }
 
-.fixed-footer a:hover {
+.source-list li {
+    margin-bottom: 10px;
+    padding: 10px 15px;
+    background: var(--table-bg);
+    border-radius: 6px;
+    border-left: 3px solid var(--accent-gold);
+}
+
+.source-list a {
+    color: var(--link-blue);
+    text-decoration: none;
+    word-break: break-all;
+    transition: color 0.3s;
+}
+
+.source-list a:hover {
+    color: var(--accent-gold);
     text-decoration: underline;
+}
+
+code {
+    background-color: var(--table-bg);
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-family: monospace;
+    color: var(--accent-gold);
 }
